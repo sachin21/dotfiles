@@ -1,0 +1,57 @@
+# w3mでGoogle検索
+function go() {
+local str opt
+if [ $ != 0 ]; then
+for i in $*; do
+str="$str+$i"
+done
+str=`echo $str | sed 's/^\+//'`
+opt='search?num=50&hl=ja&lr=lang_ja'
+opt="${opt}&q=${str}"
+fi
+w3m http://www.google.co.jp/$opt
+}
+
+# 1年以内の検索
+function goy() {
+local str opt
+if [ $ != 0 ]; then
+for i in $*; do
+str="$str+$i"
+done
+str=`echo $str | sed 's/^\+//'`
+opt='search?num=50&hl=ja&lr=lang_ja'
+opt="${opt}&q=${str}"
+tbs='&tbs=qdr:y'
+fi
+w3m http://www.google.co.jp/$opt$tbs
+}
+
+# 1ヶ月以内の検索
+function gom() {
+local str opt
+if [ $ != 0 ]; then
+for i in $*; do
+str="$str+$i"
+done
+str=`echo $str | sed 's/^\+//'`
+opt='search?num=50&hl=ja&lr=lang_ja'
+opt="${opt}&q=${str}"
+tbs='&tbs=qdr:m'
+fi
+w3m http://www.google.co.jp/$opt$tbs
+}
+
+# ChromeでGoogle検索
+function chrome() {
+local str opt
+if [ $ != 0 ]; then
+for i in $*; do
+str="$str+$i"
+done
+str=`echo $str | sed 's/^\+//'`
+opt='search?num=50&hl=ja&lr=lang_ja'
+opt="${opt}&q=${str}"
+fi
+open -a Google\ Chrome http://www.google.co.jp/$opt
+}

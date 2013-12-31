@@ -3,7 +3,8 @@ export CC=/usr/bin/gcc-4.2
 export CC=/usr/bin/gcc
 export EDITOR
 export PATH="$(brew --prefix coreutils)/libexec/gnubin:$PATH"
-EDITOR=/usr/bin/vim
+export PATH=/usr/local/bin:$PATH
+
 # rbenv
 export PATH="$HOME/.rbenv/bin:$PATH"
 export PATH="$HOME/.rbenv/shims:$PATH"
@@ -24,11 +25,8 @@ ZSH_THEME_GIT_PROMPT_UNMERGED="%{$fg[magenta]%} ♒" # ⓤ ⑊
 
 plugins=(git ruby rails gem brew)
 ZSH=$HOME/.oh-my-zsh
-ZSH_THEME="dieter"
+ZSH_THEME="pygmalion"
 
 source $ZSH/oh-my-zsh.sh
 source ~/dotfiles/.zshrc.colors
 source ~/dotfiles/.zshrc.alias
-
-### Added by the Heroku Toolbelt
-export PATH="/usr/local/heroku/bin:$PATH"

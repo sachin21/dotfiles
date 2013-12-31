@@ -53,10 +53,6 @@ let g:neocomplcache_snippets_dir = $HOME.'/.vim/snippets'
 imap <C-y> <Plug>(neosnippet_expand_or_jump)
 smap <C-k> <Plug>(neosnippet_expand_or_jump)
 
-" SuperTab like snippets behavior.
-imap <expr><TAB> neosnippet#jumpable() ? "\<Plug>(neosnippet_expand_or_jump)" : pumvisible() ? "\<C-n>" : "\<TAB>"
-smap <expr><TAB> neosnippet#jumpable() ? "\<Plug>(neosnippet_expand_or_jump)" : "\<TAB>"
-
 " For snippet_complete marker.
 if has('conceal')
   set conceallevel=2 concealcursor=i
@@ -69,8 +65,6 @@ let g:neosnippet#snippets_directory = '~/.vim/snipmate-snippets/snippets  ~/dotf
 " inoremap <expr><C-y> neocomplcache#close_popup()
 " 補完をキャンセルしpopupを閉じる
 " inoremap <expr><C-e> neocomplcache#cancel_popup()
-" TABで補完できるようにする
-inoremap <expr><TAB> pumvisible() ? "\<C-n>" : "\<TAB>"
 " undo
 inoremap <expr><C-g>     neocomplcache#undo_completion()
 " 補完候補の共通部分までを補完する
@@ -84,8 +78,6 @@ inoremap <expr><C-p> pumvisible() ? "\<C-p>" : "\<C-p>\<C-n>"
 " 補完候補が出ていたら確定、なければ改行
 inoremap <expr><CR>  pumvisible() ? neocomplcache#close_popup() : "<CR>"
 
-" <TAB>: completion.
-inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
 " <C-h>, <BS>: close popup and delete backword char.
 inoremap <expr><C-h> neocomplcache#smart_close_popup()."\<C-h>"
 inoremap <expr><BS> neocomplcache#smart_close_popup()."\<C-h>"

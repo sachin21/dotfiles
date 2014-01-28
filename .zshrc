@@ -1,17 +1,19 @@
 # etc
+export PATH=/usr/local/bin:$PATH
 export CC=/usr/bin/gcc-4.2
 export CC=/usr/bin/gcc
-export EDITOR
+export EDITOR=vim
 export PATH="$(brew --prefix coreutils)/libexec/gnubin:$PATH"
-export PATH=/usr/local/bin:$PATH
 
 # rbenv
 export PATH="$HOME/.rbenv/bin:$PATH"
 export PATH="$HOME/.rbenv/shims:$PATH"
 eval "$(rbenv init -)"
 
-# oh_my_zsh
+# pythonz
+[[ -s $HOME/.pythonz/etc/bashrc ]] && source $HOME/.pythonz/etc/bashrc
 
+# oh my zsh
 ZSH_THEME_GIT_PROMPT_PREFIX=" ☁  %{$fg[red]%}"
 ZSH_THEME_GIT_PROMPT_SUFFIX="%{$reset_color%}"
 ZSH_THEME_GIT_PROMPT_DIRTY="%{$fg[yellow]%} ☂" # Ⓓ
@@ -23,7 +25,7 @@ ZSH_THEME_GIT_PROMPT_DELETED="%{$fg[red]%} ✖" # ⓧ ⑂
 ZSH_THEME_GIT_PROMPT_RENAMED="%{$fg[blue]%} ➜" # ⓡ ⑄
 ZSH_THEME_GIT_PROMPT_UNMERGED="%{$fg[magenta]%} ♒" # ⓤ ⑊
 
-plugins=(git ruby rails gem brew)
+plugins=(git ruby rails gem brew history)
 ZSH=$HOME/.oh-my-zsh
 ZSH_THEME="pygmalion"
 

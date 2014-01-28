@@ -21,7 +21,8 @@ sudo yum -y clean
 git clone git://github.com/robbyrussell/oh-my-zsh.git ~/.oh-my-zsh
 chsh -s /bin/zsh
 source ~/.zshrc
-``
+```
+
 ### rbenv
 
 ```

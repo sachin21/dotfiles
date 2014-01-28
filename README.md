@@ -1,4 +1,4 @@
-## install dotfiles
+## install my dotfiles
 
 ### yum
 

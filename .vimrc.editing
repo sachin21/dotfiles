@@ -8,6 +8,11 @@ set iminsert=0 imsearch=0
 set noimcmdline
 inoremap <silent> <ESC> <ESC>:set iminsert=0<CR>
 
+" Mini buf explorer"
+map <leader>tn :tabnew %<cr>
+map <leader>tc :tabclose<cr>
+map <leader>tm :tabmove
+
 " yeでそのカーソル位置にある単語をレジスタに追加
 nmap ye ;let @"=expand("<cword>")<CR>
 " Visualモードでのpで選択範囲をレジスタの内容に置き換える

@@ -15,6 +15,9 @@ endif
   " NERD_commenter.vim :最強コメント処理 (<Leader>c<space>でコメントをトグル)
   NeoBundle 'scrooloose/nerdcommenter.git'
 
+  " 自動コメント"
+  NeoBundle 'tomtom/tcomment_vim'
+
   " 自動閉じタグ
   NeoBundle 'yuroyoro/vim-autoclose'
 

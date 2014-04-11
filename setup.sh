@@ -37,9 +37,11 @@ echo "reloaded"
 
 # install oh-my-zsh
 [ ! -d ~/.oh-my-zsh ] && git clone git://github.com/robbyrussell/oh-my-zsh.git ~/.oh-my-zsh
+echo "oh-my-zsh success install"
 
+# install NeoBundle
 [ ! -d ~/.vim/bundle ] && mkdir -p ~/.vim/bundle && git clone git://github.com/Shougo/neobundle.vim ~/.vim/bundle/neobundle.vim && vim -c ':NeoBundleInstall'
-echo "success install"
+echo "NeoBundle success install"
 
 # install rbenv
 git clone https://github.com/sstephenson/rbenv.git ~/.rbenv

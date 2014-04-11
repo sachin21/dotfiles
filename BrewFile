@@ -1,0 +1,47 @@
+update
+
+upgrade
+
+# for ricty
+tap sanemat/font
+
+# For cask
+tap homebrew/versions
+tap phinze/homebrew-cask
+tap homebrew/binary
+install brew-cask
+
+# tools
+install zsh git tig redis readline mysql sqlite coreutils ricty openssl tmux node fish phantomjs curl cmake wget imagemagick autoconf w3m fontforge ag libevent libpng ricty libtool
+
+# .dmg apps
+cask install java
+cask install google-chrome
+cask install alfred
+cask install yorufukurou
+cask install skype
+cask install utorrent
+cask install sequel-pro
+cask install evernote
+cask install slack
+cask install sublime-text
+cask install iterm2
+cask install keyremap4macbook
+cask install the-unarchiver
+cask install clipmenu
+cask install kobito
+cask install skitch
+cask install xtrafinder
+cask install transmit
+cask install opera
+cask install firefox
+cask install mou
+cask install istat-menus
+cask install google-japanese-ime
+cask install dash
+cask install flux
+cask install sparrow
+cask install xld
+cask install hipchat
+
+cask alfred link

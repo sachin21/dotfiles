@@ -7,9 +7,8 @@ echo -n "Mac user 'm' : Centos user 'c' [m/c] : "
 # setup tools
 if [ $flag = 'm' -o $flag = 'm' ]
   then
-  # ruby -e "$(curl -fsSL https://raw.github.com/Homebrew/homebrew/go/install)"
-  brew upgrade
-  brew install zsh git tig redis readline mysql sqlite coreutils openssl tmux node fish phantomjs curl wget imagemagick fontforge the_silver_searcher libevent libpng ricty libtool
+  ruby -e "$(curl -fsSL https://raw.github.com/Homebrew/homebrew/go/install)"
+  brew bundle
 elif [ $flag = 'c' -o $flag = 'c' ]
   then
   sudo yum -y update

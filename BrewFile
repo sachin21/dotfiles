@@ -43,5 +43,7 @@ cask install flux
 cask install sparrow
 cask install xld
 cask install hipchat
+cask install iexplorer
 
 cask alfred link
+

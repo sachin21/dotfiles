@@ -20,6 +20,8 @@ set tabstop=2                    " tab width
 set shiftwidth=2                 " tab insert width
 " OSのクリップボードを使用する
 set clipboard+=unnamed
+set clipboard+=autoselect
+
 " ターミナルでマウスを使用できるようにする
 set mouse=a
 set guioptions+=a

@@ -1,9 +1,10 @@
-# 自作
+# only my alias
+
 alias src='source ~/.zshrc'
 alias ts='tmux split-window'
 alias th='tmux split-window -h'
 alias e='exit'
-alias rake_db='rake db:drop && rake db:create'
+alias rake_db='bundle exec rake db:drop && bundle exec rake db:create'
 alias rake_nise='ls'
 alias i='cd ~/DevelopersApp'
 alias zshrc='vim ~/.zshrc'
@@ -12,10 +13,12 @@ alias CC='gcc'
 alias bi='bundle install --path=./vendor/bundle'
 alias r='rails'
 alias v='vim'
-alias vc='vim .'
 alias vi='vim'
 alias fs='foreman start'
 alias sl='subl .'
 alias quit='exit'
 alias be="bundle exec"
 alias zmv='noglob zmv -W'
+alias pwd='pwd | ruby -pe 'chomp' | pbcopy | pwd'
+alias tree='tree | less'
+alias t='tmux'

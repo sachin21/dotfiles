@@ -12,7 +12,7 @@ tap homebrew/binary
 install brew-cask
 
 # tools
-install zsh git tig redis readline mysql sqlite coreutils ricty openssl tmux node fish phantomjs curl cmake wget imagemagick autoconf w3m fontforge ag libevent libpng ricty libtool
+install zsh git tig redis readline mysql sqlite coreutils ricty openssl tmux node fish phantomjs curl cmake wget imagemagick autoconf w3m fontforge ag libxslt libxml2 libevent libpng ricty libtool curl-ca-bundle
 
 # .dmg apps
 cask install java

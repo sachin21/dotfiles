@@ -22,7 +22,7 @@ fi
 echo "tools setup done"
 
 # set links
-DOT_FILES=( .zsh .zshrc .gemrc .vimrc .gitconfig .tmux.conf .dir_colors .pryrc )
+DOT_FILES=( .zsh .zshrc .gemrc .vimrc .gitconfig .tmux.conf .dir_colors .pryrc tmux)
 
 for file in ${DOT_FILES[@]}
   do

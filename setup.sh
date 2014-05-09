@@ -26,7 +26,7 @@ DOT_FILES=( .zsh .zshrc .gemrc .vimrc .gitconfig .tmux.conf .dir_colors .pryrc t
 
 for file in ${DOT_FILES[@]}
   do
-    ln -fs $HOME/dotfiles/$file $HOME/$file
+    ln -fs ~/dotfiles/$file ~/$file
   done
 echo "set links done"
 
@@ -47,5 +47,10 @@ git clone https://github.com/sstephenson/rbenv.git ~/.rbenv
 git clone https://github.com/sstephenson/ruby-build.git ~/.rbenv/plugins/ruby-build
 sudo ~/.rbenv/plugins/ruby-build/install.sh
 echo "setup rbenv done"
+
+# install tmuxinator
+cp -r .tmuxinator ~/
+echo "setup tmuxinator done"
+
 echo "all success install"
 

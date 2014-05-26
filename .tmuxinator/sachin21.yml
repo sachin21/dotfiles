@@ -1,0 +1,10 @@
+name: sachin21
+root: ~/
+
+windows:
+  - window1:
+    - cd ~/DevelopersApp/sachin21dev
+  - window2:
+    - cd ~/DevelopersApp/sachin21dev
+    - mysql.server start
+

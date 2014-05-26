@@ -31,7 +31,7 @@ for file in ${DOT_FILES[@]}
 echo "set links done"
 
 # reload shell
-source ~/.zshrc
+exec $SHELL
 echo "reloaded"
 
 # install oh-my-zsh

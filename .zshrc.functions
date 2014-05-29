@@ -1,0 +1,5 @@
+function rm() {
+  for file in $@; do
+    mv $file ~/.Trash
+  done
+}

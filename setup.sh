@@ -30,10 +30,6 @@ for file in ${DOT_FILES[@]}
   done
 echo "set links done"
 
-# reload shell
-exec $SHELL
-echo "reloaded"
-
 # install oh-my-zsh
 [ ! -d ~/.oh-my-zsh ] && git clone git://github.com/robbyrussell/oh-my-zsh.git ~/.oh-my-zsh
 echo "oh-my-zsh success install"
@@ -51,6 +47,10 @@ echo "setup rbenv done"
 # install tmuxinator
 cp -r .tmuxinator ~/
 echo "setup tmuxinator done"
+
+# reload shell
+exec $SHELL
+echo "reloaded"
 
 echo "all success install"
 

@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # check os
-echo -n "Mac user 'm' : Centos user 'c' [m/c] : "
+echo -n "MacOS user 'm' : Centos user 'c' [m/c] : "
   read flag
 
 # setup tools
@@ -16,10 +16,10 @@ elif [ $flag = 'c' -o $flag = 'c' ]
   sudo yum -y install zsh git wget php gcc zlib-devel amake gcc-c++ utomake pcre pcre-devel openssl-devel mysql-server
   sudo yum -y clean
 else
-  echo "failed"
+  echo "You can input is only 'm' or 'c'"
   exit 1
 fi
-echo "tools setup done"
+echo "tools success install"
 
 # set links
 DOT_FILES=( .zsh .zshrc .gemrc .vimrc .gitconfig .tmux.conf .dir_colors .pryrc tmux )
@@ -42,15 +42,15 @@ echo "NeoBundle success install"
 git clone https://github.com/sstephenson/rbenv.git ~/.rbenv
 git clone https://github.com/sstephenson/ruby-build.git ~/.rbenv/plugins/ruby-build
 sudo ~/.rbenv/plugins/ruby-build/install.sh
-echo "setup rbenv done"
+echo "rbenv d success install"
 
 # install tmuxinator
 cp -r .tmuxinator ~/
-echo "setup tmuxinator done"
+echo "tmuxinator success install"
 
 # reload shell
 exec $SHELL
-echo "reloaded"
+echo "Your shell reloaded"
 
 echo "all success install"
 

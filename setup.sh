@@ -13,7 +13,7 @@ elif [ $flag = 'c' -o $flag = 'c' ]
   then
   sudo yum -y update
   sudo yum -y upgrade
-  sudo yum -y install zsh git wget php gcc zlib-devel automake pcre pcre-devel openssl-devel mysql-server xz xz-devel
+  sudo yum -y install zsh git wget php gcc zlib-devel amake gcc-c++ utomake pcre pcre-devel openssl-devel mysql-server
   sudo yum -y clean
 else
   echo "failed"

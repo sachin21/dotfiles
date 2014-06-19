@@ -426,16 +426,7 @@ let g:syntastic_enable_highlighting = 1
 " 自動的に開いたり閉じたりする
 let g:syntastic_auto_loc_list=1
 
-"------------------------------------
-" toggle.vim
-"------------------------------------
-imap <C-A> <Plug>ToggleI
-nmap <C-A> <Plug>ToggleN
-vmap <C-A> <Plug>ToggleV
-
 let g:toggle_pairs = { 'and':'or', 'or':'and', 'if':'unless', 'unless':'if', 'yes':'no', 'no':'yes', 'enable':'disable', 'disable':'enable', 'pick':'reword', 'reword':'fixup', 'fixup':'squash', 'squash':'edit', 'edit':'exec', 'exec':'pick' }
-
-
 
 "------------------------------------
 " vim-rails.vim

@@ -69,7 +69,7 @@ endif
   NeoBundle 'operator-replace'
 
   " textobj-user : 簡単にVimエディタのテキストオブジェクトをつくれる
-  NeoBundle 'textobj-user'
+  NeoBundle 'kana/vim-textobj-user'
 
   " vim-textobj-syntax : syntax hilightされたものをtext-objectに
   NeoBundle 'kana/vim-textobj-syntax.git'

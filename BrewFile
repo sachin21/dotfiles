@@ -14,6 +14,7 @@ install brew-cask
 # tools
 install ack
 install autoconf
+install autojump
 install automake
 install bdw-gc
 install brew-cask
@@ -84,6 +85,7 @@ install tig
 install tmux
 install tree
 install unixodbc
+install v8
 install vim
 install w3m
 install wget

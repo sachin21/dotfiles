@@ -123,6 +123,9 @@ cask install sparrow
 cask install xld
 cask install hipchat
 cask install iexplorer
+cask install picasa
+cask install istat-menus
+cask install virtualbox
 
 cask alfred link
 

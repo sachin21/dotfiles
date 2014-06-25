@@ -44,6 +44,9 @@ git clone https://github.com/sstephenson/ruby-build.git ~/.rbenv/plugins/ruby-bu
 sudo ~/.rbenv/plugins/ruby-build/install.sh
 echo "rbenv d success install"
 
+# install pyenv
+git clone git://github.com/yyuu/pyenv.git .pyenv
+
 # install tmuxinator
 cp -r .tmuxinator ~/
 echo "tmuxinator success install"

@@ -13,7 +13,7 @@ elif [ $flag = 'c' -o $flag = 'c' ]
   then
   sudo yum -y update
   sudo yum -y upgrade
-  sudo yum -y install zsh git vim wget php gcc zlib-devel libyaml readline readline-devel  libxml2 libxml2-devel libxslt libxslt-devel libyaml-devel make gcc-c++ utomake pcre pcre-devel openssl openssl-devel mysql-server
+  sh ./yum_install_list.sh
   sudo yum -y clean
 else
   echo "You can input is only 'm' or 'c'"

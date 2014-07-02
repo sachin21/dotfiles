@@ -8,6 +8,7 @@ echo -n "MacOS user 'm' : Centos user 'c' [m/c] : "
 if [ $flag = 'm' -o $flag = 'm' ]
   then
   ruby -e "$(curl -fsSL https://raw.github.com/Homebrew/homebrew/go/install)"
+  cd ~/dotfiles
   brew bundle
 elif [ $flag = 'c' -o $flag = 'c' ]
   then

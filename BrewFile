@@ -129,3 +129,5 @@ cask install virtualbox
 
 cask alfred link
 
+cleanup
+

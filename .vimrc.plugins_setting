@@ -243,75 +243,6 @@ let g:errormarker_disablemappings = 1
 nmap <silent> <unique> <Leader>ec :ErrorAtCursor<CR>
 
 "------------------------------------
-" vimshell
-"------------------------------------
-let g:vimshell_user_prompt = 'fnamemodify(getcwd(), ":~")'
-let g:vimshell_right_prompt = 'vimshell#vcs#info("(%s)-[%b]", "(%s)-[%b|%a]")'
-let g:vimshell_enable_smart_case = 1
-
-if has('win32') || has('win64')
-  " Display user name on Windows.
-  let g:vimshell_prompt = $USERNAME."% "
-else
-  " Display user name on Linux.
-  let g:vimshell_prompt = $USER."% "
-
-  call vimshell#set_execute_file('bmp,jpg,png,gif', 'gexe eog')
-  call vimshell#set_execute_file('mp3,m4a,ogg', 'gexe amarok')
-  let g:vimshell_execute_file_list['zip'] = 'zipinfo'
-  call vimshell#set_execute_file('tgz,gz', 'gzcat')
-  call vimshell#set_execute_file('tbz,bz2', 'bzcat')
-endif
-
-function! g:my_chpwd(args, context)
-  call vimshell#execute('echo "chpwd"')
-endfunction
-function! g:my_emptycmd(cmdline, context)
-  call vimshell#execute('echo "emptycmd"')
-  return a:cmdline
-endfunction
-function! g:my_preprompt(args, context)
-  call vimshell#execute('echo "preprompt"')
-endfunction
-function! g:my_preexec(cmdline, context)
-  call vimshell#execute('echo "preexec"')
-
-  if a:cmdline =~# '^\s*diff\>'
-    call vimshell#set_syntax('diff')
-  endif
-  return a:cmdline
-endfunction
-
-function! VimShellCustomKeyMapping()
-  nnoremap <buffer> <C-j> <C-w>j
-  nnoremap <buffer> <C-k> <C-w>k
-  nnoremap <buffer> <C-l> <C-w>l
-  nnoremap <buffer> <C-h> <C-w>h
-  inoremap <buffer> <C-j> <C-w>j
-  inoremap <buffer> <C-k> <C-w>k
-  inoremap <buffer> <C-l> <C-w>l
-  inoremap <buffer> <C-h> <C-w>h
-endfunction
-
-autocmd FileType vimshell
-\ call vimshell#altercmd#define('g', 'git')
-\| call vimshell#altercmd#define('i', 'iexe')
-\| call vimshell#altercmd#define('l', 'll')
-\| call vimshell#altercmd#define('ll', 'ls -l')
-\| call vimshell#hook#set('chpwd', ['g:my_chpwd'])
-\| call vimshell#hook#set('emptycmd', ['g:my_emptycmd'])
-\| call vimshell#hook#set('preprompt', ['g:my_preprompt'])
-\| call vimshell#hook#set('preexec', ['g:my_preexec'])
-
-autocmd FileType vimshell call VimShellCustomKeyMapping()
-autocmd FileType int-rails call VimShellCustomKeyMapping()
-command! Vs :VimShell
-command! Vsrc :VimShellInteractive rails console
-nmap <Leader>pry :VimShellInteractive pry<CR>
-nmap <Leader>irb :VimShellInteractive irb<CR>
-
-
-"------------------------------------
 " unite.vim
 "------------------------------------
 " The prefix key.
@@ -379,12 +310,6 @@ cnoremap UO Unite outline<Enter>
 " quickrun.vim
 "------------------------------------
 let g:quickrun_config = {}
-let g:quickrun_config._ = {
-  \ 'runner' : 'vimproc',
-  \ "runner/vimproc/updatetime" : 60,
-  \ 'outputter/buffer/split' : ':botright 8sp',
-  \ 'outputter/buffer/close_on_empty' : 1
-  \}
 
 let g:quickrun_config['rspec/bundle'] = {
   \ 'type': 'rspec/bundle',

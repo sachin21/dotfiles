@@ -1,4 +1,4 @@
-source ~/dotfiles/tmuxinator.zsh
+source ~/dotfiles/tmux/tmuxinator.zsh
 source ~/dotfiles/.zshrc.config
 source ~/dotfiles/.zshrc.zaw
 source ~/dotfiles/.zshrc.env

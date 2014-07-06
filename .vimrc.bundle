@@ -307,4 +307,21 @@ endif
 "
 " NeoBundle 'gmarik/vundle'
 
+" Python システムライブラリ参照
+
+let $PATH = "~/.pyenv/shims:".$PATH
+
+NeoBundleLazy "lambdalisue/vim-django-support", {
+      \ "autoload": {
+      \   "filetypes": ["python", "python3", "djangohtml"]
+      \ }}
+
+NeoBundle "davidhalter/jedi-vim"
+
+NeoBundleLazy "lambdalisue/vim-pyenv", {
+      \ "depends": ['davidhalter/jedi-vim'],
+      \ "autoload": {
+      \   "filetypes": ["python", "python3", "djangohtml"]
+      \ }}
+
 filetype plugin indent on

@@ -14,7 +14,7 @@ elif [ $flag = 'c' -o $flag = 'c' ]
   then
   sudo yum -y update
   sudo yum -y upgrade
-  sh ./yum_install_list.sh
+  for package in `cat ./yum_install_list`; do; yum -y install $package; done
   sudo yum -y clean
 else
   echo "You can input is only 'm' or 'c'"

@@ -8,4 +8,3 @@ windows:
   - window2:
     - cd ~/DevelopersApp/lang-8/kuma
     - mysql.server start
-    - bundle exec foreman start

@@ -1,10 +1,8 @@
-
 name: kuma
-root: ~/
+root: ~/DevelopersApp/lang-8/kuma
 
+pre:
+  - mysql.server start
 windows:
   - window1:
-    - cd ~/DevelopersApp/lang-8/kuma
   - window2:
-    - cd ~/DevelopersApp/lang-8/kuma
-    - mysql.server start

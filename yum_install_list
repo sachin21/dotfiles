@@ -1,430 +1,430 @@
-sudo yum -y install MAKEDEV.x86_64
-sudo yum -y install acl.x86_64
-sudo yum -y install alsa-lib.x86_64
-sudo yum -y install apr.x86_64
-sudo yum -y install apr-util.x86_64
-sudo yum -y install apr-util-ldap.x86_64
-sudo yum -y install atk.x86_64
-sudo yum -y install attr.x86_64
-sudo yum -y install audit.x86_64
-sudo yum -y install audit-libs.x86_64
-sudo yum -y install authconfig.x86_64
-sudo yum -y install autoconf.noarch
-sudo yum -y install automake.noarch
-sudo yum -y install avahi-libs.x86_64
-sudo yum -y install b43-openfwwf.noarch
-sudo yum -y install basesystem.noarch
-sudo yum -y install bash.x86_64
-sudo yum -y install bash-completion.noarch
-sudo yum -y install 20060301-1.el6.rf
-sudo yum -y install binutils.x86_64
-sudo yum -y install @anaconda-CentOS-201311272149.x86_64/6.5
-sudo yum -y install bridge-utils.x86_64
-sudo yum -y install bzip2.x86_64
-sudo yum -y install bzip2-libs.x86_64
-sudo yum -y install ca-certificates.noarch
-sudo yum -y install 2013.1.95-65.1.el6_5
-sudo yum -y install @updates
-sudo yum -y install cairo.x86_64
-sudo yum -y install centos-release.x86_64
-sudo yum -y install @updates
-sudo yum -y install checkpolicy.x86_64
-sudo yum -y install chkconfig.x86_64
-sudo yum -y install @anaconda-CentOS-201311272149.x86_64/6.5
-sudo yum -y install cloog-ppl.x86_64
-sudo yum -y install compat-readline5.x86_64
-sudo yum -y install 5.2-17.1.el6
-sudo yum -y install coreutils.x86_64
-sudo yum -y install coreutils-libs.x86_64
-sudo yum -y install cpio.x86_64
-sudo yum -y install cpp.x86_64
-sudo yum -y install cracklib.x86_64
-sudo yum -y install cracklib-dicts.x86_64
-sudo yum -y install cronie.x86_64
-sudo yum -y install cronie-anacron.x86_64
-sudo yum -y install crontabs.noarch
-sudo yum -y install cryptsetup-luks.x86_64
-sudo yum -y install 1.2.0-7.el6
-sudo yum -y install cryptsetup-luks-libs.x86_64
-sudo yum -y install 1.2.0-7.el6
-sudo yum -y install cups-libs.x86_64
-sudo yum -y install @base
-sudo yum -y install curl.x86_64
-sudo yum -y install cyrus-sasl.x86_64
-sudo yum -y install cyrus-sasl-lib.x86_64
-sudo yum -y install dash.x86_64
-sudo yum -y install db4.x86_64
-sudo yum -y install db4-utils.x86_64
-sudo yum -y install dbus-glib.x86_64
-sudo yum -y install dbus-libs.x86_64
-sudo yum -y install device-mapper.x86_64
-sudo yum -y install device-mapper-event.x86_64
-sudo yum -y install 1.02.79-8.el6
-sudo yum -y install device-mapper-event-libs.x86_64
-sudo yum -y install 1.02.79-8.el6
-sudo yum -y install device-mapper-libs.x86_64
-sudo yum -y install 1.02.79-8.el6
-sudo yum -y install device-mapper-multipath.x86_64
-sudo yum -y install 0.4.9-72.el6_5.1
-sudo yum -y install device-mapper-multipath-libs.x86_64
-sudo yum -y install 0.4.9-72.el6_5.1
-sudo yum -y install device-mapper-persistent-data.x86_64
-sudo yum -y install 0.2.8-2.el6
-sudo yum -y install dhclient.x86_64
-sudo yum -y install @anaconda-CentOS-201311272149.x86_64/6.5
-sudo yum -y install dhcp-common.x86_64
-sudo yum -y install @anaconda-CentOS-201311272149.x86_64/6.5
-sudo yum -y install diffutils.x86_64
-sudo yum -y install dracut.noarch
-sudo yum -y install dracut-kernel.noarch
-sudo yum -y install e2fsprogs.x86_64
-sudo yum -y install e2fsprogs-libs.x86_64
-sudo yum -y install ecj.x86_64
-sudo yum -y install efibootmgr.x86_64
-sudo yum -y install elfutils-libelf.x86_64
-sudo yum -y install 0.152-1.el6
-sudo yum -y install ethtool.x86_64
-sudo yum -y install expat.x86_64
-sudo yum -y install file.x86_64
-sudo yum -y install file-libs.x86_64
-sudo yum -y install filesystem.x86_64
-sudo yum -y install findutils.x86_64
-sudo yum -y install fipscheck.x86_64
-sudo yum -y install fipscheck-lib.x86_64
-sudo yum -y install fontconfig.x86_64
-sudo yum -y install freetype.x86_64
-sudo yum -y install fuse.x86_64
-sudo yum -y install gamin.x86_64
-sudo yum -y install gawk.x86_64
-sudo yum -y install gcc.x86_64
-sudo yum -y install gcc-c++.x86_64
-sudo yum -y install gcc-gfortran.x86_64
-sudo yum -y install gcc-gnat.x86_64
-sudo yum -y install gcc-java.x86_64
-sudo yum -y install gcc-objc.x86_64
-sudo yum -y install gcc-objc++.x86_64
-sudo yum -y install gdbm.x86_64
-sudo yum -y install git.x86_64
-sudo yum -y install glib2.x86_64
-sudo yum -y install glibc.x86_64
-sudo yum -y install glibc-common.x86_64
-sudo yum -y install glibc-devel.x86_64
-sudo yum -y install glibc-headers.x86_64
-sudo yum -y install gmp.x86_64
-sudo yum -y install gnupg2.x86_64
-sudo yum -y install gnutls.x86_64
-sudo yum -y install gpgme.x86_64
-sudo yum -y install gpm-libs.x86_64
-sudo yum -y install grep.x86_64
-sudo yum -y install groff.x86_64
-sudo yum -y install grub.x86_64
-sudo yum -y install grubby.x86_64
-sudo yum -y install gtk2.x86_64
-sudo yum -y install gzip.x86_64
-sudo yum -y install hicolor-icon-theme.noarch
-sudo yum -y install 0.11-1.1.el6
-sudo yum -y install httpd.x86_64
-sudo yum -y install @updates
-sudo yum -y install httpd-tools.x86_64
-sudo yum -y install @updates
-sudo yum -y install hwdata.noarch
-sudo yum -y install info.x86_64
-sudo yum -y install initscripts.x86_64
-sudo yum -y install @updates
-sudo yum -y install iproute.x86_64
-sudo yum -y install iptables.x86_64
-sudo yum -y install iptables-ipv6.x86_64
-sudo yum -y install iputils.x86_64
-sudo yum -y install @anaconda-CentOS-201311272149.x86_64/6.5
-sudo yum -y install iscsi-initiator-utils.x86_64
-sudo yum -y install 6.2.0.873-10.el6
-sudo yum -y install jasper-libs.x86_64
-sudo yum -y install @base
-sudo yum -y install java-1.5.0-gcj.x86_64
-sudo yum -y install java_cup.x86_64
-sudo yum -y install jpackage-utils.noarch
-sudo yum -y install kbd.x86_64
-sudo yum -y install kbd-misc.noarch
-sudo yum -y install kernel.x86_64
-sudo yum -y install kernel.x86_64
-sudo yum -y install @updates
-sudo yum -y install kernel.x86_64
-sudo yum -y install @updates
-sudo yum -y install kernel-firmware.noarch
-sudo yum -y install 2.6.32-431.11.2.el6
-sudo yum -y install @updates
-sudo yum -y install kernel-headers.x86_64
-sudo yum -y install @updates
-sudo yum -y install keyutils-libs.x86_64
-sudo yum -y install keyutils-libs-devel.x86_64
-sudo yum -y install 1.4-4.el6
-sudo yum -y install kpartx.x86_64
-sudo yum -y install krb5-devel.x86_64
-sudo yum -y install krb5-libs.x86_64
-sudo yum -y install less.x86_64
-sudo yum -y install libICE.x86_64
-sudo yum -y install libSM.x86_64
-sudo yum -y install libX11.x86_64
-sudo yum -y install libX11-common.noarch
-sudo yum -y install libXau.x86_64
-sudo yum -y install libXcomposite.x86_64
-sudo yum -y install libXcursor.x86_64
-sudo yum -y install @base
-sudo yum -y install libXdamage.x86_64
-sudo yum -y install libXext.x86_64
-sudo yum -y install libXfixes.x86_64
-sudo yum -y install libXft.x86_64
-sudo yum -y install libXi.x86_64
-sudo yum -y install libXinerama.x86_64
-sudo yum -y install libXrandr.x86_64
-sudo yum -y install libXrender.x86_64
-sudo yum -y install libXtst.x86_64
-sudo yum -y install libacl.x86_64
-sudo yum -y install libaio.x86_64
-sudo yum -y install libart_lgpl.x86_64
-sudo yum -y install libattr.x86_64
-sudo yum -y install libblkid.x86_64
-sudo yum -y install libcap.x86_64
-sudo yum -y install libcap-ng.x86_64
-sudo yum -y install libcom_err.x86_64
-sudo yum -y install libcom_err-devel.x86_64
-sudo yum -y install 1.41.12-18.el6
-sudo yum -y install libcurl.x86_64
-sudo yum -y install libdrm.x86_64
-sudo yum -y install libedit.x86_64
-sudo yum -y install @anaconda-CentOS-201311272149.x86_64/6.5
-sudo yum -y install libffi.x86_64
-sudo yum -y install libgcc.x86_64
-sudo yum -y install libgcj.x86_64
-sudo yum -y install libgcj-devel.x86_64
-sudo yum -y install libgcrypt.x86_64
-sudo yum -y install libgcrypt-devel.x86_64
-sudo yum -y install 1.4.5-11.el6_4
-sudo yum -y install libgfortran.x86_64
-sudo yum -y install libgnat.x86_64
-sudo yum -y install libgnat-devel.x86_64
-sudo yum -y install libgomp.x86_64
-sudo yum -y install libgpg-error.x86_64
-sudo yum -y install libgpg-error-devel.x86_64
-sudo yum -y install 1.7-4.el6
-sudo yum -y install libidn.x86_64
-sudo yum -y install libjpeg-turbo.x86_64
-sudo yum -y install libjpeg-turbo-devel.x86_64
-sudo yum -y install 1.2.1-3.el6_5
-sudo yum -y install libjpeg-turbo-static.x86_64
-sudo yum -y install 1.2.1-3.el6_5
-sudo yum -y install libnih.x86_64
-sudo yum -y install libobjc.x86_64
-sudo yum -y install libpciaccess.x86_64
-sudo yum -y install libpng.x86_64
-sudo yum -y install libpng-devel.x86_64
-sudo yum -y install libpng-static.x86_64
-sudo yum -y install libselinux.x86_64
-sudo yum -y install @anaconda-CentOS-201311272149.x86_64/6.5
-sudo yum -y install libselinux-devel.x86_64
-sudo yum -y install 2.0.94-5.3.el6_4.1
-sudo yum -y install @base
-sudo yum -y install libselinux-utils.x86_64
-sudo yum -y install 2.0.94-5.3.el6_4.1
-sudo yum -y install @anaconda-CentOS-201311272149.x86_64/6.5
-sudo yum -y install libsemanage.x86_64
-sudo yum -y install libsepol.x86_64
-sudo yum -y install libsepol-devel.x86_64
-sudo yum -y install libss.x86_64
-sudo yum -y install libssh2.x86_64
-sudo yum -y install libstdc++.x86_64
-sudo yum -y install libstdc++-devel.x86_64
-sudo yum -y install 4.4.7-4.el6
-sudo yum -y install libtasn1.x86_64
-sudo yum -y install libthai.x86_64
-sudo yum -y install libtiff.x86_64
-sudo yum -y install libtool.x86_64
-sudo yum -y install libtool-ltdl.x86_64
-sudo yum -y install libtool-ltdl-devel.x86_64
-sudo yum -y install 2.2.6-15.5.el6
-sudo yum -y install libudev.x86_64
-sudo yum -y install libusb.x86_64
-sudo yum -y install libuser.x86_64
-sudo yum -y install libutempter.x86_64
-sudo yum -y install libuuid.x86_64
-sudo yum -y install libxcb.x86_64
-sudo yum -y install libxml2.x86_64
-sudo yum -y install libxml2-devel.x86_64
-sudo yum -y install libxml2-python.x86_64
-sudo yum -y install libxml2-static.x86_64
-sudo yum -y install libxslt.x86_64
-sudo yum -y install libxslt-devel.x86_64
-sudo yum -y install libxslt-python.x86_64
-sudo yum -y install libyaml.x86_64
-sudo yum -y install libyaml-devel.x86_64
-sudo yum -y install logrotate.x86_64
-sudo yum -y install lua.x86_64
-sudo yum -y install lvm2.x86_64
-sudo yum -y install lvm2-libs.x86_64
-sudo yum -y install m4.x86_64
-sudo yum -y install mailcap.noarch
-sudo yum -y install make.x86_64
-sudo yum -y install mdadm.x86_64
-sudo yum -y install mingetty.x86_64
-sudo yum -y install module-init-tools.x86_64
-sudo yum -y install 3.9-21.el6_4
-sudo yum -y install mpfr.x86_64
-sudo yum -y install mysql.x86_64
-sudo yum -y install mysql-devel.x86_64
-sudo yum -y install mysql-libs.x86_64
-sudo yum -y install mysql-server.x86_64
-sudo yum -y install ncurses.x86_64
-sudo yum -y install @anaconda-CentOS-201311272149.x86_64/6.5
-sudo yum -y install ncurses-base.x86_64
-sudo yum -y install @anaconda-CentOS-201311272149.x86_64/6.5
-sudo yum -y install ncurses-devel.x86_64
-sudo yum -y install @base
-sudo yum -y install ncurses-libs.x86_64
-sudo yum -y install @anaconda-CentOS-201311272149.x86_64/6.5
-sudo yum -y install ncurses-static.x86_64
-sudo yum -y install @base
-sudo yum -y install ncurses-term.x86_64
-sudo yum -y install @base
-sudo yum -y install net-tools.x86_64
-sudo yum -y install newt.x86_64
-sudo yum -y install newt-python.x86_64
-sudo yum -y install nginx.x86_64
-sudo yum -y install nginx-release-centos.noarch
-sudo yum -y install 6-0.el6.ngx
-sudo yum -y install nspr.x86_64
-sudo yum -y install nss.x86_64
-sudo yum -y install nss-softokn.x86_64
-sudo yum -y install nss-softokn-freebl.x86_64
-sudo yum -y install 3.14.3-10.el6_5
-sudo yum -y install nss-sysinit.x86_64
-sudo yum -y install nss-tools.x86_64
-sudo yum -y install nss-util.x86_64
-sudo yum -y install openldap.x86_64
-sudo yum -y install openssh.x86_64
-sudo yum -y install openssh-clients.x86_64
-sudo yum -y install 5.3p1-94.el6
-sudo yum -y install openssh-server.x86_64
-sudo yum -y install openssl.x86_64
-sudo yum -y install openssl-devel.x86_64
-sudo yum -y install openssl-perl.x86_64
-sudo yum -y install openssl-static.x86_64
-sudo yum -y install openssl098e.x86_64
-sudo yum -y install @base
-sudo yum -y install p11-kit.x86_64
-sudo yum -y install p11-kit-trust.x86_64
-sudo yum -y install pam.x86_64
-sudo yum -y install pango.x86_64
-sudo yum -y install passwd.x86_64
-sudo yum -y install pciutils-libs.x86_64
-sudo yum -y install pcre.x86_64
-sudo yum -y install pcre-devel.x86_64
-sudo yum -y install perl.x86_64
-sudo yum -y install perl-DBD-MySQL.x86_64
-sudo yum -y install perl-DBI.x86_64
-sudo yum -y install perl-Error.noarch
-sudo yum -y install perl-Git.noarch
-sudo yum -y install perl-Module-Pluggable.x86_64
-sudo yum -y install 1:3.90-136.el6
-sudo yum -y install perl-Pod-Escapes.x86_64
-sudo yum -y install 1:1.04-136.el6
-sudo yum -y install perl-Pod-Simple.x86_64
-sudo yum -y install 1:3.13-136.el6
-sudo yum -y install perl-WWW-Curl.x86_64
-sudo yum -y install perl-libs.x86_64
-sudo yum -y install perl-version.x86_64
-sudo yum -y install php.x86_64
-sudo yum -y install php-cli.x86_64
-sudo yum -y install php-common.x86_64
-sudo yum -y install pinentry.x86_64
-sudo yum -y install pixman.x86_64
-sudo yum -y install pkgconfig.x86_64
-sudo yum -y install plymouth.x86_64
-sudo yum -y install @anaconda-CentOS-201311272149.x86_64/6.5
-sudo yum -y install plymouth-core-libs.x86_64
-sudo yum -y install 0.8.3-27.el6.centos
-sudo yum -y install @anaconda-CentOS-201311272149.x86_64/6.5
-sudo yum -y install plymouth-scripts.x86_64
-sudo yum -y install 0.8.3-27.el6.centos
-sudo yum -y install @anaconda-CentOS-201311272149.x86_64/6.5
-sudo yum -y install policycoreutils.x86_64
-sudo yum -y install 2.0.83-19.39.el6
-sudo yum -y install popt.x86_64
-sudo yum -y install postfix.x86_64
-sudo yum -y install ppl.x86_64
-sudo yum -y install procps.x86_64
-sudo yum -y install psmisc.x86_64
-sudo yum -y install pth.x86_64
-sudo yum -y install pygpgme.x86_64
-sudo yum -y install @anaconda-CentOS-201311272149.x86_64/6.5
-sudo yum -y install python.x86_64
-sudo yum -y install python-iniparse.noarch
-sudo yum -y install 0.3.1-2.1.el6
-sudo yum -y install python-libs.x86_64
-sudo yum -y install python-pycurl.x86_64
-sudo yum -y install python-urlgrabber.noarch
-sudo yum -y install 3.9.1-9.el6
-sudo yum -y install readline.x86_64
-sudo yum -y install readline-devel.x86_64
-sudo yum -y install readline-static.x86_64
-sudo yum -y install 6.0-4.el6
-sudo yum -y install redhat-logos.noarch
-sudo yum -y install @anaconda-CentOS-201311272149.x86_64/6.5
-sudo yum -y install rootfiles.noarch
-sudo yum -y install rpm.x86_64
-sudo yum -y install rpm-libs.x86_64
-sudo yum -y install rpm-python.x86_64
-sudo yum -y install rpmforge-release.x86_64
-sudo yum -y install 0.5.2-2.el6.rf
-sudo yum -y install rsync.x86_64
-sudo yum -y install rsyslog.x86_64
-sudo yum -y install ruby.x86_64
-sudo yum -y install ruby-libs.x86_64
-sudo yum -y install sed.x86_64
-sudo yum -y install selinux-policy.noarch
-sudo yum -y install @updates
-sudo yum -y install selinux-policy-targeted.noarch
-sudo yum -y install 3.7.19-231.el6_5.1
-sudo yum -y install @updates
-sudo yum -y install setup.noarch
-sudo yum -y install shadow-utils.x86_64
-sudo yum -y install shared-mime-info.x86_64
-sudo yum -y install 0.70-4.el6
-sudo yum -y install sinjdoc.x86_64
-sudo yum -y install slang.x86_64
-sudo yum -y install sqlite.x86_64
-sudo yum -y install sudo.x86_64
-sudo yum -y install system-config-firewall-base.noarch
-sudo yum -y install 1.2.27-5.el6
-sudo yum -y install sysvinit-tools.x86_64
-sudo yum -y install tar.x86_64
-sudo yum -y install tcp_wrappers-libs.x86_64
-sudo yum -y install 7.6-57.el6
-sudo yum -y install tig.x86_64
-sudo yum -y install tzdata.noarch
-sudo yum -y install udev.x86_64
-sudo yum -y install upstart.x86_64
-sudo yum -y install ustr.x86_64
-sudo yum -y install util-linux-ng.x86_64
-sudo yum -y install vim-common.x86_64
-sudo yum -y install vim-enhanced.x86_64
-sudo yum -y install vim-minimal.x86_64
-sudo yum -y install wget.x86_64
-sudo yum -y install which.x86_64
-sudo yum -y install xfsprogs.x86_64
-sudo yum -y install xz.x86_64
-sudo yum -y install @base
-sudo yum -y install xz-devel.x86_64
-sudo yum -y install @base
-sudo yum -y install xz-libs.x86_64
-sudo yum -y install @anaconda-CentOS-201311272149.x86_64/6.5
-sudo yum -y install yum.noarch
-sudo yum -y install @updates
-sudo yum -y install yum-metadata-parser.x86_64
-sudo yum -y install 1.1.2-16.el6
-sudo yum -y install yum-plugin-fastestmirror.noarch
-sudo yum -y install 1.1.30-17.el6_5
-sudo yum -y install zip.x86_64
-sudo yum -y install zlib.x86_64
-sudo yum -y install zlib-devel.x86_64
-sudo yum -y install zlib-static.x86_64
-sudo yum -y install zsh.x86_64
+MAKEDEV.x86_64
+acl.x86_64
+alsa-lib.x86_64
+apr.x86_64
+apr-util.x86_64
+apr-util-ldap.x86_64
+atk.x86_64
+attr.x86_64
+audit.x86_64
+audit-libs.x86_64
+authconfig.x86_64
+autoconf.noarch
+automake.noarch
+avahi-libs.x86_64
+b43-openfwwf.noarch
+basesystem.noarch
+bash.x86_64
+bash-completion.noarch
+20060301-1.el6.rf
+binutils.x86_64
+@anaconda-CentOS-201311272149.x86_64/6.5
+bridge-utils.x86_64
+bzip2.x86_64
+bzip2-libs.x86_64
+ca-certificates.noarch
+2013.1.95-65.1.el6_5
+@updates
+cairo.x86_64
+centos-release.x86_64
+@updates
+checkpolicy.x86_64
+chkconfig.x86_64
+@anaconda-CentOS-201311272149.x86_64/6.5
+cloog-ppl.x86_64
+compat-readline5.x86_64
+5.2-17.1.el6
+coreutils.x86_64
+coreutils-libs.x86_64
+cpio.x86_64
+cpp.x86_64
+cracklib.x86_64
+cracklib-dicts.x86_64
+cronie.x86_64
+cronie-anacron.x86_64
+crontabs.noarch
+cryptsetup-luks.x86_64
+1.2.0-7.el6
+cryptsetup-luks-libs.x86_64
+1.2.0-7.el6
+cups-libs.x86_64
+@base
+curl.x86_64
+cyrus-sasl.x86_64
+cyrus-sasl-lib.x86_64
+dash.x86_64
+db4.x86_64
+db4-utils.x86_64
+dbus-glib.x86_64
+dbus-libs.x86_64
+device-mapper.x86_64
+device-mapper-event.x86_64
+1.02.79-8.el6
+device-mapper-event-libs.x86_64
+1.02.79-8.el6
+device-mapper-libs.x86_64
+1.02.79-8.el6
+device-mapper-multipath.x86_64
+0.4.9-72.el6_5.1
+device-mapper-multipath-libs.x86_64
+0.4.9-72.el6_5.1
+device-mapper-persistent-data.x86_64
+0.2.8-2.el6
+dhclient.x86_64
+@anaconda-CentOS-201311272149.x86_64/6.5
+dhcp-common.x86_64
+@anaconda-CentOS-201311272149.x86_64/6.5
+diffutils.x86_64
+dracut.noarch
+dracut-kernel.noarch
+e2fsprogs.x86_64
+e2fsprogs-libs.x86_64
+ecj.x86_64
+efibootmgr.x86_64
+elfutils-libelf.x86_64
+0.152-1.el6
+ethtool.x86_64
+expat.x86_64
+file.x86_64
+file-libs.x86_64
+filesystem.x86_64
+findutils.x86_64
+fipscheck.x86_64
+fipscheck-lib.x86_64
+fontconfig.x86_64
+freetype.x86_64
+fuse.x86_64
+gamin.x86_64
+gawk.x86_64
+gcc.x86_64
+gcc-c++.x86_64
+gcc-gfortran.x86_64
+gcc-gnat.x86_64
+gcc-java.x86_64
+gcc-objc.x86_64
+gcc-objc++.x86_64
+gdbm.x86_64
+git.x86_64
+glib2.x86_64
+glibc.x86_64
+glibc-common.x86_64
+glibc-devel.x86_64
+glibc-headers.x86_64
+gmp.x86_64
+gnupg2.x86_64
+gnutls.x86_64
+gpgme.x86_64
+gpm-libs.x86_64
+grep.x86_64
+groff.x86_64
+grub.x86_64
+grubby.x86_64
+gtk2.x86_64
+gzip.x86_64
+hicolor-icon-theme.noarch
+0.11-1.1.el6
+httpd.x86_64
+@updates
+httpd-tools.x86_64
+@updates
+hwdata.noarch
+info.x86_64
+initscripts.x86_64
+@updates
+iproute.x86_64
+iptables.x86_64
+iptables-ipv6.x86_64
+iputils.x86_64
+@anaconda-CentOS-201311272149.x86_64/6.5
+iscsi-initiator-utils.x86_64
+6.2.0.873-10.el6
+jasper-libs.x86_64
+@base
+java-1.5.0-gcj.x86_64
+java_cup.x86_64
+jpackage-utils.noarch
+kbd.x86_64
+kbd-misc.noarch
+kernel.x86_64
+kernel.x86_64
+@updates
+kernel.x86_64
+@updates
+kernel-firmware.noarch
+2.6.32-431.11.2.el6
+@updates
+kernel-headers.x86_64
+@updates
+keyutils-libs.x86_64
+keyutils-libs-devel.x86_64
+1.4-4.el6
+kpartx.x86_64
+krb5-devel.x86_64
+krb5-libs.x86_64
+less.x86_64
+libICE.x86_64
+libSM.x86_64
+libX11.x86_64
+libX11-common.noarch
+libXau.x86_64
+libXcomposite.x86_64
+libXcursor.x86_64
+@base
+libXdamage.x86_64
+libXext.x86_64
+libXfixes.x86_64
+libXft.x86_64
+libXi.x86_64
+libXinerama.x86_64
+libXrandr.x86_64
+libXrender.x86_64
+libXtst.x86_64
+libacl.x86_64
+libaio.x86_64
+libart_lgpl.x86_64
+libattr.x86_64
+libblkid.x86_64
+libcap.x86_64
+libcap-ng.x86_64
+libcom_err.x86_64
+libcom_err-devel.x86_64
+1.41.12-18.el6
+libcurl.x86_64
+libdrm.x86_64
+libedit.x86_64
+@anaconda-CentOS-201311272149.x86_64/6.5
+libffi.x86_64
+libgcc.x86_64
+libgcj.x86_64
+libgcj-devel.x86_64
+libgcrypt.x86_64
+libgcrypt-devel.x86_64
+1.4.5-11.el6_4
+libgfortran.x86_64
+libgnat.x86_64
+libgnat-devel.x86_64
+libgomp.x86_64
+libgpg-error.x86_64
+libgpg-error-devel.x86_64
+1.7-4.el6
+libidn.x86_64
+libjpeg-turbo.x86_64
+libjpeg-turbo-devel.x86_64
+1.2.1-3.el6_5
+libjpeg-turbo-static.x86_64
+1.2.1-3.el6_5
+libnih.x86_64
+libobjc.x86_64
+libpciaccess.x86_64
+libpng.x86_64
+libpng-devel.x86_64
+libpng-static.x86_64
+libselinux.x86_64
+@anaconda-CentOS-201311272149.x86_64/6.5
+libselinux-devel.x86_64
+2.0.94-5.3.el6_4.1
+@base
+libselinux-utils.x86_64
+2.0.94-5.3.el6_4.1
+@anaconda-CentOS-201311272149.x86_64/6.5
+libsemanage.x86_64
+libsepol.x86_64
+libsepol-devel.x86_64
+libss.x86_64
+libssh2.x86_64
+libstdc++.x86_64
+libstdc++-devel.x86_64
+4.4.7-4.el6
+libtasn1.x86_64
+libthai.x86_64
+libtiff.x86_64
+libtool.x86_64
+libtool-ltdl.x86_64
+libtool-ltdl-devel.x86_64
+2.2.6-15.5.el6
+libudev.x86_64
+libusb.x86_64
+libuser.x86_64
+libutempter.x86_64
+libuuid.x86_64
+libxcb.x86_64
+libxml2.x86_64
+libxml2-devel.x86_64
+libxml2-python.x86_64
+libxml2-static.x86_64
+libxslt.x86_64
+libxslt-devel.x86_64
+libxslt-python.x86_64
+libyaml.x86_64
+libyaml-devel.x86_64
+logrotate.x86_64
+lua.x86_64
+lvm2.x86_64
+lvm2-libs.x86_64
+m4.x86_64
+mailcap.noarch
+make.x86_64
+mdadm.x86_64
+mingetty.x86_64
+module-init-tools.x86_64
+3.9-21.el6_4
+mpfr.x86_64
+mysql.x86_64
+mysql-devel.x86_64
+mysql-libs.x86_64
+mysql-server.x86_64
+ncurses.x86_64
+@anaconda-CentOS-201311272149.x86_64/6.5
+ncurses-base.x86_64
+@anaconda-CentOS-201311272149.x86_64/6.5
+ncurses-devel.x86_64
+@base
+ncurses-libs.x86_64
+@anaconda-CentOS-201311272149.x86_64/6.5
+ncurses-static.x86_64
+@base
+ncurses-term.x86_64
+@base
+net-tools.x86_64
+newt.x86_64
+newt-python.x86_64
+nginx.x86_64
+nginx-release-centos.noarch
+6-0.el6.ngx
+nspr.x86_64
+nss.x86_64
+nss-softokn.x86_64
+nss-softokn-freebl.x86_64
+3.14.3-10.el6_5
+nss-sysinit.x86_64
+nss-tools.x86_64
+nss-util.x86_64
+openldap.x86_64
+openssh.x86_64
+openssh-clients.x86_64
+5.3p1-94.el6
+openssh-server.x86_64
+openssl.x86_64
+openssl-devel.x86_64
+openssl-perl.x86_64
+openssl-static.x86_64
+openssl098e.x86_64
+@base
+p11-kit.x86_64
+p11-kit-trust.x86_64
+pam.x86_64
+pango.x86_64
+passwd.x86_64
+pciutils-libs.x86_64
+pcre.x86_64
+pcre-devel.x86_64
+perl.x86_64
+perl-DBD-MySQL.x86_64
+perl-DBI.x86_64
+perl-Error.noarch
+perl-Git.noarch
+perl-Module-Pluggable.x86_64
+1:3.90-136.el6
+perl-Pod-Escapes.x86_64
+1:1.04-136.el6
+perl-Pod-Simple.x86_64
+1:3.13-136.el6
+perl-WWW-Curl.x86_64
+perl-libs.x86_64
+perl-version.x86_64
+php.x86_64
+php-cli.x86_64
+php-common.x86_64
+pinentry.x86_64
+pixman.x86_64
+pkgconfig.x86_64
+plymouth.x86_64
+@anaconda-CentOS-201311272149.x86_64/6.5
+plymouth-core-libs.x86_64
+0.8.3-27.el6.centos
+@anaconda-CentOS-201311272149.x86_64/6.5
+plymouth-scripts.x86_64
+0.8.3-27.el6.centos
+@anaconda-CentOS-201311272149.x86_64/6.5
+policycoreutils.x86_64
+2.0.83-19.39.el6
+popt.x86_64
+postfix.x86_64
+ppl.x86_64
+procps.x86_64
+psmisc.x86_64
+pth.x86_64
+pygpgme.x86_64
+@anaconda-CentOS-201311272149.x86_64/6.5
+python.x86_64
+python-iniparse.noarch
+0.3.1-2.1.el6
+python-libs.x86_64
+python-pycurl.x86_64
+python-urlgrabber.noarch
+3.9.1-9.el6
+readline.x86_64
+readline-devel.x86_64
+readline-static.x86_64
+6.0-4.el6
+redhat-logos.noarch
+@anaconda-CentOS-201311272149.x86_64/6.5
+rootfiles.noarch
+rpm.x86_64
+rpm-libs.x86_64
+rpm-python.x86_64
+rpmforge-release.x86_64
+0.5.2-2.el6.rf
+rsync.x86_64
+rsyslog.x86_64
+ruby.x86_64
+ruby-libs.x86_64
+sed.x86_64
+selinux-policy.noarch
+@updates
+selinux-policy-targeted.noarch
+3.7.19-231.el6_5.1
+@updates
+setup.noarch
+shadow-utils.x86_64
+shared-mime-info.x86_64
+0.70-4.el6
+sinjdoc.x86_64
+slang.x86_64
+sqlite.x86_64
+sudo.x86_64
+system-config-firewall-base.noarch
+1.2.27-5.el6
+sysvinit-tools.x86_64
+tar.x86_64
+tcp_wrappers-libs.x86_64
+7.6-57.el6
+tig.x86_64
+tzdata.noarch
+udev.x86_64
+upstart.x86_64
+ustr.x86_64
+util-linux-ng.x86_64
+vim-common.x86_64
+vim-enhanced.x86_64
+vim-minimal.x86_64
+wget.x86_64
+which.x86_64
+xfsprogs.x86_64
+xz.x86_64
+@base
+xz-devel.x86_64
+@base
+xz-libs.x86_64
+@anaconda-CentOS-201311272149.x86_64/6.5
+yum.noarch
+@updates
+yum-metadata-parser.x86_64
+1.1.2-16.el6
+yum-plugin-fastestmirror.noarch
+1.1.30-17.el6_5
+zip.x86_64
+zlib.x86_64
+zlib-devel.x86_64
+zlib-static.x86_64
+zsh.x86_64

@@ -40,13 +40,13 @@ echo "oh-my-zsh success install"
 echo "NeoBundle success install"
 
 # install rbenv
-git clone https://github.com/sstephenson/rbenv.git ~/.rbenv
-git clone https://github.com/sstephenson/ruby-build.git ~/.rbenv/plugins/ruby-build
+[ ! -d ~/.rbenv ] && git clone https://github.com/sstephenson/rbenv.git ~/.rbenv
+[ ! -d ~/.rbenv/plugins/ruby-build ] && git clone https://github.com/sstephenson/ruby-build.git ~/.rbenv/plugins/ruby-build
 sudo ~/.rbenv/plugins/ruby-build/install.sh
 echo "rbenv d success install"
 
 # install pyenv
-git clone git://github.com/yyuu/pyenv.git .pyenv
+[ ! -d ~/.pyenv] && git clone git://github.com/yyuu/pyenv.git ~/.pyenv
 
 # install tmuxinator
 cp -r .tmuxinator ~/

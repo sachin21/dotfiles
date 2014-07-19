@@ -46,11 +46,11 @@ sudo ~/.rbenv/plugins/ruby-build/install.sh
 echo "rbenv d success install"
 
 # install pyenv
-[ ! -d ~/.pyenv] && git clone git://github.com/yyuu/pyenv.git ~/.pyenv
+[ ! -d ~/.pyenv ] && git clone git://github.com/yyuu/pyenv.git ~/.pyenv
 
 # install nodenv
-[ ! -d ~/.nodenv] && git clone https://github.com/OiNutter/nodenv.git ~/.nodenv
-[ ! -d ~/.nodenv] && git clone git://github.com/OiNutter/node-build.git ~/.nodenv/plugins/node-build.git
+[ ! -d ~/.nodenv ] && git clone https://github.com/OiNutter/nodenv.git ~/.nodenv
+[ ! -d ~/.nodenv ] && git clone git://github.com/OiNutter/node-build.git ~/.nodenv/plugins/node-build.git
 
 # install tmuxinator
 cp -r .tmuxinator ~/

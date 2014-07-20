@@ -47,10 +47,12 @@ echo "rbenv success install"
 
 # install pyenv
 [ ! -d ~/.pyenv ] && git clone git://github.com/yyuu/pyenv.git ~/.pyenv
+echo "pyenv success install"
 
 # install nodenv
 [ ! -d ~/.nodenv ] && git clone https://github.com/OiNutter/nodenv.git ~/.nodenv
 [ ! -d ~/.nodenv ] && git clone git://github.com/OiNutter/node-build.git ~/.nodenv/plugins/node-build.git
+echo "nodenv success install"
 
 # install tmuxinator
 cp -r .tmuxinator ~/

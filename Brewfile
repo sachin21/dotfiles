@@ -5,7 +5,7 @@ upgrade
 # for ricty
 tap sanemat/font
 
-# For cask
+# for cask
 tap homebrew/versions
 tap phinze/homebrew-cask
 tap homebrew/binary

@@ -52,6 +52,7 @@ echo "pyenv success install"
 # install nodenv
 [ ! -d ~/.nodenv ] && git clone https://github.com/OiNutter/nodenv.git ~/.nodenv
 [ ! -d ~/.nodenv ] && git clone git://github.com/OiNutter/node-build.git ~/.nodenv/plugins/node-build.git
+~/.nodenv/plugins/node-build/install.sh
 echo "nodenv success install"
 
 # install tmuxinator

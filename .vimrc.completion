@@ -11,6 +11,5 @@ set complete+=k            " 補完に辞書ファイル追加
 source ~/dotfiles/.vimrc.completion.neocomplcache
 
 " 補完にAutoComplPopを使う
-" source ~/dotfiles/.vimrc.completion.autocomplpop
-
+source ~/dotfiles/.vimrc.completion.autocomplpop
 

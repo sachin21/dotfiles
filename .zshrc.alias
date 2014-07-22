@@ -1,6 +1,6 @@
 # only my alias
 
-alias src='source ~/.zshrc'
+alias src='exec $SHELL'
 alias ts='tmux split-window'
 alias th='tmux split-window -h'
 alias e='exit'

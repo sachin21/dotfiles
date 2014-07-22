@@ -5,12 +5,12 @@ echo -n "MacOS user 'm' : Centos user 'c' [m/c] : "
   read flag
 
 # setup tools
-if [ $flag = 'm' -o $flag = 'm' ]
+if [ $flag = 'm' -o $flag = 'M' ]
   then
   ruby -e "$(curl -fsSL https://raw.github.com/Homebrew/homebrew/go/install)"
   cd ~/dotfiles
   brew bundle
-elif [ $flag = 'c' -o $flag = 'c' ]
+elif [ $flag = 'c' -o $flag = 'C' ]
   then
   sudo yum -y update
   sudo yum -y upgrade

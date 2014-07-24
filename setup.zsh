@@ -1,7 +1,7 @@
 #!/usr/bin/env zsh
 
 # check os
-echo -n "MacOS user 'm' : Centos user 'c' [m/c] : "
+echo -n "MacOS user 'm' : Centos user 'c' : ArchLinux user [m/c/a] : "
   read flag
 
 # setup tools
@@ -16,8 +16,12 @@ elif [ $flag = 'c' -o $flag = 'C' ]
   sudo yum -y upgrade
   for package in `cat ./yum_install_list`; do; yum -y install $package; done
   sudo yum -y clean
+elif [ $flag = 'a' -o $flag = 'A' ]
+  then
+  sudo pacman -Sy
+  for package in `cat ./pacman_install_list`; do; sudo pacman -S $package; done
 else
-  echo "You can input is only 'm' or 'c'"
+  echo "You can input is only 'm', 'c' and 'a'"
   exit 1
 fi
 echo "tools success install"

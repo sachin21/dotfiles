@@ -105,7 +105,7 @@ cask install evernote
 cask install slack
 cask install sublime-text
 cask install iterm2
-cask install keyremap4macbook
+cask install karabiner
 cask install the-unarchiver
 cask install clipmenu
 cask install kobito

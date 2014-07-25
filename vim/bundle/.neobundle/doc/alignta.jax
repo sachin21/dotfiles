@@ -1,0 +1,824 @@
+*alignta.txt*		Align Them All! - 新たなる整列プラグイン
+
+File    : doc/alignta.jax
+Author  : h1mesuke <himesuke@gmail.com>
+Updated : 2012-01-09
+Version : 0.3.0
+License : MIT license {{{
+
+	Permission is hereby granted, free of charge, to any person obtaining
+	a copy of this software and associated documentation files (the
+	"Software"), to deal in the Software without restriction, including
+	without limitation the rights to use, copy, modify, merge, publish,
+	distribute, sublicense, and/or sell copies of the Software, and to
+	permit persons to whom the Software is furnished to do so, subject to
+	the following conditions:
+
+	The above copyright notice and this permission notice shall be
+	included in all copies or substantial portions of the Software.
+	
+	THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND,
+	EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
+	MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.
+	IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY
+	CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT,
+	TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE
+	SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+}}}
+
+目次						*alignta-contents*
+
+	概要				|alignta-introduction|
+	インストール			|alignta-install|
+	整列				|alignta-alignment|
+	  整列方式			  |alignta-alignment-methods|
+	  コマンド			  |alignta-commands|
+	  パターン			  |alignta-patterns|
+	  整列オプション		  |alignta-alignment-options|
+	    Padding Alignment Options	    |alignta-padding-alignment-options|
+	    Shifting Alignment Options	    |alignta-shifting-alignment-options|
+	    Margin Options		    |alignta-margin-options|
+	    Line Filtering		    |alignta-line-filtering|
+	設定				|alignta-settings|
+	  変数				  |alignta-variables|
+	  設定例			  |alignta-settings-example|
+	unite-alignta			|unite-alignta|
+	  変数				  |unite-alignta-variables|
+	  設定例			  |unite-alignta-settings-example|
+	ToDo				|alignta-todo|
+	既知の問題			|alignta-issues|
+	更新履歴			|alignta-changelog|
+	
+==============================================================================
+概要					*alignta-introduction*
+
+	*alignta* は、ある特定の範囲のテキストについて、各行における任意のパタ
+	ーンの桁位置を揃える（整列する）ためのプラグインです。
+
+	同様の機能を提供するプラグインとしては、Charles Campbell氏作の
+	Align.vim が有名ですが、alignta と比較した場合、両者には以下のような違
+	いがあります。
+
+Align.vim ~
+
+	* 整列オプションの制御用コマンドが別立て
+
+		整列を行う|:Align|コマンドとは別に、整列オプションを制御するた
+		めの |:AlignCtrl|, |:AlignPush|, |:AlignPop|といった一連のコマ
+		ンドがある。
+
+	* 豊富なキーマッピング
+
+		よくある整列のニーズに応えるためのキーマッピングが豊富に用意さ
+		れており、ユーザーはそれらを利用することで、:Alignコマンド１回
+		では実現できないような整列も簡単に行える。
+
+alignta ~
+
+	*|:Alignta|コマンドですべてをまかなう
+
+		整列オプションは :Aligntaコマンドの引数として指定する。
+
+		よく使う整列オプションや引数リストは、登録しておけば付属の
+		|unite-alignta|から呼び出して使うことができる。
+
+	alignta では、覚えることを少なくすること、「こう揃えたい」を１回のコマ
+	ンドで実現できること、に重点がおかれています。
+
+	何をどのように揃えたいか、という整列のニーズは無数にあると考え、こちら
+	で事前にキーマッピングを用意するのではなく、どのような整列のニーズにも
+	柔軟に対応できるひとつのコマンドを提供する、というのが alignta のアプ
+	ローチです。
+
+==============================================================================
+インストール				*alignta-install*
+
+	配布アーカイブに含まれるファイル群を、そのフォルダごと Vim の
+	'runtimepath' にコピーします。 $HOME/.vim（Windows の場合は
+	$HOME/vimfiles）へのインストールがもっとも一般的でしょう。
+	インストール後の配置は
+
+	$HOME/.vim/plugin/alignta.vim
+	$HOME/.vim/autoload/alignta.vim
+	$HOME/.vim/autoload/alignta/
+	$HOME/.vim/doc/alignta.*
+
+	$HOME/.vim/autoload/unite/sources/alignta.vim
+
+	になります。
+
+	最後のファイルは unite.vim の source です。|unite|をお使いの場合、イン
+	ストールしておくと alignta がより便利に使えます。詳細は|unite-alignta|
+	を参照
+
+==============================================================================
+整列						*alignta-alignment*
+
+------------------------------------------------------------------------------
+整列方式					*alignta-alignment-methods*
+
+	alignta における「整列」には２種類の方式があります。
+
+PADDING ALIGNMENT				*alignta-padding-alignment*
+>
+	+-------------+-------------+
+	| Original    | :Alignta =  |
+	+-------------+-------------+
+	| a = 1       | a     = 1   |
+	| bbb = 10    | bbb   = 10  |
+	| ccccc = 100 | ccccc = 100 |
+	+-------------+-------------+
+
+	+-------+--------+---------+--------+-------+
+	| Left  | Left   | Matched | Right  | Right |
+	| field | margin | field   | margin | field |
+	+-------+--------+---------+--------+-------+
+	| a@@@@ | @      | =       | @      | 1     |
+	| bbb@@ | @      | =       | @      | 10    |
+	| ccccc | @      | =       | @      | 100   |
+	+-------+--------+---------+--------+-------+
+<
+	NOTE: @ はパディングとして付加される <Space> を表す。
+
+	パターンにマッチした部分[M] と、その左側[L]、右側[R] で行を３つのフィ
+	ールドに分割し、各フィールドをその最大幅にあわせて空白文字でパディング
+	します。その後、任意の個数の空白文字をマージンとして間にはさみ、３つの
+	フィールドを連結する整列方式です。
+
+	３つのフィールドのパディングについては、整列オプションの指定により「左
+	寄せ」「中央寄せ」「右寄せ」「幅揃えのみ」を選択でき、フィールド間のマ
+	ージンの幅も指定できます。
+
+	詳細は|alignta-padding-alignment-options|を参照
+
+SHIFTING ALIGNMENT				*alignta-shifting-alignment*
+>
+	+--------------------+--------------------+
+	| Original           | :Alignta <- b      |
+	+--------------------+--------------------+
+	| a        b c       | a      b c         |
+	| aaa       bbb  ccc | aaa    bbb  ccc    |
+	| aaaaa  bbbbb ccccc | aaaaa  bbbbb ccccc |
+	+--------------------+--------------------+
+<
+	単純にパターンの開始位置だけを揃える整列方式です。
+
+	整列オプションの指定により、最左／最右どちらの位置で揃えるかを選択でき、
+	整列にタブ文字を使用することもできます。
+
+	詳細は|alignta-shifting-alignment-options|を参照
+
+------------------------------------------------------------------------------
+コマンド					*alignta-commands*
+
+	:[range]Alignta [arguments]		*:Alignta*
+
+		指定範囲に対し、与えられた引数にもとづく整列を行います。
+		[arguments] には整列に使用するパターン、または整列オプションの
+		指定文字列を任意の個数指定できます。
+
+		あるパターンによる整列回数の指定、複数のパターンを指定した場合
+		の挙動、整列オプションの書式については以下の節で説明します。
+
+	:[range]Align [arguments]
+
+		:Alignta の別名。Charles Campbell氏の Align.vim がインストール
+		されていない場合に使用できます。
+
+------------------------------------------------------------------------------
+パターン					*alignta-patterns*
+
+	:Aligntaコマンドの引数に指定した文字列は、整列オプションの書式と合致し
+	ない限り、パターンとして扱われます。
+
+	用例： >
+	+-------------+-------------+
+	| Original    | :Alignta =  |
+	+-------------+-------------+
+	| a = 1       | a     = 1   |
+	| bbb = 10    | bbb   = 10  |
+	| ccccc = 100 | ccccc = 100 |
+	+-------------+-------------+
+<
+	:Aligntaコマンドは、基本的にパターンを字面通りの文字列として解釈します
+	が、パターンが正規表現のメタ文字を含む場合は、それを正規表現として解釈
+	します。
+
+	詳細な条件は以下の通りです。
+
+	パターン			解釈法
+	------------------------	----------------------------
+	"\" または ".*" を含む		正規表現
+	それ以外			字面通りの文字列
+
+	用例： >
+	+------------------+----------------------+
+	| Original         | :Alignta \d\+        |
+	+------------------+----------------------+
+	| a \d\+ 1 aaaaa   | a \d\+     1   aaaaa |
+	| bbb \d\+ 10 bbb  | bbb \d\+   10  bbb   |
+	| ccccc \d\+ 100 c | ccccc \d\+ 100 c     |
+	+------------------+----------------------+
+<
+	Vim の正規表現については|regexp|を参照
+
+	NOTE: Perl互換の正規表現とはメタ文字の扱いが異なる部分がありますので、
+	慣れない場合は注意が必要です。
+
+パターン解釈法の制御 ~
+
+	以下のオプションをパターンの前に置くことで :Aligntaコマンドによるパタ
+	ーンの解釈法を制御できます。
+
+
+	オプション	意味
+	-----------	--------------------------------------------
+	-e		次の引数をパターンとみなし、
+			字面通りの文字列として解釈
+
+	-r		次の引数をパターンとみなし、
+			正規表現として解釈
+
+	-E		以後のパターンを字面通りの文字列として解釈
+	-R		以後のパターンを正規表現として解釈
+
+
+	用例： >
+	+------------------+--------------------+
+	| Original         | :Alignta -e \d\+   |
+	+------------------+--------------------+
+	| a \d\+ 1 aaaaa   | a     \d\+ 1 aaaaa |
+	| bbb \d\+ 10 bbb  | bbb   \d\+ 10 bbb  |
+	| ccccc \d\+ 100 c | ccccc \d\+ 100 c   |
+	+------------------+--------------------+
+<
+整列回数 ~
+						*alignta-alignment-count*
+	パターンには整列回数を指定できます。
+	整列回数はパターンに続く "/{number}" によって指定します。
+	"/g" は、マッチが存在する限り整列を繰り返す、という意味になります。
+
+	書式			意味
+	--------------------	--------------------------
+	{pattern}/{number}	{number} 回だけ整列
+	{pattern}/g		マッチが存在する限り整列
+
+	整列回数の指定を省略した場合、padding alignment においては "/g" を、
+	shifting alignment においては "/1" を指定したものとみなします。
+	個々の整列は、前回の整列でパターンにマッチした部分より右側の部分に対し
+	て行われます。
+
+	用例： >
+	+-----------------------------+---------------------------------+
+	| Original                    | :Alignta =/2                    |
+	+-----------------------------+---------------------------------+
+	| a = bbbbb = c = ddddd = 1   | a     = bbbbb = c = ddddd = 1   |
+	| aaa = bbb = ccc = ddd = 10  | aaa   = bbb   = ccc = ddd = 10  |
+	| aaaaa = b = ccccc = d = 100 | aaaaa = b     = ccccc = d = 100 |
+	+-----------------------------+---------------------------------+
+<
+	NOTE: v0.2.1 以前の書式も依然として使用可能ですが、これらの書式はいず
+	れなくす予定です。
+
+	旧書式			意味
+	--------------------	--------------------------
+	{pattern}{{number}}	{number} 回だけ整列
+	{pattern}{+}		マッチが存在する限り整列
+
+複数のパターン ~
+						*alignta-multiple-patterns*
+	:Aligntaコマンドには、複数のパターンを指定できます。個々の整列は前回の
+	整列でパターンにマッチした部分より右側の部分に対して行われます。
+
+	用例： >
+	+---------------------+-------------------------+
+	| Original            | :Alignta = /* */        |
+	+---------------------+-------------------------+
+	| a = 1 /* AAAAA */   | a     = 1   /* AAAAA */ |
+	| bbb = 10 /* BBB */  | bbb   = 10  /* BBB   */ |
+	| ccccc = 100 /* C */ | ccccc = 100 /* C     */ |
+	+---------------------+-------------------------+
+<
+------------------------------------------------------------------------------
+整列オプション					*alignta-alignment-options*
+
+PADDING ALIGNMENT OPTIONS		*alignta-padding-alignment-options*
+
+	padding alignment における整列オプションの指定書式は以下の通りです。
+
+	{L-fld-align}{M-fld-align}...[{R-fld-align}][{margin}]
+
+	{L-fld-align}, {M-fld-align}, {R-fld-align} にはそれぞれフィールドの
+	パディング方法を指定します。以下のいずれかから選択できます。
+
+	+------+------------+
+	| 文字 |    意味    |
+	+------+------------+
+	|  <   | 左寄せ     |
+	|  |   | 中央寄せ   |
+	|  >   | 右寄せ     |
+	|  =   | 幅揃えのみ |
+	+------+------------+
+
+	{R-fld-align} の指定を省略した場合、{L-fld-align} の指定が適用されます。
+
+	用例： >
+	+-------------+----------------+
+	| Original    | :Alignta << =  |
+	+-------------+----------------+
+	| a =  1      | a     = 1      |
+	|  bbb = 10   | bbb   = 10     |
+	| ccccc = 100 | ccccc = 100    |
+	+-------------+----------------+
+
+	+-------------+----------------+
+	| Original    | :Alignta || =  |
+	+-------------+----------------+
+	| a =  1      |   a   =  1     |
+	|  bbb = 10   |  bbb  = 10     |
+	| ccccc = 100 | ccccc = 100    |
+	+-------------+----------------+
+
+	+-------------+----------------+
+	| Original    | :Alignta >> =  |
+	+-------------+----------------+
+	| a =  1      |     a =   1    |
+	|  bbb = 10   |   bbb =  10    |
+	| ccccc = 100 | ccccc = 100    |
+	+-------------+----------------+
+
+	+-------------+----------------+
+	| Original    | :Alignta == =  |
+	+-------------+----------------+
+	| a =  1      | a     =  1     |
+	|  bbb = 10   |  bbb  = 10     |
+	| ccccc = 100 | ccccc = 100    |
+	+-------------+----------------+
+
+	+-------------+-----------------+
+	| Original    | :Alignta <|> =  |
+	+-------------+-----------------+
+	| a =  1      | a     =   1     |
+	|  bbb = 10   | bbb   =  10     |
+	| ccccc = 100 | ccccc = 100     |
+	+-------------+-----------------+
+
+	+-------------+-----------------+
+	| Original    | :Alignta >|< =  |
+	+-------------+-----------------+
+	| a =  1      |     a = 1       |
+	|  bbb = 10   |   bbb = 10      |
+	| ccccc = 100 | ccccc = 100     |
+	+-------------+-----------------+
+<
+	{L-fld-align}, {M-fld-align} はいくつでも指定できます。マッチが複数存
+	在する場合は、それらが順番に適用されていきます。（最後の {M-fld-align}
+	の次は、最初の {L-fld-align} に戻ります。{R-fld-align} が適用されるの
+	は最後のマッチの右側部分のみとなります）
+>
+	+-------------------------------------------+
+	| Original                                  |
+	+-------------------------------------------+
+	| a = bbbbb =  c = ddddd =  e = fffff =  1  |
+	|  aaa = bbb = ccc =  ddd = eee = fff = 10  |
+	| aaaaa =  b = ccccc = d = eeeee =  f = 100 |
+	+-------------------------------------------+
+	+-----------------------------------------------------+
+	| :Alignta <<|<><=  =                                 |
+	+-----------------------------------------------------+
+	| a     = bbbbb =     c = ddddd =   e   = fffff =  1  |
+	| aaa   =  bbb  =   ccc = ddd   =  eee  =   fff = 10  |
+	| aaaaa =   b   = ccccc = d     = eeeee =     f = 100 |
+	+-----------------------------------------------------+
+<
+					*alignta-padding-alignment-margin*
+	{margin} にはフィールド間のマージンの幅を指定します。
+	書式は以下の通りです。
+
+	{L-margin}:{R-margin}
+
+	以下は簡略記法であり、指定可能な幅は 0～9 の範囲になります。
+
+	{L-margin}{R-margin}
+	{LR-margin}
+
+	マージンの指定を省略した場合、現在の値が継続して使用されます。
+
+	用例： >
+	+-------------+------------------+
+	| Original    | :Alignta <<0:0 = |
+	|             | :Alignta <<00 =  |
+	|             | :Alignta <<0 =   |
+	+-------------+------------------+
+	| a = 1       | a    =1          |
+	| bbb = 10    | bbb  =10         |
+	| ccccc = 100 | ccccc=100        |
+	+-------------+------------------+
+
+	+-------------+------------------+
+	| Original    | :Alignta ||3:3 = |
+	|             | :Alignta ||33 =  |
+	|             | :Alignta ||3 =   |
+	+-------------+------------------+
+	|   a = 1     |   a     =    1   |
+	|  bbb = 10   |  bbb    =   10   |
+	| ccccc = 100 | ccccc   =   100  |
+	+-------------+------------------+
+
+	+-------------+------------------+
+	| Original    | :Alignta <<3:1 = |
+	|             | :Alignta <<31 =  |
+	+-------------+------------------+
+	| a = 1       | a       = 1      |
+	| bbb = 10    | bbb     = 10     |
+	| ccccc = 100 | ccccc   = 100    |
+	+-------------+------------------+
+
+	+-------------+------------------+
+	| Original    | :Alignta >>1:3 = |
+	|             | :Alignta >>13 =  |
+	+-------------+------------------+
+	| a = 1       |      a =     1   |
+	| bbb = 10    |    bbb =    10   |
+	| ccccc = 100 |  ccccc =   100   |
+	+-------------+------------------+
+
+SHIFTING ALIGNMENT OPTIONS		*alignta-shifting-alignment-options*
+
+	shifting alignment における整列オプションの指定書式は以下の通りです。
+
+	{shift-method}[{margin}]
+
+	{shift-method} にはパターン開始位置の揃え方を指定します。
+	以下のいずれかを選択できます。
+
+	+------+------------------------------------+
+	| 文字 |       意味                         |
+	+------+------------------------------------+
+	| <-   | 最左の位置で揃える                 |
+	| ->   | 最右の位置で揃える                 |
+	|      |                                    |
+	| <--  | 最左の位置（タブストップ）で揃える |
+	| -->  | 最右の位置（タブストップ）で揃える |
+	+------+------------------------------------+
+
+	"<--" または "-->" を指定した場合、パターンの開始位置がタブストップの
+	位置に揃えられます。また、バッファの 'expandtab' が 0 であれば整列に
+	タブ文字が使用されます。
+
+	用例： >
+	+--------------------+--------------------+
+	| Original           | :Alignta <- b      |
+	+--------------------+--------------------+
+	| a        b c       | a      b c         |
+	| aaa       bbb  ccc | aaa    bbb  ccc    |
+	| aaaaa  bbbbb ccccc | aaaaa  bbbbb ccccc |
+	+--------------------+--------------------+
+
+	+--------------------+-----------------------+
+	| Original           | :Alignta -> b         |
+	+--------------------+-----------------------+
+	| a        b c       | a         b c         |
+	| aaa       bbb  ccc | aaa       bbb  ccc    |
+	| aaaaa  bbbbb ccccc | aaaaa     bbbbb ccccc |
+	+--------------------+-----------------------+
+
+	+------------------------+-----------------------+
+	| Original               | :Alignta <-- b        |
+	+------------------------+-----------------------+
+	| a>>--->--->--b c       | a>>--->---b c         |
+	|  aaa>->--->---bbb  ccc |  aaa>->---bbb  ccc    |
+	| aaaaa>>---bbbbb ccccc  | aaaaa>>---bbbbb ccccc |
+	+------------------------+-----------------------+
+
+	+------------------------+---------------------------+
+	| Original               | :Alignta --> b            |
+	+------------------------+---------------------------+
+	| a>>--->--->--b c       | a>>--->--->---b c         |
+	|  aaa>->--->---bbb  ccc |  aaa>->--->---bbb  ccc    |
+	| aaaaa>>---bbbbb ccccc  | aaaaa>>--->---bbbbb ccccc |
+	+------------------------+---------------------------+
+<
+	{margin} にはパターンの開始位置とその左側の部分との間に最低限もうける
+	べきマージンの幅を指定します。
+	マージンの指定を省略した場合、現在の値が継続して使用されます。
+
+MARGIN OPTIONS					*alignta-margin-options*
+
+	マージンの幅だけを指定することもできます。
+	書式は|alignta-padding-alignment-margin|と同様で、以下の通りです。
+
+	{L-margin}:{R-margin}
+
+	以下は簡略記法であり、指定可能な幅は 0～9 の範囲になります。
+
+	{L-margin}{R-margin}
+	{LR-margin}
+
+	用例： >
+	+-------------+----------------+
+	| Original    | :Alignta 0:0 = |
+	|             | :Alignta 00 =  |
+	|             | :Alignta 0 =   |
+	+-------------+----------------+
+	| a = 1       | a    =1        |
+	| bbb = 10    | bbb  =10       |
+	| ccccc = 100 | ccccc=100      |
+	+-------------+----------------+
+
+	+-------------+----------------+
+	| Original    | :Alignta 3:3 = |
+	|             | :Alignta 33 =  |
+	|             | :Alignta 3 =   |
+	+-------------+----------------+
+	| a = 1       | a       =   1  |
+	| bbb = 10    | bbb     =   10 |
+	| ccccc = 100 | ccccc   =   100|
+	+-------------+----------------+
+
+	+-------------+----------------+
+	| Original    | :Alignta 3:1 = |
+	|             | :Alignta 31 =  |
+	+-------------+----------------+
+	| a = 1       | a       = 1    |
+	| bbb = 10    | bbb     = 10   |
+	| ccccc = 100 | ccccc   = 100  |
+	+-------------+----------------+
+
+	+-------------+----------------+
+	| Original    | :Alignta 1:3 = |
+	|             | :Alignta 13 =  |
+	+-------------+----------------+
+	| a = 1       |  a     =   1   |
+	| bbb = 10    |  bbb   =   10  |
+	| ccccc = 100 |  ccccc =   100 |
+	+-------------+----------------+
+
+LINE FILTERING				*alignta-line-filtering*
+
+	整列の対象範囲のうち、特定のパターンにマッチする行、またはマッチしない
+	行だけを整列できます。
+	フィルタリングに使用するパターンの指定書式は以下の２通りです。
+
+	g/{pattern}
+	v/{pattern}
+
+	g/{pattern} によってパターンが指定されると、そのパターンにマッチする行
+	だけが整列の対象になります。v/{pattern} はその逆で、そのパターンにマッ
+	チしない行だけが整列の対象になります。
+
+	用例： >
+	+---------------+--------------------+
+	| Original      | :Alignta g/^\s*# = |
+	+---------------+--------------------+
+	| # a = 1       | # a     = 1        |
+	| # bbb = 10    | # bbb   = 10       |
+	| # ccccc = 100 | # ccccc = 100      |
+	| a = 1         | a = 1              |
+	| bbb = 10      | bbb = 10           |
+	| ccccc = 100   | ccccc = 100        |
+	+---------------+--------------------+
+
+	+---------------+--------------------+
+	| Original      | :Alignta v/^\s*# = |
+	+---------------+--------------------+
+	| # a = 1       | # a = 1            |
+	| # bbb = 10    | # bbb = 10         |
+	| # ccccc = 100 | # ccccc = 100      |
+	| a = 1         | a     = 1          |
+	| bbb = 10      | bbb   = 10         |
+	| ccccc = 100   | ccccc = 100        |
+	+---------------+--------------------+
+<
+パターンとして解釈させたい場合 ~
+					*alignta-escape-alignment-options*
+	整列オプションの書式と合致するパターンを使用したい場合は、引数リストに
+	おいて "-p" または "-pattern" の後にパターンを指定します。
+
+	用例： >
+	+---------------+----------------+
+	| Original      | :Alignta -p << |
+	+---------------+----------------+
+	| a << 1        | a     << 1     |
+	| bbb << 10     | bbb   << 10    |
+	| ccccc << 100  | ccccc << 100   |
+	+---------------+----------------+
+
+	+---------------+----------------+
+	| Original      | :Alignta -p -p |
+	+---------------+----------------+
+	| a -p 1        | a     -p 1     |
+	| bbb -p 10     | bbb   -p 10    |
+	| ccccc -p 100  | ccccc -p 100   |
+	+---------------+----------------+
+<
+==============================================================================
+設定						*alignta-settings*
+
+------------------------------------------------------------------------------
+変数						*alignta-variables*
+
+	g:alignta_default_options		*g:alignta_default_options*
+						*b:alignta_default_options*
+		:Aligntaコマンドの初期整列オプションの指定文字列
+		引数リストに整列オプションの指定文字列が現れない限り、この変数
+		に設定した整列オプションで整列が行われます。
+
+		初期値は "<<<1:1"
+
+	g:alignta_default_arguments		*g:alignta_default_arguments*
+						*b:alignta_default_arguments*
+		:Aligntaコマンドの引数リスト文字列
+		:Aligntaコマンドを引数なしで実行した場合、この変数に設定した引
+		数リストにもとづく整列が行われます。
+
+		初期値なし（未定義）
+
+バッファローカルな設定 ~
+
+	これらの変数は同名のバッファローカル変数によって設定を上書きできます。
+>
+	let b:alignta_default_arguments = '01 ,'
+<
+------------------------------------------------------------------------------
+設定例						*alignta-settings-example*
+>
+	set ambiwidth=double
+
+	xnoremap <silent> A  :Alignta =>\=<CR>
+	xnoremap <silent> a: :Alignta  01 :<CR>
+	xmap <silent><expr> as mode() !=# 'v' ? ':Alignta \S\+'."\<CR>" : 'as'
+	xnoremap al :Alignta<Space>
+<
+==============================================================================
+unite-alignta					*unite-alignta*
+
+	unite-alignta は alignta の利用を支援するための|unite|の source であり、
+	以下の機能を提供します。
+
+	1. 事前に定義した引数リストによる|:Alignta|コマンドの実行
+	2. 初期整列オプションの切り替え
+
+------------------------------------------------------------------------------
+変数						*unite-alignta-variables*
+
+				*g:unite_source_alignta_preset_arguments*
+	g:unite_source_alignta_preset_arguments
+
+		:Aligntaコマンドの引数リスト文字列のリスト
+		:Unite alignta:arguments を実行すると候補として表示されます。
+
+		詳細は|unite-alignta-usage|を参照
+
+		初期値は []
+				*g:unite_source_alignta_preset_options*
+	g:unite_source_alignta_preset_options
+
+		:Aligntaコマンドの整列オプションのリスト
+		:Unite alignta:options を実行すると候補として表示されます。
+
+		詳細は|unite-alignta-usage|を参照
+
+		初期値は autoload/unite/sources/alignta.vim を参照
+
+ラベルの設定 ~
+
+	これらの変数はリストの要素にリストを設定することで、unite.vim の候補
+	一覧に表示するラベルを設定できるようになっています。
+
+	詳細は|unite-alignta-settings-example| を参照
+
+------------------------------------------------------------------------------
+使い方						*unite-alignta-usage*
+
+	|unite|の使い方については、unite.vim のヘルプを参照して下さい。ここで
+	は、unite.vim の source である unite-alignta の使い方を説明します。
+
+事前に定義した引数リストによる整列の実行 ~
+
+	変数|g:unite_source_alignta_preset_arguments|に設定した :Aligntaコマン
+	ドの引数リストを表示するには、source の引数として "arguments" を指定し
+	て :Unite alignta を実行します。
+>
+	:Unite alignta:arguments
+<
+	候補を選択すると、現在の選択範囲に対し、その引数リストで :Aligntaコマ
+	ンドを実行します。
+
+初期整列オプションの切り替え ~
+
+	変数|g:unite_source_alignta_preset_options|に設定した :Aligntaコマンド
+	の初期整列オプションの指定を表示するには、source の引数として
+	"options" を指定して :Unite alignta を実行します。
+>
+	:Unite alignta:options
+<
+	候補を選択すると、以降の :Aligntaコマンドで使用される初期整列オプショ
+	ンにその値が反映されます。
+
+	初期整列オプションを変数|g:alignta_default_options|（または
+	|b:alignta_default_options|）の値に戻すには、候補一覧の最後にある
+	"Options: <RESET>" を選択します。
+
+------------------------------------------------------------------------------
+設定例					*unite-alignta-settings-example*
+>
+	nnoremap [unite] <Nop>
+	xnoremap [unite] <Nop>
+	nmap f [unite]
+	xmap f [unite]
+
+	let g:unite_source_alignta_preset_arguments = [
+	      \ ["Align at '='", '=>\='],  
+	      \ ["Align at ':'", '01 :'],
+	      \ ["Align at '|'", '|'   ],
+	      \ ["Align at ')'", '0 )' ],
+	      \ ["Align at ']'", '0 ]' ],
+	      \ ["Align at '}'", '}'   ],
+	      \]
+
+	let s:comment_leadings = '^\s*\("\|#\|/\*\|//\|<!--\)'
+	let g:unite_source_alignta_preset_options = [
+	      \ ["Justify Left",      '<<' ],
+	      \ ["Justify Center",    '||' ],
+	      \ ["Justify Right",     '>>' ],
+	      \ ["Justify None",      '==' ],
+	      \ ["Shift Left",        '<-' ],
+	      \ ["Shift Right",       '->' ],
+	      \ ["Shift Left  [Tab]", '<--'],
+	      \ ["Shift Right [Tab]", '-->'],
+	      \ ["Margin 0:0",        '0'  ],
+	      \ ["Margin 0:1",        '01' ],
+	      \ ["Margin 1:0",        '10' ],
+	      \ ["Margin 1:1",        '1'  ],
+	      \
+	      \ 'v/' . s:comment_leadings,
+	      \ 'g/' . s:comment_leadings,
+	      \]
+	unlet s:comment_leadings
+
+	nnoremap <silent> [unite]a :<C-u>Unite alignta:options<CR>
+	xnoremap <silent> [unite]a :<C-u>Unite alignta:arguments<CR>
+<
+==============================================================================
+TODO						*alignta-todo*
+
+==============================================================================
+既知の問題					*alignta-issues*
+
+==============================================================================
+更新履歴					*alignta-changelog*
+
+https://github.com/h1mesuke/vim-alignta/commits/master
+
+0.3.0	2011-09-25
+
+	* パターンの解釈法を変更	|alignta-patterns|
+	  - 正規表現のメタ文字を含むものは正規表現として解釈
+	
+	* パターンの解釈法を制御するための一連のオプションを追加
+
+	* 整列回数の指定書式を変更	|alignta-alignment-count|
+
+	* MARGIN OPTIONS
+	  - "@" を不要とした。
+
+0.2.1	2011-02-16
+
+	* UNITE-ALIGNTA
+	  - 候補一覧に表示するラベルを別途設定できるようにした。
+
+0.2.0	2011-02-14
+
+	* 空白を含むパターンを使用できるように修正
+
+	* PADDING ALIGNMENT
+	  - {L-fld-align}, {M-fld-align} を複数指定できるようにした。
+	  - {R-fld-align} を省略可とした。
+	  - 新たなフィールドのパディング方法として "=" を追加
+					|alignta-padding-alignment-options|
+	* SHIFTING ALIGNMENT
+	  - 整列の仕様を一新、整列オプションの指定書式も変更
+	  - タブ文字による整列を実装	|alignta-shifting-alignment-options|
+
+	* BLOCK ALIGNMENT
+	  - ブロックの幅をなるべく維持するように変更
+
+	* VARIABLES
+	  - タブ文字を含む範囲の整列時に|:retab|を使わないように変更し、
+	    g:alignta_confirm_for_retab変数を削除
+
+0.1.6	2011-01-19
+
+	* VARIABLES
+	  - 引数なしで :Aligntaコマンドを実行した場合、
+	    alignta_default_arguments変数に設定された引数リストを用いて整列を
+	    行うように変更 		|b:alignta_default_arguments|
+
+0.1.5	2011-01-18
+
+	* VARIABLES
+	  - 各オプション変数について、バッファローカル版が定義されていれば
+	    そちらの値を優先して使用するように変更
+
+vim:tw=78:ts=8:ft=help:norl:noet:fen:fdl=0:fdm=marker:

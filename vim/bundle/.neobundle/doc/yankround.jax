@@ -1,0 +1,242 @@
+*yankround.txt*	レジスタの履歴を取得・再利用する。
+
+Author  : LeafCage <leafcage+vim @ gmail.com>
+License : MIT license  {{{
+    Permission is hereby granted, free of charge, to any person obtaining
+    a copy of this software and associated documentation files (the
+    "Software"), to deal in the Software without restriction, including
+    without limitation the rights to use, copy, modify, merge, publish,
+    distribute, sublicense, and/or sell copies of the Software, and to
+    permit persons to whom the Software is furnished to do so, subject to
+    the following conditions:
+    The above copyright notice and this permission notice shall be included
+    in all copies or substantial portions of the Software.
+
+    THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS
+    OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
+    MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.
+    IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY
+    CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT,
+    TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE
+    SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+}}}
+
+==============================================================================
+目次						*yankround-contents*
+
+概要				|yankround-introduction|
+使い方				|yankround-usage|
+インターフェイス		|yankround-interface|
+  変数				  |yankround-variables|
+  コマンド			  |yankround-commands|
+  キーマッピング		  |yankround-key-mappings|
+  関数				  |yankround-functions|
+謝辞				|yankround-thanks|
+
+
+==============================================================================
+概要						*yankround-introduction*
+
+*yankround* はレジスタの履歴を取得し、再利用するためのVimプラグインです。
+|YankRing.vim|と似た役割・操作性を持ちますが、キーマッピング置き換えによる副作
+用を少なくしています。
+
+また、|unite.vim|や、|ctrlp.vim|による履歴の閲覧もサポートしています。
+|unite.vim|の機能を使う場合は|unite.vim|(https://github.com/Shougo/unite.vim)
+|ctrlp.vim|の機能を使う場合は|ctrlp.vim|(https://github.com/kien/ctrlp.vim)
+をインストールして下さい。
+
+最新版:
+https://github.com/LeafCage/yankround.vim
+
+
+==============================================================================
+使い方						*yankround-usage*
+
+* YankRing.vim的な利用法 ~
+  まず以下の設定をしてください。 >
+	nmap p <Plug>(yankround-p)
+	xmap p <Plug>(yankround-p)
+	nmap P <Plug>(yankround-P)
+	nmap gp <Plug>(yankround-gp)
+	xmap gp <Plug>(yankround-gp)
+	nmap gP <Plug>(yankround-gP)
+	nmap <C-p> <Plug>(yankround-prev)
+	nmap <C-n> <Plug>(yankround-next)
+< p でテキストの貼り付けを行った後、<C-p><C-n>で貼り付けたテキストを前の履歴・
+  次の履歴に置き換えます。カーソルを動かすと置き換えは確定されます。
+
+
+* unite.vimによる履歴の閲覧 ~
+  |unite-source-yankround|を実行して下さい。 >
+	:Unite yankround
+< レジスタ履歴が一覧表示されます。デフォルトのアクションでカーソル位置に挿入し
+  ます。<Tab>(|<Plug>(unite_choose_action)|)で詳細アクションを選択します。
+
+
+* ctrlp.vimによる履歴の閲覧 ~
+  |:CtrlPYankRound|コマンドを実行してください。
+  レジスタ履歴が一覧表示されます。履歴を選択後、
+  - <CR>で、その履歴をカーソル位置に挿入します。
+  - <C-x>(<C-s>)で、無名レジスタ " にその履歴をセットします。
+  - <C-t>で、その履歴を履歴から削除します。
+
+
+* コマンドライン内での利用 ~
+  以下のようにマッピングを定義すると、コマンドライン内で<C-r>を使って挿入した
+  文字列を<C-y>で1つ前のレジスタの内容に置き換えることができます。 >
+	cmap <C-r> <Plug>(yankround-insert-register)
+	cmap <C-y> <Plug>(yankround-pop)
+
+< 以下のようにするとEmacsライクに<C-y>で無名レジスタ挿入、<M-y>で置き換えとい
+  う挙動になります。 >
+	cmap <C-y> <Plug>(yankround-insert-register)"
+	cmap <M-y> <Plug>(yankround-pop)
+
+
+==============================================================================
+インターフェイス				*yankround-interface*
+
+------------------------------------------------------------------------------
+変数						*yankround-variables*
+
+g:yankround_dir					*g:yankround_dir*
+	既定値: "~/.config/vim/yankround"
+	このディレクトリ以下に履歴を永続化したファイルが作られる。
+
+
+g:yankround_max_history				*g:yankround_max_history*
+	既定値: 30
+	取得する履歴の限界値。
+
+
+g:yankround_max_element_length		*g:yankround_max_element_length*
+	既定値: 512000
+	文字列長がこれより長いレジスタの内容は記録されない。0にすると無効。
+
+
+g:yankround_use_region_hl			*g:yankround_use_region_hl*
+	既定値: 0
+	非0 だと、yankroundによって貼り付けた、置き換え可能な文字列が
+	|g:yankround_region_hl_groupname|によってハイライトされる。カーソルを
+	動かすまで有効である。
+
+
+g:yankround_region_hl_groupname		*g:yankround_region_hl_groupname*
+	既定値: "YankRoundRegion"
+	|g:yankround_use_region_hl|が 非0 のとき、このグループ名のハイライトに
+	よって貼り付けた文字列がハイライトされる。カーソルを動かすまで有効。
+	また、YankRoundRegionのハイライトを書き換えることで見た目を変更するこ
+	とも可能。
+	例: >
+	  autocmd ColorScheme * highlight YankRoundRegion guibg=Orange
+
+
+------------------------------------------------------------------------------
+コマンド					*yankround-commands*
+
+:CtrlPYankRound					*:CtrlPYankRound*
+	|ctrlp.vim|のyankround拡張を呼ぶ。|yankround-usage|参照。
+
+
+------------------------------------------------------------------------------
+キーマッピング					*yankround-key-mappings*
+
+|YankRing.vim|のような使い方をしたいのならキーマッピングは必須である。
+
+<Plug>(yankround-p)				*<Plug>(yankround-p)*
+	有効モード: ノーマル ビジュアル
+	通常の|p|の役割を果たす。この後、カーソルを動かすまで、
+	|<Plug>(yankround-prev)||<Plug>(yankround-next)|が有効になる。
+	ビジュアルモードで使用した場合、ビジュアル選択されている文字列をレジス
+	タ文字列と置き換えて、ビジュアル選択されていた文字列がレジスタに入る。
+	|v_p|
+
+
+<Plug>(yankround-P)				*<Plug>(yankround-P)*
+	有効モード: ノーマル ビジュアル
+	通常の|P|の役割を果たす。この後、カーソルを動かすまで、
+	|<Plug>(yankround-prev)||<Plug>(yankround-next)|が有効になる。
+	ビジュアルモードでの挙動は|<Plug>(yankround-p)|と同じである。
+
+
+<Plug>(yankround-gp)				*<Plug>(yankround-gp)*
+	有効モード: ノーマル ビジュアル
+	通常の|gp|の役割を果たす。この後、カーソルを動かすまで、
+	|<Plug>(yankround-prev)||<Plug>(yankround-next)|が有効になる。
+	ビジュアルモードで使用した場合、ビジュアル選択されている文字列をレジス
+	タ文字列と置き換えて、ビジュアル選択されていた文字列がレジスタに入る。
+	カーソルは置き換えられた文字列の後ろに来る。|v_p|
+
+
+<Plug>(yankround-gP)				*<Plug>(yankround-gP)*
+	有効モード: ノーマル
+	通常の|gP|の役割を果たす。この後、カーソルを動かすまで、
+	|<Plug>(yankround-prev)||<Plug>(yankround-next)|が有効になる。
+	ビジュアルモードでの挙動は|<Plug>(yankround-gp)|と同じである。
+
+
+<Plug>(yankround-prev)				*<Plug>(yankround-prev)*
+	有効モード: ノーマル
+	|<Plug>(yankround-p)| |<Plug>(yankround-P)| |<Plug>(yankround-gp)|
+	|<Plug>(yankround-gP)|のいずれかが先に行われていないと機能しない。
+	貼り付けたテキストを古い履歴のものに置き換える。
+	カーソルを動かすまで有効である。
+
+
+<Plug>(yankround-next)				*<Plug>(yankround-next)*
+	有効モード: ノーマル
+	|<Plug>(yankround-p)| |<Plug>(yankround-P)| |<Plug>(yankround-gp)|
+	|<Plug>(yankround-gP)|のいずれかが先に行われていないと機能しない。
+	貼り付けたテキストを新しい履歴のものに置き換える。
+	カーソルを動かすまで有効である。
+
+
+<Plug>(yankround-insert-register)	*<Plug>(yankround-insert-register)*
+	有効モード: コマンドライン
+	|c_<C-r>|とほぼ同じ挙動をする。|c_<C-r>|をタイプしたときと同じように
+	Vimはあなたがレジスタ名を入力するのを待つ。
+	これの直後は|<Plug>(yankround-pop)| |<Plug>(yankround-backpop)|による
+	挿入文字列の置き換えが有効になる。
+
+
+<Plug>(yankround-pop)				*<Plug>(yankround-pop)*
+	有効モード: コマンドライン
+	|<Plug>(yankround-insert-register)|で挿入した文字列を1つ前の無名レジス
+	タの内容に置き換える。
+
+
+<Plug>(yankround-backpop)			*<Plug>(yankround-backpop)*
+	有効モード: コマンドライン
+	|<Plug>(yankround-insert-register)|で挿入した文字列を1つ後の無名レジス
+	タの内容に置き換える。
+
+
+------------------------------------------------------------------------------
+関数						*yankround-functions*
+
+yankround#is_active()				*yankround#is_active*
+	|<Plug>(yankround-prev)||<Plug>(yankround-next)|が有効なときに1が返る
+	。そうでなければ0。
+	<expr>を使ったマッピングで、yankroundが有効でないときには別の動作をさ
+	せたいときに使う。
+	例: yankroundが有効でないときには<C-p>で|ctrlp.vim|を呼ぶ。 >
+ nnoremap <silent><SID>(ctrlp) :<C-u>CtrlP<CR>
+ nmap <expr><C-p> yankround#is_active() ? "\<Plug>(yankround-prev)" : "<SID>(ctrlp)"
+
+
+yankround#is_cmdline_popable()		*yankround#is_cmdline_popable()*
+	|<Plug>(yankround-pop)| |<Plug>(yankround-backpop)|が有効なら 1 そうで
+	なければ 0 を返す。
+
+
+==============================================================================
+謝辞						*yankround-thanks*
+
+このプラグインは、|unite-source-history/yank|(Shougo Matsushita 氏)と、
+|YankRing.vim|(David Fishburn 氏)から設計のヒントを得ています。
+この場を借りてお礼申し上げます。
+
+
+==============================================================================
+vim:tw=78:ts=8:ft=help:norl:noet:fen:

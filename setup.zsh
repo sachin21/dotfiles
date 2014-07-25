@@ -55,7 +55,7 @@ echo "pyenv success install"
 
 # install nodenv
 [ ! -d ~/.nodenv ] && git clone https://github.com/OiNutter/nodenv.git ~/.nodenv
-[ ! -d ~/.nodenv ] && git clone git://github.com/OiNutter/node-build.git ~/.nodenv/plugins/node-build.git
+[ ! -d ~/.nodenv/.nodenv/plugins/node-build ] && git clone git://github.com/OiNutter/node-build.git ~/.nodenv/plugins/node-build
 ~/.nodenv/plugins/node-build/install.sh
 echo "nodenv success install"
 

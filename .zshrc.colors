@@ -1,18 +1,4 @@
-# 'dircolors -p'で出力されるものに手を加えて保存したものを読み込んでる。
-if [ -f ~/.dir_colors ]; then
-  eval `dircolors -b ~/.dir_colors`
-fi
-
-# glsを使う
-# http://qiita.com/items/84fa4e051c3325098be3
-export LS_COLORS
-if [ -f ~/.dircolors ]; then
-if type dircolors > /dev/null 2>&1; then
-eval $(dircolors ~/.dircolors)
-elif type gdircolors > /dev/null 2>&1; then
-eval $(gdircolors ~/.dircolors)
-fi
-fi
+eval `gdircolors ~/.dircolors`
 
 if [ -f ~/.zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh ]; then
   source ~/.zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh

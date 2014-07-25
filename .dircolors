@@ -60,6 +60,8 @@ TERM cons25
 TERM console
 TERM cygwin
 TERM dtterm
+TERM dvtm
+TERM dvtm-256color
 TERM Eterm
 TERM eterm-color
 TERM fbterm
@@ -75,6 +77,7 @@ TERM mach-color
 TERM mlterm
 TERM nxterm
 TERM putty
+TERM putty-256color
 TERM rxvt
 TERM rxvt-256color
 TERM rxvt-cygwin
@@ -83,13 +86,22 @@ TERM rxvt-unicode
 TERM rxvt-unicode256
 TERM rxvt-unicode-256color
 TERM screen
+TERM screen-16color
+TERM screen-16color-bce
+TERM screen-16color-s
+TERM screen-16color-bce-s
 TERM screen-256color
 TERM screen-256color-bce
 TERM screen-256color-s
+TERM screen-256color-bce-s
 TERM screen-bce
 TERM screen-w
 TERM screen.linux
 TERM screen.xterm-new
+TERM st
+TERM st-meta
+TERM st-256color
+TERm st-meta-256color
 TERM vt100
 TERM xterm
 TERM xterm-new
@@ -214,10 +226,16 @@ EXEC 01;31  # Unix
 .htm 32
 .html 32
 .shtml 32
+.erb 32
+.haml 32
 .xml 32
 .rdf 32
 .css 32
+.sass 32
+.scss 32
+.less 32
 .js 32
+.coffee 32
 .man 32
 .0 32
 .1 32
@@ -311,6 +329,7 @@ EXEC 01;31  # Unix
 .rmvb 33
 .swf 33
 .vob 33
+.webm 33
 .wmv 33
 
 ### Misc
@@ -429,3 +448,4 @@ EXEC 01;31  # Unix
 .3des 34
 .aes 34
 .enc 34
+.sqlite 34

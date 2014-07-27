@@ -1,0 +1,23 @@
+#!/usr/bin/env bash
+set -e
+set -x
+
+export RUBY_CONFIGURE_OPTS=" \
+  --enable-shared \
+  --with-readline-dir=$(brew --prefix readline)
+  --with-openssl-dir=$(brew --prefix openssl)
+  "
+export MAKE_OPTS="-j4"
+
+for TARGET_VERSION in $@; do
+  rbenv install $TARGET_VERSION
+
+  export RBENV_VERSION=$TARGET_VERSION
+
+  gem install bundler
+  gem install rails -v '~> 4.0.1'
+  gem install rails -v '~> 4.1.1'
+  gem install rails -v '~> 4.1.4'
+
+  rbenv rehash
+done

@@ -3,7 +3,7 @@
 ## instalition
 
 ```
-cd ~/dotfiles && chmod u+x setup.sh
-./setup.sh
+cd ~/dotfiles && chmod u+x setup.zsh
+./setup.zsh
 Mac user 'm' : Centos user 'c' : Arch user 'a' [m/c/a] (enter
 ```

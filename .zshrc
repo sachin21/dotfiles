@@ -1,7 +1,7 @@
 source ~/dotfiles/tmux/tmuxinator.zsh
-source ~/dotfiles/.zshrc.config
-source ~/dotfiles/.zshrc.settings
-source ~/dotfiles/.zshrc.zaw
-source ~/dotfiles/.zshrc.env
-source ~/dotfiles/.zshrc.colors
-source ~/dotfiles/.zshrc.alias
+source ~/dotfiles/zsh.dot/zshrc.config
+source ~/dotfiles/zsh.dot/zshrc.settings
+source ~/dotfiles/zsh.dot/zshrc.zaw
+source ~/dotfiles/zsh.dot/zshrc.env
+source ~/dotfiles/zsh.dot/zshrc.colors
+source ~/dotfiles/zsh.dot/zshrc.alias

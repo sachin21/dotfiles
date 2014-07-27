@@ -77,5 +77,6 @@ function! s:do_git_diff_aware_gf(command)
   endif
 endfunction
 
-" insert mode でjjでesc
+" insert mode でjj, kkでesc
 inoremap jj <Esc>
+inoremap kk <Esc>

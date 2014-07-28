@@ -126,6 +126,7 @@ cask install iexplorer
 cask install picasa
 cask install istat-menus
 cask install virtualbox
+cask install vagrant
 
 cask alfred link
 

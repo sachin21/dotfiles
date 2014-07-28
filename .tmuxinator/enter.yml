@@ -1,0 +1,17 @@
+name: enter
+root: ~/DevelopersApp/sachin21dev/rails_apps/enterrrrrr
+
+pre:
+  - mysql.server start
+
+windows:
+  - development:
+    - rbenv rehash
+    - ruby -v
+  - setup:
+      layout: 720a,204x51,0,0{102x51,0,0,44,101x51,103,0,46}
+      panes:
+        - Editor:
+          - subl .
+        - Tig:
+          - tig stash

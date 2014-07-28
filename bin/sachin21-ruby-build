@@ -16,9 +16,9 @@ for TARGET_VERSION in $@; do
 
   gem install bundler
   gem install awesome_print
-  gem install rails -v '~> 4.0.1'
-  gem install rails -v '~> 4.1.1'
-  gem install rails -v '~> 4.1.4'
+  gem install rails -v '4.0.1'
+  gem install rails -v '4.1.1'
+  gem install rails -v '4.1.4'
 
   rbenv rehash
 done

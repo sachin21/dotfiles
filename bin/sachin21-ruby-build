@@ -15,6 +15,7 @@ for TARGET_VERSION in $@; do
   export RBENV_VERSION=$TARGET_VERSION
 
   gem install bundler
+  gem install awesome_print
   gem install rails -v '~> 4.0.1'
   gem install rails -v '~> 4.1.1'
   gem install rails -v '~> 4.1.4'

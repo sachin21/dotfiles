@@ -14,12 +14,12 @@ elif [ $flag = 'c' -o $flag = 'C' ]
   then
   sudo yum -y update
   sudo yum -y upgrade
-  for package in `cat ./yum_install_list`; do; yum -y install $package; done
+  for package in `cat ./package_lists/yum`; do; yum -y install $package; done
   sudo yum -y clean
 elif [ $flag = 'a' -o $flag = 'A' ]
   then
   sudo pacman -Sy
-  for package in `cat ./pacman_install_list`; do; sudo pacman -S $package; done
+  for package in `cat ./package_lists/pacman`; do; sudo pacman -S $package; done
 else
   echo "You can input is only 'm', 'c' and 'a'"
   exit 1

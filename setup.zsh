@@ -27,7 +27,7 @@ fi
 echo "tools success install"
 
 # set links
-DOT_FILES=( .zsh .zshrc .gemrc .vimrc .gitconfig .tmux.conf .dir_colors .pryrc tmux )
+DOT_FILES=( .zsh .zshrc .gemrc .vimrc .gitconfig .bundle .tmux.conf .dir_colors .pryrc tmux )
 
 for file in ${DOT_FILES[@]}
   do

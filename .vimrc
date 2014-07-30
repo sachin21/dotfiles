@@ -1,27 +1,27 @@
 "NeoBundleで管理してるpluginを読み込む
-source ~/dotfiles/vim/vimrc.bundle
+source ~/dotfiles/vim.dot/vimrc.bundle
 "基本設定
-source ~/dotfiles/vim/vimrc.basic
+source ~/dotfiles/vim.dot/vimrc.basic
 "StatusLine設定
-source ~/dotfiles/vim/vimrc.statusline
+source ~/dotfiles/vim.dot/vimrc.statusline
 "インデント設定
-source ~/dotfiles/vim/vimrc.indent
+source ~/dotfiles/vim.dot/vimrc.indent
 "表示関連
-source ~/dotfiles/vim/vimrc.apperance
+source ~/dotfiles/vim.dot/vimrc.apperance
 "補完関連
-source ~/dotfiles/vim/vimrc.completion
+source ~/dotfiles/vim.dot/vimrc.completion
 "検索関連
-source ~/dotfiles/vim/vimrc.search
+source ~/dotfiles/vim.dot/vimrc.search
 "移動関連
-source ~/dotfiles/vim/vimrc.moving
+source ~/dotfiles/vim.dot/vimrc.moving
 "Color関連
-source ~/dotfiles/vim/vimrc.colors
+source ~/dotfiles/vim.dot/vimrc.colors
 "編集関連
-source ~/dotfiles/vim/vimrc.editing
+source ~/dotfiles/vim.dot/vimrc.editing
 "エンコーディング関連
-source ~/dotfiles/vim/vimrc.encoding
+source ~/dotfiles/vim.dot/vimrc.encoding
 "その他
-source ~/dotfiles/vim/vimrc.misc
+source ~/dotfiles/vim.dot/vimrc.misc
 "プラグインに依存するアレ
-source ~/dotfiles/vim/vimrc.plugins_setting
+source ~/dotfiles/vim.dot/vimrc.plugins_setting
 

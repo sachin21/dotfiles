@@ -53,9 +53,6 @@ endif
   " undo履歴を追える (need python support)
   NeoBundle 'Gundo'
 
-  " surround.vim : テキストを括弧で囲む／削除する
-  NeoBundle 'tpope/surround.vim'
-
   " smartchr.vim : ==などの前後を整形
   NeoBundle 'smartchr'
 
@@ -113,13 +110,6 @@ endif
 
   " neocomplcacheのsinpet補完
   NeoBundle 'Shougo/neosnippet.git'
-
-  " various langueages snippets
-  NeoBundle 'honza/snipmate-snippets'
-
-  " for rsense
-  NeoBundle 'm2ym/rsense'
-  NeoBundle 'taichouchou2/vim-rsense'
 
   " rubyでrequire先を補完する
   " NeoBundle 'ujihisa/neco-ruby'

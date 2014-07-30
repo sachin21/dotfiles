@@ -1,4 +1,4 @@
-"vunldevimで管理してるpluginを読み込む
+"NeoBundleで管理してるpluginを読み込む
 source ~/dotfiles/vim/vimrc.bundle
 "基本設定
 source ~/dotfiles/vim/vimrc.basic

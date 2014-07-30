@@ -25,7 +25,6 @@ install cmatrix
 install coreutils
 install crunch
 install curl
-install curl-ca-bundle
 install fish
 install fontconfig
 install fontforge
@@ -38,7 +37,6 @@ install gibo
 install git
 install gmp
 install gmp4
-install httpd
 install hub
 install imagemagick
 install imagemagick-ruby186

@@ -66,6 +66,6 @@ echo "tmuxinator success install"
 # reload shell
 exec $SHELL
 
-echo "Your shell reloaded"
+echo "your shell reloaded"
 echo "all success install"
 

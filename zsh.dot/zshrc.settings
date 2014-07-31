@@ -3,9 +3,9 @@ SPROMPT="%r? べ、 別にあんたのために修正したんじゃないから
 
 # Use clipboard in console
 if which pbcopy >/dev/null 2>&1 ; then
-  # Mac
+  # for Mac
   alias -g C='| pbcopy'
 elif which xsel >/dev/null 2>&1 ; then
-  # Linux
+  # for Linux
   alias -g C='| xsel --input --clipboard'
 fi

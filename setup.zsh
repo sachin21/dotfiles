@@ -26,10 +26,9 @@ echo "tools success install"
 # set links
 DOT_FILES=( .zsh .zshrc .gemrc .vimrc .gitconfig .bundle .tmux.conf .dir_colors .pryrc tmux )
 
-for file in ${DOT_FILES[@]}
-  do
+for file in ${DOT_FILES[@]}; do
     ln -fs ~/dotfiles/$file ~/$file
-  done
+done
 echo "set links done"
 
 # install oh-my-zsh

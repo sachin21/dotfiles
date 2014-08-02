@@ -13,6 +13,7 @@ install brew-cask
 
 # tools
 install ack
+install apple-gcc42
 install autoconf
 install autojump
 install automake
@@ -20,6 +21,7 @@ install bdw-gc
 install brew-cask
 install cloog
 install cloog-ppl015
+install cloog018
 install cmake
 install cmatrix
 install coreutils
@@ -31,6 +33,7 @@ install fontforge
 install freetype
 install gcc
 install gcc47
+install gcc48
 install gdbm
 install gettext
 install gibo
@@ -41,6 +44,7 @@ install hub
 install imagemagick
 install imagemagick-ruby186
 install isl
+install isl011
 install jenkins
 install jpeg
 install libevent
@@ -66,11 +70,11 @@ install openssl
 install ossp-uuid
 install pcre
 install phantomjs
-install php54
 install pixman
 install pkg-config
 install postgresql
 install ppl011
+install python
 install qt
 install readline
 install reattach-to-user-namespace

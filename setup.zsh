@@ -5,19 +5,16 @@ echo -n "MacOS user 'm' : Centos user 'c' : ArchLinux user [m/c/a] : "
   read flag
 
 # setup tools
-if [ $flag = 'm' -o $flag = 'M' ]
-  then
+if [ $flag = 'm' -o $flag = 'M' ]; then
   ruby -e "$(curl -fsSL https://raw.github.com/Homebrew/homebrew/go/install)"
   cd ~/dotfiles
   brew bundle
-elif [ $flag = 'c' -o $flag = 'C' ]
-  then
+elif [ $flag = 'c' -o $flag = 'C' ]; then
   sudo yum -y update
   sudo yum -y upgrade
   for package in `cat ./package_lists/yum`; do; yum -y install $package; done
   sudo yum -y clean
-elif [ $flag = 'a' -o $flag = 'A' ]
-  then
+elif [ $flag = 'a' -o $flag = 'A' ]; then
   sudo pacman -Sy
   for package in `cat ./package_lists/pacman`; do; sudo pacman -S $package; done
 else

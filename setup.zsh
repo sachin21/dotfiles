@@ -27,7 +27,7 @@ echo "tools success install"
 DOT_FILES=( .zsh .zshrc .gemrc .vimrc .gitconfig .bundle .tmux.conf .dir_colors .pryrc tmux )
 
 for file in ${DOT_FILES[@]}; do
-    ln -fs ~/dotfiles/$file ~/$file
+  ln -fs ~/dotfiles/$file ~/$file
 done
 echo "set links done"
 

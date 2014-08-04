@@ -1,6 +1,6 @@
 ## sachin21's dotfiles
 
-## instalition
+## installation
 
 ```
 # Clone from GitHub into ~/dotfiles

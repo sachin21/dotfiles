@@ -64,4 +64,5 @@ exec $SHELL
 
 echo "your shell reloaded"
 echo "all success install"
-
+echo '\n** you need to change shell **
+ex: chsh -s /usr/local/bin/zsh'

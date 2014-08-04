@@ -1,4 +1,4 @@
-# only my alias
+# only my aliases
 
 alias ls='ls --color=auto'
 alias src='exec $SHELL'

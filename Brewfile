@@ -96,40 +96,38 @@ install zlib
 install zsh
 
 # .dmg apps
-cask install java
-cask install google-chrome
 cask install alfred
-cask install yorufukurou
-cask install skype
-cask install utorrent
-cask install sequel-pro
-cask install evernote
-cask install slack
-cask install sublime-text
-cask install iterm2
-cask install karabiner
-cask install the-unarchiver
 cask install clipmenu
-cask install kobito
-cask install skitch
-cask install xtrafinder
-cask install transmit
-cask install opera
-cask install firefox
-cask install mou
-cask install istat-menus
-cask install google-japanese-ime
 cask install dash
+cask install evernote
+cask install firefox
 cask install flux
-cask install sparrow
-cask install xld
+cask install google-chrome
+cask install google-japanese-ime
 cask install hipchat
 cask install iexplorer
-cask install picasa
 cask install istat-menus
-cask install virtualbox
+cask install iterm2
+cask install java
+cask install karabiner
+cask install kobito
+cask install mou
+cask install opera
+cask install picasa
+cask install sequel-pro
+cask install skitch
+cask install skype
+cask install slack
+cask install sparrow
+cask install sublime-text
+cask install the-unarchiver
+cask install transmit
+cask install utorrent
 cask install vagrant
-
+cask install virtualbox
+cask install xld
+cask install xtrafinder
+cask install yorufukurou
 cask alfred link
 
 cleanup

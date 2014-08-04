@@ -314,4 +314,7 @@ NeoBundleLazy "lambdalisue/vim-pyenv", {
       \   "filetypes": ["python", "python3", "djangohtml"]
       \ }}
 
+" 複数カーソル
+NeoBundle 'mattn/multi-vim'
+
 filetype plugin indent on

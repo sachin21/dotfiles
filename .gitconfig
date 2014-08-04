@@ -1,5 +1,9 @@
 [user]
-  name = sachin21
+name = sachin21
   email = sachin21.developer@gmail.com
 [core]
   editor = vim
+[github]
+  user = sachin21
+[url "git@github.com:"]
+  pushinsteadof = https://github.com/

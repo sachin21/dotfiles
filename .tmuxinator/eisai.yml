@@ -1,0 +1,12 @@
+name: eisai
+root: ~/DevelopersApp/sachin21dev/rails_apps/EisaiGenerator
+
+pre:
+  - mysql.server start
+
+windows:
+  - console:
+    - rbenv rehash
+    - ruby -v
+  - develop:
+    - vim

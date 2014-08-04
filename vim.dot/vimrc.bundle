@@ -315,6 +315,6 @@ NeoBundleLazy "lambdalisue/vim-pyenv", {
       \ }}
 
 " 複数カーソル
-NeoBundle 'mattn/multi-vim'
+NeoBundle 'terryma/vim-multiple-cursors'
 
 filetype plugin indent on

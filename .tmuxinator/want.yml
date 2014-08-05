@@ -1,0 +1,12 @@
+name: want
+root: ~/DevelopersApp/wantedly/wantedly
+
+pre:
+  - mysql.server start
+
+windows:
+  - console:
+    - rbenv rehash
+    - ruby -v
+  - develop:
+    - vim

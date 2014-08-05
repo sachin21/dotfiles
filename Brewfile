@@ -128,6 +128,7 @@ cask install virtualbox
 cask install xld
 cask install xtrafinder
 cask install yorufukurou
+
 cask alfred link
 
 cleanup

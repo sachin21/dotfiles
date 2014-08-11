@@ -3,6 +3,7 @@ root: ~/DevelopersApp/wantedly/wantedly
 
 pre:
   - mysql.server start
+  - elasticsearch -d
 
 windows:
   - console:

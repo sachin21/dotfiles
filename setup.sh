@@ -1,4 +1,4 @@
-#!/usr/bin/env zsh
+#!/usr/bin/env sh
 
 # check os
 echo -n "MacOS user 'm' : Centos user 'c' : ArchLinux user [m/c/a] : "

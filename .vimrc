@@ -20,8 +20,7 @@ source ~/dotfiles/vim.dot/vimrc.colors
 source ~/dotfiles/vim.dot/vimrc.editing
 "エンコーディング関連
 source ~/dotfiles/vim.dot/vimrc.encoding
-"その他
-source ~/dotfiles/vim.dot/vimrc.misc
 "プラグインに依存するアレ
 source ~/dotfiles/vim.dot/vimrc.plugins_setting
-
+"その他
+source ~/dotfiles/vim.dot/vimrc.misc

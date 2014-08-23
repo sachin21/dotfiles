@@ -9,6 +9,7 @@ if [ $flag = 'm' -o $flag = 'M' ]; then
   ruby -e "$(curl -fsSL https://raw.github.com/Homebrew/homebrew/go/install)"
   cd ~/dotfiles
   brew bundle
+  cp zsh.dot/zshrc.local.sample zsh.dot/zshrc.local
 elif [ $flag = 'c' -o $flag = 'C' ]; then
   sudo yum -y update
   sudo yum -y upgrade

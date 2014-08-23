@@ -2,11 +2,20 @@
 set -e
 set -x
 
-export RUBY_CONFIGURE_OPTS=" \
-  --enable-shared \
-  --with-readline-dir=$(brew --prefix readline)
-  --with-openssl-dir=$(brew --prefix openssl)
-  "
+# check os
+echo -n "If you using mac then enter m/M"
+  read flag
+
+# setup tools
+if [ $flag = 'm' -o $flag = 'M' ]; then
+
+  export RUBY_CONFIGURE_OPTS=" \
+    --enable-shared \
+    --with-readline-dir=$(brew --prefix readline)
+    --with-openssl-dir=$(brew --prefix openssl)
+    "
+fi
+
 export MAKE_OPTS="-j4"
 
 for TARGET_VERSION in $@; do

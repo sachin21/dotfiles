@@ -6,3 +6,4 @@ source ~/dotfiles/zsh.dot/zshrc.colors
 source ~/dotfiles/zsh.dot/zshrc.alias
 source ~/dotfiles/zsh.dot/zshrc.env
 source ~/dotfiles/zsh.dot/zshrc.functions
+source ~/dotfiles/zsh.dot/zshrc.local

@@ -17,4 +17,4 @@ Icon
 .Trashes
 
 .zshrc.security_infos
-zsh.dot/.zshrc.local
+zsh.dot/zshrc.local

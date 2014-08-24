@@ -112,10 +112,10 @@ endif
   NeoBundle 'Shougo/neosnippet.git'
 
   " rubyでrequire先を補完する
-  " NeoBundle 'ujihisa/neco-ruby'
+  NeoBundle 'ujihisa/neco-ruby'
 
   " A neocomplcache plugin for English, using look command
-  " NeoBundle 'ujihisa/neco-look'
+  NeoBundle 'ujihisa/neco-look'
 " }}}
 
   " vim-smartword : 単語移動がスマートな感じで

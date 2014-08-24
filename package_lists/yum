@@ -428,3 +428,4 @@ zlib.x86_64
 zlib-devel.x86_64
 zlib-static.x86_64
 zsh.x86_64
+tig

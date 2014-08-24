@@ -1,3 +1,3 @@
-eval `gdircolors ~/.dircolors`
+eval `dircolors ~/.dircolors`
 
 source ~/zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh

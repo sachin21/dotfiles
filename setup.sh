@@ -15,7 +15,7 @@ elif [ $flag = 'c' -o $flag = 'C' ]; then
   sudo yum -y upgrade
 
   for rpm in `cat ./package_repo/rpm`; do
-    sudo rpm $rpm
+    sudo rpm -ivh $rpm
   done
 
   for package in `cat ./package_lists/yum`; do

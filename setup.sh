@@ -90,7 +90,7 @@ function install_sachin21_projects() {
 echo -n "If you want to create sachin21 of projects"
   read flag
 
-# setup tools
+# setup repositories
 if [ $flag = 'y' -o $flag = 'Y' ]; then
   install_sachin21_projects
 fi

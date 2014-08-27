@@ -1,0 +1,13 @@
+name: up
+root: ~/DevelopersApp/sachin21dev/rails_apps/imageUploader
+
+pre:
+  - mysql.server start
+
+windows:
+  - console:
+    - rbenv rehash
+    - ruby -v
+    - cat .ruby-version
+  - develop:
+    - vim

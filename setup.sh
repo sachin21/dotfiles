@@ -1,7 +1,7 @@
 #!/usr/bin/env sh
 
 # check os
-echo -n "MacOS user 'm' : Centos user 'c' : ArchLinux user [m/c/a] : "
+echo "MacOS user 'm' : Centos user 'c' : ArchLinux user [m/c/a] : "
   read flag
 
 # setup tools
@@ -87,7 +87,7 @@ function install_sachin21_projects() {
   git clone https://github.com/sachin21/diary.sachin21.info ./sachin21.info/diary.sachin21.info
 }
 
-echo -n "If you want to create sachin21 of projects"
+echo "If you want to create sachin21 of projects"
   read flag
 
 # setup repositories

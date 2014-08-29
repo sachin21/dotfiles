@@ -5,6 +5,10 @@ upgrade
 # for ricty
 tap sanemat/font
 
+# for peco
+tap peco/peco
+install peco
+
 # for cask
 tap homebrew/versions
 tap phinze/homebrew-cask

@@ -24,3 +24,4 @@ alias .='open .'
 alias n='noglob'
 alias -g V="| vim -R -"
 alias sp='rails s puma'
+alias -g A='| ag'

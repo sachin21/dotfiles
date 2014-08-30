@@ -21,6 +21,7 @@ install apple-gcc42
 install autoconf
 install autojump
 install automake
+install bash
 install bdw-gc
 install binutils
 install bison
@@ -81,6 +82,7 @@ install node
 install openssl
 install ossp-uuid
 install pcre
+install peco
 install phantomjs
 install pixman
 install pkg-config
@@ -94,6 +96,7 @@ install redis
 install ricty
 install sl
 install sqlite
+install the_platinum_searcher
 install the_silver_searcher
 install tig
 install tmux

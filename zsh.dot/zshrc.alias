@@ -15,7 +15,6 @@ alias vi='vim'
 alias fs='bundle exec foreman start'
 alias sl='subl .'
 alias quit='exit'
-alias be="bundle exec"
 alias zmv='noglob zmv -W'
 alias tree='tree | less'
 alias t='tmux'

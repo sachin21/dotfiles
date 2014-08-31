@@ -102,3 +102,8 @@ function! s:toggle_qf_window()
 endfunction
 nnoremap <silent> cw :call <SID>toggle_qf_window()<CR>
 
+" 行移動を全てg込で行う
+nnoremap j gj
+nnoremap k gk
+nnoremap gj j
+nnoremap gk k

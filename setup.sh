@@ -1,5 +1,9 @@
 #!/usr/bin/env sh
 
+# init other package
+git submodule init
+git submodule update
+
 # check os
 echo "MacOS user 'm' : Centos user 'c' : ArchLinux user [m/c/a] : "
   read flag

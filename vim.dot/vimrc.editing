@@ -75,15 +75,6 @@ inoremap <expr> ,df strftime('%Y/%m/%d %H:%M:%S')
 inoremap <expr> ,dd strftime('%Y/%m/%d')
 inoremap <expr> ,dt strftime('%H:%M:%S')
 
-" foldは各FiltTypeにお任せる
-" set foldmethod=syntax
-" 折りたたみは全て展開した状態で開始する
-" set foldlevelstart=99
-" .vimはmarker
-" autocmd FileType vim :set foldmethod=marker
-
-" <leader>j でJSONをformat
-" http://wozozo.hatenablog.com/entry/2012/02/08/121504
 map <Leader>j !python -m json.tool<CR>
 
 " quickfixウィンドウではq/ESCで閉じる

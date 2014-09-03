@@ -1,0 +1,13 @@
+name: nuko
+root: ~/DevelopersApp/sachin21dev/rails_apps/nuko
+
+pre:
+  - mysql.server start
+
+windows:
+  - console:
+    - rbenv rehash
+    - ruby -v
+    - cat .ruby-version
+  - develop:
+    - vim

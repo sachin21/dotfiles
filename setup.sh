@@ -85,6 +85,7 @@ function install_sachin21_projects() {
 
   git clone https://github.com/sachin21/jd-rank ./rails_apps/jd-rank
   git clone https://github.com/sachin21/enterrrrrr ./rails_apps/enterrrrrr
+  git clone https://github.com/sachin21/nuko ./rails_apps/nuko
   git clone https://github.com/sachin21/space2underscore ./utilities/gems/space2underscore
   git clone https://github.com/sachin21/space2dot ./utilities/gems/space2dot
   git clone https://github.com/sachin21/profile.sachin21.info ./sachin21.info/profile.sachin21.info

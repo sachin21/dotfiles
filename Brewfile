@@ -36,6 +36,8 @@ install crunch
 install csvprintf
 install curl
 install elasticsearch
+install faac
+install ffmpeg
 install fish
 install fontconfig
 install fontforge
@@ -59,6 +61,7 @@ install isl
 install isl011
 install jenkins
 install jpeg
+install lame
 install libevent
 install libiconv
 install libmpc
@@ -106,6 +109,8 @@ install v8
 install vim
 install w3m
 install wget
+install x264
+install xvid
 install xz
 install zlib
 install zsh

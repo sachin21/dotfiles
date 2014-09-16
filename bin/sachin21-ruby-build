@@ -8,7 +8,6 @@ echo -n "If you using mac then enter m/M"
 
 # setup tools
 if [ $flag = 'm' -o $flag = 'M' ]; then
-
   export RUBY_CONFIGURE_OPTS=" \
     --enable-shared \
     --with-readline-dir=$(brew --prefix readline)

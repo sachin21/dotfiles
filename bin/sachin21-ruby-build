@@ -2,7 +2,7 @@
 set -e
 
 # check os
-echo -n "If you using mac then enter m/M"
+echo "If you using mac then enter m/M"
   read flag
 
 # setup tools

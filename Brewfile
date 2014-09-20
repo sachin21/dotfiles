@@ -97,6 +97,7 @@ install readline
 install reattach-to-user-namespace
 install redis
 install ricty
+install rmtrash
 install sl
 install sqlite
 install the_platinum_searcher

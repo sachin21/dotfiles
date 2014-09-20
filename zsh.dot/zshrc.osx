@@ -1,5 +1,5 @@
 export PATH="$(brew --prefix coreutils)/libexec/gnubin:$PATH"
-alias gcc='/usr/local/bin/gcc-4.8'
 export HOMEBREW_CASK_OPTS="--appdir=/Applications"
 export PATH="/usr/local/heroku/bin:$PATH"
 export CC=/usr/local/bin/gcc-4.8
+alias gcc='/usr/local/bin/gcc-4.8'

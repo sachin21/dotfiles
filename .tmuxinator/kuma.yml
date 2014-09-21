@@ -1,8 +1,0 @@
-name: kuma
-root: ~/DevelopersApp/lang-8/kuma
-
-pre:
-  - mysql.server start
-windows:
-  - window1:
-  - window2:

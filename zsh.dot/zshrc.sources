@@ -1,0 +1,19 @@
+source ~/dotfiles/tmux/tmuxinator.zsh
+source ~/dotfiles/zsh/zsh-bd/bd.zsh
+source ~/dotfiles/zsh.dot/zshrc.env
+source ~/dotfiles/zsh.dot/zshrc.config
+source ~/dotfiles/zsh.dot/zshrc.settings
+source ~/dotfiles/zsh.dot/zshrc.zaw
+source ~/dotfiles/zsh.dot/zshrc.colors
+source ~/dotfiles/zsh.dot/zshrc.aliases
+source ~/dotfiles/zsh.dot/zshrc.functions
+
+case "${OSTYPE}" in
+  darwin*)
+    source ~/dotfiles/zsh.dot/zshrc.osx
+    ;;
+
+  linux*)
+    source ~/dotfiles/zsh.dot/zshrc.linux
+    ;;
+esac

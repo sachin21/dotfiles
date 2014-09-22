@@ -23,6 +23,7 @@ for TARGET_VERSION in $@; do
   export RBENV_VERSION=$TARGET_VERSION
 
   gem install bundler
+  gem install pry
   gem install awesome_print
   gem install space2underscore
   gem install space2dot

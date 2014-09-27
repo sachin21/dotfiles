@@ -47,8 +47,8 @@ endif
   " マルチバイト対応の整形
   NeoBundle 'h1mesuke/vim-alignta'
 
-  " YankRing.vim : ヤンクの履歴を管理し、順々に参照、出力できるようにする
-  NeoBundle 'YankRing.vim'
+  "yankround.vim : ヤンクの履歴を管理し、順々に参照、出力できるようにする
+  NeoBundle 'LeafCage/yankround.vim'
 
   " undo履歴を追える (need python support)
   NeoBundle 'Gundo'

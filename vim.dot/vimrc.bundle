@@ -272,6 +272,8 @@ endif
   " git-vim: Plugin files for calling git functions from inside Vim and Syntax files for git displays
   NeoBundle 'motemen/git-vim'
 
+  "database.ymlからdb情報を取得
+  NeoBundle 'vim-scripts/dbext.vim'
 " }}}
 
 " ColorSchema{{{{

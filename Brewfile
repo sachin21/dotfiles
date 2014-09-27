@@ -9,6 +9,9 @@ tap sanemat/font
 tap peco/peco
 install peco
 
+# for ghq
+brew tap motemen/ghq
+
 # for cask
 tap homebrew/versions
 tap phinze/homebrew-cask
@@ -48,6 +51,7 @@ install gcc47
 install gcc48
 install gdbm
 install gettext
+install ghq
 install gibo
 install gist
 install git

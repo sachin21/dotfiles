@@ -105,6 +105,6 @@ exec $SHELL
 
 echo "your shell reloaded"
 echo "all success install"
-echo '
+echo "
 ** you need to change shell **
-ex: chsh -s /usr/local/bin/zsh'
+ex: chsh -s /usr/local/bin/zsh"

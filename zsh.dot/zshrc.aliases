@@ -1,6 +1,6 @@
 # only my aliases
 
-alias ls='ls --color=auto'
+alias ls='ls --color=auto -F'
 alias src='exec $SHELL'
 alias ts='tmux split-window'
 alias th='tmux split-window -h'

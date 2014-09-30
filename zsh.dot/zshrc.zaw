@@ -1,4 +1,4 @@
-# zaw
+# for zaw
 source $HOME/dotfiles/zsh/zaw/zaw.zsh
 
 zstyle ':filter-select' case-insensitive yes

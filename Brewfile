@@ -139,6 +139,7 @@ cask install kobito
 cask install mou
 cask install opera
 cask install picasa
+cask install screenhero
 cask install sequel-pro
 cask install skitch
 cask install skype

@@ -39,14 +39,6 @@ else
 fi
 echo "tools success install"
 
-# set links
-DOT_FILES=( .zsh .zshrc zsh .gemrc .vimrc .gitconfig .bundle .tmux.conf .dir_colors .pryrc tmux )
-
-for file in ${DOT_FILES[@]}; do
-  ln -fs ~/dotfiles/$file ~/$file
-done
-echo "set links done"
-
 # install oh-my-zsh
 [ ! -d ~/.oh-my-zsh ] && git clone git://github.com/robbyrussell/oh-my-zsh.git ~/.oh-my-zsh
 echo "oh-my-zsh success install"

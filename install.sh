@@ -84,7 +84,7 @@ function install_sachin21_projects() {
   git clone https://github.com/sachin21/diary.sachin21.info ./sachin21.info/diary.sachin21.info
 }
 
-echo "If you want to create sachin21 of projects"
+echo "If you want to create projects of sachin21"
   read flag
 
 # setup repositories

@@ -67,29 +67,14 @@ echo "nodenv success install"
 cp -r .tmuxinator ~/
 echo "tmuxinator success install"
 
-
-function install_sachin21_projects() {
-  mkdir -p ~/DevelopersApp/sachin21/rails_apps
-  mkdir -p ~/DevelopersApp/sachin21/utilities/gems
-  mkdir -p ~/DevelopersApp/sachin21/sachin21.info
-
-  cd ~/DevelopersApp/sachin21
-
-  git clone https://github.com/sachin21/jd-rank ./rails_apps/jd-rank
-  git clone https://github.com/sachin21/enterrrrrr ./rails_apps/enterrrrrr
-  git clone https://github.com/sachin21/nuko ./rails_apps/nuko
-  git clone https://github.com/sachin21/space2underscore ./utilities/gems/space2underscore
-  git clone https://github.com/sachin21/space2dot ./utilities/gems/space2dot
-  git clone https://github.com/sachin21/profile.sachin21.info ./sachin21.info/profile.sachin21.info
-  git clone https://github.com/sachin21/diary.sachin21.info ./sachin21.info/diary.sachin21.info
-}
-
 echo "If you want to create projects of sachin21"
   read flag
 
 # setup repositories
 if [ $flag = 'y' -o $flag = 'Y' ]; then
-  install_sachin21_projects
+  for repository in `cat repositories/github`; do
+    ghq get $repository
+  done
 fi
 
 # reload shell

@@ -1,5 +1,5 @@
 name: up
-root: ~/DevelopersApp/sachin21dev/rails_apps/imageUploader
+root: ~/src/github.com/sachin21/imageUploader
 
 pre:
   - mysql.server start

@@ -1,5 +1,5 @@
 name: nuko
-root: ~/DevelopersApp/sachin21dev/rails_apps/nuko
+root: ~/src/github.com/sachin21/nuko
 
 pre:
   - mysql.server start

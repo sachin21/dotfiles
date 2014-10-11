@@ -1,5 +1,5 @@
 name: enter
-root: ~/DevelopersApp/sachin21dev/rails_apps/enterrrrrr
+root: ~/src/github.com/sachin21/enterrrrrr
 
 pre:
   - mysql.server start

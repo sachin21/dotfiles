@@ -1,5 +1,5 @@
 name: jd
-root: ~/DevelopersApp/sachin21dev/rails_apps/jd-rank
+root: ~/src/github.com/sachin21/jd-rank
 
 pre:
   - mysql.server start

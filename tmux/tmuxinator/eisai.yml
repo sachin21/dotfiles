@@ -1,5 +1,5 @@
 name: eisai
-root: ~/DevelopersApp/sachin21dev/rails_apps/EisaiGenerator
+root: ~/src/github.com/sachin21/EisaiGenerator
 
 pre:
   - mysql.server start

@@ -37,31 +37,31 @@ else
   echo "You can input is only 'm', 'c' and 'a'"
   exit 1
 fi
-echo "tools success install"
+echo "tools was successfully installed."
 
 # install oh-my-zsh
 [ ! -d ~/.oh-my-zsh ] && git clone git://github.com/robbyrussell/oh-my-zsh.git ~/.oh-my-zsh
-echo "oh-my-zsh success install"
+echo "oh-my-zsh was successfully installed."
 
 # install NeoBundle
 [ ! -d ~/.vim/bundle ] && mkdir -p ~/.vim/bundle && git clone git://github.com/Shougo/neobundle.vim ~/.vim/bundle/neobundle.vim && vim -c ':NeoBundleInstall'
-echo "NeoBundle success install"
+echo "NeoBundle was successfully installed."
 
 # install rbenv
 [ ! -d ~/.rbenv ] && git clone https://github.com/sstephenson/rbenv.git ~/.rbenv
 [ ! -d ~/.rbenv/plugins/ruby-build ] && git clone https://github.com/sstephenson/ruby-build.git ~/.rbenv/plugins/ruby-build
 sudo ~/.rbenv/plugins/ruby-build/install.sh
-echo "rbenv success install"
+echo "rbenv was successfully installed."
 
 # install pyenv
 [ ! -d ~/.pyenv ] && git clone git://github.com/yyuu/pyenv.git ~/.pyenv
-echo "pyenv success install"
+echo "pyenv was successfully installed."
 
 # install nodenv
 [ ! -d ~/.nodenv ] && git clone https://github.com/OiNutter/nodenv.git ~/.nodenv
 [ ! -d ~/.nodenv/.nodenv/plugins/node-build ] && git clone git://github.com/OiNutter/node-build.git ~/.nodenv/plugins/node-build
 ~/.nodenv/plugins/node-build/install.sh
-echo "nodenv success install"
+echo "nodenv was successfully installed."
 
 # install tmuxinator
 cp -r .tmuxinator ~/
@@ -80,8 +80,8 @@ fi
 # reload shell
 exec $SHELL
 
-echo "your shell reloaded"
-echo "all success install"
+echo "your shell was reloaded"
+echo "all was successfully installed."
 echo "
 ** you need to change shell **
 ex: chsh -s /usr/local/bin/zsh"

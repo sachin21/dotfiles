@@ -50,7 +50,7 @@ echo "NeoBundle was successfully installed."
 # install rbenv
 [ ! -d ~/.rbenv ] && git clone https://github.com/sstephenson/rbenv.git ~/.rbenv
 [ ! -d ~/.rbenv/plugins/ruby-build ] && git clone https://github.com/sstephenson/ruby-build.git ~/.rbenv/plugins/ruby-build
-sudo ~/.rbenv/plugins/ruby-build/install.sh
+~/.rbenv/plugins/ruby-build/install.sh
 echo "rbenv was successfully installed."
 
 # install pyenv

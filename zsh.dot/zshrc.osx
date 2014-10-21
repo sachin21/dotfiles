@@ -5,3 +5,4 @@ export CC=/usr/local/bin/gcc-4.8
 eval `dircolors ~/.dircolors`
 alias gcc='/usr/local/bin/gcc-4.8'
 alias o='open'
+alias .='open .'

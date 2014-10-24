@@ -39,6 +39,7 @@ install crunch
 install csvprintf
 install curl
 install elasticsearch
+install emacs
 install faac
 install ffmpeg
 install fish

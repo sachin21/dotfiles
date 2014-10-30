@@ -17,8 +17,10 @@ nmap <BS><BS> ;MBEbp<CR>
 
 " F2で前のバッファ
 map <F2> <ESC>;bp<CR>
+
 " F3で次のバッファ
 map <F3> <ESC>;bn<CR>
+
 " F4でバッファを削除する
 map <F4> <ESC>:bnext \| bdelete #<CR>
 command! Bw :bnext \| bdelete #

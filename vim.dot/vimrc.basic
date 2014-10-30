@@ -21,6 +21,7 @@ set notitle                      " vimを使ってくれてありがとう
 
 " OSのクリップボードを使用する
 set clipboard+=unnamed
+
 " ターミナルでマウスを使用できるようにする
 set mouse=a
 set guioptions+=a
@@ -33,6 +34,7 @@ endif"
 
 "ヤンクした文字は、システムのクリップボードに入れる"
 set clipboard=unnamed
+
 " 挿入モードでCtrl+kを押すとクリップボードの内容を貼り付けられるようにする "
 imap <C-p>  <ESC>"*pa
 

@@ -4,8 +4,6 @@
 set ffs=unix,dos,mac  " 改行文字
 set encoding=utf-8    " デフォルトエンコーディング
 
-" 文字コード認識はbanyan/recognize_charcode.vimへ
-
 " cvsの時は文字コードをeuc-jpに設定
 autocmd FileType cvs :set fileencoding=euc-jp
 " 以下のファイルの時は文字コードをutf-8に設定

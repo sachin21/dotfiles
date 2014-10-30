@@ -15,6 +15,7 @@ map <leader>tm :tabmove
 
 " yeでそのカーソル位置にある単語をレジスタに追加
 nmap ye ;let @"=expand("<cword>")<CR>
+
 " Visualモードでのpで選択範囲をレジスタの内容に置き換える
 vnoremap p <Esc>;let current_reg = @"<CR>gvdi<C-R>=current_reg<CR><Esc>
 

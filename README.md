@@ -9,6 +9,6 @@ This is my dotfles
 $ cd ~/dotfiles
 $ ./setup.zsh
 $ Mac user 'm' : Centos user 'c' : Arch user 'a' [m/c/a] (enter
-```
 
-※上記shell scriptはメンテナンス中で使えないです
+$ rake all # create symbolic links for zsh vim..etc
+```

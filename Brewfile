@@ -11,6 +11,7 @@ install peco
 
 # for ghq
 brew tap motemen/ghq
+install ghq
 
 # for cask
 tap homebrew/versions
@@ -52,7 +53,6 @@ install gcc47
 install gcc48
 install gdbm
 install gettext
-install ghq
 install gibo
 install gist
 install git

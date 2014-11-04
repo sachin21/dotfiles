@@ -30,6 +30,7 @@ install bdw-gc
 install binutils
 install bison
 install brew-cask
+install cairo
 install cloog
 install cloog-ppl015
 install cloog018
@@ -53,13 +54,18 @@ install gcc47
 install gcc48
 install gdbm
 install gettext
+install ghq
 install gibo
 install gist
 install git
+install glib
 install gmp
 install gmp4
 install go
+install gobject-introspection
+install harfbuzz
 install hub
+install icu4c
 install imagemagick
 install imagemagick-ruby186
 install isl
@@ -68,6 +74,7 @@ install jenkins
 install jpeg
 install lame
 install libevent
+install libffi
 install libiconv
 install libmpc
 install libmpc08
@@ -85,10 +92,10 @@ install mpfr
 install mpfr2
 install mpg123
 install mysql
-install mysql55
 install node
 install openssl
 install ossp-uuid
+install pango
 install pcre
 install peco
 install phantomjs

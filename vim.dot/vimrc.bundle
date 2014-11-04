@@ -93,18 +93,12 @@ endif
   " 「foo」 or 【bar】などをtext-objectに
   NeoBundle 'textobj-jabraces'
 
-  " 改造したmonday.vim(git rebase -i とかtrue/falseとか)
-  " NeoBundle 'yuroyoro/monday'
-
   " <C-a>でtrue/false切替。他色々
   NeoBundle 'taku-o/vim-toggle'
 
 " }}}
 
 " Completion {{{
-  " 補完 autocomplpop.vim : insertmodeで自動で補完をpopup
-  " NeoBundle 'AutoComplPop'
-
   " 補完 neocomplcache.vim : 究極のVim的補完環境
   NeoBundle 'Shougo/neocomplcache'
 

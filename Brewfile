@@ -1,78 +1,101 @@
+# --- Before setups ---
+
+## Update Homebrew and Update already-installed formula
 update
 
 upgrade
 
-# for ricty
+## For homebrew/versions
+tap homebrew/versions
+
+## For ricty
 tap sanemat/font
 
-# for peco
+## For peco
 tap peco/peco
-install peco
 
-# for ghq
-brew tap motemen/ghq
-install ghq
+## For ghq
+tap motemen/ghq
 
-# for cask
-tap homebrew/versions
+## For casks
 tap phinze/homebrew-cask
-tap homebrew/binary
-install brew-cask
 
-# tools
+## For binary formulas
+tap homebrew/binary
+
+# --- End ---
+
+# --- Homebrew Formulas ---
+
+## Shells
+install bash
+install csh
+install fish
+install ksh
+install tsh
+install zsh
+
+## Search tools
 install ack
+install the_platinum_searcher
+install the_silver_searcher
+
+## Build tools
 install apple-gcc42
 install autoconf
-install autojump
 install automake
-install bash
-install bdw-gc
-install binutils
-install bison
-install brew-cask
-install cairo
-install cloog
-install cloog-ppl015
-install cloog018
 install cmake
-install cmatrix
-install coreutils
-install crunch
-install csvprintf
-install curl
-install elasticsearch
-install emacs
-install faac
-install ffmpeg
-install fish
-install fontconfig
-install fontforge
-install freetype
 install gcc
 install gcc46
 install gcc47
 install gcc48
-install gdbm
-install gettext
-install ghq
+install make
+
+## Installer
+install brew-cask
+
+## Languages
+install go
+install python
+install ruby
+
+## Git
 install gibo
 install gist
 install git
-install glib
-install gmp
-install gmp4
-install go
-install gobject-introspection
-install harfbuzz
+install gitsh
+install tig
 install hub
-install icu4c
+
+## Utilities
+install autojump
+install cmatrix
+install coreutils
+install csvprintf
+install ghq
+install jenkins
+install peco
+install rmtrash
+install sl
+install tree
+
+## For Fonts
+install fontconfig
+install fontforge
+install ricty
+
+## Editors
+install emacs
+install vim
+
+## Libraries
+install elasticsearch
+install ffmpeg
+install gettext
+install glib
 install imagemagick
 install imagemagick-ruby186
-install isl
-install isl011
-install jenkins
 install jpeg
-install lame
 install libevent
 install libffi
 install libiconv
@@ -84,51 +107,71 @@ install libtiff
 install libtool
 install libxml2
 install libxslt
-install make
-install memcached
-install mercurial
-install mongodb
 install mpfr
 install mpfr2
 install mpg123
-install mysql
-install node
 install openssl
-install ossp-uuid
-install pango
-install pcre
-install peco
-install phantomjs
-install pixman
-install pkg-config
-install postgresql
-install ppl011
-install python
 install qt
 install readline
-install reattach-to-user-namespace
-install redis
-install ricty
-install rmtrash
-install sl
-install sqlite
-install the_platinum_searcher
-install the_silver_searcher
-install tig
-install tmux
-install tree
-install unixodbc
 install v8
-install vim
-install w3m
-install wget
 install x264
 install xvid
 install xz
 install zlib
-install zsh
 
-# .dmg apps
+## JavaScript Formulas
+install node
+install phantomjs
+
+## Databases
+install mongodb
+install mysql
+install postgresql
+install sqlite
+
+## Servers
+install memcached
+install reattach-to-user-namespace
+install redis
+install tmux
+
+## Dependency Formulas
+install bdw-gc
+install binutils
+install bison
+install cairo
+install cloog
+install cloog-ppl015
+install cloog018
+install crunch
+install faac
+install freetype
+install gdbm
+install gmp
+install gmp4
+install gobject-introspection
+install harfbuzz
+install icu4c
+install isl
+install isl011
+install lame
+install mercurial
+install ossp-uuid
+install pango
+install pcre
+install pixman
+install pkg-config
+install ppl011
+install unixodbc
+
+## Crawlers
+install curl
+install w3m
+install wget
+
+# --- End ---
+
+# For OSX
 cask install alfred
 cask install clipmenu
 cask install dash
@@ -165,5 +208,6 @@ cask install yorufukurou
 
 cask alfred link
 
+# Remove outdated versions
 cleanup
 

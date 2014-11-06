@@ -1,2 +1,13 @@
-alias pbcopy='xsel --clipboard --input'
-alias pbpaste='xsel --clipboard --output'
+if type xsel > /dev/null 2>&1; then
+  alias pbcopy='xsel --clipboard --input'
+  alias pbpaste='xsel --clipboard --output'
+else
+  echo "[Warning] xsel is not installed" 1>&2
+fi
+
+if type gls > /dev/null 2>&1; then
+  alias ls='gls --color=auto -F'
+else
+  echo "[Warning] coreutils is not installed" 1>&2
+  alias ls='ls -F'
+fi

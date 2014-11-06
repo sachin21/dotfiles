@@ -6,3 +6,10 @@ eval `dircolors ~/.dircolors`
 alias gcc='/usr/local/bin/gcc-4.8'
 alias o='open'
 alias .='open .'
+
+if type gls > /dev/null 2>&1; then
+  alias ls='gls --color=auto -F'
+else
+  echo "[Warning] coreutils is not installed" 1>&2
+  alias ls='ls -F'
+fi

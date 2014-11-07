@@ -1,6 +1,6 @@
 #!/usr/bin/env sh
 
-# init other package
+# init other packages
 git submodule init
 git submodule update
 
@@ -65,9 +65,9 @@ echo "nodenv was successfully installed."
 
 # install tmuxinator
 cp -r .tmuxinator ~/
-echo "tmuxinator success install"
+echo "tmuxinator was successfully installed."
 
-echo "If you want to create projects of sachin21"
+echo "If you want to create projects of sachin21? [y/Y]"
   read flag
 
 # setup repositories
@@ -84,4 +84,5 @@ echo "your shell was reloaded"
 echo "all was successfully installed."
 echo "
 ** you need to change shell **
-ex: chsh -s /usr/local/bin/zsh"
+Add /usr/local/bin/zsh path to /etc/shells, and
+Execute 'chsh -s /usr/local/bin/zsh'"

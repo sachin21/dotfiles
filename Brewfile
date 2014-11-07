@@ -56,8 +56,13 @@ install brew-cask
 
 ## Languages
 install go
+install haskell-platform
+install perl
+install php53
 install python
-install ruby
+install python3
+install ruby20
+install scala
 
 ## Git
 install gibo

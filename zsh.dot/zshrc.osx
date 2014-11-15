@@ -2,10 +2,16 @@ export PATH="$(brew --prefix coreutils)/libexec/gnubin:$PATH"
 export HOMEBREW_CASK_OPTS="--appdir=/Applications"
 export PATH="/usr/local/heroku/bin:$PATH"
 export CC=/usr/local/bin/gcc-4.8
-eval `dircolors ~/.dircolors`
 alias gcc='/usr/local/bin/gcc-4.8'
 alias o='open'
 alias .='open .'
+
+
+if type dircolors > /dev/null 2>&1; then
+  eval `dircolors ~/.dircolors`
+else
+  echo "[Warning] dircolors is not installed" 1>&2
+fi
 
 if type gls > /dev/null 2>&1; then
   alias ls='gls --color=auto -F'

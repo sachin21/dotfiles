@@ -8,14 +8,17 @@ upgrade
 ## For homebrew/versions
 tap homebrew/versions
 
-## For ricty
-tap sanemat/font
-
 ## For peco
 tap peco/peco
 
 ## For ghq
 tap motemen/ghq
+
+## For gitsh
+tap thoughtbot/formulae
+
+## For zlib
+tap homebrew/dupes
 
 ## For casks
 tap phinze/homebrew-cask
@@ -29,10 +32,7 @@ tap homebrew/binary
 
 ## Shells
 install bash
-install csh
 install fish
-install ksh
-install tsh
 install zsh
 
 ## Search tools
@@ -41,7 +41,6 @@ install the_platinum_searcher
 install the_silver_searcher
 
 ## Build tools
-install apple-gcc42
 install autoconf
 install automake
 install cmake
@@ -49,16 +48,13 @@ install gcc
 install gcc46
 install gcc47
 install gcc48
-install make
 
 ## Installer
 install brew-cask
 
 ## Languages
 install go
-install haskell-platform
 install perl
-install php53
 install python
 install python3
 install ruby20
@@ -87,7 +83,6 @@ install tree
 ## For Fonts
 install fontconfig
 install fontforge
-install ricty
 
 ## Editors
 install emacs
@@ -98,20 +93,17 @@ install elasticsearch
 install ffmpeg
 install gettext
 install glib
-install imagemagick
-install imagemagick-ruby186
 install jpeg
 install libevent
 install libffi
-install libiconv
 install libmpc
 install libmpc08
 install libpng
-install libpng12
 install libtiff
 install libtool
 install libxml2
 install libxslt
+install imagemagick
 install mpfr
 install mpfr2
 install mpg123

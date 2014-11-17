@@ -17,19 +17,23 @@ fi
 export MAKE_OPTS="-j4"
 
 for TARGET_VERSION in $@; do
-  rbenv install $TARGET_VERSION
-  rbenv global $TARGET_VERSION
+  if rbenv install $TARGET_VERSION rbenv global $TARGET_VERSION; then
+    export RBENV_VERSION=$TARGET_VERSION
 
-  export RBENV_VERSION=$TARGET_VERSION
+    gem install bundler
+    gem install pry
+    gem install awesome_print
+    gem install space2underscore
+    gem install space2dot
+    gem install tw
 
-  gem install bundler
-  gem install pry
-  gem install awesome_print
-  gem install space2underscore
-  gem install space2dot
-  gem install tw
+    gem install rails -v '4.1.4'
 
-  gem install rails -v '4.1.4'
 
-  rbenv rehash
+    rbenv rehash
+
+    echo "All done"
+  else
+    echo "[Warning] $TARGET_VERSION is unsuccessful installation" 1>&2
+  fi
 done

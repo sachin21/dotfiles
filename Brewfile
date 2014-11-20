@@ -205,6 +205,7 @@ cask install yorufukurou
 
 cask alfred link
 
-# Remove outdated versions
+# Remove outdated versions and archive file
 cleanup
 
+cask cleanup

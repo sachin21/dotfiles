@@ -14,10 +14,12 @@ ETC_FILES = %w( bundle dircolors gemrc pryrc )
 CLEANS = [
   '.zsh',
   '.zshrc',
-  '.oh-my-zsh',
   '.tmux.conf',
   '.gitconfig',
-  '.gemrc'
+  '.gemrc',
+  '.pryrc',
+  '.bundle',
+  '.dircolors'
 ].freeze
 
 CLEAN.concat(CLEANS.map { |c| File.join(HOME, c) })

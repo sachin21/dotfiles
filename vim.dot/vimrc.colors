@@ -2,8 +2,8 @@
 " カラー関連 Colors
 "-------------------------------------------------------------------------------
 
-" colorscheme mrkn256
-colorscheme yuroyoro256
+set background=dark
+colorscheme solarized
 
 " ターミナルタイプによるカラー設定
 if &term =~ "xterm-256color" || "screen-256color"

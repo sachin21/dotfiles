@@ -2,11 +2,8 @@
 
 filetype off
 
-if has('vim_starting')
-  set runtimepath+=~/.vim/bundle/neobundle.vim
-  call neobundle#rc(expand('~/.vim/bundle/'))
-endif
-
+set runtimepath+=~/.vim/bundle/neobundle.vim
+call neobundle#begin(expand('~/.vim/bundle/'))
 
 " set rtp+=~/.vim/bundle/vundle/
 " call vundle#rc()
@@ -276,6 +273,7 @@ endif
   NeoBundle 'mrkn256.vim'
   NeoBundle 'tomasr/molokai'
   NeoBundle 'yuroyoro/yuroyoro256.vim'
+  NeoBundle 'altercation/vim-colors-solarized'
 " }}}
 
 " Unite {{{{
@@ -318,5 +316,7 @@ NeoBundle 'sorah/unite-ghq'
 
 " JavaScript補完を賢くする
 NeoBundle 'marijnh/tern_for_vim'
+
+call neobundle#end()
 
 filetype plugin indent on

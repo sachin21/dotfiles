@@ -1,1 +1,1 @@
-source ~/dotfiles/zsh.dot/zshrc.sources
+. ~/dotfiles/zsh.dot/zshrc.sources

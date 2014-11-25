@@ -1,19 +1,19 @@
-source ~/dotfiles/tmux/tmuxinator.zsh
-source ~/dotfiles/zsh/zsh-bd/bd.zsh
-source ~/dotfiles/zsh.dot/zshrc.env
-source ~/dotfiles/zsh.dot/zshrc.config
-source ~/dotfiles/zsh.dot/zshrc.settings
-source ~/dotfiles/zsh.dot/zshrc.zaw
-source ~/dotfiles/zsh.dot/zshrc.colors
-source ~/dotfiles/zsh.dot/zshrc.aliases
-source ~/dotfiles/zsh.dot/zshrc.functions
+. ~/dotfiles/tmux/tmuxinator.zsh
+. ~/dotfiles/zsh/zsh-bd/bd.zsh
+. ~/dotfiles/zsh.dot/zshrc.envs
+. ~/dotfiles/zsh.dot/zshrc.config
+. ~/dotfiles/zsh.dot/zshrc.settings
+. ~/dotfiles/zsh.dot/zshrc.zaw
+. ~/dotfiles/zsh.dot/zshrc.colors
+. ~/dotfiles/zsh.dot/zshrc.aliases
+. ~/dotfiles/zsh.dot/zshrc.functions
 
 case "${OSTYPE}" in
   darwin*)
-    source ~/dotfiles/zsh.dot/zshrc.osx
+    . ~/dotfiles/zsh.dot/zshrc.osx
     ;;
 
   linux*)
-    source ~/dotfiles/zsh.dot/zshrc.linux
+    . ~/dotfiles/zsh.dot/zshrc.linux
     ;;
 esac

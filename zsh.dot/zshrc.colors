@@ -1,5 +1,5 @@
-if [ -e ~/zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh ]; then
-  source ~/zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+if [ -e ~/.zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh ]; then
+  source ~/.zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 else
   echo "[Warning] zsh-syntax-highlighting is not installed" 1>&2
 fi

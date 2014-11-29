@@ -177,6 +177,7 @@ cask install firefox
 cask install flux
 cask install google-chrome
 cask install google-japanese-ime
+cask install heroku-toolbelt
 cask install hipchat
 cask install iexplorer
 cask install istat-menus
@@ -186,6 +187,7 @@ cask install karabiner
 cask install kobito
 cask install mou
 cask install opera
+cask install parallels
 cask install picasa
 cask install screenhero
 cask install sequel-pro
@@ -194,11 +196,13 @@ cask install skype
 cask install slack
 cask install sparrow
 cask install sublime-text
+cask install teitoku
 cask install the-unarchiver
 cask install transmit
 cask install utorrent
 cask install vagrant
 cask install virtualbox
+cask install vlc
 cask install xld
 cask install xtrafinder
 cask install yorufukurou

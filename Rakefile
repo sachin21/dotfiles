@@ -3,19 +3,23 @@ require 'rake/clean'
 OS = `uname`
 HOME = ENV['HOME']
 
-ZSH_DOT_ROOT = File.join(File.dirname(__FILE__), 'zsh.dot')
-ZSH_ROOT     = File.join(File.dirname(__FILE__), 'zsh')
-VIM_ROOT     = File.join(File.dirname(__FILE__), 'vim.dot')
-TMUX_ROOT    = File.join(File.dirname(__FILE__), 'tmux')
-GIT_ROOT     = File.join(File.dirname(__FILE__), 'git')
-ETC_ROOT     = File.join(File.dirname(__FILE__), 'etc')
+ZSH_DOT_ROOT  = File.join(File.dirname(__FILE__), 'zsh.dot')
+ZSH_ROOT      = File.join(File.dirname(__FILE__), 'zsh')
+VIM_DOT_ROOT  = File.join(File.dirname(__FILE__), 'vim.dot')
+TMUX_ROOT     = File.join(File.dirname(__FILE__), 'tmux')
+TMUX_DOT_ROOT = File.join(File.dirname(__FILE__), 'tmux')
+GIT_ROOT      = File.join(File.dirname(__FILE__), 'git')
+ETC_ROOT      = File.join(File.dirname(__FILE__), 'etc')
 
 ETC_FILES = %w( bundle dircolors gemrc pryrc )
 
 CLEANS = [
   '.zsh',
   '.zshrc',
+  '.tmux',
+  '.tmuxinator',
   '.tmux.conf',
+  '.vimrc',
   '.gitconfig',
   '.gemrc',
   '.pryrc',
@@ -39,7 +43,7 @@ end
 namespace :vim do
   desc 'Create symbolic link to HOME'
   task :link do
-    symlink_ File.join(VIM_ROOT, 'vimrc'), File.join(HOME, '.vimrc')
+    symlink_ File.join(VIM_DOT_ROOT, 'vimrc'), File.join(HOME, '.vimrc')
   end
 end
 
@@ -54,6 +58,8 @@ namespace :tmux do
   desc 'Create symbolic link to HOME'
   task :link do
     symlink_ File.join(TMUX_ROOT, 'tmux.conf'), File.join(HOME, '.tmux.conf')
+    symlink_ File.join(TMUX_ROOT, 'tmuxinator'), File.join(HOME, '.tmuxinator')
+    symlink_ File.join(TMUX_DOT_ROOT), File.join(HOME, '.tmux')
   end
 end
 

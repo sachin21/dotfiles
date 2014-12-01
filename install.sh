@@ -62,10 +62,6 @@ echo "pyenv was successfully installed."
 ~/.nodenv/plugins/node-build/install.sh
 echo "nodenv was successfully installed."
 
-# install tmuxinator
-cp -r .tmuxinator ~/
-echo "tmuxinator was successfully installed."
-
 echo "If you want to create projects of sachin21? [y/Y]"
   read flag
 

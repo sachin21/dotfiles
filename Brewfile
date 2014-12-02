@@ -160,6 +160,9 @@ install pixman
 install pkg-config
 install ppl011
 install unixodbc
+install czmq
+install libsodium
+install zeromq
 
 ## Crawlers
 install curl

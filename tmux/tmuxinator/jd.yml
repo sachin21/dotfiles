@@ -1,5 +1,5 @@
 name: jd
-root: ~/src/github.com/sachin21/jd-rank
+root: ~/projects/github.com/sachin21/jd-rank
 
 pre:
   - mysql.server start

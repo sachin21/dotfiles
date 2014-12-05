@@ -1,5 +1,5 @@
 name: enter
-root: ~/src/github.com/sachin21/enterrrrrr
+root: ~/projects/github.com/sachin21/enterrrrrr
 
 pre:
   - mysql.server start

@@ -168,6 +168,7 @@ install zeromq
 install curl
 install w3m
 install wget
+install youtube-dl
 
 # --- End ---
 

@@ -8,4 +8,6 @@ if which pbcopy >/dev/null 2>&1 ; then
 elif which xsel >/dev/null 2>&1 ; then
   # for Linux
   alias -g C='| xsel --input --clipboard'
+else
+  echo "[Warning] copy command is not installed" 1>&2
 fi

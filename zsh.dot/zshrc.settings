@@ -2,10 +2,10 @@ setopt correct
 SPROMPT="%r? べ、 別にあんたのために修正したんじゃないからね! [n, y, a, e]:"
 
 # Use clipboard in console
-if which pbcopy >/dev/null 2>&1 ; then
+if type pbcopy > /dev/null 2>&1 ; then
   # for Mac
   alias -g C='| pbcopy'
-elif which xsel >/dev/null 2>&1 ; then
+elif type xsel > /dev/null 2>&1 ; then
   # for Linux
   alias -g C='| xsel --input --clipboard'
 else

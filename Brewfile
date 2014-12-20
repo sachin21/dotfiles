@@ -20,9 +20,6 @@ tap thoughtbot/formulae
 ## For zlib
 tap homebrew/dupes
 
-## For casks
-tap phinze/homebrew-cask
-
 ## For binary formulas
 tap homebrew/binary
 
@@ -50,7 +47,7 @@ install gcc47
 install gcc48
 
 ## Installer
-install brew-cask
+install caskroom/cask/brew-cask
 
 ## Languages
 install go

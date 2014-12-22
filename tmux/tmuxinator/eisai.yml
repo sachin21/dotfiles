@@ -1,5 +1,5 @@
 name: eisai
-root: ~/projects/github.com/sachin21/EisaiGenerator
+root: ~/Projects/github.com/sachin21/EisaiGenerator
 
 pre:
   - mysql.server start

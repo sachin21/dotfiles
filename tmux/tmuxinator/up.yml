@@ -1,5 +1,5 @@
 name: up
-root: ~/projects/github.com/sachin21/imageUploader
+root: ~/Projects/github.com/sachin21/imageUploader
 
 pre:
   - mysql.server start

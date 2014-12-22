@@ -1,5 +1,5 @@
 name: nuko
-root: ~/projects/github.com/sachin21/nuko
+root: ~/Projects/github.com/sachin21/nuko
 
 pre:
   - mysql.server start

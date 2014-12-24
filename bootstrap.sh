@@ -72,6 +72,10 @@ if [ $flag = 'y' -o $flag = 'Y' ]; then
   done
 fi
 
+# create symbolics
+rake clean
+rake all
+
 # reload shell
 exec $SHELL
 

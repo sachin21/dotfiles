@@ -66,10 +66,12 @@ echo "If you want to create projects of sachin21? [y/Y]"
   read flag
 
 # setup repositories
-if [ $flag = 'y' -o $flag = 'Y' ]; then
+if [ $flag = 'y' -o $flag = 'Y' ] && type ghq > /dev/null 2>&1; then
   for repository in `cat repositories/github`; do
     ghq get $repository
   done
+else
+  echo "[Warning] ghq is not installed" 1>&2
 fi
 
 # create symbolics

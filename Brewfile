@@ -63,7 +63,7 @@ install gist
 install git
 install gitsh
 install tig
-install hub
+install --HEAD hub
 
 ## Utilities
 install autojump

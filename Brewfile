@@ -30,6 +30,7 @@ tap homebrew/binary
 ## Shells
 install bash
 install fish
+install ksh
 install zsh
 
 ## Search tools
@@ -75,6 +76,7 @@ install jenkins
 install peco
 install rmtrash
 install sl
+install stress
 install tree
 
 ## For Fonts
@@ -87,9 +89,11 @@ install vim
 
 ## Libraries
 install elasticsearch
+install elasticsearch11
 install ffmpeg
 install gettext
 install glib
+install imagemagick
 install jpeg
 install libevent
 install libffi
@@ -98,12 +102,14 @@ install libmpc08
 install libpng
 install libtiff
 install libtool
+install libvo-aacenc
 install libxml2
 install libxslt
-install imagemagick
+install libyaml
 install mpfr
 install mpfr2
 install mpg123
+install ncurses
 install openssl
 install qt
 install readline

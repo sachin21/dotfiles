@@ -11,6 +11,7 @@ TMUX_DOT_ROOT = File.join(File.dirname(__FILE__), 'tmux')
 GIT_ROOT      = File.join(File.dirname(__FILE__), 'git')
 ETC_ROOT      = File.join(File.dirname(__FILE__), 'etc')
 
+GIT_FILES = %w( gitconfig global_ignore )
 ETC_FILES = %w( bundle dircolors gemrc pryrc )
 
 CLEANS = [
@@ -21,6 +22,7 @@ CLEANS = [
   '.tmux.conf',
   '.vimrc',
   '.gitconfig',
+  '.global_ignore',
   '.gemrc',
   '.pryrc',
   '.bundle',
@@ -50,7 +52,7 @@ end
 namespace :git do
   desc 'Create symbolic link to HOME'
   task :link do
-    symlink_ File.join(GIT_ROOT, 'gitconfig'), File.join(HOME, '.gitconfig')
+    same_name_symlinks GIT_ROOT, GIT_FILES
   end
 end
 

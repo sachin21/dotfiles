@@ -10,8 +10,9 @@ echo "MacOS user 'm' : Centos user 'c' : ArchLinux user [m/c/a] : "
 
 # setup tools
 if [ $flag = 'm' -o $flag = 'M' ]; then # for Mac OSX
-  ruby -e "$(curl -fsSL https://raw.github.com/Homebrew/homebrew/go/install)"
   cd ~/dotfiles
+  ruby -e "$(curl -fsSL https://raw.github.com/Homebrew/homebrew/go/install)"
+  brew tap homebrew/boneyard
   brew bundle
 elif [ $flag = 'c' -o $flag = 'C' ]; then # for CentOS
   sudo yum -y update

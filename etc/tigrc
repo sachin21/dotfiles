@@ -1,3 +1,6 @@
 set main-view = id date author commit-title:graph=yes,refs=yes
 set split-view-height = 80%
 set diff-context = 5
+
+bind generic <Ctrl-f> scroll-page-down
+bind generic <Ctrl-b> scroll-page-up

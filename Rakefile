@@ -12,7 +12,7 @@ GIT_ROOT      = File.join(File.dirname(__FILE__), 'git')
 ETC_ROOT      = File.join(File.dirname(__FILE__), 'etc')
 
 GIT_FILES = %w( gitconfig global_ignore )
-ETC_FILES = %w( bundle dircolors gemrc pryrc )
+ETC_FILES = %w( bundle dircolors gemrc pryrc tigrc )
 
 CLEANS = [
   '.zsh',
@@ -26,7 +26,8 @@ CLEANS = [
   '.gemrc',
   '.pryrc',
   '.bundle',
-  '.dircolors'
+  '.dircolors',
+  '.tigrc'
 ].freeze
 
 CLEAN.concat(CLEANS.map { |c| File.join(HOME, c) })

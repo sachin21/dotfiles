@@ -17,7 +17,7 @@ fi
 export MAKE_OPTS="-j4"
 
 for TARGET_VERSION in $@; do
-  if rbenv install $TARGET_VERSION rbenv global $TARGET_VERSION; then
+  if rbenv install $TARGET_VERSION && rbenv global $TARGET_VERSION; then
     export RBENV_VERSION=$TARGET_VERSION
 
     gem install bundler

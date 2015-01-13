@@ -1,0 +1,3 @@
+#!/usr/bin/env sh
+
+pyenv install --list | peco | sed -e 's/^  *//g' | tr -d '\n" "' | pbcopy

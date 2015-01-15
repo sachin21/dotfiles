@@ -3,6 +3,7 @@
   email = sachin21dev@gmail.com
 [core]
   editor = vim
+  excludesfile = /Users/sachin21dev/.global_ignore
 [github]
   user = sachin21
 [url "git@github.com:"]

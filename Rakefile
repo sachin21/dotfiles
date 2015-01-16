@@ -36,7 +36,7 @@ task default: :all
 task all: ['zsh:link', 'vim:link', 'git:link', 'tmux:link', 'etc:link']
 
 namespace :zsh do
-  desc 'Create symbolic link to HOME'
+  desc 'Create symbolic for zsh settings file link to HOME'
   task :link do
     symlink_ File.join(ZSH_DOT_ROOT, 'zshrc'), File.join(HOME, '.zshrc')
     symlink_ File.join(ZSH_ROOT), File.join(HOME, '.zsh')
@@ -44,21 +44,21 @@ namespace :zsh do
 end
 
 namespace :vim do
-  desc 'Create symbolic link to HOME'
+  desc 'Create symbolic for vimrc link to HOME'
   task :link do
     symlink_ File.join(VIM_DOT_ROOT, 'vimrc'), File.join(HOME, '.vimrc')
   end
 end
 
 namespace :git do
-  desc 'Create symbolic link to HOME'
+  desc 'Create symbolic for git files link to HOME'
   task :link do
     same_name_symlinks GIT_ROOT, GIT_FILES
   end
 end
 
 namespace :tmux do
-  desc 'Create symbolic link to HOME'
+  desc 'Create symbolic for tmux settings file for link to HOME'
   task :link do
     symlink_ File.join(TMUX_ROOT, 'tmux.conf'), File.join(HOME, '.tmux.conf')
     symlink_ File.join(TMUX_ROOT, 'tmuxinator'), File.join(HOME, '.tmuxinator')
@@ -67,7 +67,7 @@ namespace :tmux do
 end
 
 namespace :etc do
-  desc 'Create symbolic link to HOME'
+  desc 'Create symbolic for etcs link to HOME'
   task :link do
     same_name_symlinks ETC_ROOT, ETC_FILES
   end

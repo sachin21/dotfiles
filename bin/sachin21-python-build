@@ -1,0 +1,15 @@
+#!/usr/bin/env sh
+set -e
+
+for TARGET_VERSION in $@; do
+  if pyenv install $TARGET_VERSION && pyenv global $TARGET_VERSION; then
+    export RBENV_VERSION=$TARGET_VERSION
+
+    pip install pygments
+    pip install pygments-style-solarized
+
+    echo "All done"
+  else
+    echo "[Warning] $TARGET_VERSION is install unsuccessfully" 1>&2
+  fi
+done

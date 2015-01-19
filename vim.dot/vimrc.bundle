@@ -92,6 +92,8 @@ call neobundle#begin(expand('~/.vim/bundle/'))
 
   " <C-a>でtrue/false切替。他色々
   NeoBundle 'taku-o/vim-toggle'
+  " slim のシンタックスハイライトを行う
+  NeoBundle "slim-template/vim-slim"
 
 " }}}
 
@@ -136,6 +138,9 @@ call neobundle#begin(expand('~/.vim/bundle/'))
   " VimからThe Silver Searcherを利用する
   "  http://blog.glidenote.com/blog/2013/02/28/the-silver-searcher-better-than-ack/
   NeoBundle 'rking/ag.vim'
+
+  " JavaScript補完を賢くする
+  NeoBundle 'marijnh/tern_for_vim'
 " }}}
 
 " Programming {{{
@@ -265,6 +270,13 @@ call neobundle#begin(expand('~/.vim/bundle/'))
 
   "database.ymlからdb情報を取得
   NeoBundle 'vim-scripts/dbext.vim'
+
+  " リポジトリをghqでsorah/unite-ghq
+  NeoBundle 'sorah/unite-ghq'
+
+  " 複数カーソル
+  NeoBundle 'terryma/vim-multiple-cursors'
+
 " }}}
 
 " ColorSchema{{{{
@@ -307,15 +319,6 @@ NeoBundleLazy "lambdalisue/vim-pyenv", {
       \ "autoload": {
       \   "filetypes": ["python", "python3", "djangohtml"]
       \ }}
-
-" 複数カーソル
-NeoBundle 'terryma/vim-multiple-cursors'
-
-" リポジトリをghqでsorah/unite-ghq
-NeoBundle 'sorah/unite-ghq'
-
-" JavaScript補完を賢くする
-NeoBundle 'marijnh/tern_for_vim'
 
 call neobundle#end()
 

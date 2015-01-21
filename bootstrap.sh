@@ -9,12 +9,13 @@ echo "MacOS user 'm' : Centos user 'c' : ArchLinux user [m/c/a] : "
   read flag
 
 # setup tools
-if [ $flag = 'm' -o $flag = 'M' ]; then # for Mac OSX
+if [ $flag = 'm' -o $flag = 'M' ]; then # For Mac OSX
   cd ~/dotfiles
   ruby -e "$(curl -fsSL https://raw.github.com/Homebrew/homebrew/go/install)"
   brew tap homebrew/boneyard
   brew bundle
-elif [ $flag = 'c' -o $flag = 'C' ]; then # for CentOS
+
+elif [ $flag = 'c' -o $flag = 'C' ]; then # For CentOS
   sudo yum -y update
   sudo yum -y upgrade
 
@@ -27,7 +28,7 @@ elif [ $flag = 'c' -o $flag = 'C' ]; then # for CentOS
   done
 
   sudo yum -y clean
-elif [ $flag = 'a' -o $flag = 'A' ]; then # for ArchLinux
+elif [ $flag = 'a' -o $flag = 'A' ]; then # For ArchLinux
   sudo pacman -Sy
 
   for package in `cat ./package_lists/pacman`; do
@@ -37,7 +38,7 @@ else
   echo "You can input is only 'm', 'c' and 'a'"
   exit 1
 fi
-echo "tools was successfully installed."
+echo "Tools was successfully installed."
 
 # install oh-my-zsh
 [ ! -d ~/.oh-my-zsh ] && git clone git://github.com/robbyrussell/oh-my-zsh.git ~/.oh-my-zsh
@@ -82,9 +83,9 @@ rake all
 # reload shell
 exec $SHELL
 
-echo "your shell was reloaded"
-echo "all was successfully installed."
+echo "Your shell was reloaded"
+echo "All done."
 echo "
-** you need to change shell **
-Add /usr/local/bin/zsh path to /etc/shells, and
-Execute 'chsh -s /usr/local/bin/zsh'"
+** After setup: You need to change shell **
+Add $(/usr/bin/which zsh) path to /etc/shells, and
+Execute 'chsh -s $(/usr/bin/which zsh)'"

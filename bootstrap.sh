@@ -12,9 +12,7 @@ echo "MacOS user 'm' : Centos user 'c' : ArchLinux user [m/c/a] : "
 if [ $flag = 'm' -o $flag = 'M' ]; then # For Mac OSX
   cd ~/dotfiles
   ruby -e "$(curl -fsSL https://raw.github.com/Homebrew/homebrew/go/install)"
-  brew tap homebrew/boneyard
-  brew bundle
-
+  ./Homebrew/install.sh
 elif [ $flag = 'c' -o $flag = 'C' ]; then # For CentOS
   sudo yum -y update
   sudo yum -y upgrade
@@ -28,6 +26,7 @@ elif [ $flag = 'c' -o $flag = 'C' ]; then # For CentOS
   done
 
   sudo yum -y clean
+  ./Homebrew/install.linux.sh
 elif [ $flag = 'a' -o $flag = 'A' ]; then # For ArchLinux
   sudo pacman -Sy
 
@@ -37,6 +36,7 @@ elif [ $flag = 'a' -o $flag = 'A' ]; then # For ArchLinux
 else
   echo "You can input is only 'm', 'c' and 'a'"
   exit 1
+  ./Homebrew/install.linux.sh
 fi
 echo "Tools was successfully installed."
 

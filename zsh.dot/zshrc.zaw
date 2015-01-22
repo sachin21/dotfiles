@@ -1,5 +1,5 @@
 # for zaw
-source $HOME/.zsh/zaw/zaw.zsh
+. $HOME/.zsh/zaw/zaw.zsh
 zstyle ':filter-select' case-insensitive yes
 
 bindkey '^R' zaw-history

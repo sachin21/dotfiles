@@ -186,7 +186,7 @@ echo "Installing formulas..."
 brew install ${formulas[@]} && brew cleanup
 
 # Install Homebrew-cask
-caskroom/cask/brew-cask
+brew install caskroom/cask/brew-cask
 
 # For OSX
 apps=(

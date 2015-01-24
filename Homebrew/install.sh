@@ -209,6 +209,7 @@ apps=(
   mou
   opera
   parallels
+  pg-commander
   picasa
   screenhero
   sequel-pro

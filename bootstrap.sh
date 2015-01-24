@@ -113,8 +113,12 @@ else
 fi
 
 # Create symbolics
-rake clean
-rake all
+if type rake > /dev/null 2>&1; then
+  rake clean
+  rake all
+else
+  echo "[Warning] rake is not installed" 1>&2
+fi
 
 # Reload shell
 exec $SHELL

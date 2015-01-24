@@ -5,7 +5,7 @@
   editor = vim
   excludesfile = ~/.global_ignore
 [github]
-  user = sachin21
+  user = Satoshi Ohmori
 [url "git@github.com:"]
   pushinsteadof = https://github.com
 [ghq]

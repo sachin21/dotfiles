@@ -14,3 +14,4 @@ export LC_ALL=ja_JP.UTF-8
 export LC_CTYPE=ja_JP.UTF-8
 export GOPATH=$HOME
 export PORT=3000
+export PGDATA=/usr/local/var/postgres

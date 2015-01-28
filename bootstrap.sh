@@ -73,8 +73,6 @@ else
   echo "rbenv was successfully installed."
 fi
 
-
-
 # Install pyenv
 if [ -d ~/.pyenv ]; then
   echo "pyenv is exist."

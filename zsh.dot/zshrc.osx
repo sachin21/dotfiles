@@ -1,10 +1,15 @@
-export PATH="$(brew --prefix coreutils)/libexec/gnubin:$PATH"
 export HOMEBREW_CASK_OPTS="--appdir=/Applications"
 export PATH="/usr/local/heroku/bin:$PATH"
 export CC=/usr/local/bin/gcc-4.8
 alias gcc='/usr/local/bin/gcc-4.8'
 alias o='open'
 alias o.='open .'
+
+if type brew > /dev/null 2>&1; then
+  export PATH="$(brew --prefix coreutils)/libexec/gnubin:$PATH"
+else
+  echo "[Warning] Homebrew is not installed" 1>&2
+fi
 
 if type dircolors > /dev/null 2>&1; then
   eval `dircolors ~/.dircolors`
@@ -24,3 +29,4 @@ if type rmtrash > /dev/null 2>&1; then
 else
   echo "[Warning] rmtrash is not installed" 1>&2
 fi
+

@@ -57,7 +57,6 @@ formulas=(
   gcc47
   gcc48
 
-
   # Languages
   go
   perl

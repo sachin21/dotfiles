@@ -13,6 +13,7 @@ fi
 
 # Upgrade formulas
 echo "Do you upgrade Homebrew? [Y/n]:" && read flag
+
 if [ $flag = 'y' -o $flag = 'Y' ]; then
   brew upgrade
 fi

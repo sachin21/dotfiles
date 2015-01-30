@@ -1,8 +1,7 @@
 #!/usr/bin/env sh
 
 # Initialize other packages
-git submodule init
-git submodule update
+git submodule update --init
 
 # Check os
 echo "MacOS user 'm' : Centos user 'c' : ArchLinux user [m/c/a] : "

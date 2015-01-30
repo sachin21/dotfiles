@@ -34,7 +34,6 @@ elif [ $flag = 'a' -o $flag = 'A' ]; then # For ArchLinux
 else
   echo "You can input is only 'm', 'c' and 'a'"
   exit 1
-  ./Homebrew/install.linux.sh
 fi
 echo "Tools was successfully installed."
 

@@ -1,3 +1,17 @@
-require 'awesome_print'
-require 'csv'
-require 'yaml'
+begin
+  require 'awesome_print'
+rescue LoadError
+  puts "Cannot load awesome_print"
+end
+
+begin
+  require 'yaml'
+rescue LoadError
+  puts "Cannot load yaml"
+end
+
+begin
+  require 'csv'
+rescue LoadError
+  puts "Cannot load csv"
+end

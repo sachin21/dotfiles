@@ -15,7 +15,7 @@ git clone https://github.com/sachin21/dotfiles.git && cd dotfiles && ./bootstrap
 To update, `cd` into your local `dotfiles` repository and then:
 
 ```
-./bootstrap.sh
+./scripts/bootstrap.sh
 ```
 
 ## Credits

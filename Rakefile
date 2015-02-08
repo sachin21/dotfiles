@@ -11,7 +11,7 @@ GIT_ROOT      = File.join(File.dirname(__FILE__), 'git')
 ETC_ROOT      = File.join(File.dirname(__FILE__), 'etc')
 
 GIT_FILES = %w( gitconfig global_ignore )
-ETC_FILES = %w( bundle dircolors gemrc pryrc tigrc railsrc )
+ETC_FILES = %w( bundle dircolors gemrc peco pryrc tigrc railsrc )
 
 CLEANS = [
   '.zsh',
@@ -23,6 +23,7 @@ CLEANS = [
   '.gitconfig',
   '.global_ignore',
   '.gemrc',
+  '.peco',
   '.pryrc',
   '.bundle',
   '.dircolors',

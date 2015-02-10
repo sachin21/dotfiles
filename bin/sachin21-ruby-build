@@ -22,6 +22,8 @@ for TARGET_VERSION in $@; do
 
     gem install bundler
     gem install pry
+    gem install pry-doc
+    gem install pry-byebug
     gem install awesome_print
     gem install space2underscore
     gem install space2dot
@@ -29,7 +31,6 @@ for TARGET_VERSION in $@; do
     gem install tmuxinator
 
     gem install rails -v '4.1.4'
-
 
     rbenv rehash
 

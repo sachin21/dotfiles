@@ -10,3 +10,5 @@
   pushinsteadof = https://github.com
 [ghq]
   root = ~/Projects
+[alias]
+  open = "!vim $(git diff --name-only)"

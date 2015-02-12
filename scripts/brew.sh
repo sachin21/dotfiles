@@ -7,7 +7,7 @@ fi
 # Update Homebrew formulas
 echo "Do you update Homebrew? [Y/n]:" && read flag
 
-if [ $flag = 'y' -o $flag = 'Y' ]; then # for CentOS
+if [ $flag = 'y' -o $flag = 'Y' ]; then
   brew update
 fi
 

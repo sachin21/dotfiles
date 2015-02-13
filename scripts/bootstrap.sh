@@ -120,7 +120,7 @@ fi
 exec $SHELL
 
 echo "Your shell was reloaded"
-echo "All done."
+echo "It's all done."
 echo "
 ** After setup: You need to change shell **
 Add $(/usr/bin/which zsh) path to /etc/shells, and

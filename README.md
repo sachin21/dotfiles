@@ -1,6 +1,18 @@
-# sachin21's dotfiles
+# The sachin21's dotfiles
+[![platform](https://img.shields.io/badge/platform-OS%20X-lightgrey.svg?style=flat)](./doc/OSX.md "Platform")
+[![license](http://img.shields.io/badge/license-MIT-blue.svg?style=flat)](./doc/LICENSE-MIT.txt "License")
 
-![Screenshot of my shell prompt](http://i.imgur.com/ojsVNfv.png)
+## Features
+- OS X Mavericks (MacBookPro Retina)
+- Zsh
+- Vim
+- tmux
+- zaw
+- iTerm2
+- Solarized dark
+
+### *demo*
+![Screenshot of my shell prompt](http://i.imgur.com/KVW2y9P.png)
 
 ## Installation
 

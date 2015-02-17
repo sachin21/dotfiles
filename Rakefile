@@ -1,6 +1,6 @@
 require 'rake/clean'
 
-HOME = ENV['HOME']
+HOME = ENV['HOME'].freeze
 
 ZSH_DOT_ROOT  = File.join(File.dirname(__FILE__), 'zsh.dot')
 ZSH_ROOT      = File.join(File.dirname(__FILE__), 'zsh')
@@ -10,8 +10,8 @@ TMUX_DOT_ROOT = File.join(File.dirname(__FILE__), 'tmux')
 GIT_ROOT      = File.join(File.dirname(__FILE__), 'git')
 ETC_ROOT      = File.join(File.dirname(__FILE__), 'etc')
 
-GIT_FILES = %w( gitconfig global_ignore )
-ETC_FILES = %w( bundle dircolors gemrc peco pryrc tigrc railsrc )
+GIT_FILES = %w( gitconfig global_ignore ).freeze
+ETC_FILES = %w( bundle dircolors gemrc peco pryrc tigrc railsrc ).freeze
 
 CLEANS = [
   '.zsh',

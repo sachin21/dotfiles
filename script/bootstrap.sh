@@ -1,5 +1,13 @@
 #!/usr/bin/env sh
 
+# ToDO(sachin21): add set -e
+if [ ! $(basename `pwd`) = "dotfiles" ]; then
+  git clone git@github.com:sachin21/dotfiles.git ~/dotfiles
+  cd ~/dotfiles
+else
+  echo "Already exist dotfiles. Let's go next step"
+fi
+
 # Initialize other packages
 git submodule update --init
 

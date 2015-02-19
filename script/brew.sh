@@ -1,4 +1,7 @@
 # Check for Homebrew
+
+set -e
+
 if ! type brew > /dev/null 2>&1; then
   echo "Installing Homebrew..."
   ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"

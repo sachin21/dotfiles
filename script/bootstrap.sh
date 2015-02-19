@@ -43,14 +43,14 @@ else
   echo "You can input is only 'm', 'c' and 'a'"
   exit 1
 fi
-echo "Tools was successfully installed."
+echo "Tools was successfully installed"
 
 # Install oh-my-zsh
 if [ -d ~/.oh-my-zsh ]; then
   echo "oh-my-zsh is exist."
 else
   git clone git://github.com/robbyrussell/oh-my-zsh.git ~/.oh-my-zsh
-  echo "oh-my-zsh was successfully installed."
+  echo "oh-my-zsh was successfully installed"
 fi
 
 # Install NeoBundle
@@ -58,7 +58,7 @@ if [ -d ~/.vim/bundle -a -d ~/.vim/bundle/neobundle.vim ]; then
   echo "NeoBundle is exist."
 else
   mkdir -p ~/.vim/bundle && git clone git://github.com/Shougo/neobundle.vim ~/.vim/bundle/neobundle.vim && vim -c ':NeoBundleInstall'
-  echo "NeoBundle was successfully installed."
+  echo "NeoBundle was successfully installed"
 fi
 
 
@@ -73,35 +73,35 @@ else
   else
     git clone https://github.com/sstephenson/ruby-build.git ~/.rbenv/plugins/ruby-build
     ~/.rbenv/plugins/ruby-build/install.sh
-    echo "ruby-build was successfully installed."
+    echo "ruby-build was successfully installed"
   fi
 
-  echo "rbenv was successfully installed."
+  echo "rbenv was successfully installed"
 fi
 
 # Install pyenv
 if [ -d ~/.pyenv ]; then
-  echo "pyenv is exist."
+  echo "pyenv is exist"
 else
   git clone git://github.com/yyuu/pyenv.git ~/.pyenv
-  echo "pyenv was successfully installed."
+  echo "pyenv was successfully installed"
 fi
 
 # Install nodenv
 if [ -d ~/.nodenv ]; then
-  echo "nodenv is exist."
+  echo "nodenv is exist"
 else
   git clone https://github.com/OiNutter/nodenv.git ~/.nodenv
 
   if [ -d ~/.nodenv/.nodenv/plugins/node-build ]; then
-    echo "node-build is exist."
+    echo "node-build is exist"
   else
     git clone git://github.com/OiNutter/node-build.git ~/.nodenv/plugins/node-build
     ~/.nodenv/plugins/node-build/install.sh
-    echo "node-build was successfully installed."
+    echo "node-build was successfully installed"
   fi
 
-  echo "nodenv was successfully installed."
+  echo "nodenv was successfully installed"
 fi
 
 echo "If you want to create projects of sachin21? [y/Y]"
@@ -127,7 +127,7 @@ fi
 # Reload shell
 exec $SHELL
 
-echo "Your shell was reloaded"
+echo "Your shell was reloaded."
 echo "It's all done."
 echo "
 ** After setup: You need to change shell **

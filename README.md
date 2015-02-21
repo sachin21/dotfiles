@@ -15,6 +15,14 @@
 ![Screenshot of my shell prompt](http://i.imgur.com/KVW2y9P.png)
 
 ## Installation
+### Using curl or wget installition
+
+| Tools | <a name="oneliner">The installation command</a> |
+|-------|-------------------------------------------------|
+| cURL | bash -c "$(curl -fsSL [dot.sachin21.jp](https://raw.githubusercontent.com/sachin21/dotfiles/master/script/bootstrap.sh))" |
+| Wget | bash -c "$(wget -qO - [dot.sachin21.jp](https://raw.githubusercontent.com/sachin21/dotfiles/master/script/bootstrap.sh))" |
+
+## OR
 
 ### Using Git and the bootstrap script
 

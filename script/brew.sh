@@ -1,23 +1,29 @@
-# Check for Homebrew
+#!/usr/bin/env sh
 
 set -e
 
 if ! type brew > /dev/null 2>&1; then
-  echo "Installing Homebrew..."
+  echo "  + Installing Homebrew..."
   ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+  echo "  + Homebrew was successfully installed"
+else
+  echo "  x Homebrew not found"
+  exit 1
 fi
 
 # Update Homebrew formulas
-echo "Do you update Homebrew? [Y/n]:" && read flag
+echo "  + Do you update Homebrew? [Y/n]:" && read flag
 
 if [ $flag = 'y' -o $flag = 'Y' ]; then
+  echo "  + Updating Homebrew"
   brew update
 fi
 
 # Upgrade formulas
-echo "Do you upgrade Homebrew? [Y/n]:" && read flag
+echo "  + Do you upgrade Homebrew? [Y/n]:" && read flag
 
 if [ $flag = 'y' -o $flag = 'Y' ]; then
+  echo "  + Upgrading Homebrew formulas"
   brew upgrade
 fi
 

@@ -4,7 +4,8 @@
 #
 # Get readly to develop something
 
-# ToDO(sachin21): add set -e
+set -e
+
 if [ ! $(basename `pwd`) = "dotfiles" ]; then
   echo "  + Cloning into ~/dotfiles..."
   git clone git@github.com:sachin21/dotfiles.git ~/dotfiles

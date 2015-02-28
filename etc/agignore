@@ -1,0 +1,9 @@
+,*
+*.swp
+*.swo
+*.bak
+.vim/bundle
+vendor/bundle
+.git
+jquery*.js
+jquery*.css

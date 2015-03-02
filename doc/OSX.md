@@ -9,5 +9,5 @@ xcode-select --install
 ## If you have a rake command, execute this command
 
 ```
-rake all # Created symbolic links
+rake all # Create symbolic links
 ```

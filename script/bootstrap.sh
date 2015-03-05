@@ -19,7 +19,7 @@ echo "  + Initializing git submodule"
 git submodule update --init
 
 # Check os
-echo "  + MacOS user 'm' : Centos user 'c' : ArchLinux user [m/c/a] : "
+echo "  + OSX user 'm' : CentOS user 'c' : ArchLinux user [m/c/a] : "
   read flag
 
 # Setup tools

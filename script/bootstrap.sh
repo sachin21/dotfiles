@@ -75,7 +75,7 @@ fi
 if [ -d ~/.vim/bundle -a -d ~/.vim/bundle/neobundle.vim ]; then
   echo "  + NeoBundle is exist."
 else
-  mkdir -p ~/.vim/bundle && git clone git://github.com/Shougo/neobundle.vim ~/.vim/bundle/neobundle.vim && vim -c ':NeoBundleInstall'
+  mkdir -p ~/.vim/bundle && git clone git://github.com/Shougo/neobundle.vim ~/.vim/bundle/neobundle.vim
   echo "  + NeoBundle was successfully installed"
 fi
 

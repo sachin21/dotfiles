@@ -6,6 +6,11 @@
 
 set -e
 
+if type git > /dev/null 2>&1; then
+  echo "  x [Error] git is not installed"
+  exit 1
+fi
+
 if [ ! $(basename `pwd`) = "dotfiles" ]; then
   echo "  + Cloning into ~/dotfiles..."
   git clone git@github.com:sachin21/dotfiles.git ~/dotfiles

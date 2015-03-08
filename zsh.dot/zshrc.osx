@@ -8,25 +8,25 @@ alias o.='open .'
 if type brew > /dev/null 2>&1; then
   export PATH="$(brew --prefix coreutils)/libexec/gnubin:$PATH"
 else
-  echo "  x [Warning] Homebrew is not installed" 1>&2
+  echo "  x [Warning] Homebrew is not installed"
 fi
 
 if type dircolors > /dev/null 2>&1; then
   eval `dircolors ~/.dircolors`
 else
-  echo "  x [Warning] dircolors is not installed" 1>&2
+  echo "  x [Warning] dircolors is not installed"
 fi
 
 if type gls > /dev/null 2>&1; then
   alias ls='gls --color=auto -F'
 else
-  echo "  x [Warning] coreutils is not installed" 1>&2
+  echo "  x [Warning] coreutils is not installed"
   alias ls='ls -F'
 fi
 
 if type rmtrash > /dev/null 2>&1; then
   alias rm='rmtrash'
 else
-  echo "  x [Warning] rmtrash is not installed" 1>&2
+  echo "  x [Warning] rmtrash is not installed"
 fi
 

@@ -122,7 +122,7 @@ function richpager()
     for file in "${non_exist_files[@]}"
     do
         ERR=1
-        echo "$file: no such file or directory" 1>&2
+        echo "$file: no such file or directory"
     done
 
     if [ -n "$ERR" ]; then

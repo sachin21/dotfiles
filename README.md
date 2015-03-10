@@ -15,7 +15,7 @@
 ![Screenshot of my shell prompt](http://i.imgur.com/KVW2y9P.png)
 
 ## Installation
-### Using curl or wget installition
+### Using curl or wget installation
 
 | Tools | <a name="oneliner">The installation command</a> |
 |-------|-------------------------------------------------|

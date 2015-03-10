@@ -136,7 +136,7 @@ if [ $flag = 'y' -o $flag = 'Y' ] && type ghq > /dev/null 2>&1; then
     ghq get $repository
   done
 else
-  echo "  x [Warning] ghq is not installed" 1>&2
+  echo "  x [Warning] ghq is not installed"
 fi
 
 # Create symbolics
@@ -145,7 +145,7 @@ if type rake > /dev/null 2>&1; then
   rake clean
   rake all
 else
-  echo "  x [Warning] rake is not installed" 1>&2
+  echo "  x [Warning] rake is not installed"
 fi
 
 # Reload shell

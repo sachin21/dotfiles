@@ -9,5 +9,5 @@ elif type xsel > /dev/null 2>&1; then
   # for Linux
   alias -g C='| xsel --input --clipboard'
 else
-  echo "  x [Warning] copy command is not installed"
+  echo "  x [Warning] Copy command is not installed"
 fi

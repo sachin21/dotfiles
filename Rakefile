@@ -10,27 +10,40 @@ TMUX_DOT_ROOT = File.join(File.dirname(__FILE__), 'tmux')
 GIT_ROOT      = File.join(File.dirname(__FILE__), 'git')
 ETC_ROOT      = File.join(File.dirname(__FILE__), 'etc')
 
-GIT_FILES = %w( gitconfig global_ignore ).freeze
-ETC_FILES = %w( bundle dircolors gemrc peco pryrc tigrc railsrc agignore ).freeze
+GIT_FILES = %w(
+  gitconfig
+  global_ignore
+).freeze
 
-CLEANS = [
-  '.zsh',
-  '.zshrc',
-  '.tmux',
-  '.tmuxinator',
-  '.tmux.conf',
-  '.vimrc',
-  '.gitconfig',
-  '.global_ignore',
-  '.gemrc',
-  '.peco',
-  '.pryrc',
-  '.bundle',
-  '.dircolors',
-  '.tigrc',
-  '.railsrc',
-  '.agignore'
-].freeze
+ETC_FILES = %w(
+  bundle
+  dircolors
+  gemrc
+  peco
+  pryrc
+  tigrc
+  railsrc
+  agignore
+).freeze
+
+CLEANS = %w(
+  .zsh
+  .zshrc
+  .tmux
+  .tmuxinator
+  .tmux.conf
+  .vimrc
+  .gitconfig
+  .global_ignore
+  .gemrc
+  .peco
+  .pryrc
+  .bundle
+  .dircolors
+  .tigrc
+  .railsrc
+  .agignore
+).freeze
 
 CLEAN.concat(CLEANS.map { |c| File.join(HOME, c) })
 

@@ -7,3 +7,4 @@ vendor/bundle
 .git
 jquery*.js
 jquery*.css
+log/*

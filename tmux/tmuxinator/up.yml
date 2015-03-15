@@ -10,4 +10,3 @@ windows:
     - ruby -v
     - cat .ruby-version
   - develop:
-    - vim

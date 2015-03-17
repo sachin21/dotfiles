@@ -6,6 +6,7 @@
 . ~/dotfiles/zsh.dot/zshrc.colors
 . ~/dotfiles/zsh.dot/zshrc.aliases
 . ~/dotfiles/zsh.dot/zshrc.functions
+. ~/dotfiles/zsh.dot/zshrc.local
 
 case "${OSTYPE}" in
   darwin*)

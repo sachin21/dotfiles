@@ -131,12 +131,20 @@ echo "  + If you want to create projects of sachin21? [y/Y]"
   read flag
 
 # Setup repositories
-if [ $flag = 'y' -o $flag = 'Y' ] && type ghq > /dev/null 2>&1; then
-  for repository in `cat repositories/github`; do
-    ghq get $repository
-  done
-else
-  echo "  x [Warning] ghq is not installed"
+if [ $flag = 'y' -o $flag = 'Y' ]; then
+  if type ghq > /dev/null 2>&1; then
+    for repository in `cat repositories/github`; do
+      ghq get $repository
+    done
+  else
+    echo "  x [Warning] ghq is not installed"
+
+    if type brew > /dev/null 2>&1; then
+      echo "  + Installing ghq..."
+      brew tap motemen/ghq
+      brew install ghq
+    fi
+  fi
 fi
 
 # Create symbolics

@@ -123,6 +123,7 @@ formulas=(
   libxml2
   libxslt
   libyaml
+  moreutils
   mpfr
   mpfr2
   mpg123
@@ -237,6 +238,10 @@ apps=(
   xld
   xtrafinder
   yorufukurou
+
+  # Tools
+  boot2docker
+  docker
 )
 
 # Install apps to /Applications

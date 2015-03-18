@@ -122,6 +122,7 @@ formulas=(
   libxml2
   libxslt
   libyaml
+  moreutils
   mpfr
   mpfr2
   mpg123
@@ -188,6 +189,10 @@ formulas=(
   w3m
   wget
   youtube-dl
+
+  # Tools
+  boot2docker
+  docker
 )
 
 echo "Installing formulas..."

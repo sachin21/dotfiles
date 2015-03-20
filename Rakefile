@@ -6,7 +6,7 @@ ZSH_DOT_ROOT  = File.join(File.dirname(__FILE__), 'zsh.dot')
 ZSH_ROOT      = File.join(File.dirname(__FILE__), 'zsh')
 VIM_DOT_ROOT  = File.join(File.dirname(__FILE__), 'vim.dot')
 TMUX_ROOT     = File.join(File.dirname(__FILE__), 'tmux')
-TMUX_DOT_ROOT = File.join(File.dirname(__FILE__), 'tmux')
+TMUX_DOT_ROOT = File.join(File.dirname(__FILE__), 'tmux.dot')
 GIT_ROOT      = File.join(File.dirname(__FILE__), 'git')
 ETC_ROOT      = File.join(File.dirname(__FILE__), 'etc')
 
@@ -25,6 +25,11 @@ ETC_FILES = %w(
   railsrc
   agignore
 ).freeze
+
+TMUX_FILES = %w(
+  tmux.conf
+  tmuxinator
+)
 
 CLEANS = %w(
   .zsh
@@ -75,9 +80,8 @@ end
 namespace :tmux do
   desc 'Create symbolic for tmux settings file for link to HOME'
   task :link do
-    symlink_ File.join(TMUX_ROOT, 'tmux.conf'), File.join(HOME, '.tmux.conf')
-    symlink_ File.join(TMUX_ROOT, 'tmuxinator'), File.join(HOME, '.tmuxinator')
-    symlink_ File.join(TMUX_DOT_ROOT), File.join(HOME, '.tmux')
+    symlink_ File.join(TMUX_ROOT), File.join(HOME, '.tmux')
+    same_name_symlinks TMUX_DOT_ROOT, TMUX_FILES
   end
 end
 

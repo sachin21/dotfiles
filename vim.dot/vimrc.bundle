@@ -18,9 +18,6 @@ call neobundle#begin(expand('~/.vim/bundle/'))
   " 自動閉じタグ
   NeoBundle 'yuroyoro/vim-autoclose'
 
-  " tree表示
-  NeoBundle 'scrooloose/nerdtree'
-
   " schema
   NeoBundle 'altercation/vim-colors-solarized'
   " -- でメソッドチェーン整形

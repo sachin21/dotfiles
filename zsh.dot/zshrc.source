@@ -1,11 +1,11 @@
 . ~/dotfiles/tmux/tmuxinator.zsh
 . ~/dotfiles/zsh/zsh-bd/bd.zsh
-. ~/dotfiles/zsh.dot/zshrc.envs
+. ~/dotfiles/zsh.dot/zshrc.env
 . ~/dotfiles/zsh.dot/zshrc.config
-. ~/dotfiles/zsh.dot/zshrc.settings
-. ~/dotfiles/zsh.dot/zshrc.colors
-. ~/dotfiles/zsh.dot/zshrc.aliases
-. ~/dotfiles/zsh.dot/zshrc.functions
+. ~/dotfiles/zsh.dot/zshrc.setting
+. ~/dotfiles/zsh.dot/zshrc.color
+. ~/dotfiles/zsh.dot/zshrc.alias
+. ~/dotfiles/zsh.dot/zshrc.function
 . ~/dotfiles/zsh.dot/zshrc.local
 
 case "${OSTYPE}" in

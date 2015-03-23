@@ -13,7 +13,7 @@ fi
 
 if [ ! $(basename `pwd`) = "dotfiles" ]; then
   echo "  + Cloning into ~/dotfiles..."
-  git clone git@github.com:sachin21/dotfiles.git ~/dotfiles
+  git clone https://github.com/sachin21/dotfiles.git ~/dotfiles
   cd ~/dotfiles
 else
   echo "  + Already exist dotfiles. Let's go next step"

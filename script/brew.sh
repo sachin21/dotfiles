@@ -7,8 +7,7 @@ if ! type brew > /dev/null 2>&1; then
   ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
   echo "  + Homebrew was successfully installed"
 else
-  echo "  x Homebrew not found"
-  exit 1
+  echo "  + Homebrew found"
 fi
 
 # Update Homebrew formulas

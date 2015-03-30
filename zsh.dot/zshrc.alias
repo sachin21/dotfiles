@@ -1,4 +1,3 @@
-# only my aliases
 alias reload='exec $SHELL'
 alias ts='tmux split-window'
 alias th='tmux split-window -h'

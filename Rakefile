@@ -1,6 +1,6 @@
 require 'rake/clean'
 
-HOME = ENV['HOME'].freeze
+HOME = ENV['HOME']
 
 ZSH_DOT_ROOT  = File.join(File.dirname(__FILE__), 'zsh.dot')
 ZSH_ROOT      = File.join(File.dirname(__FILE__), 'zsh')

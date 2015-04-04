@@ -2,12 +2,12 @@
 
 set -e
 
-if ! type brew > /dev/null 2>&1; then
+if type brew > /dev/null 2>&1; then
+  echo "  + Homebrew found"
+else
   echo "  + Installing linuxbrew..."
   ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/linuxbrew/go/install)"
   echo "  + Homebrew was successfully installed"
-else
-  echo "  + Homebrew found"
 fi
 
 # Update Homebrew formulas

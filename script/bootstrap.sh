@@ -20,7 +20,7 @@ else
 fi
 
 # Initialize other packages
-echo "  + Initializing git submodule"
+echo "  + Initializing git submodules"
 git submodule update --init
 
 # Check os

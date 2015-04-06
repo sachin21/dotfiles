@@ -11,12 +11,12 @@ if ! type git > /dev/null 2>&1; then
   exit 1
 fi
 
-if [ ! $(basename `pwd`) = "dotfiles" ]; then
+if [ $(basename `pwd`) = "dotfiles" ]; then
+  echo "  + Already exist dotfiles. Let's go next step"
+else
   echo "  + Cloning into ~/dotfiles..."
   git clone https://github.com/sachin21/dotfiles.git ~/dotfiles
   cd ~/dotfiles
-else
-  echo "  + Already exist dotfiles. Let's go next step"
 fi
 
 # Initialize other packages

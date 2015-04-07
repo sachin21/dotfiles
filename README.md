@@ -7,7 +7,6 @@
 - Zsh
 - Vim
 - tmux
-- zaw
 - iTerm2
 - Solarized dark
 

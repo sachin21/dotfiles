@@ -89,9 +89,12 @@ call neobundle#begin(expand('~/.vim/bundle/'))
 
   " <C-a>でtrue/false切替。他色々
   NeoBundle 'taku-o/vim-toggle'
+
   " slim のシンタックスハイライトを行う
   NeoBundle "slim-template/vim-slim"
 
+  "rubyのコードで自動的にendを挿入する
+  NeoBundle 'tpope/vim-endwise'
 " }}}
 
 " Completion {{{
@@ -295,7 +298,7 @@ call neobundle#begin(expand('~/.vim/bundle/'))
   NeoBundle 'thinca/vim-unite-history'
   NeoBundle 'tsukkee/unite-tag'
   NeoBundle 'choplin/unite-vim_hacks'
-
+  NeoBundle 'Shougo/neomru.vim'
 " }}}
 "
 " NeoBundle 'gmarik/vundle'

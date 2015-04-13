@@ -84,7 +84,6 @@ else
   echo "  + NeoBundle was successfully installed"
 fi
 
-
 # Install rbenv
 if [ -d ~/.rbenv ]; then
   echo "  + rbenv is exist."
@@ -132,10 +131,14 @@ echo "  + If you want to create projects of sachin21? [y/Y]"
 
 # Setup repositories
 if [ $flag = 'y' -o $flag = 'Y' ]; then
-  if type ghq > /dev/null 2>&1; then
+  function install_ghq() {
     for repository in `cat repositories/github`; do
       ghq get $repository
     done
+  }
+
+  if type ghq > /dev/null 2>&1; then
+    install_ghq
   else
     echo "  x [Warning] ghq is not installed"
 
@@ -144,6 +147,7 @@ if [ $flag = 'y' -o $flag = 'Y' ]; then
       brew tap motemen/ghq
       brew install ghq
     fi
+    install_ghq
   fi
 fi
 

@@ -31,7 +31,7 @@ echo "  + OSX user 'm' : CentOS user 'c' : ArchLinux user [m/c/a] : "
 if [ $flag = 'm' -o $flag = 'M' ]; then # For Mac OSX
   cd ~/dotfiles
   echo "  + Installing Homebrew..."
-  ./Homebrew/install.sh
+  ./script/brew.sh
 elif [ $flag = 'c' -o $flag = 'C' ]; then # For CentOS
   echo "  + Updating already exist packages..."
   sudo yum -y update
@@ -53,7 +53,7 @@ elif [ $flag = 'c' -o $flag = 'C' ]; then # For CentOS
   sudo yum -y clean
 
   echo "  + Installing Linuxbrew..."
-  ./Homebrew/install.linux.sh
+  ./script/brew.linux.sh
 elif [ $flag = 'a' -o $flag = 'A' ]; then # For ArchLinux
   echo "  + Upgrading packages..."
   sudo pacman -Sy
@@ -62,6 +62,9 @@ elif [ $flag = 'a' -o $flag = 'A' ]; then # For ArchLinux
     echo "  + Installing packages..."
     sudo pacman -S $package
   done
+
+  echo "  + Installing Linuxbrew..."
+  ./script/brew.linux.sh
 else
   echo "  x You can input is only 'm', 'c' and 'a'"
   exit 1

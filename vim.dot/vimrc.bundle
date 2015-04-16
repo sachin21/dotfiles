@@ -1,4 +1,4 @@
-"vunlde.vimで管理してるpluginを読み込む
+"neobundle.vimで管理してるpluginを読み込む
 
 filetype off
 

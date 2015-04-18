@@ -40,7 +40,7 @@ To update, `cd` into your local `dotfiles` repository and then:
 ## Credits
 
 * Dotfiles' `README` layout based on [@Mathias's dotfiles](https://github.com/mathiasbynens/dotfiles)
-* VimL scripts based on [@yuroyoro's dotfiles](https://github.com/yuroyoro/dotfiles)
+* VimL scripts and vim directory based on [@yuroyoro's dotfiles](https://github.com/yuroyoro/dotfiles)
 * Rakefile based on [@tcnksm's dotfiles](https://github.com/tcnksm/dotfiles)
 
 ## Feedback

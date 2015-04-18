@@ -4,6 +4,7 @@ HOME = ENV['HOME']
 
 ZSH_DOT_ROOT  = File.join(File.dirname(__FILE__), 'zsh.dot')
 ZSH_ROOT      = File.join(File.dirname(__FILE__), 'zsh')
+VIM_ROOT      = File.join(File.dirname(__FILE__), 'vim')
 VIM_DOT_ROOT  = File.join(File.dirname(__FILE__), 'vim.dot')
 TMUX_ROOT     = File.join(File.dirname(__FILE__), 'tmux')
 TMUX_DOT_ROOT = File.join(File.dirname(__FILE__), 'tmux.dot')
@@ -37,6 +38,7 @@ CLEANS = %w(
   .tmux
   .tmuxinator
   .tmux.conf
+  .vim
   .vimrc
   .gitconfig
   .global_ignore
@@ -66,6 +68,7 @@ end
 namespace :vim do
   desc 'Create symbolic for vimrc link to HOME'
   task :link do
+    symlink_ File.join(VIM_ROOT), File.join(HOME, '.vim')
     symlink_ File.join(VIM_DOT_ROOT, 'vimrc'), File.join(HOME, '.vimrc')
   end
 end

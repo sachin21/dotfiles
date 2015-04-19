@@ -1,9 +1,0 @@
-name: wantedly
-root: ~/Projects/github.com/wantedly/wantedly
-
-windows:
-  - console:
-    - rbenv rehash
-    - ruby -v
-    - cat .ruby-version
-  - develop:

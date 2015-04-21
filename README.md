@@ -18,8 +18,8 @@
 
 | Tools | <a name="oneliner">The installation command</a> |
 |-------|-------------------------------------------------|
-| cURL | bash -c "$(curl -fsSL [dot.sachin21.jp](https://raw.githubusercontent.com/sachin21/dotfiles/master/script/bootstrap.sh))" |
-| Wget | bash -c "$(wget -qO - [dot.sachin21.jp](https://raw.githubusercontent.com/sachin21/dotfiles/master/script/bootstrap.sh))" |
+| cURL | bash -c "$(curl -fsSL [dot.sachin21.jp](http://dot.sachin21.jp))" |
+| Wget | bash -c "$(wget -qO - [dot.sachin21.jp](http://dot.sachin21.jp))" |
 
 ## OR
 

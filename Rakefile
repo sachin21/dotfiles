@@ -40,6 +40,23 @@ CLEANS = %w(
   .tmux.conf
   .vim
   .vimrc
+  .vimrc
+  .vimrc.apperance
+  .vimrc.basic
+  .vimrc.bundle
+  .vimrc.colors
+  .vimrc.completion
+  .vimrc.completion.autocomplpop
+  .vimrc.completion.neocomplcache
+  .vimrc.editing
+  .vimrc.encoding
+  .vimrc.gitlogviewer
+  .vimrc.indent
+  .vimrc.misc
+  .vimrc.moving
+  .vimrc.plugins_setting
+  .vimrc.search
+  .vimrc.statusline
   .gitconfig
   .global_ignore
   .gemrc
@@ -50,7 +67,28 @@ CLEANS = %w(
   .tigrc
   .railsrc
   .agignore
+
 ).freeze
+
+VIM_DOT_FILES = %w(
+  vimrc
+  vimrc.apperance
+  vimrc.basic
+  vimrc.bundle
+  vimrc.colors
+  vimrc.completion
+  vimrc.completion.autocomplpop
+  vimrc.completion.neocomplcache
+  vimrc.editing
+  vimrc.encoding
+  vimrc.gitlogviewer
+  vimrc.indent
+  vimrc.misc
+  vimrc.moving
+  vimrc.plugins_setting
+  vimrc.search
+  vimrc.statusline
+)
 
 CLEAN.concat(CLEANS.map { |c| File.join(HOME, c) })
 
@@ -70,6 +108,7 @@ namespace :vim do
   task :link do
     symlink_ File.join(VIM_ROOT), File.join(HOME, '.vim')
     symlink_ File.join(VIM_DOT_ROOT, 'vimrc'), File.join(HOME, '.vimrc')
+    same_name_symlinks VIM_DOT_ROOT, VIM_DOT_FILES
   end
 end
 

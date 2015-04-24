@@ -2,14 +2,27 @@ require 'rake/clean'
 
 HOME = ENV['HOME']
 
-ZSH_DOT_ROOT  = File.join(File.dirname(__FILE__), 'zsh.dot')
 ZSH_ROOT      = File.join(File.dirname(__FILE__), 'zsh')
+ZSH_DOT_ROOT  = File.join(File.dirname(__FILE__), 'zsh.dot')
 VIM_ROOT      = File.join(File.dirname(__FILE__), 'vim')
 VIM_DOT_ROOT  = File.join(File.dirname(__FILE__), 'vim.dot')
 TMUX_ROOT     = File.join(File.dirname(__FILE__), 'tmux')
 TMUX_DOT_ROOT = File.join(File.dirname(__FILE__), 'tmux.dot')
 GIT_ROOT      = File.join(File.dirname(__FILE__), 'git')
 ETC_ROOT      = File.join(File.dirname(__FILE__), 'etc')
+
+ZSH_DOT_FILES = %w(
+  zshrc
+  zshrc.alias
+  zshrc.color
+  zshrc.config
+  zshrc.env
+  zshrc.function
+  zshrc.linux
+  zshrc.local
+  zshrc.osx
+  zshrc.setting
+)
 
 GIT_FILES = %w(
   gitconfig
@@ -35,6 +48,16 @@ TMUX_FILES = %w(
 CLEANS = %w(
   .zsh
   .zshrc
+  .zshrc
+  .zshrc.alias
+  .zshrc.color
+  .zshrc.config
+  .zshrc.env
+  .zshrc.function
+  .zshrc.linux
+  .zshrc.local
+  .zshrc.osx
+  .zshrc.setting
   .tmux
   .tmuxinator
   .tmux.conf
@@ -100,6 +123,7 @@ namespace :zsh do
   task :link do
     symlink_ File.join(ZSH_DOT_ROOT, 'zshrc'), File.join(HOME, '.zshrc')
     symlink_ File.join(ZSH_ROOT), File.join(HOME, '.zsh')
+    same_name_symlinks ZSH_DOT_ROOT, ZSH_DOT_FILES
   end
 end
 

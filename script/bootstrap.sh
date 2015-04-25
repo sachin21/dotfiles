@@ -39,16 +39,6 @@ elif [ $flag = 'c' -o $flag = 'C' ]; then # For CentOS
   echo "  + Upgrading packages..."
   sudo yum -y upgrade
 
-  for rpm in `cat ./package_repo/rpm`; do
-    echo "  + Installing rpm..."
-    sudo rpm -ivh $rpm
-  done
-
-  for package in `cat ./package_lists/yum`; do
-    echo "  + Installing packages..."
-    sudo yum -y install $package
-  done
-
   echo "  + Cleaning packages..."
   sudo yum -y clean
 
@@ -57,11 +47,6 @@ elif [ $flag = 'c' -o $flag = 'C' ]; then # For CentOS
 elif [ $flag = 'a' -o $flag = 'A' ]; then # For ArchLinux
   echo "  + Upgrading packages..."
   sudo pacman -Sy
-
-  for package in `cat ./package_lists/pacman`; do
-    echo "  + Installing packages..."
-    sudo pacman -S $package
-  done
 
   echo "  + Installing Linuxbrew..."
   ./script/brew.linux.sh

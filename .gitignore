@@ -16,3 +16,5 @@ Icon
 .Spotlight-V100
 .Trashes
 zsh.dot/zshrc.local
+vim/bundle/*
+!vim/bundle/neobundle.vim

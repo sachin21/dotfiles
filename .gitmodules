@@ -7,3 +7,6 @@
 [submodule "zsh/zsh-bd"]
   path = zsh/zsh-bd
   url = git://github.com/Tarrasch/zsh-bd.git
+[submodule "vim/bundle/neobundle.vim"]
+  path = vim/bundle/neobundle.vim
+  url = git://github.com/Shougo/neobundle.vim.git

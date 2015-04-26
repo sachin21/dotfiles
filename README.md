@@ -10,11 +10,11 @@
 - iTerm2
 - Solarized dark
 
-### *demo*
+### *Demo*
 ![Screenshot of my shell prompt](http://i.imgur.com/KVW2y9P.png)
 
 ## Installation
-### Using curl or wget installation
+### Using cURL or Wget installation
 
 | Tools | <a name="oneliner">The installation command</a> |
 |-------|-------------------------------------------------|

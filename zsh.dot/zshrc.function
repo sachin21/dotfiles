@@ -9,14 +9,13 @@ function cr() {
 }
 
 function peco-select-history() {
-  local tac
-  if type tac > /dev/null 2>&1; then
-    tac="tac"
-  else
-    tac="tail -r"
+  if ! type tac > /dev/null 2>&1; then
+    echo "  x [Warning] tac is not installed"
+    exit 1
   fi
+
   BUFFER=$(\history -n 1 | \
-    eval $tac | \
+    tac | \
     peco --query "$LBUFFER")
   CURSOR=$#BUFFER
   zle clear-screen

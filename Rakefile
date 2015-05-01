@@ -22,7 +22,7 @@ ZSH_DOT_FILES = %w(
   zshrc.local
   zshrc.osx
   zshrc.setting
-)
+).freeze
 
 GIT_FILES = %w(
   gitconfig
@@ -43,7 +43,7 @@ ETC_FILES = %w(
 TMUX_FILES = %w(
   tmux.conf
   tmuxinator
-)
+).freeze
 
 CLEANS = %w(
   .zsh
@@ -90,7 +90,6 @@ CLEANS = %w(
   .tigrc
   .railsrc
   .agignore
-
 ).freeze
 
 VIM_DOT_FILES = %w(
@@ -111,7 +110,7 @@ VIM_DOT_FILES = %w(
   vimrc.plugins_setting
   vimrc.search
   vimrc.statusline
-)
+).freeze
 
 CLEAN.concat(CLEANS.map { |c| File.join(HOME, c) })
 

@@ -98,6 +98,8 @@ call neobundle#begin(expand('~/.vim/bundle/'))
 " }}}
 
 " Completion {{{
+  " 補完 autocomplpop.vim : insertmodeで自動で補完をpopup
+  NeoBundle 'AutoComplPop'
   " 補完 neocomplcache.vim : 究極のVim的補完環境
   NeoBundle 'Shougo/neocomplcache'
 
@@ -271,6 +273,9 @@ call neobundle#begin(expand('~/.vim/bundle/'))
   "database.ymlからdb情報を取得
   NeoBundle 'vim-scripts/dbext.vim'
 
+  " Yank履歴管理
+  NeoBundle 'vim-scripts/YankRing.vim'
+
   " リポジトリをghqでsorah/unite-ghq
   NeoBundle 'sorah/unite-ghq'
 
@@ -302,23 +307,6 @@ call neobundle#begin(expand('~/.vim/bundle/'))
 " }}}
 "
 " NeoBundle 'gmarik/vundle'
-
-" Python システムライブラリ参照
-
-let $PATH = "~/.pyenv/shims:".$PATH
-
-NeoBundleLazy "lambdalisue/vim-django-support", {
-      \ "autoload": {
-      \   "filetypes": ["python", "python3", "djangohtml"]
-      \ }}
-
-NeoBundle "davidhalter/jedi-vim"
-
-NeoBundleLazy "lambdalisue/vim-pyenv", {
-      \ "depends": ['davidhalter/jedi-vim'],
-      \ "autoload": {
-      \   "filetypes": ["python", "python3", "djangohtml"]
-      \ }}
 
 call neobundle#end()
 

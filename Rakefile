@@ -11,39 +11,11 @@ TMUX_DOT_ROOT = File.join(File.dirname(__FILE__), 'tmux.dot')
 GIT_ROOT      = File.join(File.dirname(__FILE__), 'git')
 ETC_ROOT      = File.join(File.dirname(__FILE__), 'etc')
 
-ZSH_DOT_FILES = %w(
-  zshrc
-  zshrc.alias
-  zshrc.color
-  zshrc.config
-  zshrc.env
-  zshrc.function
-  zshrc.linux
-  zshrc.local
-  zshrc.osx
-  zshrc.setting
-).freeze
-
-GIT_FILES = %w(
-  gitconfig
-  global_ignore
-).freeze
-
-ETC_FILES = %w(
-  bundle
-  dircolors
-  gemrc
-  peco
-  pryrc
-  tigrc
-  railsrc
-  agignore
-).freeze
-
-TMUX_FILES = %w(
-  tmux.conf
-  tmuxinator
-).freeze
+ZSH_DOT_FILES = `ls zsh.dot`.split("\n").freeze
+GIT_FILES = `ls git`.split("\n").freeze
+ETC_FILES = `ls etc`.split("\n").freeze
+TMUX_FILES = `ls tmux.dot`.split("\n").freeze
+VIM_DOT_FILES = `ls vim.dot`.split("\n").freeze
 
 CLEANS = %w(
   .zsh
@@ -90,26 +62,6 @@ CLEANS = %w(
   .tigrc
   .railsrc
   .agignore
-).freeze
-
-VIM_DOT_FILES = %w(
-  vimrc
-  vimrc.apperance
-  vimrc.basic
-  vimrc.bundle
-  vimrc.colors
-  vimrc.completion
-  vimrc.completion.autocomplpop
-  vimrc.completion.neocomplcache
-  vimrc.editing
-  vimrc.encoding
-  vimrc.gitlogviewer
-  vimrc.indent
-  vimrc.misc
-  vimrc.moving
-  vimrc.plugins_setting
-  vimrc.search
-  vimrc.statusline
 ).freeze
 
 CLEAN.concat(CLEANS.map { |c| File.join(HOME, c) })

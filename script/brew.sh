@@ -26,6 +26,7 @@ if [ $flag = 'y' -o $flag = 'Y' ]; then
   brew upgrade
 fi
 
+echo "Tapping taps..."
 ## For homebrew/versions
 brew tap homebrew/versions
 
@@ -194,7 +195,7 @@ formulas=(
 echo "Installing formulas..."
 brew install ${formulas[@]} && brew cleanup
 
-# Install Homebrew-cask
+echo "Installing Homebrew-cask..."
 brew install caskroom/cask/brew-cask
 
 # For OSX
@@ -244,12 +245,14 @@ apps=(
 )
 
 # Install apps to /Applications
-echo "Installing apps..."
+echo "Installing osx apps..."
 brew cask install --appdir="/Applications" ${apps[@]}
 
 # For alfred
+echo "Linking osx apps..."
 brew cask alfred link
 
 # Remove outdated versions and archive file
+echo "Cleaning caches..."
 brew cleanup
 brew cask cleanup

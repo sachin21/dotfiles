@@ -1,14 +1,14 @@
-function agvim() {
+agvim() {
   vim $(ag "$@" | peco --query "$LBUFFER" | awk -F : '{print "-c " $2 " " $1}')
 }
 
-function cr() {
+cr() {
  cd `ghq list -p | peco`
  zle accept-line
  zle clear-screen
 }
 
-function peco-select-history() {
+peco-select-history() {
   if ! type tac > /dev/null 2>&1; then
     echo "  x [Warning] tac is not installed"
     exit 1

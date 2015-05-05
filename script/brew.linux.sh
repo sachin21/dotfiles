@@ -26,6 +26,7 @@ if [ $flag = 'y' -o $flag = 'Y' ]; then
   brew upgrade
 fi
 
+echo "Tapping taps..."
 ## For homebrew/versions
 brew tap homebrew/versions
 
@@ -198,4 +199,5 @@ echo "Installing formulas..."
 brew install ${formulas[@]} && brew cleanup
 
 # Remove outdated versions and archive file
+echo "Cleaning caches..."
 brew cleanup

@@ -119,7 +119,7 @@ echo "  + If you want to create projects of sachin21? [y/Y]"
 
 # Setup repositories
 if [ $flag = 'y' -o $flag = 'Y' ]; then
-  function install_ghq() {
+  install_ghq() {
     for repository in `cat repositories/github`; do
       ghq get $repository
     done

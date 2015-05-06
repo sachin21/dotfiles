@@ -4,6 +4,9 @@ export CC=/usr/local/bin/gcc-4.8
 alias gcc='/usr/local/bin/gcc-4.8'
 alias o='open'
 alias o.='open .'
+alias google-chrome='open -a Google\ Chrome'
+alias chrome='google-chrome'
+alias -s html=chrome
 
 if type brew > /dev/null 2>&1; then
   export PATH="$(brew --prefix coreutils)/libexec/gnubin:$PATH"
@@ -29,4 +32,3 @@ if type rmtrash > /dev/null 2>&1; then
 else
   echo "  x [Warning] rmtrash is not installed"
 fi
-

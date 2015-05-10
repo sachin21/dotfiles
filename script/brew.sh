@@ -237,7 +237,7 @@ apps=(
   vlc
   xld
   xtrafinder
-  yorufukurou
+  night-owl
 
   # Tools
   boot2docker

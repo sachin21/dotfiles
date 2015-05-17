@@ -94,6 +94,7 @@ formulas=(
   stress
   terminal-notifier
   tree
+  ccat
 
   # For Fonts
   fontconfig

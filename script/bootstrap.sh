@@ -23,7 +23,7 @@ fi
 echo "  + Initializing git submodules"
 git submodule update --init
 
-# Check os
+# Checking os
 echo "  + OSX user 'm' : CentOS user 'c' : ArchLinux user [m/c/a] : "
   read flag
 

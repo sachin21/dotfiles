@@ -70,6 +70,13 @@ vnoremap ' "zdi'<C-R>z'<ESC>
 autocmd BufWritePre * :%s/\s\+$//ge
 " 保存時にtabをスペースに変換する
 autocmd BufWritePre * :%s/\t/  /ge
+" vimで最終行が空行だったら保存時に最終行を削除する
+autocmd BufWritePre * call s:remove_space_in_last_line()
+function! s:remove_space_in_last_line()
+  if getline('$') == ""
+     $delete _
+  endif
+endfunction
 
 " 日時の自動入力
 inoremap <expr> ,df strftime('%Y/%m/%d %H:%M:%S')

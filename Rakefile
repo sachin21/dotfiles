@@ -72,8 +72,8 @@ task all: ['zsh:link', 'vim:link', 'git:link', 'tmux:link', 'etc:link']
 namespace :zsh do
   desc 'Create symbolic for zsh settings file link to HOME'
   task :link do
-    symlink_ File.join(ZSH_DOT_ROOT, 'zshrc'), File.join(HOME, '.zshrc')
-    symlink_ File.join(ZSH_ROOT), File.join(HOME, '.zsh')
+    _symlink File.join(ZSH_DOT_ROOT, 'zshrc'), File.join(HOME, '.zshrc')
+    _symlink File.join(ZSH_ROOT), File.join(HOME, '.zsh')
     same_name_symlinks ZSH_DOT_ROOT, ZSH_DOT_FILES
   end
 end
@@ -81,8 +81,8 @@ end
 namespace :vim do
   desc 'Create symbolic for vimrc link to HOME'
   task :link do
-    symlink_ File.join(VIM_ROOT), File.join(HOME, '.vim')
-    symlink_ File.join(VIM_DOT_ROOT, 'vimrc'), File.join(HOME, '.vimrc')
+    _symlink File.join(VIM_ROOT), File.join(HOME, '.vim')
+    _symlink File.join(VIM_DOT_ROOT, 'vimrc'), File.join(HOME, '.vimrc')
     same_name_symlinks VIM_DOT_ROOT, VIM_DOT_FILES
   end
 end
@@ -97,7 +97,7 @@ end
 namespace :tmux do
   desc 'Create symbolic for tmux settings file for link to HOME'
   task :link do
-    symlink_ File.join(TMUX_ROOT), File.join(HOME, '.tmux')
+    _symlink File.join(TMUX_ROOT), File.join(HOME, '.tmux')
     same_name_symlinks TMUX_DOT_ROOT, TMUX_FILES
   end
 end
@@ -109,12 +109,12 @@ namespace :etc do
   end
 end
 
-def symlink_(file, dest)
+def _symlink(file, dest)
   symlink file, dest unless File.exist?(dest)
 end
 
 def same_name_symlinks(root, files)
   files.each do |file|
-    symlink_ File.join(root, file), File.join(HOME, '.' + file)
+    _symlink File.join(root, file), File.join(HOME, '.' + file)
   end
 end

@@ -7,7 +7,7 @@ set -e
 # Return zero(true) if present
 # Created by b4b4r07
 
-is_exists()
+has()
 {
     [[ -n $1 ]] || return 1
     type "$1" >/dev/null 2>&1
@@ -18,7 +18,7 @@ argc=0
 existent_files=()
 non_existent_files=()
 
-if is_exists 'python'; then
+if has 'python'; then
     # Getting a list of available styles
     #
     # Because it could be that a plugin registered a style,
@@ -26,7 +26,7 @@ if is_exists 'python'; then
     #
     get_styles="from pygments.styles import get_all_styles
     styles = list(get_all_styles())
-    print '\n'.join(styles)"
+    print('\n'.join(styles))"
     # See also <http://pygments.org/docs/styles/>
 
     # Getting a list of styles for shell script
@@ -36,7 +36,7 @@ fi
 style='default'
 
 highlighter='cat'
-if is_exists 'pygmentize'; then
+if has 'pygmentize'; then
     highlighter="pygmentize -O style=$style -f console256 -g 2>/dev/null"
 fi
 m_option=''
@@ -124,7 +124,7 @@ args()
                 #      -s       -> list color schemes
                 #      -s style -> use style as a color scheme if available
                 if [[ "$1" =~ s ]]; then
-                    if ! is_exists 'python'; then
+                    if ! has 'python'; then
                         echo "error: Can not get the list of style for the highlight" 1>&2
                         return 1
                     fi
@@ -141,7 +141,7 @@ args()
                         return 1
                     else
                         # Set a style if the styles array contains a style specified by the user
-                        if is_exists 'pygmentize'; then
+                        if has 'pygmentize'; then
                             if in_array "$1"; then
                                 style="$1"
                             fi

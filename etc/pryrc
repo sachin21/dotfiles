@@ -1,19 +1,19 @@
 begin
   require 'awesome_print'
 rescue LoadError
-  puts "Cannot load awesome_print"
+  puts "Could not load awesome_print"
 end
 
 begin
   require 'yaml'
 rescue LoadError
-  puts "Cannot load yaml"
+  puts "Could not load yaml"
 end
 
 begin
   require 'csv'
 rescue LoadError
-  puts "Cannot load csv"
+  puts "Could not load csv"
 end
 
 Pry.commands.alias_command 'c', 'continue'

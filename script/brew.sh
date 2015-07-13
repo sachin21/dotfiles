@@ -202,6 +202,7 @@ brew install caskroom/cask/brew-cask
 # For OSX
 apps=(
   alfred
+  atom
   clipmenu
   dash
   evernote

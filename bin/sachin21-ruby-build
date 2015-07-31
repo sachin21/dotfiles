@@ -1,23 +1,21 @@
 #!/usr/bin/env sh
+
 set -e
 
 # check os
 echo "If you using mac then enter m/M"
   read flag
 
-# setup tools
-if [ $flag = 'm' -o $flag = 'M' ]; then
-  export RUBY_CONFIGURE_OPTS=" \
-    --enable-shared \
-    --with-readline-dir=$(brew --prefix readline)
-    --with-openssl-dir=$(brew --prefix openssl)
-    "
-fi
-
 export MAKE_OPTS="-j4"
 
 for TARGET_VERSION in $@; do
-  if rbenv install $TARGET_VERSION && rbenv global $TARGET_VERSION; then
+  if [ $flag = 'm' -o $flag = 'M' ]; then
+    command="CONFIGURE_OPTS='--with-readline-dir=/usr/local --with-openssl-dir=$(brew --prefix openssl)' RUBY_CONFIGURE_OPTS='--with-openssl-dir=$(brew --prefix openssl)' rbenv install $TARGET_VERSION"
+  else
+    command="rbenv install $TARGET_VERSION"
+  fi
+
+  if eval $command && rbenv global $TARGET_VERSION; then
     export RBENV_VERSION=$TARGET_VERSION
 
     gem install bundler

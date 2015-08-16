@@ -3,7 +3,7 @@
 [![license](http://img.shields.io/badge/license-MIT-blue.svg?style=flat)](./doc/LICENSE-MIT.txt "License")
 
 ## Features
-- OS X Mavericks (MacBookPro Retina)
+- OS X Yosemite (MacBookPro Retina)
 - Zsh
 - Vim
 - tmux

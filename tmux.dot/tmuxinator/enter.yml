@@ -1,12 +1,7 @@
 name: enter
 root: ~/Projects/github.com/sachin21/enterrrrrr
 
-pre:
-  - mysql.server start
-
 windows:
   - console:
-    - rbenv rehash
-    - ruby -v
-    - cat .ruby-version
-  - develop:
+  - rails_console:
+    - rc

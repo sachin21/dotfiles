@@ -1,0 +1,6 @@
+name: dot
+root: ~/dotfiles
+
+windows:
+  - console:
+    - tig

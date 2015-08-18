@@ -1,0 +1,9 @@
+name: master
+root: ~/Projects/github.com/we-b/tech-master
+
+windows:
+  - editor:
+  - console:
+    - rc
+  - sidekiq:
+    - sidekiq

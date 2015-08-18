@@ -1,12 +1,8 @@
 name: eisai
 root: ~/Projects/github.com/sachin21/EisaiGenerator
 
-pre:
-  - mysql.server start
-
 windows:
   - console:
-    - rbenv rehash
-    - ruby -v
-    - cat .ruby-version
   - develop:
+  - server:
+    - rs

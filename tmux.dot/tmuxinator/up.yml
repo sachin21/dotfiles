@@ -1,12 +1,7 @@
 name: up
 root: ~/Projects/github.com/sachin21/imageUploader
 
-pre:
-  - mysql.server start
-
 windows:
   - console:
-    - rbenv rehash
-    - ruby -v
-    - cat .ruby-version
-  - develop:
+  - rails_console:
+    - rc

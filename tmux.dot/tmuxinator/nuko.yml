@@ -1,12 +1,7 @@
 name: nuko
 root: ~/Projects/github.com/sachin21/nuko
 
-pre:
-  - mysql.server start
-
 windows:
+  - editor:
   - console:
-    - rbenv rehash
-    - ruby -v
-    - cat .ruby-version
-  - develop:
+    - rc

@@ -3,6 +3,5 @@ root: ~/Projects/github.com/sachin21/EisaiGenerator
 
 windows:
   - console:
-  - develop:
-  - server:
-    - rs
+  - log:
+    - tail -f log/development.log

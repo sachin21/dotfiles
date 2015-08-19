@@ -7,3 +7,5 @@ windows:
     - rc
   - sidekiq:
     - sidekiq
+  - log:
+    - tail -f log/development.log

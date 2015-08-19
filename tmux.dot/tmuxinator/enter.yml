@@ -5,3 +5,5 @@ windows:
   - console:
   - rails_console:
     - rc
+  - log:
+    - tail -f log/development.log

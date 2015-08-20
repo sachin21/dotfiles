@@ -45,6 +45,9 @@ brew tap homebrew/dupes
 ## For binary formulas
 brew tap homebrew/binary
 
+## For Ricty
+brew tap sanemat/font
+
 formulas=(
   # Shells
   bash
@@ -80,6 +83,8 @@ formulas=(
   gist
   git
   gitsh
+  libgit2
+  libgit2-glib
   tig
 
   # Utilities
@@ -99,6 +104,7 @@ formulas=(
   # For Fonts
   fontconfig
   fontforge
+  ricty
 
   # Editors
   emacs
@@ -117,6 +123,7 @@ formulas=(
   libmpc
   libmpc08
   libpng
+  libssh2
   libtiff
   libtool
   libvo-aacenc

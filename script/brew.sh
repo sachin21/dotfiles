@@ -45,6 +45,9 @@ brew tap homebrew/dupes
 ## For binary formulas
 brew tap homebrew/binary
 
+## For Ricty
+brew tap sanemat/font
+
 formulas=(
   # Shells
   bash
@@ -81,6 +84,8 @@ formulas=(
   gitsh
   tig
   hub
+  libgit2
+  libgit2-glib
 
   # Utilities
   autojump
@@ -100,6 +105,7 @@ formulas=(
   # For Fonts
   fontconfig
   fontforge
+  ricty
 
   # Editors
   emacs
@@ -118,6 +124,7 @@ formulas=(
   libmpc
   libmpc08
   libpng
+  libssh2
   libtiff
   libtool
   libvo-aacenc
@@ -203,6 +210,7 @@ brew install caskroom/cask/brew-cask
 apps=(
   alfred
   atom
+  chromium
   clipmenu
   dash
   evernote
@@ -210,6 +218,7 @@ apps=(
   flux
   google-chrome
   google-japanese-ime
+  gyazo
   heroku-toolbelt
   hipchat
   iexplorer
@@ -219,16 +228,20 @@ apps=(
   karabiner
   kobito
   mou
+  night-owl
   opera
   parallels
+  parallels-desktop
   pg-commander
   picasa
+  pokerstars
   screenhero
   sequel-pro
   skitch
   skype
   slack
   sparrow
+  steam
   sublime-text
   teitoku
   the-unarchiver
@@ -239,7 +252,6 @@ apps=(
   vlc
   xld
   xtrafinder
-  night-owl
 
   # Tools
   boot2docker

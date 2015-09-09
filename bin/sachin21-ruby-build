@@ -2,14 +2,11 @@
 
 set -e
 
-# check os
-echo "If you using mac then enter m/M"
-  read flag
-
 export MAKE_OPTS="-j4"
+OS=`uname`
 
 for TARGET_VERSION in $@; do
-  if [ $flag = 'm' -o $flag = 'M' ]; then
+  if [ $OS = 'Darwin' ]; then
     command="CONFIGURE_OPTS='--with-readline-dir=/usr/local --with-openssl-dir=$(brew --prefix openssl)' RUBY_CONFIGURE_OPTS='--with-openssl-dir=$(brew --prefix openssl)' rbenv install $TARGET_VERSION"
   else
     command="rbenv install $TARGET_VERSION"

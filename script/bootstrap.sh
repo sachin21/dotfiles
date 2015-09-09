@@ -4,8 +4,6 @@
 #
 # Get readly to develop something
 
-set -e
-
 if ! type git > /dev/null 2>&1; then
   echo "  x [Error] git is not installed"
   exit 1

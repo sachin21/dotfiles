@@ -20,7 +20,6 @@ VIM_DOT_FILES = `ls vim.dot`.split("\n").freeze
 CLEANS = %w(
   .zsh
   .zshrc
-  .zshrc
   .zshrc.alias
   .zshrc.color
   .zshrc.config
@@ -34,7 +33,6 @@ CLEANS = %w(
   .tmuxinator
   .tmux.conf
   .vim
-  .vimrc
   .vimrc
   .vimrc.apperance
   .vimrc.basic

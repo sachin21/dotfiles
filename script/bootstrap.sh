@@ -20,7 +20,7 @@ else
 fi
 
 # Initialize other packages
-echo "  + Initializing git submodules"
+echo "  + Initializing git packages"
 git submodule update --init
 
 # Checking os
@@ -149,6 +149,7 @@ else
 fi
 
 # Reload shell
+echo "  + Reloading your shell..."
 exec $SHELL
 
 echo "  + Your shell was reloaded."

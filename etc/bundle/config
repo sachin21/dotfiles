@@ -1,6 +1,6 @@
 ---
 BUNDLE_BUILD__LIBV8: "--with-cxx=clang++"
-BUNDLE_BUILD__LIVB8: "--with-system-v8"
+BUNDLE_BUILD__LIBV8: "--with-system-v8"
 BUNDLE_BUILD__NOKOGIRI: "--use-system-libraries"
 BUNDLE_JOBS: '4'
 BUNDLE_GEM__COC: 'true'

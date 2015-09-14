@@ -65,7 +65,7 @@ CLEANS = %w(
 CLEAN.concat(CLEANS.map { |c| File.join(HOME, c) })
 
 task default: :all
-task all: ['zsh:link', 'vim:link', 'git:link', 'tmux:link', 'etc:link']
+task all: %w(zsh:link vim:link git:link tmux:link etc:link)
 
 namespace :zsh do
   desc 'Create symbolic for zsh settings file link to HOME'

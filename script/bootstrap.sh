@@ -9,7 +9,7 @@ if ! type git > /dev/null 2>&1; then
   exit 1
 fi
 
-if [ $(basename `pwd`) = "dotfiles" ]; then
+if [ $(basename `pwd`) == "dotfiles" ]; then
   echo "  + Already exist dotfiles. Let's go next step"
 else
   echo "  + Cloning into ~/dotfiles..."
@@ -26,11 +26,11 @@ echo "  + OSX user 'm' : CentOS user 'c' : ArchLinux user [m/c/a] : "
   read flag
 
 # Setup tools
-if [ $flag = 'm' -o $flag = 'M' ]; then # For Mac OSX
+if [ $flag == 'm' -o $flag == 'M' ]; then # For Mac OSX
   cd ~/dotfiles
   echo "  + Installing Homebrew..."
   ./script/brew.sh
-elif [ $flag = 'c' -o $flag = 'C' ]; then # For CentOS
+elif [ $flag == 'c' -o $flag == 'C' ]; then # For CentOS
   echo "  + Updating already exist packages..."
   sudo yum -y update
 
@@ -42,7 +42,7 @@ elif [ $flag = 'c' -o $flag = 'C' ]; then # For CentOS
 
   echo "  + Installing Linuxbrew..."
   ./script/brew.linux.sh
-elif [ $flag = 'a' -o $flag = 'A' ]; then # For ArchLinux
+elif [ $flag == 'a' -o $flag == 'A' ]; then # For ArchLinux
   echo "  + Upgrading packages..."
   sudo pacman -Sy
 
@@ -116,7 +116,7 @@ echo "  + If you want to create projects of sachin21? [y/Y]"
   read flag
 
 # Setup repositories
-if [ $flag = 'y' -o $flag = 'Y' ]; then
+if [ $flag == 'y' -o $flag == 'Y' ]; then
   install_ghq() {
     for repository in `cat repositories/github`; do
       ghq get $repository

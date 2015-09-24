@@ -2,31 +2,37 @@
 
 set -e
 
+export DOTFILES_PATH="$HOME/dotfiles"
+
+# Loading method for printing
+. $DOTFILES_PATH/script/printing_helper.sh
+
+# Check exist brew command
 if type brew > /dev/null 2>&1; then
-  echo "  + Homebrew found"
+  message "  + Homebrew found"
 else
-  echo "  + Installing linuxbrew..."
+  message "  + Installing linuxbrew..."
   ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/linuxbrew/go/install)"
-  echo "  + Homebrew was successfully installed"
+  message "  + Homebrew was successfully installed"
 fi
 
 # Update Homebrew formulas
-echo "  + Do you update Homebrew? [Y/n]:" && read flag
+ask "  + Do you want to update Homebrew? [Y/n]:" && read flag
 
 if [ $flag = 'y' -o $flag = 'Y' ]; then
-  echo "  + Updating Homebrew"
+  message "  + Updating Homebrew"
   brew update
 fi
 
 # Upgrade formulas
-echo "  + Do you upgrade Homebrew? [Y/n]:" && read flag
+ask "  + Do you want to upgrade Homebrew? [Y/n]:" && read flag
 
 if [ $flag = 'y' -o $flag = 'Y' ]; then
-  echo "  + Upgrading Homebrew formulas"
+  message "  + Upgrading Homebrew formulas"
   brew upgrade
 fi
 
-echo "Tapping taps..."
+message "  + Tapping repositories..."
 ## For homebrew/versions
 brew tap homebrew/versions
 
@@ -203,9 +209,16 @@ formulas=(
   docker
 )
 
-echo "Installing formulas..."
-brew install ${formulas[@]} && brew cleanup
+message "  + Installing formulas..."
+if brew install ${formulas[@]}; then
+  brew cleanup
+else
+  fail "  x Formulas was unsuccessfully installed."
+  exit 1
+fi
 
 # Remove outdated versions and archive file
-echo "Cleaning caches..."
+message "  + Cleaning caches..."
 brew cleanup
+
+unset DOTFILES_PATH

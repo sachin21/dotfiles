@@ -1,21 +1,21 @@
 #!/usr/bin/env sh
 
 message() {
-  echo -e "\033[34m$@\033[m"
+  printf "\033[34m$@\033[m\n"
 }
 
 ask() {
-  echo -e "\033[35m$@\033[m"
+  printf "\033[35m$@\033[m\n"
 }
 
 warn() {
-  echo -e "\033[33m$@\033[m"
+  printf  "\033[33m$@\033[m\n"
 }
 
 succeed() {
-  echo -e "\033[36m$@\033[m"
+  printf "\033[36m$@\033[m\n"
 }
 
 fail() {
-  echo -e "\033[31m$@\033[m"
+  printf "\033[31m$@\033[m\n"
 }

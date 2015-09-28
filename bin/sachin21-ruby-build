@@ -21,11 +21,10 @@ for TARGET_VERSION in $@; do
     gem install pry-byebug
     gem install awesome_print
     gem install space2underscore
+    gem install space2dash
     gem install space2dot
     gem install tw
     gem install tmuxinator
-
-    gem install rails -v '4.1.4'
 
     rbenv rehash
 

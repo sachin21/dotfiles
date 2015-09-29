@@ -1,9 +1,8 @@
 alias reload='exec $SHELL'
 alias ts='tmux split-window'
 alias th='tmux split-window -h'
-alias tk='tmux kill-session'
 alias CC='gcc'
-alias bi='bundle install --path=./vendor/bundle -j4'
+alias bi='bundle install --path=./vendor/bundle -j8'
 alias v='vim'
 alias vi='vim'
 alias fs='bundle exec foreman start'
@@ -12,24 +11,37 @@ alias zmv='noglob zmv -W'
 alias t='tmux'
 alias allunigem='gem list --no-versions | grep "^[a-z]" | grep bunlder -v | grep space2underscore -v | grep space2dot -v | grep test-unit -v | grep rdoc -v | grep rake -v | grep psych -v | grep io-console -v | grep json -v | grep bigdecimal -v | grep minitest -v | xargs gem uninstall -aIx'
 alias n='noglob'
-alias -g V="| vim -R -"
 alias sp='rails s puma'
-alias -g A='| ag'
-alias pw='ping www.google.com'
 alias sl='ls'
-alias -g L='| less'
+alias pw='ping www.google.com'
 alias va='vagrant'
 alias gto='git open'
 alias tn='tmux new'
 alias memo='cat > /dev/null'
 alias fuck='eval $(thefuck $(fc -ln -1))'
 alias FUCK='fuck'
+alias fucked='fuck'
 alias f='fuck'
 alias gs='git sync'
-alias cat='ccat'
+alias b='bundle'
+alias rehash='rbenv rehash; nodenv rehash; pyenv rehash'
+
+alias -g A='| ag'
+alias -g L='| less'
+alias -g N='> /dev/null'
+alias -g P='| peco'
+alias -g S='| sort'
+alias -g V="| vim -R -"
+alias -g W='| wc'
+alias -g X='| xargs'
 
 alias -s txt='cat'
 alias -s rb='ruby'
 alias -s py='python'
 alias -s hs='runhaskell'
 alias -s php='php -f'
+
+for project in `ls ~/.tmuxinator`; do
+  local project=${project%.*}
+  eval "alias $project='tmuxinator $project'"
+done

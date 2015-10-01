@@ -1,7 +1,11 @@
+# Export paths for Linux
+# ---------------------------------------------------**
 export PATH="$HOME/.linuxbrew/bin:$PATH"
 export MANPATH="$HOME/.linuxbrew/share/man:$MANPATH"
 export INFOPATH="$HOME/.linuxbrew/share/info:$INFOPATH"
 
+# Add aliases for clipboard
+# ---------------------------------------------------**
 if type xsel > /dev/null 2>&1; then
   alias pbcopy='xsel --clipboard --input'
   alias pbpaste='xsel --clipboard --output'

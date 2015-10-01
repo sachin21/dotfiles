@@ -1,7 +1,10 @@
+# Set TUNDERE
+# ---------------------------------------------------**
 setopt correct
 SPROMPT="%r? べ、 別にあんたのために修正したんじゃないからね! [n, y, a, e]:"
 
 # Add aliases for clipboard
+# ---------------------------------------------------**
 if type pbcopy > /dev/null 2>&1; then
   # For Mac
   alias -g C='| pbcopy'

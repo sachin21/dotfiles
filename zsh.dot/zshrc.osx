@@ -1,6 +1,11 @@
+# Add ENVs for Homebrew
+# ---------------------------------------------------**
 export HOMEBREW_CASK_OPTS="--appdir=/Applications"
 export PATH="/usr/local/heroku/bin:$PATH"
 export CC=/usr/local/bin/gcc-4.8
+
+# Add etc aliases
+# ---------------------------------------------------**
 alias gcc='/usr/local/bin/gcc-4.8'
 alias o='open'
 alias o.='open .'
@@ -8,6 +13,8 @@ alias google-chrome='open -a Google\ Chrome'
 alias chrome='google-chrome'
 alias -s html=chrome
 
+# If exist, setup for etcs
+# ---------------------------------------------------**
 if type brew > /dev/null 2>&1; then
   export PATH="$(brew --prefix coreutils)/libexec/gnubin:$PATH"
 else

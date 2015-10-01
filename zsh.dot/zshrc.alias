@@ -1,3 +1,5 @@
+# Common
+# ---------------------------------------------------**
 alias reload='exec $SHELL'
 alias ts='tmux split-window'
 alias th='tmux split-window -h'
@@ -24,8 +26,11 @@ alias fucked='fuck'
 alias f='fuck'
 alias gs='git sync'
 alias b='bundle'
+alias tigj='tig'
 alias rehash='rbenv rehash; nodenv rehash; pyenv rehash'
 
+# Global
+# ---------------------------------------------------**
 alias -g A='| ag'
 alias -g L='| less'
 alias -g N='> /dev/null'
@@ -35,12 +40,16 @@ alias -g V="| vim -R -"
 alias -g W='| wc'
 alias -g X='| xargs'
 
+# Suffix
+# ---------------------------------------------------**
 alias -s txt='cat'
 alias -s rb='ruby'
 alias -s py='python'
 alias -s hs='runhaskell'
 alias -s php='php -f'
 
+# Alias for projects
+# ---------------------------------------------------**
 for project in `ls ~/.tmuxinator`; do
   local project=${project%.*}
   eval "alias $project='tmuxinator $project'"

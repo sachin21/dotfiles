@@ -1,3 +1,5 @@
+# Configuration file for use in Zsh
+# ---------------------------------------------------**
 . ~/.tmux/tmuxinator.zsh
 . ~/.zsh/zsh-bd/bd.zsh
 . ~/.zshrc.env
@@ -8,6 +10,8 @@
 . ~/.zshrc.function
 . ~/.zshrc.local
 
+# When OSX or Linux
+# ---------------------------------------------------**
 case "${OSTYPE}" in
   darwin*)
     . ~/.zshrc.osx

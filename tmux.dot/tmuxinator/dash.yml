@@ -1,0 +1,6 @@
+name: dash
+root: ~/Projects/github.com/sachin21/space2dash
+
+windows:
+  - browser:
+  - console:

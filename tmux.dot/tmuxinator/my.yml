@@ -1,0 +1,5 @@
+name: my
+root: ~/Projects/github.com/sachin21/my_tw_client
+
+windows:
+  - console:

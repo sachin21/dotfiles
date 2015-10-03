@@ -2,8 +2,8 @@ name: up
 root: ~/Projects/github.com/sachin21/imageUploader
 
 windows:
-  - console:
   - rails_console:
     - rc
   - log:
     - tail -f log/development.log
+  - console:

@@ -2,6 +2,6 @@ name: eisai
 root: ~/Projects/github.com/sachin21/EisaiGenerator
 
 windows:
-  - console:
   - log:
     - tail -f log/development.log
+  - console:

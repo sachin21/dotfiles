@@ -1,5 +1,5 @@
-name: nuko
-root: ~/Projects/github.com/sachin21/nuko
+name: wanko
+root: ~/Projects/github.com/sachin21/wanko
 
 windows:
   - console:

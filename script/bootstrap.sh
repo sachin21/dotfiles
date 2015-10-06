@@ -157,9 +157,10 @@ exec $SHELL
 
 succeed "  + Your shell was reloaded."
 succeed "  + It's all done."
-succeed "
-** After setup: You need to change shell **
-Add $(/usr/bin/which zsh) path to /etc/shells, and
-Execute 'chsh -s $(/usr/bin/which zsh)'"
+succeed ""
+succeed "  ** After setup: You need to change shell **"
+succeed "  Add $(/usr/bin/which zsh) path to /etc/shells, and"
+succeed "  Execute 'chsh -s $(/usr/bin/which zsh)'"
+succeed ""
 
 unset DOTFILES_PATH

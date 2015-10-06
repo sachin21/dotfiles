@@ -3,7 +3,7 @@ root: ~/Projects/github.com/sachin21/jd-rank
 
 windows:
   - rails_console:
-    - rc
+    - bundle exec rails console
   - log:
     - tail -f log/development.log
   - console:

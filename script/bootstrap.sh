@@ -7,7 +7,7 @@
 export DOTFILES_PATH="$HOME/dotfiles"
 
 # Loading method for printing
-. $DOTFILES_PATH/script/printing_helper.sh
+. $DOTFILES_PATH/etc/printing_helper
 
 if ! type git > /dev/null 2>&1; then
   fail "  x [Error] git is not installed"

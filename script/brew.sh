@@ -290,3 +290,5 @@ brew cleanup
 brew cask cleanup
 
 unset DOTFILES_PATH
+
+exit 0

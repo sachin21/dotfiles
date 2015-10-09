@@ -222,3 +222,5 @@ message "  + Cleaning caches..."
 brew cleanup
 
 unset DOTFILES_PATH
+
+exit 0

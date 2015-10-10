@@ -54,3 +54,4 @@ for project in `ls ~/.tmuxinator`; do
   local project=${project%.*}
   eval "alias $project='tmuxinator $project'"
 done
+unset project

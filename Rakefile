@@ -60,6 +60,7 @@ CLEANS = %w(
   .tigrc
   .railsrc
   .agignore
+  .printing_helper
 ).freeze
 
 CLEAN.concat(CLEANS.map { |c| File.join(HOME, c) })

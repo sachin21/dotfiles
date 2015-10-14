@@ -2,7 +2,9 @@
 
 set -e
 
-export DOTFILES_PATH="$HOME/dotfiles"
+DOTFILES_PATH="$HOME/dotfiles"
+REPOSITORIES=`cat $DOTFILES_PATH/data/repositories.txt`
+FORMULAS=`cat $DOTFILES_PATH/data/formulas.txt`
 
 # Loading method for printing
 . $DOTFILES_PATH/etc/print_helper
@@ -33,194 +35,19 @@ if [ $flag = 'y' -o $flag = 'Y' ]; then
 fi
 
 message "  + Tapping repositories..."
-## For homebrew/versions
-brew tap homebrew/versions
 
-## For peco
-brew tap peco/peco
-
-## For ghq
-brew tap motemen/ghq
-
-## For gitsh
-brew tap thoughtbot/formulae
-
-## For zlib
-brew tap homebrew/dupes
-
-## For binary formulas
-brew tap homebrew/binary
-
-## For Ricty
-brew tap sanemat/font
-
-formulas=(
-  # Shells
-  bash
-  fish
-  ksh
-  zsh
-
-  # Search tools
-  ack
-  the_platinum_searcher
-  the_silver_searcher
-
-  # Build tools
-  autoconf
-  automake
-  cmake
-  gcc
-  gcc46
-  gcc47
-  gcc48
-
-
-  # Languages
-  go
-  perl
-  python
-  python3
-  ruby20
-  scala
-
-  # Git
-  gibo
-  gist
-  git
-  gitsh
-  libgit2
-  libgit2-glib
-  tig
-
-  # Utilities
-  autojump
-  cmatrix
-  coreutils
-  csvprintf
-  ghq
-  jenkins
-  peco
-  sl
-  stress
-  terminal-notifier
-  tree
-  ccat
-
-  # For Fonts
-  fontconfig
-  fontforge
-  ricty
-
-  # Editors
-  emacs
-  vim
-
-  # Libraries
-  elasticsearch
-  elasticsearch11
-  ffmpeg
-  gettext
-  glib
-  imagemagick
-  jpeg
-  libevent
-  libffi
-  libmpc
-  libmpc08
-  libpng
-  libssh2
-  libtiff
-  libtool
-  libvo-aacenc
-  libxml2
-  libxslt
-  libyaml
-  moreutils
-  mpfr
-  mpfr2
-  mpg123
-  ncurses
-  openssl
-  qt
-  readline
-  v8
-  x264
-  xvid
-  xz
-  zlib
-
-  # JavaScript Formulas
-  node
-  phantomjs
-
-  # Databases
-  mongodb
-  mysql
-  postgresql
-  sqlite
-
-  # Servers
-  memcached
-  reattach-to-user-namespace
-  redis
-  tmux
-
-  # Dependency Formulas
-  bdw-gc
-  binutils
-  bison
-  cairo
-  cloog
-  cloog-ppl015
-  cloog018
-  crunch
-  faac
-  freetype
-  gdbm
-  gmp
-  gmp4
-  gobject-introspection
-  harfbuzz
-  icu4c
-  isl
-  isl011
-  lame
-  mercurial
-  ossp-uuid
-  pango
-  pcre
-  pixman
-  pkg-config
-  ppl011
-  unixodbc
-  czmq
-  libsodium
-  zeromq
-
-  # Crawlers
-  curl
-  w3m
-  wget
-  youtube-dl
-
-  # Tools
-  boot2docker
-  docker
-)
+for repository in $REPOSITORIES; do
+  brew tap $repository || true
+done
 
 message "  + Installing formulas..."
-if brew install ${formulas[@]}; then
-  brew cleanup
-else
-  fail "  x Formulas was unsuccessfully installed."
-  exit 1
-fi
+
+for formula in $FORMULAS; do
+  brew install $formula || true
+done
 
 # Remove outdated versions and archive file
 message "  + Cleaning caches..."
 brew cleanup
-
-unset DOTFILES_PATH
 
 exit 0

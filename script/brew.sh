@@ -2,10 +2,10 @@
 
 set -e
 
-DOTFILES_PATH="$HOME/dotfiles"
-REPOSITORIES=`cat $DOTFILES_PATH/data/repositories.txt`
-FORMULAS=`cat $DOTFILES_PATH/data/formulas.txt`
-APPLICATIONS=`cat $DOTFILES_PATH/data/apps.txt`
+declare -r DOTFILES_PATH="$HOME/dotfiles"
+declare -r REPOSITORIES=`cat $DOTFILES_PATH/data/repositories.txt`
+declare -r FORMULAS=`cat $DOTFILES_PATH/data/formulas.txt`
+declare -r APPLICATIONS=`cat $DOTFILES_PATH/data/apps.txt`
 
 # Load method for printing
 . $DOTFILES_PATH/etc/print_helper

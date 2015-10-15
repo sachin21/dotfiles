@@ -6,7 +6,7 @@ DOTFILES_PATH="$HOME/dotfiles"
 REPOSITORIES=`cat $DOTFILES_PATH/data/repositories.txt`
 FORMULAS=`cat $DOTFILES_PATH/data/formulas.txt`
 
-# Loading method for printing
+# Load method for printing
 . $DOTFILES_PATH/etc/print_helper
 
 # Check exist brew command
@@ -34,12 +34,14 @@ if [ $flag = 'y' -o $flag = 'Y' ]; then
   brew upgrade
 fi
 
+# Tap repositories
 message "  + Tapping repositories..."
 
 for repository in $REPOSITORIES; do
   brew tap $repository || true
 done
 
+# Install formulas
 message "  + Installing formulas..."
 
 for formula in $FORMULAS; do

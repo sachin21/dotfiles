@@ -7,7 +7,7 @@ REPOSITORIES=`cat $DOTFILES_PATH/data/repositories.txt`
 FORMULAS=`cat $DOTFILES_PATH/data/formulas.txt`
 APPLICATIONS=`cat $DOTFILES_PATH/data/apps.txt`
 
-# Loading method for printing
+# Load method for printing
 . $DOTFILES_PATH/etc/print_helper
 
 # Check exist brew command
@@ -35,31 +35,33 @@ if [ $flag = 'y' -o $flag = 'Y' ]; then
   brew upgrade
 fi
 
+# Tap repositories
 message "  + Tapping repositories..."
 
 for repository in $REPOSITORIES; do
   brew tap $repository || true
 done
 
+# Install formulas
 message "  + Installing formulas..."
 
 for formula in $FORMULAS; do
   brew install $formula || true
 done
 
+# Install brew-cask
 message "  + Installing Homebrew-cask..."
 
 brew install caskroom/cask/brew-cask || true
 
-# For OSX
-# Install apps to /Applications
+# Install Applications to /Applications
 message "  + Installing OS X Application..."
 
 for application in $APPLICATIONS; do
   brew cask install --appdir="/Applications" $application || true
 done
 
-# For alfred
+# Create link for installed applications
 message "  + Linking osx apps..."
 brew cask alfred link
 

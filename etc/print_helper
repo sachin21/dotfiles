@@ -23,3 +23,10 @@ fail() {
 ask() {
   printf "\033[35m$@\033[m\n"
 }
+
+# Utilities
+# ---------------------------------------------------**
+command_exists(){
+  type $1 > /dev/null 2>&1
+  return $?
+}

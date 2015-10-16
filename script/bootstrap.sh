@@ -161,6 +161,4 @@ succeed "  Add $(/usr/bin/which zsh) path to /etc/shells, and"
 succeed "  Execute 'chsh -s $(/usr/bin/which zsh)'"
 succeed ""
 
-unset DOTFILES_PATH
-
 exit 0

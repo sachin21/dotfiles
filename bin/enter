@@ -1,3 +1,0 @@
-#!/bin/sh
-
-mpg123 http://enterrrrrr.com/assets/enterrrrrrr.mp3 > /dev/null 2>&1 &

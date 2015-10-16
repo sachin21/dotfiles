@@ -6,17 +6,20 @@ declare -r DOTFILES_PATH="$HOME/dotfiles"
 declare -r REPOSITORIES=`cat $DOTFILES_PATH/data/repositories.txt`
 declare -r FORMULAS=`cat $DOTFILES_PATH/data/formulas.txt`
 declare -r APPLICATIONS=`cat $DOTFILES_PATH/data/apps.txt`
+declare -r OS="$(uname)"
 
 # Load method for printing
 . $DOTFILES_PATH/etc/print_helper
 
 # Check exist brew command
 install_homebrew(){
+  local installation_url=$1
+
   if command_exists brew; then
     message "  + Homebrew found"
   else
     message "  + Installing Homebrew..."
-    ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+    ruby -e "$(curl -fsSL "$installation_url")"
     message "  + Homebrew was successfully installed"
   fi
 }
@@ -87,17 +90,29 @@ remove_caches(){
   message "  + Removing caches..."
 
   brew cleanup
-  brew cask cleanup
+
+  if [[ $OS == "Darwin" ]] && brew list | grep brew-cask > /dev/null 2>&1; then
+    brew cask cleanup
+  fi
 }
 
 main(){
-  install_homebrew
+  if [[ $OS == "Darwin" ]]; then
+    install_homebrew "https://raw.githubusercontent.com/Homebrew/install/master/install"
+  else
+    install_homebrew "https://raw.githubusercontent.com/Homebrew/linuxbrew/go/install"
+  fi
+
   upgrade_homebrew
   upgrade_homebrew
   tap_repositories
   install_formulas
-  install_osx_applications
-  create_link
+
+  if [[ $OS == "Darwin" ]]; then
+    install_osx_applications
+    create_link
+  fi
+
   remove_caches
 
   exit 0

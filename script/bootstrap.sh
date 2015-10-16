@@ -45,13 +45,13 @@ elif [ $flag == 'c' -o $flag == 'C' ]; then # For CentOS
   sudo yum -y clean
 
   message "  + Installing Linuxbrew..."
-  ./script/brew.linux.sh
+  ./script/brew.sh
 elif [ $flag == 'a' -o $flag == 'A' ]; then # For ArchLinux
   message "  + Upgrading packages..."
   sudo pacman -Sy
 
   message "  + Installing Linuxbrew..."
-  ./script/brew.linux.sh
+  ./script/brew.sh
 else
   ask "  x You can input is only 'm', 'c' and 'a'"
   exit 1

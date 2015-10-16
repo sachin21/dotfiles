@@ -27,8 +27,7 @@ message "  + Initializing git packages"
 git submodule update --init
 
 # Checking os
-ask "  + OSX user 'm' : CentOS user 'c' : ArchLinux user [m/c/a] : "
-  read flag
+ask "  + OSX user 'm' : CentOS user 'c' : ArchLinux user [m/c/a] : " && read flag
 
 # Setup tools
 if [ $flag == 'm' -o $flag == 'M' ]; then # For Mac OSX
@@ -117,8 +116,7 @@ else
   message "  + nodenv was successfully installed"
 fi
 
-ask "  + If you want to create projects of sachin21? [y/Y]"
-  read flag
+ask "  + If you want to create projects of sachin21? [y/Y]" && read flag
 
 # Setup repositories
 if [ $flag == 'y' -o $flag == 'Y' ]; then

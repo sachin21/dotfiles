@@ -9,7 +9,7 @@ declare -r APPLICATIONS=`cat $DOTFILES_PATH/data/apps.txt`
 declare -r OS="$(uname)"
 
 # Load method for printing
-. $DOTFILES_PATH/etc/print_helper
+. $DOTFILES_PATH/etc/helpers
 
 # Check exist brew command
 install_homebrew(){

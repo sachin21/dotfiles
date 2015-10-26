@@ -25,6 +25,7 @@ alias FUCK='fuck'
 alias fucked='fuck'
 alias f='fuck'
 alias gs='git sync'
+alias gsm='git syncm'
 alias b='bundle'
 alias tigj='tig'
 alias rehash='rbenv rehash; nodenv rehash; pyenv rehash'
@@ -34,6 +35,7 @@ alias rehash='rbenv rehash; nodenv rehash; pyenv rehash'
 alias -g A='| ag'
 alias -g L='| less'
 alias -g N='> /dev/null'
+alias -g NA='&> /dev/null'
 alias -g P='| peco'
 alias -g S='| sort'
 alias -g V="| vim -R -"
@@ -50,8 +52,7 @@ alias -s php='php -f'
 
 # Alias for projects
 # ---------------------------------------------------**
-for project in `ls ~/.tmuxinator`; do
+for project in `command ls ~/.tmuxinator`; do
   local project=${project%.*}
   eval "alias $project='tmuxinator $project'"
 done
-unset project

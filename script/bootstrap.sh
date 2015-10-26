@@ -129,13 +129,10 @@ if [ $flag == 'y' -o $flag == 'Y' ]; then
   if type ghq > /dev/null 2>&1; then
     install_ghq
   else
-    warn "  x [Warning] ghq is not installed"
+    message "  + Installing ghq..."
+    brew tap motemen/ghq
+    brew install ghq
 
-    if type brew > /dev/null 2>&1; then
-      message "  + Installing ghq..."
-      brew tap motemen/ghq
-      brew install ghq
-    fi
     install_ghq
   fi
 fi

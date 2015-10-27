@@ -6,6 +6,7 @@ bash
 bdw-gc
 binutils
 bison
+brew-cask
 cairo
 ccat
 cloog
@@ -16,6 +17,7 @@ cmatrix
 coreutils
 crunch
 csvprintf
+ctags
 curl
 czmq
 elasticsearch
@@ -33,6 +35,7 @@ gcc47
 gcc48
 gdbm
 gettext
+ghostscript
 ghq
 gibo
 gist
@@ -49,6 +52,7 @@ icu4c
 imagemagick
 isl
 isl011
+jbig2dec
 jenkins
 jpeg
 ksh
@@ -68,6 +72,8 @@ libvo-aacenc
 libxml2
 libxslt
 libyaml
+little-cms2
+make
 memcached
 mercurial
 mongodb
@@ -99,6 +105,7 @@ ricty
 rmtrash
 ruby20
 scala
+scons
 sl
 sqlite
 stress

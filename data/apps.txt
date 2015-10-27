@@ -17,8 +17,10 @@ iexplorer
 istat-menus
 iterm2
 java
+kanmemo
 karabiner
 kobito
+macdown
 mou
 night-owl
 opera
@@ -27,8 +29,10 @@ parallels-desktop
 pg-commander
 picasa
 pokerstars
+qlmarkdown
 screenhero
 sequel-pro
+sketch
 skitch
 skype
 slack

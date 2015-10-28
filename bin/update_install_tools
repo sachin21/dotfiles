@@ -1,0 +1,61 @@
+#!/usr/bin/env bash
+. $HOME/.helpers
+
+update_it() {
+  local path=$1
+  local target=$2
+
+  pushd $path &> /dev/null
+
+  if [ -e .git ]; then
+    if result="$(git pull origin master)"; then
+      echo $result
+
+      if [[ $result == "Already up-to-date." ]]; then
+        message "  + $target had already been updated"
+      else
+        succeed "  + $target was successfully updated"
+      fi
+    else
+      fail "  x [Error] $target was unsuccessfully updated"
+    fi
+  else
+    warn "  x [Warning] $target is not git repository"
+  fi
+
+  popd &> /dev/null
+}
+
+update_tool() {
+  local tool=$1
+
+  update_it "$HOME/.$tool" "$tool"
+}
+
+update_plugins_of_it() {
+  local tool=$1
+
+  for plugin in "$(ls ~/.$tool/plugins)"; do
+    update_it "$HOME/.$tool/plugins/$plugin" "$plugin"
+  done
+}
+
+update_all() {
+  local TOOLS=(
+    rbenv
+    pyenv
+    nodenv
+  )
+
+  for tool in ${TOOLS[@]}; do
+    update_tool $tool
+    update_plugins_of_it $tool
+  done
+}
+
+main() {
+  update_all
+  exit 0
+}
+
+main

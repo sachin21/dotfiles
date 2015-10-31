@@ -15,26 +15,26 @@ alias -s html=chrome
 
 # If exist, setup for etcs
 # ---------------------------------------------------**
-if type brew > /dev/null 2>&1; then
+if type brew &> /dev/null; then
   export PATH="$(brew --prefix coreutils)/libexec/gnubin:$PATH"
 else
   echo "  x [Warning] Homebrew is not installed"
 fi
 
-if type dircolors > /dev/null 2>&1; then
+if type dircolors &> /dev/null; then
   eval `dircolors ~/.dircolors`
 else
   echo "  x [Warning] dircolors is not installed"
 fi
 
-if type gls > /dev/null 2>&1; then
-  alias ls='gls --color=auto -F'
+if type gls &> /dev/null; then
+  alias ls='gls --color=auto -AFh'
 else
   echo "  x [Warning] coreutils is not installed"
-  alias ls='ls -F'
+  alias ls='ls -AFh'
 fi
 
-if type rmtrash > /dev/null 2>&1; then
+if type rmtrash &> /dev/null; then
   alias rm='rmtrash'
 else
   echo "  x [Warning] rmtrash is not installed"

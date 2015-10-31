@@ -1,3 +1,7 @@
+# Using my helpers
+# ---------------------------------------------------**
+. ~/.helpers
+
 # Configuration file for use in Zsh
 # ---------------------------------------------------**
 . ~/.tmux/tmuxinator.zsh

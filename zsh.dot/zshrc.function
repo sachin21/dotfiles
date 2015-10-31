@@ -11,7 +11,7 @@ cr() {
 }
 
 peco-select-history() {
-  if ! type tac > /dev/null 2>&1; then
+  if command_not_exists tac; then
     echo "  x [Warning] tac is not installed"
     exit 1
   fi

@@ -9,7 +9,7 @@ export DOTFILES_PATH="$HOME/dotfiles"
 # Loading method for printing
 . $DOTFILES_PATH/etc/helpers
 
-if ! type git > /dev/null 2>&1; then
+if command_not_exists git; then
   fail "  x [Error] git is not installed"
   exit 1
 fi
@@ -126,7 +126,7 @@ if [ $flag == 'y' -o $flag == 'Y' ]; then
     done
   }
 
-  if type ghq > /dev/null 2>&1; then
+  if command_exists ghq; then
     install_ghq
   else
     message "  + Installing ghq..."
@@ -138,7 +138,7 @@ if [ $flag == 'y' -o $flag == 'Y' ]; then
 fi
 
 # Create symbolics
-if type rake > /dev/null 2>&1; then
+if command_exists rake; then
   message "  + Executing rake tasks..."
   rake clean
   rake all

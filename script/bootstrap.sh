@@ -15,7 +15,7 @@ if command_not_exists git; then
 fi
 
 if [ $(basename `pwd`) == "dotfiles" ]; then
-  message "  + Already exist dotfiles. Let's go next step"
+  message "  + Already exists dotfiles. Let's go next step"
 else
   message "  + Cloning into ~/dotfiles..."
   git clone https://github.com/sachin21/dotfiles.git ~/dotfiles

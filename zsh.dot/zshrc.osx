@@ -13,7 +13,7 @@ alias google-chrome='open -a Google\ Chrome'
 alias chrome='google-chrome'
 alias -s html=chrome
 
-# If exist, setup for etcs
+# If exists, setup for etc
 # ---------------------------------------------------**
 if type brew &> /dev/null; then
   export PATH="$(brew --prefix coreutils)/libexec/gnubin:$PATH"

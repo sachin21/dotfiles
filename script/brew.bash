@@ -1,15 +1,21 @@
-#!/usr/bin/env sh
+#!/usr/bin/env bash
 
 set -e
 
-declare -r DOTFILES_PATH="$HOME/dotfiles"
-declare -r REPOSITORIES=`cat $DOTFILES_PATH/data/repositories.txt`
-declare -r FORMULAS=`cat $DOTFILES_PATH/data/formulas.txt`
-declare -r APPLICATIONS=`cat $DOTFILES_PATH/data/apps.txt`
-declare -r OS="$(uname)"
+declare -r DOTFILES_PATH
+declare -r REPOSITORIES
+declare -r FORMULAS
+declare -r APPLICATIONS
+declare -r OS
+
+DOTFILES_PATH="$HOME/dotfiles"
+REPOSITORIES=$(cat "$DOTFILES_PATH/data/repositories.txt")
+FORMULAS=$(cat "$DOTFILES_PATH/data/formulas.txt")
+APPLICATIONS=$(cat "$DOTFILES_PATH/data/apps.txt")
+OS="$(uname)"
 
 # Load method for printing
-. $DOTFILES_PATH/etc/helpers
+. "$DOTFILES_PATH/etc/helpers"
 
 # Check exist brew command
 install_homebrew(){
@@ -26,9 +32,9 @@ install_homebrew(){
 
 # Update Homebrew formulas
 update_homebrew(){
-  ask "  + Do you want to update Homebrew? [Y/n]:" && read flag
+  ask "  + Do you want to update Homebrew? [Y/n]:" && read -r flag
 
-  if [ $flag = 'y' -o $flag = 'Y' ]; then
+  if [ "$flag" = "y" ] || [ "$flag" = "Y" ]; then
     message "  + Updating Homebrew"
     brew update
   fi
@@ -36,9 +42,9 @@ update_homebrew(){
 
 # Upgrade formulas
 upgrade_homebrew(){
-  ask "  + Do you want to upgrade Homebrew? [Y/n]:" && read flag
+  ask "  + Do you want to upgrade Homebrew? [Y/n]:" && read -r flag
 
-  if [ $flag = 'y' -o $flag = 'Y' ]; then
+  if [ "$flag" = "y" ] || [ "$flag" = 'Y' ]; then
     message "  + Upgrading Homebrew formulas"
     brew upgrade
   fi
@@ -49,7 +55,7 @@ tap_repositories(){
   message "  + Tapping repositories..."
 
   for repository in $REPOSITORIES; do
-    brew tap $repository || true
+    brew tap "$repository" || true
   done
 }
 
@@ -58,7 +64,7 @@ install_formulas(){
   message "  + Installing formulas..."
 
   for formula in $FORMULAS; do
-    brew install $formula || true
+    brew install "$formula" || true
   done
 }
 
@@ -74,7 +80,7 @@ install_osx_applications(){
   message "  + Installing OS X Application..."
 
   for application in $APPLICATIONS; do
-    brew cask install --appdir="/Applications" $application || true
+    brew cask install --appdir="/Applications" "$application" || true
   done
 }
 
@@ -91,13 +97,13 @@ remove_caches(){
 
   brew cleanup
 
-  if [[ $OS == "Darwin" ]] && brew list | grep brew-cask > /dev/null 2>&1; then
+  if [ "$OS" = "Darwin" ] && brew list | grep brew-cask > /dev/null 2>&1; then
     brew cask cleanup
   fi
 }
 
 main(){
-  if [[ $OS == "Darwin" ]]; then
+  if [ "$OS" = "Darwin" ]; then
     install_homebrew "https://raw.githubusercontent.com/Homebrew/install/master/install"
   else
     install_homebrew "https://raw.githubusercontent.com/Homebrew/linuxbrew/go/install"
@@ -108,7 +114,7 @@ main(){
   tap_repositories
   install_formulas
 
-  if [[ $OS == "Darwin" ]]; then
+  if [ "$OS" = "Darwin" ]; then
     install_osx_applications
     create_link
   fi

@@ -1,25 +1,26 @@
-#!/usr/bin/env sh
+#!/usr/bin/env bash
 #
 # bootstrap
 #
 # Get readly to develop something
 
-export DOTFILES_PATH="$HOME/dotfiles"
+declare -r DOTFILES_PATH
+DOTFILES_PATH="$HOME/dotfiles"
 
 # Loading method for printing
-. $DOTFILES_PATH/etc/helpers
+. "$DOTFILES_PATH/etc/helpers"
 
 if command_not_exists git; then
   fail "  x [Error] git is not installed"
   exit 1
 fi
 
-if [ $(basename `pwd`) == "dotfiles" ]; then
+if [ "$(basename "$PWD")" = "dotfiles" ]; then
   message "  + Already exists dotfiles. Let's go next step"
 else
   message "  + Cloning into ~/dotfiles..."
   git clone https://github.com/sachin21/dotfiles.git ~/dotfiles
-  cd ~/dotfiles
+  cd ~/dotfiles || exit 1
 fi
 
 # Initialize other packages
@@ -27,15 +28,15 @@ message "  + Initializing git packages"
 git submodule update --init
 
 # Checking os
-ask "  + OSX user 'm' : CentOS user 'c' : ArchLinux user [m/c/a] : " && read flag
+ask "  + OSX user 'm' : CentOS user 'c' : ArchLinux user [m/c/a] : " && read -r flag
 
 # Setup tools
-if [ $flag == 'm' -o $flag == 'M' ]; then # For Mac OSX
-  cd ~/dotfiles
+if [ "$flag" = "m" ] || [ "$flag" = "M" ]; then # For Mac OSX
+  cd ~/dotfiles || exit 1
   message "  + Installing Homebrew..."
   ./script/brew.sh
-elif [ $flag == 'c' -o $flag == 'C' ]; then # For CentOS
-  message "  + Updating already exist packages..."
+elif [ "$flag" = "c" ] || [ "$flag" = "C" ]; then # For CentOS
+  message "  + Updating already exists packages..."
   sudo yum -y update
 
   message "  + Upgrading packages..."
@@ -46,7 +47,7 @@ elif [ $flag == 'c' -o $flag == 'C' ]; then # For CentOS
 
   message "  + Installing Linuxbrew..."
   ./script/brew.sh
-elif [ $flag == 'a' -o $flag == 'A' ]; then # For ArchLinux
+elif [ "$flag" = "a" ] || [ "$flag" = "A" ]; then # For ArchLinux
   message "  + Upgrading packages..."
   sudo pacman -Sy
 
@@ -60,14 +61,14 @@ message "  + Tools was successfully installed"
 
 # Install oh-my-zsh
 if [ -d ~/.oh-my-zsh ]; then
-  message "  * oh-my-zsh is exist."
+  message "  * oh-my-zsh is exists."
 else
   git clone git://github.com/robbyrussell/oh-my-zsh.git ~/.oh-my-zsh
   message "  + oh-my-zsh was successfully installed"
 fi
 
 # Install NeoBundle
-if [ -d ~/.vim/bundle -a -d ~/.vim/bundle/neobundle.vim ]; then
+if [ -d ~/.vim/bundle ] && [ -d ~/.vim/bundle/neobundle.vim ]; then
   message "  + NeoBundle is exist."
 else
   mkdir -p ~/.vim/bundle && git clone git://github.com/Shougo/neobundle.vim ~/.vim/bundle/neobundle.vim
@@ -93,7 +94,7 @@ fi
 
 # Install pyenv
 if [ -d ~/.pyenv ]; then
-  message "  + pyenv is exist"
+  message "  + pyenv is exists"
 else
   git clone git://github.com/yyuu/pyenv.git ~/.pyenv
   message "  + pyenv was successfully installed"
@@ -101,12 +102,12 @@ fi
 
 # Install nodenv
 if [ -d ~/.nodenv ]; then
-  message "  + nodenv is exist"
+  message "  + nodenv is exists"
 else
   git clone https://github.com/OiNutter/nodenv.git ~/.nodenv
 
   if [ -d ~/.nodenv/.nodenv/plugins/node-build ]; then
-    message "  + node-build is exist"
+    message "  + node-build is exists"
   else
     git clone git://github.com/OiNutter/node-build.git ~/.nodenv/plugins/node-build
     ~/.nodenv/plugins/node-build/install.sh
@@ -116,13 +117,13 @@ else
   message "  + nodenv was successfully installed"
 fi
 
-ask "  + If you want to create projects of sachin21? [y/Y]" && read flag
+ask "  + If you want to create projects of sachin21? [y/Y]" && read -r flag
 
 # Setup repositories
-if [ $flag == 'y' -o $flag == 'Y' ]; then
+if [ "$flag" = "y" ] || [ "$flag" = "Y" ]; then
   install_ghq() {
-    for repository in `cat repositories/github`; do
-      ghq get $repository
+    cat < repositories/github | while read -r repository; do
+      ghq get "$repository"
     done
   }
 
@@ -145,10 +146,6 @@ if command_exists rake; then
 else
   warn "  x [Warning] rake is not installed"
 fi
-
-# Reload shell
-message "  + Reloading your shell..."
-exec $SHELL
 
 succeed "  + Your shell was reloaded."
 succeed "  + It's all done."

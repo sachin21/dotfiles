@@ -17,7 +17,7 @@ OS="$(uname)"
 # Load method for printing
 . "$DOTFILES_PATH/etc/helpers"
 
-# Check exists ruby
+# Checking exists ruby
 check_ruby(){
   if command_exists ruby; then
     fail "  x [Error] Ruby is not installed"
@@ -27,7 +27,7 @@ check_ruby(){
   fi
 }
 
-# Check exist brew command
+# Checking exists brew command
 install_homebrew(){
   local installation_url=$1
 

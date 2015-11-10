@@ -2,26 +2,45 @@
 
 # Print Colored messages
 # ---------------------------------------------------**
+logging() {
+  local yellow="33"
+  local blue="34"
+  local turquoise="36"
+  local white="37"
+  local red="31"
+  local text="$2"
+  local _color=
+
+  case "$1" in
+   "message") _color=$yellow ;;
+   "warn") _color=$red ;;
+   "succeed") _color=$blue ;;
+   "fail") _color=$green ;;
+  esac
+
+  printf "\033[${_color}m${text}\033[m\n"
+}
+
 message() {
-  printf "\033[34m$@\033[m\n"
+  logging "$0" "$@"
 }
 
 warn() {
-  printf  "\033[33m$@\033[m\n"
+  logging "$0" "$@"
 }
 
 succeed() {
-  printf "\033[36m$@\033[m\n"
+  logging "$0" "$@"
 }
 
 fail() {
-  printf "\033[31m$@\033[m\n"
+  logging "$0" "$@"
 }
 
 # Ask
 # ---------------------------------------------------**
 ask() {
-  printf "\033[35m$@\033[m\n"
+  logging "$0" "$@"
 }
 
 # Utilities

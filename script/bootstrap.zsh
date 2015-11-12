@@ -9,14 +9,14 @@ DOTFILES_PATH="$HOME/dotfiles"
 # Loading method for printing
 . "$DOTFILES_PATH/etc/helpers"
 
-function check_git(){
+check_git(){
   if command_not_exists git; then
     fail "  x [Error] git is not installed"
     exit 1
   fi
 }
 
-function install_dotfiles(){
+install_dotfiles(){
   if [ "$(basename "$PWD")" = "dotfiles" ]; then
     message "  + Already exists dotfiles. Let's go next step"
   else
@@ -27,12 +27,12 @@ function install_dotfiles(){
 }
 
 # Initialize other packages
-function initialize_submodules(){
+initialize_submodules(){
   message "  + Initializing git packages"
   git submodule update --init
 }
 
-function install_packages(){
+install_packages(){
   # Checking os
   ask "  + OSX user 'm' : CentOS user 'c' : ArchLinux user [m/c/a] : " && read -r flag
 
@@ -67,7 +67,7 @@ function install_packages(){
 }
 
 # Install oh-my-zsh
-function install_omz(){
+install_omz(){
   if [ -d ~/.oh-my-zsh ]; then
     message "  * oh-my-zsh is exists."
   else
@@ -77,7 +77,7 @@ function install_omz(){
 }
 
 # Install NeoBundle
-function install_neobundle(){
+install_neobundle(){
   if [ -d ~/.vim/bundle ] && [ -d ~/.vim/bundle/neobundle.vim ]; then
     message "  + NeoBundle is exist."
   else
@@ -87,7 +87,7 @@ function install_neobundle(){
 }
 
 # Install rbenv
-function install_rbenv(){
+install_rbenv(){
   if [ -d ~/.rbenv ]; then
     message "  + rbenv is exist."
   else
@@ -106,7 +106,7 @@ function install_rbenv(){
 }
 
 # Install pyenv
-function install_pyenv(){
+install_pyenv(){
   if [ -d ~/.pyenv ]; then
     message "  + pyenv is exists"
   else
@@ -116,7 +116,7 @@ function install_pyenv(){
 }
 
 # Install nodenv
-function install_nodenv(){
+install_nodenv(){
   if [ -d ~/.nodenv ]; then
     message "  + nodenv is exists"
   else
@@ -135,7 +135,7 @@ function install_nodenv(){
 }
 
 # Setup repositories
-function install_ghq() {
+install_ghq() {
   ask "  + If you want to create projects of sachin21? [y/Y]" && read -r flag
   if [ "$flag" = "y" ] || [ "$flag" = "Y" ]; then
     if command_not_exists ghq; then
@@ -153,7 +153,7 @@ function install_ghq() {
 
 
 # Create symbolics
-function create_symbolics(){
+create_symbolics(){
   if command_exists rake; then
     message "  + Executing rake tasks..."
     rake clean
@@ -163,7 +163,7 @@ function create_symbolics(){
   fi
 }
 
-function print_after_steps(){
+print_after_steps(){
   succeed "  + Your shell was reloaded."
   succeed "  + It's all done."
   succeed ""
@@ -173,7 +173,7 @@ function print_after_steps(){
   succeed ""
 }
 
-function main(){
+main(){
   check_git
   install_dotfiles
   initialize_submodules

@@ -17,8 +17,8 @@
 
 | Tools | <a name="oneliner">The installation command</a> |
 |-------|-------------------------------------------------|
-| cURL | bash -c "$(curl -fsSL [dot.sachin21.jp](http://dot.sachin21.jp))" |
-| Wget | bash -c "$(wget -qO - [dot.sachin21.jp](http://dot.sachin21.jp))" |
+| cURL | zsh -c "$(curl -fsSL [dot.sachin21.jp](http://dot.sachin21.jp))" |
+| Wget | zsh -c "$(wget -qO - [dot.sachin21.jp](http://dot.sachin21.jp))" |
 
 ## OR
 
@@ -33,7 +33,7 @@ git clone https://github.com/sachin21/dotfiles.git
 To update, `cd` into your local `dotfiles` repository and then:
 
 ```
-./scripts/bootstrap.sh
+./scripts/bootstrap.zsh
 ```
 
 ## Credits

@@ -1,12 +1,12 @@
-#!/usr/bin/env bash
+#!/usr/bin/env zsh
 
 set -e
 
-declare -r DOTFILES_PATH
-declare -r REPOSITORIES
-declare -r FORMULAS
-declare -r APPLICATIONS
-declare -r OS
+declare DOTFILES_PATH
+declare REPOSITORIES
+declare FORMULAS
+declare APPLICATIONS
+declare OS
 
 DOTFILES_PATH="$HOME/dotfiles"
 REPOSITORIES=$(cat "$DOTFILES_PATH/data/repositories.txt")
@@ -18,7 +18,7 @@ OS="$(uname)"
 . "$DOTFILES_PATH/etc/helpers"
 
 # Checking exists ruby
-check_ruby(){
+function check_ruby(){
   if command_exists ruby; then
     fail "  x [Error] Ruby is not installed"
     return 1
@@ -28,7 +28,7 @@ check_ruby(){
 }
 
 # Checking exists brew command
-install_homebrew(){
+function install_homebrew(){
   local installation_url=$1
 
   if command_exists brew; then
@@ -41,68 +41,68 @@ install_homebrew(){
 }
 
 # Update Homebrew formulas
-update_homebrew(){
+function update_homebrew(){
   ask "  + Do you want to update Homebrew? [Y/n]:" && read -r flag
 
   if [ "$flag" = "y" ] || [ "$flag" = "Y" ]; then
     message "  + Updating Homebrew"
-    brew update
+    brew update || return 1
   fi
 }
 
 # Upgrade formulas
-upgrade_homebrew(){
+function upgrade_homebrew(){
   ask "  + Do you want to upgrade Homebrew? [Y/n]:" && read -r flag
 
   if [ "$flag" = "y" ] || [ "$flag" = 'Y' ]; then
     message "  + Upgrading Homebrew formulas"
-    brew upgrade
+    brew upgrade || return 1
   fi
 }
 
 # Tap repositories
-tap_repositories(){
+function tap_repositories(){
   message "  + Tapping repositories..."
 
   for repository in $REPOSITORIES; do
-    brew tap "$repository" || true
+    brew tap "$repository" || return 0
   done
 }
 
 # Install formulas
-install_formulas(){
+function install_formulas(){
   message "  + Installing formulas..."
 
   for formula in $FORMULAS; do
-    brew install "$formula" || true
+    brew install "$formula" || return 0
   done
 }
 
 # Install brew-cask
-install_formulas(){
+function install_formulas(){
   message "  + Installing Homebrew-cask..."
 
-  brew install caskroom/cask/brew-cask || true
+  brew install caskroom/cask/brew-cask || return 0
 }
 
 # Install Applications to /Applications
-install_osx_applications(){
+function install_osx_applications(){
   message "  + Installing OS X Application..."
 
   for application in $APPLICATIONS; do
-    brew cask install --appdir="/Applications" "$application" || true
+    brew cask install --appdir="/Applications" "$application" || return 0
   done
 }
 
 # Create link for installed applications
-create_link(){
+function create_link(){
   message "  + Linking osx apps..."
 
   brew cask alfred link
 }
 
 # Remove outdated versions and archive file
-remove_caches(){
+function remove_caches(){
   message "  + Removing caches..."
 
   brew cleanup
@@ -112,7 +112,7 @@ remove_caches(){
   fi
 }
 
-main(){
+function main(){
   if [ "$OS" = "Darwin" ]; then
     install_homebrew "https://raw.githubusercontent.com/Homebrew/install/master/install"
   else

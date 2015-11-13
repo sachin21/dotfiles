@@ -65,7 +65,6 @@ CLEANS = %w(
 
 CLEAN.concat(CLEANS.map { |c| File.join(HOME, c) })
 
-task default: :all
 task deploy: %w(zsh:link vim:link git:link tmux:link etc:link)
 
 namespace :zsh do

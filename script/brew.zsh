@@ -131,7 +131,7 @@ function main(){
 
   remove_caches
 
-  exit 0
+  return 0
 }
 
 main

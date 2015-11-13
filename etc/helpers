@@ -1,54 +1,40 @@
-#!/usr/bin/env sh
+#!/usr/bin/env zsh
 
 # Print Colored messages
 # ---------------------------------------------------**
-logging() {
+function logging() {
+  local red="31"
   local yellow="33"
   local blue="34"
   local turquoise="36"
   local white="37"
-  local red="31"
   local text="$2"
   local _color=
 
   case "$1" in
-   "message") _color=$yellow ;;
-   "warn") _color=$red ;;
-   "succeed") _color=$blue ;;
-   "fail") _color=$green ;;
+   "fail") _color=$red ;;
+   "warn") _color=$yellow ;;
+   "ask") _color=$blue ;;
+   "message") _color=$turquoise ;;
+   "succeed") _color=$white ;;
   esac
 
   printf "\033[${_color}m${text}\033[m\n"
 }
 
-message() {
-  logging "$0" "$@"
-}
+declare -a _functions=(message warn succeed fail ask)
+for function in $_functions; do
+  eval "function "$function"() { logging \"$function\" \"\$@\" }"
+done
 
-warn() {
-  logging "$0" "$@"
-}
-
-succeed() {
-  logging "$0" "$@"
-}
-
-fail() {
-  logging "$0" "$@"
-}
-
-# Ask
-# ---------------------------------------------------**
-ask() {
-  logging "$0" "$@"
-}
+unset _functions
 
 # Utilities
 # ---------------------------------------------------**
-command_exists(){
+function command_exists(){
   type $1 &> /dev/null
 }
 
-command_not_exists() {
+function command_not_exists() {
   ! type $1 &> /dev/null
 }

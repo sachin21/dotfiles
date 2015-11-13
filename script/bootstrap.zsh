@@ -12,7 +12,7 @@ DOTFILES_PATH="$HOME/dotfiles"
 function check_git(){
   if command_not_exists git; then
     fail "  x [Error] git is not installed"
-    exit 1
+    return 1
   fi
 }
 
@@ -38,7 +38,7 @@ function install_packages(){
 
   # Setup tools
   if [ "$flag" = "m" ] || [ "$flag" = "M" ]; then # For Mac OSX
-    cd ~/dotfiles || exit 1
+    cd ~/dotfiles || return 1
     message "  + Installing Homebrew..."
     ./script/brew.sh
   elif [ "$flag" = "c" ] || [ "$flag" = "C" ]; then # For CentOS
@@ -61,7 +61,7 @@ function install_packages(){
     ./script/brew.sh
   else
     ask "  x You can input is only 'm', 'c' and 'a'"
-    exit 1
+    return 1
   fi
   message "  + Tools was successfully installed"
 }
@@ -157,7 +157,7 @@ function create_symbolics(){
   if command_exists rake; then
     message "  + Executing rake tasks..."
     rake clean
-    rake all
+    rake deploy
   else
     warn "  x [Warning] rake is not installed"
   fi
@@ -187,7 +187,7 @@ function main(){
   create_symbolics
   print_after_steps
 
-  exit 0
+  return 0
 }
 
 main

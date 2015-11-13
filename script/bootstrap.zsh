@@ -63,6 +63,7 @@ function install_packages(){
     ask "  x You can input is only 'm', 'c' and 'a'"
     return 1
   fi
+
   message "  + Tools was successfully installed"
 }
 
@@ -177,7 +178,11 @@ function main(){
   check_git
   install_dotfiles
   initialize_submodules
-  install_packages
+
+  while ! install_packages; do
+    install_packages
+  done
+
   install_omz
   install_neobundle
   install_rbenv

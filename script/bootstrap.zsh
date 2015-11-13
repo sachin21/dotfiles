@@ -40,7 +40,7 @@ function install_packages(){
   if [ "$flag" = "m" ] || [ "$flag" = "M" ]; then # For Mac OSX
     cd ~/dotfiles || return 1
     message "  + Installing Homebrew..."
-    ./script/brew.sh
+    ./script/brew.zsh
   elif [ "$flag" = "c" ] || [ "$flag" = "C" ]; then # For CentOS
     message "  + Updating already exists packages..."
     sudo yum -y update
@@ -52,13 +52,13 @@ function install_packages(){
     sudo yum -y clean
 
     message "  + Installing Linuxbrew..."
-    ./script/brew.sh
+    ./script/brew.zsh
   elif [ "$flag" = "a" ] || [ "$flag" = "A" ]; then # For ArchLinux
     message "  + Upgrading packages..."
     sudo pacman -Sy
 
     message "  + Installing Linuxbrew..."
-    ./script/brew.sh
+    ./script/brew.zsh
   else
     ask "  x You can input is only 'm', 'c' and 'a'"
     return 1

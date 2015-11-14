@@ -6,23 +6,13 @@
 declare DOTFILES_PATH
 DOTFILES_PATH="$HOME/dotfiles"
 
-# Loading method for printing
-. "$DOTFILES_PATH/etc/helpers"
-
-function check_git(){
-  if command_not_exists git; then
-    fail "  x [Error] git is not installed"
-    return 1
-  fi
-}
-
 function install_dotfiles(){
-  if [ "$(basename "$PWD")" = "dotfiles" ]; then
-    message "  + Already exists dotfiles. Let's go next step"
+  if [ -d "$DOTFILES_PATH" ]; then
+    cd "$DOTFILES_PATH" && . ./etc/helpers || return 1
+    message "  + Already exists dotfiles. Let's go ext step"
   else
-    message "  + Cloning into ~/dotfiles..."
-    git clone https://github.com/sachin21/dotfiles.git ~/dotfiles
-    cd ~/dotfiles || return 1
+    git clone https://github.com/sachin21/dotfiles.git "$DOTFILES_PATH"
+    cd "$DOTFILES_PATH" && . ./etc/helpers || return 1
   fi
 }
 
@@ -175,7 +165,6 @@ function print_after_steps(){
 }
 
 function main(){
-  check_git
   install_dotfiles
   initialize_submodules
 

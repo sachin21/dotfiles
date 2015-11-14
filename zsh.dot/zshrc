@@ -1,27 +1,27 @@
 # Using my helpers
 # ---------------------------------------------------**
-. ~/.helpers
+. "$HOME/.helpers"
 
 # Configuration file for use in Zsh
 # ---------------------------------------------------**
-. ~/.tmux/tmuxinator.zsh
-. ~/.zsh/zsh-bd/bd.zsh
-. ~/.zshrc.env
-. ~/.zshrc.config
-. ~/.zshrc.setting
-. ~/.zshrc.color
-. ~/.zshrc.alias
-. ~/.zshrc.function
-. ~/.zshrc.local
+. "$HOME/.tmux/tmuxinator.zsh"
+. "$HOME/.zsh/zsh-bd/bd.zsh"
+. "$HOME/.zshrc.env"
+. "$HOME/.zshrc.config"
+. "$HOME/.zshrc.setting"
+. "$HOME/.zshrc.color"
+. "$HOME/.zshrc.alias"
+. "$HOME/.zshrc.function"
+. "$HOME/.zshrc.local"
 
 # When OSX or Linux
 # ---------------------------------------------------**
 case "${OSTYPE}" in
   darwin*)
-    . ~/.zshrc.osx
+    . "$HOME/.zshrc.osx"
     ;;
 
   linux*)
-    . ~/.zshrc.linux
+    . "$HOME/.zshrc.linux"
     ;;
 esac

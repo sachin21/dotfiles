@@ -50,7 +50,7 @@ function install_packages(){
     message "  + Installing Linuxbrew..."
     ./script/brew.zsh
   else
-    ask "  x You can input is only 'm', 'c' and 'a'"
+    fail "  x [Error] You can input is only 'm', 'c' and 'a'"
     return 1
   fi
 

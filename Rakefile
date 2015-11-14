@@ -110,7 +110,6 @@ end
 desc 'Update all git repositories'
 task :update do
   system 'git pull origin master'
-  system 'git submodule update'
   system 'git submodule foreach git pull origin master'
 end
 

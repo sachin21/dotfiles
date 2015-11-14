@@ -2,6 +2,7 @@
 
 # Print Colored messages
 # ---------------------------------------------------**
+
 function logging() {
   local red="31"
   local yellow="33"
@@ -22,12 +23,12 @@ function logging() {
   printf "\033[${_color}m${text}\033[m\n"
 }
 
-declare -a _functions=(message warn succeed fail ask)
+local _functions
+_functions=(message warn succeed fail ask)
+
 for function in $_functions; do
   eval "function "$function"() { logging \"$function\" \"\$@\" }"
 done
-
-unset _functions
 
 # Utilities
 # ---------------------------------------------------**

@@ -45,7 +45,6 @@ inoremap <silent> <C-y>e <Esc>ly0<Insert>
 " カーソルから行末までヤンク(インサートモード)
 inoremap <silent> <C-y>0 <Esc>ly$<Insert>
 
-"
 " 括弧を自動補完
 inoremap { {}<LEFT>
 inoremap [ []<LEFT>

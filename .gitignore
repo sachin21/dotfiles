@@ -17,4 +17,4 @@ Icon
 .Trashes
 zsh.dot/zshrc.local
 vim/bundle/*
-!vim/bundle/neobundle.vim
+!vim/bundle/Vundle.vim

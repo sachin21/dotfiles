@@ -1,313 +1,292 @@
-"neobundle.vimで管理してるpluginを読み込む
-
+set nocompatible
 filetype off
 
-set runtimepath+=~/.vim/bundle/neobundle.vim
-call neobundle#begin(expand('~/.vim/bundle/'))
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
 
-" set rtp+=~/.vim/bundle/vundle/
-" call vundle#rc()
-
-" Edit {{{
+" Edit
+" ---------------------------------------------------**
   " NERD_commenter.vim :最強コメント処理 (<Leader>c<space>でコメントをトグル)
-  NeoBundle 'scrooloose/nerdcommenter.git'
+  Plugin 'scrooloose/nerdcommenter.git'
 
   " 自動コメント"
-  NeoBundle 'tomtom/tcomment_vim'
+  Plugin 'tomtom/tcomment_vim'
 
   " 自動閉じタグ
-  NeoBundle 'yuroyoro/vim-autoclose'
+  Plugin 'yuroyoro/vim-autoclose'
 
   " schema
-  NeoBundle 'altercation/vim-colors-solarized'
+  Plugin 'altercation/vim-colors-solarized'
   " -- でメソッドチェーン整形
-  NeoBundle 'c9s/cascading.vim'
+  Plugin 'c9s/cascading.vim'
 
   " visually indent guide
-  NeoBundle 'nathanaelkane/vim-indent-guides'
+  Plugin 'nathanaelkane/vim-indent-guides'
 
   " XMLとかHTMLとかの編集機能を強化する
-  NeoBundle 'xmledit'
+  Plugin 'xmledit'
 
   " html補完"
-  NeoBundle 'mattn/emmet-vim'
+  Plugin 'mattn/emmet-vim'
 
   " Align : 高機能整形・桁揃えプラグイン
-  NeoBundle 'Align'
+  Plugin 'Align'
 
   " フィルタリングと整形
-  NeoBundle 'godlygeek/tabular'
+  Plugin 'godlygeek/tabular'
 
   " マルチバイト対応の整形
-  NeoBundle 'h1mesuke/vim-alignta'
+  Plugin 'h1mesuke/vim-alignta'
 
   "yankround.vim : ヤンクの履歴を管理し、順々に参照、出力できるようにする
-  NeoBundle 'LeafCage/yankround.vim'
+  Plugin 'LeafCage/yankround.vim'
 
   " undo履歴を追える (need python support)
-  NeoBundle 'Gundo'
+  Plugin 'Gundo'
 
   " smartchr.vim : ==などの前後を整形
-  NeoBundle 'smartchr'
+  Plugin 'smartchr'
 
   " vim-operator-user : 簡単にoperatorを定義できるようにする
-  NeoBundle 'operator-user'
+  Plugin 'operator-user'
 
   " operator-camelize : camel-caseへの変換
-  NeoBundle 'operator-camelize'
+  Plugin 'operator-camelize'
 
   " operator-replace : yankしたものでreplaceする
-  NeoBundle 'operator-replace'
+  Plugin 'operator-replace'
 
   " textobj-user : 簡単にVimエディタのテキストオブジェクトをつくれる
-  NeoBundle 'kana/vim-textobj-user'
-
-  " vim-textobj-syntax : syntax hilightされたものをtext-objectに
-  NeoBundle 'kana/vim-textobj-syntax.git'
-
-  " vim-textobj-plugins : いろんなものをtext-objectにする
-  NeoBundle 'thinca/vim-textobj-plugins.git'
-
-  " vim-textobj-lastpat : 最後に検索されたパターンをtext-objectに
-  NeoBundle 'kana/vim-textobj-lastpat.git'
-
-  " vim-textobj-indent : インデントされたものをtext-objectに
-  NeoBundle 'kana/vim-textobj-indent.git'
-
-  " vim-textobj-function : 関数の中身をtext-objectに
-  NeoBundle 'kana/vim-textobj-function.git'
-
-  " vim-textobj-fold : 折りたたまれたアレをtext-objectに
-  " NeoBundle 'kana/vim-textobj-fold.git'
-  NeoBundle 'textobj-rubyblock'
-
-  " vim-textobj-entire : buffer全体をtext-objectに
-  NeoBundle 'textobj-entire'
-
-  " 「foo」 or 【bar】などをtext-objectに
-  NeoBundle 'textobj-jabraces'
+  Plugin 'kana/vim-textobj-user'
 
   " <C-a>でtrue/false切替。他色々
-  NeoBundle 'taku-o/vim-toggle'
+  Plugin 'taku-o/vim-toggle'
 
   " slim のシンタックスハイライトを行う
-  NeoBundle "slim-template/vim-slim"
+  Plugin 'slim-template/vim-slim'
 
   "rubyのコードで自動的にendを挿入する
-  NeoBundle 'tpope/vim-endwise'
-" }}}
+  Plugin 'tpope/vim-endwise'
 
-" Completion {{{
+  " Gistへうｐ"
+  Plugin 'mattn/gist-vim'
+" ---------------------------------------------------**
+
+" Completion
+" ---------------------------------------------------**
   " 補完 autocomplpop.vim : insertmodeで自動で補完をpopup
-  NeoBundle 'AutoComplPop'
+  Plugin 'AutoComplPop'
   " 補完 neocomplcache.vim : 究極のVim的補完環境
-  NeoBundle 'Shougo/neocomplcache'
+  Plugin 'Shougo/neocomplcache'
 
   " neocomplcacheのsinpet補完
-  NeoBundle 'Shougo/neosnippet.git'
+  Plugin 'Shougo/neosnippet.git'
 
   " rubyでrequire先を補完する
-  NeoBundle 'ujihisa/neco-ruby'
+  Plugin 'ujihisa/neco-ruby'
 
   " A neocomplcache plugin for English, using look command
-  NeoBundle 'ujihisa/neco-look'
+  Plugin 'ujihisa/neco-look'
 " }}}
 
   " vim-smartword : 単語移動がスマートな感じで
-  NeoBundle 'smartword'
+  Plugin 'smartword'
 
   " camelcasemotion : CamelCaseやsnake_case単位でのワード移動
-  NeoBundle 'camelcasemotion'
+  Plugin 'camelcasemotion'
 
   " <Leader><Leader>w/fなどで、motion先をhilightする
-  NeoBundle 'EasyMotion'
+  Plugin 'EasyMotion'
 
   " matchit.vim : 「%」による対応括弧へのカーソル移動機能を拡張
-  NeoBundle 'matchit.zip'
+  Plugin 'matchit.zip'
 
   " ruby用のmatchit拡張
-  NeoBundle 'ruby-matchit'
+  Plugin 'ruby-matchit'
 
   " grep.vim : 外部のgrep利用。:Grepで対話形式でgrep :Rgrepは再帰
-  NeoBundle 'grep.vim'
+  Plugin 'grep.vim'
 
   " eregex.vim : vimの正規表現をrubyやperlの正規表現な入力でできる :%S/perlregex/
-  NeoBundle 'eregex.vim'
+  Plugin 'eregex.vim'
 
   " open-browser.vim : カーソルの下のURLを開くor単語を検索エンジンで検索
-  NeoBundle 'tyru/open-browser.vim'
+  Plugin 'tyru/open-browser.vim'
 
   " VimからThe Silver Searcherを利用する
   "  http://blog.glidenote.com/blog/2013/02/28/the-silver-searcher-better-than-ack/
-  NeoBundle 'rking/ag.vim'
+  Plugin 'rking/ag.vim'
 
-  " JavaScript補完を賢くする
-  NeoBundle 'marijnh/tern_for_vim'
-" }}}
+  " TypeScriptの便利なやつ"
+  Plugin 'clausreinke/typescript-tools'
 
-" Programming {{{
+  " JavaScriptのライブラリ補完をする
+  Plugin 'othree/javascript-libraries-syntax.vim'
+" ---------------------------------------------------**
+
+" Programming
+" ---------------------------------------------------**
   " quickrun.vim : 編集中のファイルを簡単に実行できるプラグイン
-  NeoBundle 'thinca/vim-quickrun'
+  Plugin 'thinca/vim-quickrun'
 
   " perldocやphpmanual等のリファレンスをvim上で見る
-  NeoBundle 'thinca/vim-ref'
+  Plugin 'thinca/vim-ref'
 
   " SQLUtilities : SQL整形、生成ユーティリティ
-  NeoBundle 'SQLUtilities'
+  Plugin 'SQLUtilities'
 
   " vim-ruby : VimでRubyを扱う際の最も基本的な拡張機能
-  NeoBundle 'vim-ruby/vim-ruby'
+  Plugin 'vim-ruby/vim-ruby'
 
   " rails.vim : rails的なアレ
-  NeoBundle 'tpope/vim-rails'
+  Plugin 'tpope/vim-rails'
 
   " Pydiction : Python用の入力補完
-  NeoBundle 'Pydiction'
+  Plugin 'Pydiction'
 
   " エラーがある場所をhilight
-  NeoBundle 'errormarker.vim'
+  Plugin 'errormarker.vim'
 
   " haml
-  NeoBundle 'haml.zip'
+  Plugin 'haml.zip'
 
   " JavaScript
-  NeoBundle 'JavaScript-syntax'
+  Plugin 'JavaScript-syntax'
 
   " jQuery
-  NeoBundle 'jQuery'
+  Plugin 'jQuery'
 
   " nginx conf
-  NeoBundle 'nginx.vim'
+  Plugin 'nginx.vim'
 
   " markdown
-  NeoBundle 'tpope/vim-markdown'
+  Plugin 'tpope/vim-markdown'
 
   " coffee script
-  NeoBundle 'kchmck/vim-coffee-script'
+  Plugin 'kchmck/vim-coffee-script'
 
   " python
-  NeoBundle 'yuroyoro/vim-python'
+  Plugin 'yuroyoro/vim-python'
 
   " scala
-  NeoBundle 'yuroyoro/vim-scala'
+  Plugin 'yuroyoro/vim-scala'
 
   " clojure
-  NeoBundle 'jondistad/vimclojure'
+  Plugin 'jondistad/vimclojure'
 
   " ghc-mod
-  NeoBundle 'eagletmt/ghcmod-vim'
+  Plugin 'eagletmt/ghcmod-vim'
 
   " syntax checking plugins exist for eruby, haml, html, javascript, php, python, ruby and sass.
-  NeoBundle 'scrooloose/syntastic'
-" }}}
+  Plugin 'scrooloose/syntastic'
+" ---------------------------------------------------**
 
-" Buffer {{{
+" Buffer
   " DumbBuf.vim : quickbufっぽくbufferを管理。 "<Leader>b<Space>でBufferList
-  NeoBundle 'DumbBuf'
+  Plugin 'DumbBuf'
 
   " minibufexpl.vim : タブエディタ風にバッファ管理ウィンドウを表示
-  NeoBundle 'minibufexpl.vim'
+  Plugin 'minibufexpl.vim'
 
   " NERDTree : ツリー型エクスプローラ
-  NeoBundle 'The-NERD-tree'
+  Plugin 'The-NERD-tree'
 
   " vtreeexplorer.vim : ツリー状にファイルやディレクトリの一覧を表示
-  NeoBundle 'vtreeexplorer'
-" }}}
+  Plugin 'vtreeexplorer'
+" ---------------------------------------------------**
 
+" Encording
+" ---------------------------------------------------**
+  Plugin 'banyan/recognize_charcode.vim'
+" ---------------------------------------------------**
 
-" Encording {{{
-  NeoBundle 'banyan/recognize_charcode.vim'
-" }}}
-
-" Utility {{{
-
-" vim-altercmd : Ex command拡張
-  NeoBundle 'tyru/vim-altercmd'
+" Utility
+" ---------------------------------------------------**
+  " vim-altercmd : Ex command拡張
+  Plugin 'tyru/vim-altercmd'
 
   " vim Interface to Web API
-  NeoBundle 'mattn/webapi-vim'
+  Plugin 'mattn/webapi-vim'
 
   " cecutil.vim : 他のpluginのためのutillity1
-  NeoBundle 'cecutil'
+  Plugin 'cecutil'
 
   " urilib.vim : vim scriptからURLを扱うライブラリ
-  NeoBundle 'tyru/urilib.vim'
+  Plugin 'tyru/urilib.vim'
 
   " ステータスラインに顔文字を表示
-  " NeoBundle 'mattn/hahhah-vim'
+  " Plugin 'mattn/hahhah-vim'
 
   " utillity
-  NeoBundle 'L9'
+  Plugin 'L9'
 
   " Buffer管理のLibrary
-  NeoBundle 'thinca/vim-openbuf'
+  Plugin 'thinca/vim-openbuf'
 
   " vimdoc 日本語
-  NeoBundle 'yuroyoro/vimdoc_ja'
+  Plugin 'yuroyoro/vimdoc_ja'
 
   " vim上のtwitter client
-  " NeoBundle 'TwitVim'
+  " Plugin 'TwitVim'
 
   " Lingrのclient
-  NeoBundle 'tsukkee/lingr-vim'
+  Plugin 'tsukkee/lingr-vim'
 
   " vimからGit操作する
-  NeoBundle 'tpope/vim-fugitive'
+  Plugin 'tpope/vim-fugitive'
 
   " ステータスラインをカッコよくする
-  NeoBundle 'Lokaltog/vim-powerline'
+  Plugin 'Lokaltog/vim-powerline'
 
   " Redmine on Vim
-  NeoBundle 'mattn/vim-metarw-redmine'
+  Plugin 'mattn/vim-metarw-redmine'
 
   " A framework to read/write fake:path
-  NeoBundle 'kana/vim-metarw'
+  Plugin 'kana/vim-metarw'
 
   " shows a git diff in the 'gutter' (sign column)
-  NeoBundle 'airblade/vim-gitgutter'
+  Plugin 'airblade/vim-gitgutter'
 
   " git-vim: Plugin files for calling git functions from inside Vim and Syntax files for git displays
-  NeoBundle 'motemen/git-vim'
+  Plugin 'motemen/git-vim'
 
   "database.ymlからdb情報を取得
-  NeoBundle 'vim-scripts/dbext.vim'
+  Plugin 'vim-scripts/dbext.vim'
 
   " Yank履歴管理
-  NeoBundle 'vim-scripts/YankRing.vim'
+  Plugin 'vim-scripts/YankRing.vim'
 
   " リポジトリをghqでsorah/unite-ghq
-  NeoBundle 'sorah/unite-ghq'
+  Plugin 'sorah/unite-ghq'
 
   " 複数カーソル
-  NeoBundle 'terryma/vim-multiple-cursors'
+  Plugin 'terryma/vim-multiple-cursors'
 
-" }}}
+  " tags
+  Plugin 'szw/vim-tags'
+" ---------------------------------------------------**
 
-" ColorSchema{{{{
-  " color schema 256
-  NeoBundle 'desert256.vim'
-  NeoBundle 'mrkn256.vim'
-  NeoBundle 'tomasr/molokai'
-  NeoBundle 'yuroyoro/yuroyoro256.vim'
-  NeoBundle 'altercation/vim-colors-solarized'
-" }}}
+" ColorSchema
+" ---------------------------------------------------**
+  Plugin 'desert256.vim'
+  Plugin 'mrkn256.vim'
+  Plugin 'tomasr/molokai'
+  Plugin 'yuroyoro/yuroyoro256.vim'
+" ---------------------------------------------------**
 
-" Unite {{{{
+" Unite
+" ---------------------------------------------------**
   " unite.vim : - すべてを破壊し、すべてを繋げ - vim scriptで実装されたanythingプラグイン
-  NeoBundle 'Shougo/unite.vim'
-  NeoBundle 'tsukkee/unite-help'
-  NeoBundle 'h1mesuke/unite-outline'
-  " NeoBundle 'Sixeight/unite-grep'
-  NeoBundle 'basyura/unite-rails'
-  NeoBundle 'thinca/vim-unite-history'
-  NeoBundle 'tsukkee/unite-tag'
-  NeoBundle 'choplin/unite-vim_hacks'
-  NeoBundle 'Shougo/neomru.vim'
-" }}}
-"
-" NeoBundle 'gmarik/vundle'
+  Plugin 'Shougo/unite.vim'
+  Plugin 'tsukkee/unite-help'
+  Plugin 'h1mesuke/unite-outline'
+  Plugin 'basyura/unite-rails'
+  Plugin 'thinca/vim-unite-history'
+  Plugin 'tsukkee/unite-tag'
+  Plugin 'choplin/unite-vim_hacks'
+  Plugin 'Shougo/neomru.vim'
+" ---------------------------------------------------**
 
-call neobundle#end()
+call vundle#end()
 
 filetype plugin indent on

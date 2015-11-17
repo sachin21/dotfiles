@@ -7,9 +7,9 @@
 [submodule "zsh/zsh-bd"]
   path = zsh/zsh-bd
   url = git://github.com/Tarrasch/zsh-bd.git
-[submodule "vim/bundle/neobundle.vim"]
-  path = vim/bundle/neobundle.vim
-  url = git://github.com/Shougo/neobundle.vim.git
 [submodule "tmux/plugins/tpm"]
   path = tmux/plugins/tpm
   url = git://github.com/tmux-plugins/tpm.git
+[submodule "vim/bundle/Vundle.vim"]
+  path = vim/bundle/Vundle.vim
+  url = git://github.com/VundleVim/Vundle.vim.git

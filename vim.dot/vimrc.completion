@@ -8,8 +8,7 @@ set history=1000           " コマンド・検索パターンの履歴数
 set complete+=k            " 補完に辞書ファイル追加
 
 " 補完にneocomplcacheを使う
-source ~/dotfiles/vim.dot/vimrc.completion.neocomplcache
+source ~/.vimrc.completion.neocomplcache
 
 " 補完にAutoComplPopを使う
-source ~/dotfiles/vim.dot/vimrc.completion.autocomplpop
-
+source ~/.vimrc.completion.autocomplpop

@@ -10,12 +10,12 @@ if command_exists xsel; then
   alias pbcopy='xsel --clipboard --input'
   alias pbpaste='xsel --clipboard --output'
 else
-  echo "  x [Warning] xsel is not installed"
+  warn "  x [Warning] xsel is not installed"
 fi
 
 if command_exists gls; then
   alias ls='gls --color=auto -F'
 else
-  echo "  x [Warning] coreutils is not installed"
+  warn "  x [Warning] coreutils is not installed"
   alias ls='ls -F'
 fi

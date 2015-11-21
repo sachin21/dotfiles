@@ -12,5 +12,5 @@ elif command_not_exists xsel; then
   # For Linux
   alias -g C='| xsel --input --clipboard'
 else
-  echo "  x [Warning] Copy command is not installed"
+  warn "  x [Warning] Copy command is not installed"
 fi

@@ -326,12 +326,12 @@ function! SetUpRailsSetting()
 
   nmap <buffer><Space>r :R<CR>
   nmap <buffer><Space>a :A<CR>
-  nmap <buffer><Space>m :Rmodel<Space>
-  nmap <buffer><Space>c :Rcontroller<Space>
-  nmap <buffer><Space>v :Rview<Space>
-  nmap <buffer><Space>s :Rspec<Space>
-  nmap <buffer><Space>p :Rpreview<CR>
-  nmap <buffer><Space>t :Runittest<CR>
+  nmap <buffer><Space>m :Emodel<Space>
+  nmap <buffer><Space>c :Econtroller<Space>
+  nmap <buffer><Space>v :Eview<Space>
+  nmap <buffer><Space>s :Espec<Space>
+  nmap <buffer><Space>p :Epreview<CR>
+  nmap <buffer><Space>t :Eunittest<CR>
   au FileType ruby,eruby,ruby.rspec let g:neocomplcache_dictionary_filetype_lists = {
         \'ruby' : $HOME.'/.vim/dict/rails.dict',
         \'eruby' : $HOME.'/.vim/dict/rails.dict'

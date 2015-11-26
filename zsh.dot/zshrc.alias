@@ -53,6 +53,7 @@ alias -s php='php -f'
 # Alias for projects
 # ---------------------------------------------------**
 for project in $(command ls ~/.tmuxinator); do
-  local project=${project%.*}
+  project=${project%.*}
   alias $project="tmuxinator $project"
 done
+unset project

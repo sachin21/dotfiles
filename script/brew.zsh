@@ -11,7 +11,7 @@ declare OS
 DOTFILES_PATH="$HOME/dotfiles"
 REPOSITORIES=$(cat "$DOTFILES_PATH/data/repositories.txt")
 FORMULAS=$(cat "$DOTFILES_PATH/data/formulas.txt")
-APPLICATIONS=$(cat "$DOTFILES_PATH/data/apps.txt")
+APPLICATIONS=$(cat "$DOTFILES_PATH/data/applications.txt")
 OS="$(uname)"
 
 # Load method for printing

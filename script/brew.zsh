@@ -130,8 +130,6 @@ function main(){
   fi
 
   remove_caches
-
-  return 0
 }
 
 main

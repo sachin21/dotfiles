@@ -109,8 +109,8 @@ end
 
 desc 'Update all git repositories'
 task :update do
-  system 'git pull origin master'
-  system 'git submodule foreach git pull origin master'
+  sh 'git pull origin master'
+  sh 'git submodule foreach git pull origin master'
 end
 
 def _symlink(file, dest)

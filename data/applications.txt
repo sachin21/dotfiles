@@ -23,6 +23,7 @@ kobito
 macdown
 mou
 night-owl
+notifyr
 opera
 parallels
 parallels-desktop
@@ -32,6 +33,7 @@ pokerstars
 qlmarkdown
 screenhero
 sequel-pro
+shiftit
 sketch
 skitch
 skype
@@ -39,6 +41,7 @@ slack
 sparrow
 steam
 sublime-text
+teamspeak-client
 teitoku
 the-unarchiver
 transmit

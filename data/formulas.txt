@@ -20,6 +20,7 @@ csvprintf
 ctags
 curl
 czmq
+dash
 elasticsearch
 elasticsearch11
 emacs

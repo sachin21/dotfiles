@@ -65,6 +65,7 @@ CLEANS = %w(
 
 CLEAN.concat(CLEANS.map { |c| File.join(HOME, c) })
 
+desc 'Create symbolic for the all .files'
 task deploy: %w(zsh:link vim:link git:link tmux:link etc:link)
 
 namespace :zsh do

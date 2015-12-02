@@ -1,15 +1,13 @@
-#!/usr/bin/env zsh
-
 # Print Colored messages
 # ---------------------------------------------------**
 
-function logging() {
+logging() {
   local red="31"
   local yellow="33"
   local blue="34"
   local turquoise="36"
   local white="37"
-  local text="$2"
+  local text="${@:2}"
   local _color=
 
   case "$1" in
@@ -23,19 +21,20 @@ function logging() {
   printf "\033[${_color}m${text}\033[m\n"
 }
 
-local _functions
-_functions=(message warn succeed fail ask)
+declare -a _functions
+_functions=("message" "warn" "succeed" "fail" "ask")
 
-for function in $_functions; do
-  eval "function "$function"() { logging \"$function\" \"\$@\" }"
+for function in ${_functions[@]} ; do
+  eval "$function() { logging \"$function\" \"\$@\"; }"
 done
+unset _functions
 
 # Utilities
 # ---------------------------------------------------**
-function command_exists(){
+command_exists(){
   type $1 &> /dev/null
 }
 
-function command_not_exists() {
+command_not_exists() {
   ! type $1 &> /dev/null
 }

@@ -31,7 +31,7 @@ unset _functions
 
 # Utilities
 # ---------------------------------------------------**
-command_exists(){
+command_exists() {
   type $1 &> /dev/null
 }
 

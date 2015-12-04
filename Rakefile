@@ -108,10 +108,12 @@ namespace :etc do
   end
 end
 
-desc 'Update all git repositories'
-task :update do
-  sh 'git pull origin master'
-  sh 'git submodule foreach git pull origin master'
+namespace :submodule do
+  desc 'Update all git repositories'
+  task :update do
+    sh 'git pull origin master'
+    sh 'git submodule foreach git pull origin master'
+  end
 end
 
 def _symlink(file, dest)

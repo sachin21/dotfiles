@@ -2,7 +2,7 @@
 #
 # bootstrap
 #
-# Get readly to develop something
+# Get ready to develop something
 declare DOTFILES_PATH
 DOTFILES_PATH="$HOME/dotfiles"
 

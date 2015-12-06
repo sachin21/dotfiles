@@ -30,6 +30,6 @@ for TARGET_VERSION in $@; do
 
     echo "All done"
   else
-    echo "[Error] $TARGET_VERSION is install unsuccessfully"
+    echo "[Error] $TARGET_VERSION is unsuccessfully installed"
   fi
 done

@@ -1,2 +1,4 @@
+gem: --no-rdoc --no-ri
+
 install: --no-document
 update: --no-document

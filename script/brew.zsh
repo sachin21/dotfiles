@@ -18,7 +18,7 @@ OS="$(uname)"
 . "$DOTFILES_PATH/etc/helpers"
 
 # Checking exists ruby
-function check_ruby(){
+function check_ruby() {
   if command_exists ruby; then
     fail "  x [Error] Ruby is not installed"
     return 1
@@ -41,7 +41,7 @@ function install_homebrew(){
 }
 
 # Update Homebrew formulas
-function update_homebrew(){
+function update_homebrew() {
   ask "  + Do you want to update Homebrew? [Y/n]:" && read -r flag
 
   if [ "$flag" = "y" ] || [ "$flag" = "Y" ]; then
@@ -51,7 +51,7 @@ function update_homebrew(){
 }
 
 # Upgrade formulas
-function upgrade_homebrew(){
+function upgrade_homebrew() {
   ask "  + Do you want to upgrade Homebrew? [Y/n]:" && read -r flag
 
   if [ "$flag" = "y" ] || [ "$flag" = 'Y' ]; then
@@ -61,7 +61,7 @@ function upgrade_homebrew(){
 }
 
 # Tap repositories
-function tap_repositories(){
+function tap_repositories() {
   message "  + Tapping repositories..."
 
   for repository in $REPOSITORIES; do
@@ -70,7 +70,7 @@ function tap_repositories(){
 }
 
 # Install formulas
-function install_formulas(){
+function install_formulas() {
   message "  + Installing formulas..."
 
   for formula in $FORMULAS; do
@@ -79,14 +79,14 @@ function install_formulas(){
 }
 
 # Install brew-cask
-function install_formulas(){
+function install_formulas() {
   message "  + Installing Homebrew-cask..."
 
   brew install caskroom/cask/brew-cask || return 0
 }
 
 # Install Applications to /Applications
-function install_osx_applications(){
+function install_osx_applications() {
   message "  + Installing OS X Application..."
 
   for application in $APPLICATIONS; do
@@ -95,14 +95,14 @@ function install_osx_applications(){
 }
 
 # Create link for installed applications
-function create_link(){
+function create_link() {
   message "  + Linking osx apps..."
 
   brew cask alfred link
 }
 
 # Remove outdated versions and archive file
-function remove_caches(){
+function remove_caches() {
   message "  + Removing caches..."
 
   brew cleanup
@@ -112,7 +112,7 @@ function remove_caches(){
   fi
 }
 
-function main(){
+function main() {
   if [ "$OS" = "Darwin" ]; then
     install_homebrew "https://raw.githubusercontent.com/Homebrew/install/master/install"
   else

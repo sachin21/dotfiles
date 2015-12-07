@@ -1,6 +1,5 @@
 ,
 ,*
-.DS_Store
 .bundle
 /vendor/bundle
 .DS_Store

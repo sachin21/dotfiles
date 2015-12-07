@@ -2,6 +2,5 @@ homebrew/binary
 homebrew/dupes
 homebrew/versions
 motemen/ghq
-peco/peco
 sanemat/font
 thoughtbot/formulae

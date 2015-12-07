@@ -12,7 +12,6 @@ DOTFILES_PATH="$HOME/dotfiles"
 REPOSITORIES=$(cat "$DOTFILES_PATH/data/repositories.txt")
 FORMULAS=$(cat "$DOTFILES_PATH/data/formulas.txt")
 APPLICATIONS=$(cat "$DOTFILES_PATH/data/applications.txt")
-OS="$(uname)"
 
 # Load method for printing
 . "$DOTFILES_PATH/etc/helpers"
@@ -107,13 +106,13 @@ function remove_caches() {
 
   brew cleanup
 
-  if [ "$OS" = "Darwin" ] && brew list | grep brew-cask > /dev/null 2>&1; then
+  if [[ $OSTYPE == darwin* ]] && brew list | grep brew-cask > /dev/null 2>&1; then
     brew cask cleanup
   fi
 }
 
 function main() {
-  if [ "$OS" = "Darwin" ]; then
+  if [[ $OSTYPE == darwin* ]]; then
     install_homebrew "https://raw.githubusercontent.com/Homebrew/install/master/install"
   else
     install_homebrew "https://raw.githubusercontent.com/Homebrew/linuxbrew/go/install"
@@ -124,7 +123,7 @@ function main() {
   tap_repositories
   install_formulas
 
-  if [ "$OS" = "Darwin" ]; then
+  if [[ $OSTYPE == darwin* ]]; then
     install_osx_applications
     create_link
   fi

@@ -149,8 +149,10 @@ function install_ghq() {
     fi
 
     message "  + tapping repositories..."
-    cat < repositories/github | while read -r repository; do
-      ghq get "$repository"
+    curl -fsSL https://api.github.com/users/sachin21/repos \
+      | ruby -rjson -e 'JSON.parse(STDIN.read).each{ |r| puts r["name"] }' \
+        | while read -r repository; do
+      ghq get "https://github.com/sachin21/$repository.git"
     done
   fi
 }

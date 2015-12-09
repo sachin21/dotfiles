@@ -168,13 +168,14 @@ function create_symbolics(){
 }
 
 function print_after_steps(){
-  succeed "  + Your shell was reloaded."
-  succeed "  + It's all done."
-  succeed ""
-  succeed "  ** After setup: You need to change shell **"
-  succeed "  Add $(/usr/bin/which zsh) path to /etc/shells, and"
-  succeed "  Execute 'chsh -s $(/usr/bin/which zsh)'"
-  succeed ""
+  noglob succeed
+  noglob succeed   + Your shell was reloaded.
+  noglob succeed   + It\'s all done.
+  noglob succeed
+  noglob succeed   ** After setup: You need to change shell **
+  noglob succeed   Add $(/usr/bin/which zsh) path to /etc/shells, and
+  noglob succeed   Execute chsh -s $(/usr/bin/which zsh)
+  noglob succeed
 }
 
 function main(){

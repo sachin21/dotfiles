@@ -4,14 +4,27 @@
 #
 # Get ready to develop something
 declare DOTFILES_PATH
+declare TAR_URL
 DOTFILES_PATH="$HOME/dotfiles"
+TAR_URL="https://github.com/sachin21/dotfiles/archive/master.tar.gz"
 
 function install_dotfiles(){
   if [ -d "$DOTFILES_PATH" ]; then
     cd "$DOTFILES_PATH" && . ./etc/helpers || return 1
-    message "  + Already exists dotfiles. Let's go ext step"
+    message "  + Already exists dotfiles. Let's go next step"
   else
-    git clone https://github.com/sachin21/dotfiles.git "$DOTFILES_PATH"
+    if type git &> /dev/null; then
+      git clone https://github.com/sachin21/dotfiles.git "$DOTFILES_PATH"
+    elif type curl wget &> /dev/null; then
+      if type curl &> /dev/null; then
+        curl -L "$TAR_URL"
+      elif type wget &> /dev/null; then
+        wget -O - "$TAR_URL"
+      fi | tar xv -
+      mv -f dotfiles-master "$DOTFILES_PATH"
+    else
+      echo "If you do not have git, cURL or Wget are required."; return 1
+    fi
     cd "$DOTFILES_PATH" && . ./etc/helpers || return 1
   fi
 }

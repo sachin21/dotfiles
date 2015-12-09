@@ -34,7 +34,3 @@ unset _functions
 command_exists() {
   type $1 &> /dev/null
 }
-
-command_not_exists() {
-  ! type $1 &> /dev/null
-}

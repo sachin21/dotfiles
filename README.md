@@ -10,7 +10,7 @@
 - Solarized dark
 
 ## *Screenshot*
-![Screenshot of my shell prompt](http://i.imgur.com/KVW2y9P.png)
+![Screenshot of my shell prompt](http://i.imgur.com/QHD95ln.png)
 
 ## Installation
 ### Using cURL or Wget installation

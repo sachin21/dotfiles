@@ -3,10 +3,9 @@
 set -e
 
 export MAKE_OPTS="-j4"
-OS=`uname`
 
 for TARGET_VERSION in $@; do
-  if [ $OS = 'Darwin' ]; then
+  if  [[ $OSTYPE == darwin* ]]; then
     command="CONFIGURE_OPTS='--with-readline-dir=/usr/local --with-openssl-dir=$(brew --prefix openssl)' RUBY_CONFIGURE_OPTS='--with-openssl-dir=$(brew --prefix openssl)' rbenv install $TARGET_VERSION"
   else
     command="rbenv install $TARGET_VERSION"

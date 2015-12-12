@@ -14,3 +14,7 @@ elif command_not_exists xsel; then
 else
   warn "  x [Warning] Copy command is not installed"
 fi
+
+# Use zmv command
+# ---------------------------------------------------**
+autoload -Uz zmv

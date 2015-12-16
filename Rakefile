@@ -65,11 +65,11 @@ CLEANS = %w(
 
 CLEAN.concat(CLEANS.map { |c| File.join(HOME, c) })
 
-desc 'Create symbolic for the all .files'
+desc 'Create symbolic links for the all dotfiles'
 task deploy: %w(zsh:link vim:link git:link tmux:link etc:link)
 
 namespace :zsh do
-  desc 'Create symbolic for zsh settings file link to HOME'
+  desc 'Create symbolic links for zsh settings file to HOME'
   task :link do
     _symlink File.join(ZSH_DOT_ROOT, 'zshrc'), File.join(HOME, '.zshrc')
     _symlink File.join(ZSH_ROOT), File.join(HOME, '.zsh')
@@ -78,7 +78,7 @@ namespace :zsh do
 end
 
 namespace :vim do
-  desc 'Create symbolic for vimrc link to HOME'
+  desc 'Create symbolic links for vimrc to HOME'
   task :link do
     _symlink File.join(VIM_ROOT), File.join(HOME, '.vim')
     _symlink File.join(VIM_DOT_ROOT, 'vimrc'), File.join(HOME, '.vimrc')
@@ -87,14 +87,14 @@ namespace :vim do
 end
 
 namespace :git do
-  desc 'Create symbolic for git files link to HOME'
+  desc 'Create symbolic links for git files to HOME'
   task :link do
     same_name_symlinks GIT_ROOT, GIT_FILES
   end
 end
 
 namespace :tmux do
-  desc 'Create symbolic for tmux settings file for link to HOME'
+  desc 'Create symbolic links for tmux config files to HOME'
   task :link do
     _symlink File.join(TMUX_ROOT), File.join(HOME, '.tmux')
     same_name_symlinks TMUX_DOT_ROOT, TMUX_FILES
@@ -102,7 +102,7 @@ namespace :tmux do
 end
 
 namespace :etc do
-  desc 'Create symbolic for etcs link to HOME'
+  desc 'Create symbolic links  for etcs link to HOME'
   task :link do
     same_name_symlinks ETC_ROOT, ETC_FILES
   end

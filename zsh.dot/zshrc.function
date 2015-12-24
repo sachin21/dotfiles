@@ -23,6 +23,14 @@ function peco-select-history() {
   zle clear-screen
 }
 
+function python-listup() {
+  pyenv install --list | peco | sed -e 's/^  *//g' | tr -d '\n" "' | pbcopy
+}
+
+function ruby-listup() {
+  rbenv install --list | peco | sed -e 's/^  *//g' | tr -d '\n" "' | pbcopy
+}
+
 # Set zle
 # ---------------------------------------------------**
 zle -N peco-select-history

@@ -13,7 +13,7 @@ function cr() {
 function peco-select-history() {
   if ! command_exists tac; then
     warn "  x [Warning] tac is not installed"
-    exit 1
+    return 1
   fi
 
   BUFFER=$(\history -n 1 | \

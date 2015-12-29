@@ -4,6 +4,8 @@ filetype off
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 
+Plugin 'VundleVim/Vundle.vim'
+
 " Edit
 " ---------------------------------------------------**
   " NERD_commenter.vim :最強コメント処理 (<Leader>c<space>でコメントをトグル)

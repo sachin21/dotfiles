@@ -1,5 +1,5 @@
 # The sachin21's dotfiles
-[![license](http://img.shields.io/badge/license-MIT-blue.svg?style=flat)](./doc/LICENSE-MIT.txt "License")
+[![license](http://img.shields.io/badge/license-MIT-blue.svg?style=flat)](./LICENSE-MIT.txt "License")
 
 ## Features
 - OS X Yosemite (MacBookPro Retina)

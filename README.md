@@ -13,15 +13,6 @@
 ![Screenshot of my shell prompt](http://i.imgur.com/QHD95ln.png)
 
 ## Installation
-### Using cURL or Wget installation
-
-| Tools | <a name="oneliner">The installation command</a> |
-|-------|-------------------------------------------------|
-| cURL | zsh -c "$(curl -fsSL [dot.sachin21.jp](http://dot.sachin21.jp))" |
-| Wget | zsh -c "$(wget -qO - [dot.sachin21.jp](http://dot.sachin21.jp))" |
-
-## OR
-
 ### Using Git and the bootstrap script
 
 You can clone the repository wherever you want. (I like to keep it in `~/Projects/dotfiles`, with `~/dotfiles` as a symlink.) The bootstrapper script will pull in the latest version and copy the files to your home folder.

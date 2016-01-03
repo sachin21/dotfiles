@@ -24,11 +24,13 @@ function peco-select-history() {
 }
 
 function python-listup() {
-  pyenv install --list | peco | sed -e 's/^  *//g' | tr -d '\n" "' | pbcopy
+  pyenv install --list | peco | sed -e 's/^  *//g' | tr -d '\n" "' C
+  succeed "  + Copied to the clipboard"
 }
 
 function ruby-listup() {
-  rbenv install --list | peco | sed -e 's/^  *//g' | tr -d '\n" "' | pbcopy
+  rbenv install --list | peco | sed -e 's/^  *//g' | tr -d '\n" "' C
+  succeed "  + Copied to the clipboard"
 }
 
 # Set zle

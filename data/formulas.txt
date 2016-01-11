@@ -1,4 +1,5 @@
 ack
+apple-gcc42
 autoconf
 autojump
 automake
@@ -21,6 +22,7 @@ ctags
 curl
 czmq
 dash
+echo-sd
 elasticsearch
 elasticsearch11
 emacs
@@ -30,6 +32,7 @@ fish
 fontconfig
 fontforge
 freetype
+gawk
 gcc
 gcc46
 gcc47
@@ -45,6 +48,7 @@ gitsh
 glib
 gmp
 gmp4
+gnu-sed
 go
 gobject-introspection
 harfbuzz
@@ -53,9 +57,11 @@ icu4c
 imagemagick
 isl
 isl011
+ispell
 jbig2dec
 jenkins
 jpeg
+jq
 ksh
 lame
 libevent
@@ -85,6 +91,7 @@ mpg123
 mysql
 ncurses
 node
+oniguruma
 openssl
 ossp-uuid
 pango

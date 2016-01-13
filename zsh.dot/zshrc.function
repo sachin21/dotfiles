@@ -33,6 +33,10 @@ function ruby-listup() {
   succeed "  + Copied to the clipboard"
 }
 
+function ec() {
+  git commit -m "Execute '$@'"
+}
+
 # Set zle
 # ---------------------------------------------------**
 zle -N peco-select-history

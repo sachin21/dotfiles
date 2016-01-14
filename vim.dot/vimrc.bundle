@@ -124,6 +124,8 @@ Plugin 'VundleVim/Vundle.vim'
 
   " JavaScriptのライブラリ補完をする
   Plugin 'othree/javascript-libraries-syntax.vim'
+
+  Plugin 'dag/vim-fish'
 " ---------------------------------------------------**
 
 " Programming

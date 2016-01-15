@@ -21,7 +21,6 @@ CLEANS = %w(
   .zsh
   .zshrc
   .zshrc.alias
-  .zshrc.color
   .zshrc.config
   .zshrc.env
   .zshrc.function
@@ -43,7 +42,6 @@ CLEANS = %w(
   .vimrc.completion.neocomplcache
   .vimrc.editing
   .vimrc.encoding
-  .vimrc.gitlogviewer
   .vimrc.indent
   .vimrc.misc
   .vimrc.moving

@@ -4,7 +4,9 @@
 #
 # Get ready to develop something
 declare DOTFILES_PATH
+declare NEEDED_PACKAGES
 DOTFILES_PATH="$HOME/dotfiles"
+NEEDED_PACKAGES="curl ruby git"
 
 function install_dotfiles(){
   if [ -d "$DOTFILES_PATH" ]; then
@@ -28,37 +30,54 @@ function initialize_submodules(){
 
 function install_packages(){
   # Checking os
-  ask "  + OSX user 'm' : CentOS user 'c' : ArchLinux user [m/c/a] : " && read -r flag
+  ask "  + OSX user 'm' : CentOS user 'c' : ArchLinux user 'a' : Ubuntu user 'u' [m/c/a/u]" && read -r flag
 
   # Setup tools
-  if [ "$flag" = "m" ] || [ "$flag" = "M" ]; then # For Mac OSX
+  if [ "$flag:l" = "m" ]; then # For Mac OSX
     cd ~/dotfiles || return 1
     message "  + Installing Homebrew..."
     ./script/brew.zsh
-  elif [ "$flag" = "c" ] || [ "$flag" = "C" ]; then # For CentOS
+  elif [ "$flag:l" = "c" ]; then # For CentOS
     message "  + Updating already exists packages..."
     sudo yum -y update
 
     message "  + Upgrading packages..."
     sudo yum -y upgrade
 
+    message "  + Installing needed packages..."
+    sudo yum -y install $NEEDED_PACKAGES
+
     message "  + Cleaning packages..."
     sudo yum -y clean
-
-    message "  + Installing Linuxbrew..."
-    ./script/brew.zsh
-  elif [ "$flag" = "a" ] || [ "$flag" = "A" ]; then # For ArchLinux
+  elif [ "$flag:l" = "a" ]; then # For ArchLinux
     message "  + Upgrading packages..."
     sudo pacman -Sy
 
-    message "  + Installing Linuxbrew..."
-    ./script/brew.zsh
+    message "  + Installing needed packages..."
+    sudo pacman -S $NEEDED_PACKAGES
+  elif [ "$flag:l" = 'u' ]; then
+    message " + Updating packages..."
+    sudo apt-get update
+
+    message " + Upgrading packages..."
+    sudo apt-get upgrade
+
+    message "  + Installing needed packages..."
+    sudo apt-get install -y $NEEDED_PACKAGES
   else
     fail "  x [Error] You can input is only 'm', 'c' and 'a'"
     return 1
   fi
 
   message "  + Tools was successfully installed"
+}
+
+function install_linux_brew() {
+  ask "  + Do you install Linuxbrew? [y/Y]" && read -r is_install_linuxbrew
+  if [ "$is_install_linuxbrew:l" = "y" ]; then
+    message "  + Installing Linuxbrew..."
+    ./script/brew.zsh
+  fi
 }
 
 # Install oh-my-zsh
@@ -132,7 +151,8 @@ function install_nodenv(){
 # Setup repositories
 function install_ghq() {
   ask "  + If you want to create projects of sachin21? [y/Y]" && read -r flag
-  if [ "$flag" = "y" ] || [ "$flag" = "Y" ]; then
+
+  if [ "$flag:l" = "y" ]; then
     if command_not_exists ghq; then
       message "  + Installing ghq..."
       brew tap motemen/ghq
@@ -149,8 +169,7 @@ function install_ghq() {
 }
 
 
-# Create symbolics
-function create_symbolics(){
+function create_symbolic_links(){
   if command_exists rake; then
     message "  + Executing rake tasks..."
     rake clean
@@ -160,15 +179,23 @@ function create_symbolics(){
   fi
 }
 
+function create_needed_dirs() {
+  mkdir "$HOME/.go"
+}
+
+function create_needed_files() {
+  : > "$DOTFILES_PATH/zsh.dot/zshrc.local"
+}
+
 function print_after_steps(){
-  noglob succeed
-  noglob succeed   + Your shell was reloaded.
-  noglob succeed   + It\'s all done.
-  noglob succeed
-  noglob succeed   ** After setup: You need to change shell **
-  noglob succeed   Add $(/usr/bin/which zsh) path to /etc/shells, and
-  noglob succeed   Execute chsh -s $(/usr/bin/which zsh)
-  noglob succeed
+  succeed
+  succeed "  Your shell was reloaded."
+  succeed "  It's all done."
+  succeed
+  succeed "  ** After setup: You need to change shell **"
+  succeed "  Add $(/usr/bin/which zsh) path to /etc/shells, and"
+  succeed "  Execute chsh -s $(command which zsh)"
+  succeed
 }
 
 function main(){
@@ -179,13 +206,18 @@ function main(){
     install_packages
   done
 
+  if [[ "${OSTYPE}" == linux* ]]; then
+    install_linux_brew
+  fi
+
   install_omz
   install_neobundle
   install_rbenv
   install_pyenv
   install_nodenv
   install_ghq
-  create_symbolics
+  create_symbolic_links
+  create_dir_for_gopath
   print_after_steps
 
   return 0

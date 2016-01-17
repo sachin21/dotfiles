@@ -19,3 +19,12 @@ fi
 # ---------------------------------------------------**
 autoload -Uz zmv
 alias zmv='noglob zmv -W'
+
+
+# Use Text colors for input command
+# ---------------------------------------------------**
+if [ -e "$HOME/.zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh" ]; then
+  . "$HOME/.zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh"
+else
+  warn "  x [Warning] zsh-syntax-highlighting is not installed"
+fi

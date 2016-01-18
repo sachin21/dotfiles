@@ -12,23 +12,41 @@ DOTFILES_PATH="$HOME/dotfiles"
 REPOSITORIES=$(cat "$DOTFILES_PATH/data/repositories.txt")
 FORMULAS=$(cat "$DOTFILES_PATH/data/formulas.txt")
 APPLICATIONS=$(cat "$DOTFILES_PATH/data/applications.txt")
+OS="$OSTYPE"
 
 # Load method for printing
 . "$DOTFILES_PATH/etc/helpers"
 
-# Checking exists ruby
-function check_ruby() {
-  if command_exists ruby; then
-    fail "  x [Error] Ruby is not installed"
-    return 1
+# Check for os
+function is_darwin() {
+  [[ "$OS" == darwin* ]]
+}
+
+# Export paths for *brew
+function export_paths() {
+  if is_darwin; then
+    export PATH="/usr/local/bin:$PATH"
+    export PATH="/usr/local/sbin:$PATH"
   else
-    message "  + Ruby found. alright let's go!"
+    export PATH="$HOME/.linuxbrew/bin:$PATH"
+    export MANPATH="$HOME/.linuxbrew/share/man:$MANPATH"
+    export INFOPATH="$HOME/.linuxbrew/share/info:$INFOPATH"
   fi
 }
 
-# Checking exists brew command
+# Check for existence ruby
+function check_for_ruby() {
+  if command_exists ruby curl; then
+    fail "  x [Error] Ruby or cURL are not installed"
+    return 1
+  else
+    message "  + Ruby and cURL found. alright let's go!"
+  fi
+}
+
+# Check for existence brew command
 function install_homebrew(){
-  local installation_url=$1
+  local installation_url="$1"
 
   if command_exists brew; then
     message "  + Homebrew found"
@@ -55,7 +73,7 @@ function upgrade_homebrew() {
 
   if [ "$flag" = "y" ] || [ "$flag" = 'Y' ]; then
     message "  + Upgrading Homebrew formulas"
-    brew upgrade || return 1
+    brew upgrade || return 0
   fi
 }
 
@@ -112,7 +130,10 @@ function remove_caches() {
 }
 
 function main() {
-  if [[ $OSTYPE == darwin* ]]; then
+  check_for_ruby || exit 1
+  export_paths
+
+  if is_darwin; then
     install_homebrew "https://raw.githubusercontent.com/Homebrew/install/master/install"
   else
     install_homebrew "https://raw.githubusercontent.com/Homebrew/linuxbrew/go/install"
@@ -123,7 +144,7 @@ function main() {
   tap_repositories
   install_formulas
 
-  if [[ $OSTYPE == darwin* ]]; then
+  if is_darwin; then
     install_osx_applications
     create_link
   fi

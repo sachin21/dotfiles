@@ -1,0 +1,9 @@
+name: love
+root: ~/Projects/github.com/lovegraph/lovegraph
+
+windows:
+  - rails_console:
+    - bundle exec rails console
+  - log:
+    - tail -f log/development.log
+  - console:

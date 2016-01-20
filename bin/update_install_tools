@@ -35,7 +35,7 @@ update_tool() {
 update_plugins_of_it() {
   local tool="$1"
 
-  for plugin in $HOME/."$tool"/plugins/*; do
+  for plugin in "$HOME"/."$tool"/plugins/*; do
     update_it "$plugin" "$(basename "$plugin")"
   done
 }

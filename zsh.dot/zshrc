@@ -9,7 +9,6 @@
 . "$HOME/.zshrc.env"
 . "$HOME/.zshrc.config"
 . "$HOME/.zshrc.setting"
-. "$HOME/.zshrc.color"
 . "$HOME/.zshrc.alias"
 . "$HOME/.zshrc.function"
 . "$HOME/.zshrc.local"

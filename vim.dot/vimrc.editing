@@ -56,7 +56,7 @@ vnoremap ' "zdi'<C-R>z'<ESC>
 autocmd BufWritePre * :%s/\s\+$//ge
 
 " 保存時にtabをスペースに変換する"
-autocmd BufWritePre * :%s/\t/  /ge
+" autocmd BufWritePre * :%s/\t/  /ge
 
 " vimで最終行が空行だったら保存時に最終行を削除する
 autocmd BufWritePre * call s:remove_space_in_last_line()

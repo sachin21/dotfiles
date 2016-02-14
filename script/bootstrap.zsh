@@ -219,8 +219,6 @@ function main(){
   create_symbolic_links
   create_dir_for_gopath
   print_after_steps
-
-  return 0
 }
 
 main

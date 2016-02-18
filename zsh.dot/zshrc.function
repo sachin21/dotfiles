@@ -1,13 +1,25 @@
 # Useful functions
 # ---------------------------------------------------**
 function agvim() {
-  vim $(ag "$@" | peco --query "$LBUFFER" | awk -F : '{print "-c " $2 " " $1}')
+  local output
+
+  if output=$(ag "$@"); then
+    echo $output | peco --query "$LBUFFER" | awk -F : '{print "-c " $2 " " $1}' >> $HOME/.agvim_history
+    vim $(tail -n 1 $HOME/.agvim_history)
+  else
+    echo $output
+  fi
 }
 
 function cr() {
- cd `ghq list -p | peco`
- zle accept-line
- zle clear-screen
+  local result=$(ghq list -p | peco)
+
+  if [[ ! $result == '' ]]; then
+    cd $result
+  fi
+
+  zle accept-line
+  zle clear-screen
 }
 
 function peco-select-history() {
@@ -16,11 +28,20 @@ function peco-select-history() {
     return 1
   fi
 
-  BUFFER=$(\history -n 1 | \
+  local BUFFER=$(\history -n 1 | \
     tac | \
     peco --query "$LBUFFER")
   CURSOR=$#BUFFER
+
   zle clear-screen
+}
+
+function change-branch() {
+  local branch=$(git branch | grep -v -o "*" | sed -e 's/ //g' | peco)
+  git checkout $branch &> /dev/null
+  printf "Switched to $branch"
+
+  zle accept-line
 }
 
 function python-listup() {
@@ -40,9 +61,12 @@ function ec() {
 # Set zle
 # ---------------------------------------------------**
 zle -N peco-select-history
+zle -N change-branch
 zle -N cr
 
 # Bind functions
 # ---------------------------------------------------**
 bindkey '^r' peco-select-history
 bindkey '^s' cr
+bindkey '^{' change-branch
+bindkey '^_' undo

@@ -2,16 +2,14 @@
 # ---------------------------------------------------**
 export HOMEBREW_CASK_OPTS="--appdir=/Applications"
 export PATH="/usr/local/heroku/bin:$PATH"
-export CC=/usr/local/bin/gcc-4.8
+export CC="/usr/local/bin/gcc-4.8"
 
 # Add etc aliases
 # ---------------------------------------------------**
-alias gcc='/usr/local/bin/gcc-4.8'
-alias o='open'
-alias o.='open .'
-alias google-chrome='open -a Google\ Chrome'
-alias chrome='google-chrome'
-alias -s html=chrome
+alias gcc="/usr/local/bin/gcc-4.8"
+alias o="open"
+alias o.="open ."
+alias -s html="open"
 
 # If exists, setup for etc
 # ---------------------------------------------------**
@@ -22,20 +20,27 @@ else
 fi
 
 if type dircolors &> /dev/null; then
-  eval `dircolors ~/.dircolors`
+  eval "$(dircolors "$HOME/.dircolors")"
 else
   warn "  x [Warning] dircolors is not installed"
 fi
 
 if type gls &> /dev/null; then
-  alias ls='gls --color=auto -AFh'
+  alias ls="gls --color=auto -AFh"
 else
   warn "  x [Warning] coreutils is not installed"
-  alias ls='ls -AFh'
+  alias ls="ls -AFh"
 fi
 
 if type rmtrash &> /dev/null; then
-  alias rm='rmtrash'
+  alias rm="rmtrash"
 else
   warn "  x [Warning] rmtrash is not installed"
 fi
+
+# Add function for git
+# ---------------------------------------------------**
+function propen() {
+  local current_branch_name=$(git symbolic-ref --short HEAD | xargs perl -MURI::Escape -e 'print uri_escape($ARGV[0]);')
+  git config --get remote.origin.url | sed -e "s/^.*[:\/]\(.*\/.*\).git$/https:\/\/github.com\/\1\//" | sed -e "s/$/pull\/${current_branch_name}/" | xargs open
+}

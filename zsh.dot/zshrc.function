@@ -39,7 +39,7 @@ function peco-select-history() {
 function change-branch() {
   local branch=$(git branch | grep -v -o "*" | sed -e 's/ //g' | peco)
   git checkout $branch &> /dev/null
-  printf "Switched to $branch"
+  printf "Switched to branch '$branch'"
 
   zle accept-line
 }

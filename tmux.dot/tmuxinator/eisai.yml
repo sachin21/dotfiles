@@ -1,7 +1,0 @@
-name: eisai
-root: ~/Projects/github.com/sachin21/EisaiGenerator
-
-windows:
-  - log:
-    - tail -f log/development.log
-  - console:

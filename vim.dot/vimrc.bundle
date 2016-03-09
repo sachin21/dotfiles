@@ -72,6 +72,9 @@ Plugin 'VundleVim/Vundle.vim'
 
   " Gistへうｐ"
   Plugin 'mattn/gist-vim'
+
+  " 置換候補をハイライト
+  Plugin 'syo-manga/vim-over'
 " ---------------------------------------------------**
 
 " Completion
@@ -114,6 +117,9 @@ Plugin 'VundleVim/Vundle.vim'
 
   " open-browser.vim : カーソルの下のURLを開くor単語を検索エンジンで検索
   Plugin 'tyru/open-browser.vim'
+
+  " Open a file on GitHub
+  Plugin 'tyru/open-browser-github.vim'
 
   " VimからThe Silver Searcherを利用する
   "  http://blog.glidenote.com/blog/2013/02/28/the-silver-searcher-better-than-ack/

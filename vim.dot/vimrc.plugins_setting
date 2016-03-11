@@ -361,3 +361,8 @@ au BufNewFile, BufRead *.ruby let g:vim_tags_project_tags_command = "ctags --lan
 
 " tagsジャンプの時に複数ある時は一覧表示
 nnoremap <C-]> g<C-]>
+
+"------------------------------------
+" LeafCage/yankround.vim
+"------------------------------------
+let g:yankround_max_history = 200

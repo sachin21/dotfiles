@@ -130,7 +130,7 @@ function remove_caches() {
 }
 
 function main() {
-  check_for_ruby || exit 1
+  check_for_ruby || return 1
   export_paths
 
   if is_darwin; then

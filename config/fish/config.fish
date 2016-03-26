@@ -3,7 +3,7 @@
 set -gx OMF_PATH "$HOME/.local/share/omf"
 source $OMF_PATH/init.fish
 
-# Configuration file for use in Zsh
+# Configuration files for use in Zsh
 # ---------------------------------------------------**
 source $HOME/.config/fish/settings/helper.fish
 source $HOME/.config/fish/settings/alias.fish

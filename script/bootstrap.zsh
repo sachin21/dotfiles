@@ -105,12 +105,12 @@ function install_rbenv(){
   if [ -d ~/.rbenv ]; then
     message "  + rbenv is exist."
   else
-    git clone https://github.com/sstephenson/rbenv.git ~/.rbenv
+    git clone https://github.com/rbenv/rbenv.git ~/.rbenv
 
     if [ -d ~/.rbenv/plugins/ruby-build ]; then
       message "  + ruby-build is exist."
     else
-      git clone https://github.com/sstephenson/ruby-build.git ~/.rbenv/plugins/ruby-build
+      git clone https://github.com/rbenv/ruby-build.git ~/.rbenv/plugins/ruby-build
       ~/.rbenv/plugins/ruby-build/install.sh
       message "  + ruby-build was successfully installed"
     fi

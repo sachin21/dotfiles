@@ -168,6 +168,9 @@ function install_ghq() {
   fi
 }
 
+function install_zplug() {
+  git clone https://github.com/b4b4r07/zplug ~/.zplug
+}
 
 function create_symbolic_links(){
   if command_exists rake; then
@@ -216,6 +219,7 @@ function main(){
   install_pyenv
   install_nodenv
   install_ghq
+  install_zplug
   create_symbolic_links
   create_dir_for_gopath
   print_after_steps

@@ -189,6 +189,9 @@ Plugin 'VundleVim/Vundle.vim'
 
   " syntax checking plugins exist for eruby, haml, html, javascript, php, python, ruby and sass.
   Plugin 'scrooloose/syntastic'
+
+  " List of JavaScript ES6 snippets and syntax highlighting for vim
+  Plugin 'isRuslan/vim-es6'
 " ---------------------------------------------------**
 
 " Buffer

@@ -3,7 +3,6 @@ root: ~/Projects/github.com/sachin21/nuko
 
 windows:
   - console:
-    - bundle exec rails console
   - log:
     - tail -f log/development.log
   - editor:

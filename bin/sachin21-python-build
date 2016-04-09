@@ -3,8 +3,6 @@ set -e
 
 for TARGET_VERSION in $@; do
   if pyenv install $TARGET_VERSION && pyenv global $TARGET_VERSION; then
-    export RBENV_VERSION=$TARGET_VERSION
-
     pip install pygments
     pip install pygments-style-solarized
     pip install thefuck

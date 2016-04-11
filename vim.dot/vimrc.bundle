@@ -277,6 +277,7 @@ Plugin 'VundleVim/Vundle.vim'
 
   " tags
   Plugin 'szw/vim-tags'
+  Plugin 'vim-scripts/taglist.vim'
 " ---------------------------------------------------**
 
 " ColorSchema

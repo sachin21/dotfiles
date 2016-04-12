@@ -222,6 +222,9 @@ function main(){
   install_zplug
   create_symbolic_links
   create_dir_for_gopath
+  create_needed_dirs
+  create_needed_files
+
   print_after_steps
 }
 

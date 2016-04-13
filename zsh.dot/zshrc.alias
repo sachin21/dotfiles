@@ -30,6 +30,7 @@ alias b='bundle'
 alias tigj='tig'
 alias rehash='rbenv rehash; nodenv rehash; pyenv rehash'
 alias ctags="ctags --exclude=.git --exclude=log"
+alias shred='rmtrash'
 
 # Global
 # ---------------------------------------------------**

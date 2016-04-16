@@ -2,15 +2,19 @@
 # ---------------------------------------------------**
 . "$HOME/.helpers"
 
+# Load plugins
+# ---------------------------------------------------**
+. "$HOME/.zplug/zplug"
+. "$HOME/.tmux/tmuxinator.zsh"
+
 # Configuration file for use in Zsh
 # ---------------------------------------------------**
-. "$HOME/.tmux/tmuxinator.zsh"
-. "$HOME/.zsh/zsh-bd/bd.zsh"
 . "$HOME/.zshrc.env"
 . "$HOME/.zshrc.config"
 . "$HOME/.zshrc.setting"
 . "$HOME/.zshrc.alias"
 . "$HOME/.zshrc.function"
+. "$HOME/.zshrc.plugins"
 . "$HOME/.zshrc.local"
 
 # When OSX or Linux

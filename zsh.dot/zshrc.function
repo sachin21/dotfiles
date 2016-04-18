@@ -67,6 +67,6 @@ zle -N cr
 # Bind functions
 # ---------------------------------------------------**
 bindkey '^r' peco-select-history
-bindkey '^s' cr
+bindkey '^v' cr
 bindkey '^{' change-branch
 bindkey '^_' undo

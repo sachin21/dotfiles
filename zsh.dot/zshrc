@@ -7,7 +7,7 @@
 . "$HOME/.zplug/zplug"
 . "$HOME/.tmux/tmuxinator.zsh"
 
-# Configuration file for use in Zsh
+# Configuration files for use in Zsh
 # ---------------------------------------------------**
 . "$HOME/.zshrc.env"
 . "$HOME/.zshrc.config"

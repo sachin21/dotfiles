@@ -1,5 +1,6 @@
 alfred
 atom
+boom
 boot2docker
 chromium
 clipy
@@ -8,12 +9,14 @@ docker
 evernote
 firefox
 flux
+gitify
 google-chrome
 google-japanese-ime
 gyazo
 heroku-toolbelt
 hipchat
 iexplorer
+insomniax
 istat-menus
 iterm2
 java

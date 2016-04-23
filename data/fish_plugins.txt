@@ -1,0 +1,9 @@
+apt
+brew
+bundler
+gem
+python
+rails
+sublime
+tab
+nodenv

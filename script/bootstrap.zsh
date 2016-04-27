@@ -5,6 +5,7 @@
 # Get ready to develop something
 declare DOTFILES_PATH
 declare NEEDED_PACKAGES
+
 DOTFILES_PATH="$HOME/dotfiles"
 NEEDED_PACKAGES="curl ruby git"
 

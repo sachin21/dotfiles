@@ -9,7 +9,7 @@
 - iTerm2
 - Solarized dark
 
-## *Screenshot*
+## Screenshot
 ![Screenshot of my shell prompt](http://i.imgur.com/QHD95ln.png)
 
 ## Installation

@@ -4,18 +4,21 @@ HOME = ENV['HOME']
 
 ZSH_ROOT      = File.join(File.dirname(__FILE__), 'zsh')
 ZSH_DOT_ROOT  = File.join(File.dirname(__FILE__), 'zsh.dot')
+ZSH_DOT_FILES = `ls zsh.dot`.split("\n").freeze
+
 VIM_ROOT      = File.join(File.dirname(__FILE__), 'vim')
 VIM_DOT_ROOT  = File.join(File.dirname(__FILE__), 'vim.dot')
+VIM_DOT_FILES = `ls vim.dot`.split("\n").freeze
+
 TMUX_ROOT     = File.join(File.dirname(__FILE__), 'tmux')
 TMUX_DOT_ROOT = File.join(File.dirname(__FILE__), 'tmux.dot')
-GIT_ROOT      = File.join(File.dirname(__FILE__), 'git')
-ETC_ROOT      = File.join(File.dirname(__FILE__), 'etc')
-
-ZSH_DOT_FILES = `ls zsh.dot`.split("\n").freeze
-GIT_FILES = `ls git`.split("\n").freeze
-ETC_FILES = `ls etc`.split("\n").freeze
 TMUX_FILES = `ls tmux.dot`.split("\n").freeze
-VIM_DOT_FILES = `ls vim.dot`.split("\n").freeze
+
+GIT_ROOT      = File.join(File.dirname(__FILE__), 'git')
+GIT_FILES = `ls git`.split("\n").freeze
+
+ETC_ROOT      = File.join(File.dirname(__FILE__), 'etc')
+ETC_FILES = `ls etc`.split("\n").freeze
 
 CLEANS = %w(
   .zsh

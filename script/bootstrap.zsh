@@ -193,7 +193,7 @@ function create_needed_files() {
 
 function print_after_steps(){
   succeed
-  succeed "  Your shell was reloaded."
+  succeed "  Your shell was successfully reloaded."
   succeed "  It's all done."
   succeed
   succeed "  ** After setup: You need to change shell **"

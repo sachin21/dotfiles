@@ -1,18 +1,15 @@
-if ! zplug check --verbose; then
-  printf "Do you Install? [y/N]: "
-  if read -q; then
-    echo; zplug install
-  else
-    echo
-  fi
-
-  for plugin in $zsh_plugins; do
-    zplug install $plugin
-  done
-fi
-
 zplug "tarrasch/zsh-bd"
 zplug "zsh-users/zsh-syntax-highlighting", nice:19
 zplug "b4b4r07/emoji-cli"
+zplug "sachin21/81cb1e8a65845bbb8f7c", from:gist, as:command, use:"*", hook-build:"chmod +x *"
+zplug "sachin21/eecd241ecf420323fe388de155a02658", from:gist, as:command, use:"*", hook-build:"chmod +x *"
+
+
+if ! zplug check --verbose; then
+  printf "Install? [y/N]: "
+  if read -q; then
+    echo; zplug install
+  fi
+fi
 
 zplug load --verbose > /dev/null

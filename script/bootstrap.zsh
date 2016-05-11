@@ -35,7 +35,7 @@ function install_packages(){
 
   # Setup tools
   if [ "$flag:l" = "m" ]; then # For Mac OSX
-    cd ~/dotfiles || return 1
+    cd "$HOME/dotfiles "|| return 1
     message "  + Installing Homebrew..."
     ./script/brew.zsh
   elif [ "$flag:l" = "c" ]; then # For CentOS
@@ -83,36 +83,36 @@ function install_linux_brew() {
 
 # Install oh-my-zsh
 function install_omz(){
-  if [ -d ~/.oh-my-zsh ]; then
+  if [ -d "$HOME/.oh-my-zsh" ]; then
     message "  * oh-my-zsh is exists."
   else
-    git clone git://github.com/robbyrussell/oh-my-zsh.git ~/.oh-my-zsh
+    git clone git://github.com/robbyrussell/oh-my-zsh.git "$HOME/.oh-my-zsh"
     message "  + oh-my-zsh was successfully installed"
   fi
 }
 
 # Install NeoBundle
 function install_neobundle(){
-  if [ -d ~/.vim/bundle ] && [ -d ~/.vim/bundle/neobundle.vim ]; then
+  if [ -d "$HOME/.vim/bundle"] && [ -d "$HOME/.vim/bundle/neobundle.vim" ]; then
     message "  + NeoBundle is exist."
   else
-    mkdir -p ~/.vim/bundle && git clone git://github.com/Shougo/neobundle.vim ~/.vim/bundle/neobundle.vim
+    mkdir -p "$HOME/.vim/bundle" && git clone git://github.com/Shougo/neobundle.vim "$HOME/.vim/bundle/neobundle.vim"
     message "  + NeoBundle was successfully installed"
   fi
 }
 
 # Install rbenv
 function install_rbenv(){
-  if [ -d ~/.rbenv ]; then
+  if [ -d "$HOME/.rbenv" ]; then
     message "  + rbenv is exist."
   else
-    git clone https://github.com/rbenv/rbenv.git ~/.rbenv
+    git clone https://github.com/rbenv/rbenv.git "$HOME/.rbenv"
 
-    if [ -d ~/.rbenv/plugins/ruby-build ]; then
+    if [ -d "$HOME/.rbenv/plugins/ruby-build" ]; then
       message "  + ruby-build is exist."
     else
-      git clone https://github.com/rbenv/ruby-build.git ~/.rbenv/plugins/ruby-build
-      ~/.rbenv/plugins/ruby-build/install.sh
+      git clone https://github.com/rbenv/ruby-build.git "$HOME/.rbenv/plugins/ruby-build"
+      "$HOME/.rbenv/plugins/ruby-build/install.sh"
       message "  + ruby-build was successfully installed"
     fi
 
@@ -122,26 +122,26 @@ function install_rbenv(){
 
 # Install pyenv
 function install_pyenv(){
-  if [ -d ~/.pyenv ]; then
+  if [ -d "$HOME/.pyenv" ]; then
     message "  + pyenv is exists"
   else
-    git clone git://github.com/yyuu/pyenv.git ~/.pyenv
+    git clone git://github.com/yyuu/pyenv.git "$HOME/.pyenv"
     message "  + pyenv was successfully installed"
   fi
 }
 
 # Install nodenv
 function install_nodenv(){
-  if [ -d ~/.nodenv ]; then
+  if [ -d "$HOME/.nodenv" ]; then
     message "  + nodenv is exists"
   else
-    git clone https://github.com/OiNutter/nodenv.git ~/.nodenv
+    git clone https://github.com/OiNutter/nodenv.git "$HOME/.nodenv"
 
-    if [ -d ~/.nodenv/.nodenv/plugins/node-build ]; then
+    if [ -d "$HOME/.nodenv/.nodenv/plugins/node-build" ]; then
       message "  + node-build is exists"
     else
-      git clone git://github.com/OiNutter/node-build.git ~/.nodenv/plugins/node-build
-      ~/.nodenv/plugins/node-build/install.sh
+      git clone git://github.com/OiNutter/node-build.git "$HOME/.nodenv/plugins/node-build"
+      "$HOME/.nodenv/plugins/node-build/install.sh"
       message "  + node-build was successfully installed"
     fi
 
@@ -170,7 +170,7 @@ function install_ghq() {
 }
 
 function install_zplug() {
-  git clone https://github.com/b4b4r07/zplug ~/.zplug
+  git clone https://github.com/b4b4r07/zplug "$HOME/.zplug"
 }
 
 function create_symbolic_links(){

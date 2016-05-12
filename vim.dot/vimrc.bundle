@@ -75,6 +75,9 @@ Plugin 'VundleVim/Vundle.vim'
 
   " 置換候補をハイライト
   Plugin 'osyo-manga/vim-over'
+
+  " insert marks"
+  Plugin 'tpope/vim-surround'
 " ---------------------------------------------------**
 
 " Completion

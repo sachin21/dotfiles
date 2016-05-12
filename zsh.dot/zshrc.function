@@ -36,6 +36,24 @@ function peco-select-history() {
   zle clear-screen
 }
 
+function peco-select-project() {
+  if command_not_exists tmuxinator; then
+    fail '  x [Warning] The Tmuxinator is not installed'; return 1
+  fi
+
+  local LF=$(printf '\\\012_')
+  local LF=${LF%_}
+  local project=$(
+    tmuxinator list | \
+    tail -n 1 | \
+    sed -e 's/ /'"$LF"'/g' | \
+    grep -v '^\s*$' | \
+    peco
+  )
+
+  tmuxinator $project
+}
+
 function change-branch() {
   local branch=$(git branch | grep -v -o "*" | sed -e 's/ //g' | peco)
   git checkout $branch &> /dev/null
@@ -70,3 +88,7 @@ bindkey '^r' peco-select-history
 bindkey '^v' cr
 bindkey '^{' change-branch
 bindkey '^_' undo
+
+# Alias functions
+# ---------------------------------------------------**
+alias p='peco-select-project'

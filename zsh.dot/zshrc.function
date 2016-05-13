@@ -17,9 +17,6 @@ function cr() {
   if [[ ! $result == '' ]]; then
     cd $result
   fi
-
-  zle accept-line
-  zle clear-screen
 }
 
 function peco-select-history() {
@@ -80,15 +77,14 @@ function ec() {
 # ---------------------------------------------------**
 zle -N peco-select-history
 zle -N change-branch
-zle -N cr
 
 # Bind functions
 # ---------------------------------------------------**
 bindkey '^r' peco-select-history
-bindkey '^v' cr
 bindkey '^{' change-branch
 bindkey '^_' undo
 
 # Alias functions
 # ---------------------------------------------------**
 alias p='peco-select-project'
+alias c='cr'

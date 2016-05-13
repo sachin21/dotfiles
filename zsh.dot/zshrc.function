@@ -11,7 +11,7 @@ function agvim() {
   fi
 }
 
-function cr() {
+function change-repository() {
   local result=$(ghq list -p | peco)
 
   if [[ ! $result == '' ]]; then
@@ -87,4 +87,4 @@ bindkey '^_' undo
 # Alias functions
 # ---------------------------------------------------**
 alias p='peco-select-project'
-alias c='cr'
+alias c='change-repository'

@@ -4,7 +4,7 @@
 
 # Load plugins
 # ---------------------------------------------------**
-. "$HOME/.zplug/zplug"
+. "$HOME/.zplug/init.zsh"
 . "$HOME/.tmux/tmuxinator.zsh"
 
 # Configuration files for use in Zsh

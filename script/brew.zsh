@@ -123,7 +123,7 @@ function remove_caches() {
 
   brew cleanup
 
-  if [[ $OSTYPE == darwin* ]] && brew list | grep brew-cask > /dev/null 2>&1; then
+  if [[ $OSTYPE == darwin* ]] && brew list | grep -q brew-cask; then
     brew cask cleanup
   fi
 }

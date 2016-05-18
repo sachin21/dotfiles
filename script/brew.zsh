@@ -63,7 +63,7 @@ function update_homebrew() {
 
   if [ "$flag" = "y" ] || [ "$flag" = "Y" ]; then
     message "  + Updating Homebrew"
-    brew update || return 1
+    brew update
   fi
 }
 

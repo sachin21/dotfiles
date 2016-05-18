@@ -37,8 +37,7 @@ function export_paths() {
 # Check for existence ruby
 function check_for_ruby() {
   if command_exists ruby curl; then
-    fail "  x [Error] Ruby or cURL are not installed"
-    return 1
+    fail "  x [Error] Ruby or cURL are not installed"; return 1
   else
     message "  + Ruby and cURL found. alright let's go!"
   fi

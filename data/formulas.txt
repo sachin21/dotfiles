@@ -50,11 +50,13 @@ git
 git-flow
 gitsh
 glib
+global
 gmp
 gmp4
 gnu-sed
 go
 gobject-introspection
+gperftools
 gsettings-desktop-schemas
 gtk+
 gtk+3
@@ -62,6 +64,7 @@ gtk-mac-integration
 gtksourceview
 harfbuzz
 hicolor-icon-theme
+highway
 hub
 icu4c
 imagemagick

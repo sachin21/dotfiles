@@ -281,6 +281,9 @@ Plugin 'VundleVim/Vundle.vim'
   " tags
   Plugin 'szw/vim-tags'
   Plugin 'vim-scripts/taglist.vim'
+
+  " Explorer
+  Plugin 'jlanzarotta/bufexplorer'
 " ---------------------------------------------------**
 
 " ColorSchema

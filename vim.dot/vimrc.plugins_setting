@@ -34,11 +34,12 @@ let g:treeExplVertical=1
 "------------------------------------
 " コメントの間にスペースを空ける
 let NERDSpaceDelims = 1
+
 "<Leader>xでコメントをトグル(NERD_commenter.vim)
 map <Leader>x, c<space>
+
 ""未対応ファイルタイプのエラーメッセージを表示しない
 let NERDShutUp=1
-
 
 " ------------------------------------
 " grep.vim
@@ -68,9 +69,9 @@ let g:treeExplWinSize=30
 "<Leader>b<Space>でBufferList
 let dumbbuf_hotkey = '<Leader>b<Space>'
 let dumbbuf_mappings = {
-    \ 'n': {
-        \'<Esc>': { 'opt': '<silent>', 'mapto': ':<C-u>close<CR>' }
-    \}
+  \ 'n': {
+    \'<Esc>': { 'opt': '<silent>', 'mapto': ':<C-u>close<CR>' }
+  \}
 \}
 let dumbbuf_single_key  = 1
 let dumbbuf_updatetime  = 1    " &updatetimeの最小値
@@ -108,6 +109,7 @@ let Tlist_Enable_Fold_Column = 1          " 折りたたみ
 let Tlist_Auto_Open = 1                   " 自動表示
 let Tlist_Auto_Update = 1
 let Tlist_WinWidth = 30
+
 "map <silent> <leader>tl :Tlist<CR>        " taglistを開くショットカットキー
 nmap <F7> :CMiniBufExplorer<CR>:TrinityToggleTagList<CR>:TMiniBufExplorer<CR>
 nmap <Leader>tl :CMiniBufExplorer<CR>:TrinityToggleTagList<CR>:TMiniBufExplorer<CR>
@@ -127,7 +129,6 @@ let g:SrcExpl_GoBackMapKey  = "<C-b>"   " 戻る機能のMAP
 "------------------------------------
 " open-blowser.vim
 "------------------------------------
-
 " カーソル下のURLをブラウザで開く
 nmap <Leader>fu <Plug>(openbrowser-open)
 vmap <Leader>fu <Plug>(openbrowser-open)
@@ -187,10 +188,10 @@ let g:errormarker_disablemappings = 1
 " unite.vim
 "------------------------------------
 " The prefix key.
-nnoremap    [unite]   <Nop>
-nmap    f [unite]
+nnoremap [unite] <Nop>
+nmap f [unite]
 
-nnoremap [unite]u  :<C-u>Unite -no-split<Space>
+nnoremap [unite]u :<C-u>Unite -no-split<Space>
 
 " 全部乗せ
 nnoremap <silent> [unite]a  :<C-u>UniteWithCurrentDir -no-split -buffer-name=files buffer file_mru bookmark file<CR>
@@ -306,8 +307,10 @@ let g:rails_syntax = 1
 let g:rails_statusline = 1
 let g:rails_url='http://localhost:3000'
 let g:rails_subversion=0
+
 " let g:dbext_default_SQLITE_bin = 'mysql2'
 let g:rails_default_file='config/database.yml'
+
 " let g:rails_ctags_arguments = ''
 function! SetUpRailsSetting()
   nmap <buffer><C-C> <Nop>
@@ -341,7 +344,6 @@ let g:metarw_redmine_apikey = '2ed945f405865ec799ff91b7bb364215f932c51c'
 "------------------------------------
 " emonkak/vim-operator-sort
 "------------------------------------
-
 map sor <Plug>(operator-sort)
 
 "------------------------------------
@@ -356,3 +358,9 @@ nnoremap <C-]> g<C-]>
 " LeafCage/yankround.vim
 "------------------------------------
 let g:yankround_max_history = 200
+
+"------------------------------------
+" LeafCage/yankround.vim
+"------------------------------------
+nnoremap <Leader>yrs :YRShow<CR>
+nnoremap <Leader>ys :YRSearch<Space>

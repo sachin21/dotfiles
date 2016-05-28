@@ -35,6 +35,7 @@ command! Pt :set paste!
 " y9 ydで行末までヤンク
 nmap y9 y$
 nmap yd y$
+
 " y0 ykで行頭までヤンク
 nmap y0 y^
 nmap yk y^
@@ -60,6 +61,7 @@ autocmd BufWritePre * :%s/\s\+$//ge
 
 " vimで最終行が空行だったら保存時に最終行を削除する
 autocmd BufWritePre * call s:remove_space_in_last_line()
+
 function! s:remove_space_in_last_line()
   if getline('$') == ""
      $delete _
@@ -87,6 +89,7 @@ function! s:toggle_qf_window()
   endfor
   execute 'botright cw'
 endfunction
+
 nnoremap <silent> cw :call <SID>toggle_qf_window()<CR>
 
 " 行移動を全てg込で行う

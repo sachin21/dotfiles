@@ -67,12 +67,16 @@ let g:neosnippet#snippets_directory = '~/.vim/snipmate-snippets/snippets  ~/dotf
 " inoremap <expr><C-e> neocomplcache#cancel_popup()
 " undo
 inoremap <expr><C-g>     neocomplcache#undo_completion()
+
 " 補完候補の共通部分までを補完する
 inoremap <expr><C-s> neocomplcache#complete_common_string()
+
 " C-kを押すと行末まで削除
 " inoremap <C-k> <C-o>D
+
 " C-nでneocomplcache補完
 inoremap <expr><C-n>  pumvisible() ? "\<C-n>" : "\<C-x>\<C-u>\<C-p>"
+
 " C-pでkeyword補完
 inoremap <expr><C-p> pumvisible() ? "\<C-p>" : "\<C-p>\<C-n>"
 
@@ -98,6 +102,7 @@ autocmd FileType ruby       setlocal omnifunc=rubycomplete#Complete
 if !exists('g:neocomplcache_omni_patterns')
   let g:neocomplcache_omni_patterns = {}
 endif
+
 let g:neocomplcache_omni_patterns.ruby = '[^. *\t]\.\h\w*\|\h\w*::'
 let g:neocomplcache_omni_patterns.php = '[^. \t]->\h\w*\|\h\w*::'
 let g:neocomplcache_omni_patterns.c = '\%(\.\|->\)\h\w*'
@@ -117,16 +122,19 @@ let g:neocomplcache_include_paths = {
   \ 'c'    : '.,/usr/include',
   \ 'ruby' : '.,$HOME/.rvm/rubies/**/lib/ruby/1.8/',
   \ }
+
 "インクルード文のパターンを指定
 let g:neocomplcache_include_patterns = {
   \ 'cpp' : '^\s*#\s*include',
   \ 'ruby' : '^\s*require',
   \ 'perl' : '^\s*use',
   \ }
+
 "インクルード先のファイル名の解析パターン
 let g:neocomplcache_include_exprs = {
   \ 'ruby' : substitute(v:fname,'::','/','g')
   \ }
+
 " ファイルを探す際に、この値を末尾に追加したファイルも探す。
 let g:neocomplcache_include_suffixes = {
   \ 'ruby' : '.rb',
@@ -137,7 +145,7 @@ let g:neocomplcache_include_suffixes = {
 if !exists('g:neocomplcache_omni_patterns')
   let g:neocomplcache_omni_patterns = {}
 endif
+
 let g:rsenseUseOmniFunc = 1
 let g:rsenseHome = expand('~/src/rsense-0.3')
-
 let g:neocomplcache_omni_patterns.ruby = '[^. *\t]\.\w*\|\h\w*::'

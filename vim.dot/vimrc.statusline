@@ -18,6 +18,7 @@ function! GetB()
   let c = iconv(c, &enc, &fenc)
   return String2Hex(c)
 endfunction
+
 " help eval-examples
 " The function Nr2Hex() returns the Hex string of a number.
 func! Nr2Hex(nr)
@@ -29,6 +30,7 @@ func! Nr2Hex(nr)
   endwhile
   return r
 endfunc
+
 " The function String2Hex() converts each character in a string to a two
 " character Hex string.
 func! String2Hex(str)

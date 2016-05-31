@@ -3,6 +3,8 @@
 # bootstrap
 #
 # Get ready to develop something
+#
+
 declare DOTFILES_PATH
 declare NEEDED_PACKAGES
 

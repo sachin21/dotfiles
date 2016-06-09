@@ -16,7 +16,7 @@ function install_dotfiles(){
     cd "$DOTFILES_PATH" && . ./etc/helpers || return 1
     message "  + Dotfiles is Already exists. Let's go next step"
   else
-    if type git; then
+    if type git &> /dev/null; then
       git clone https://github.com/sachin21/dotfiles.git "$DOTFILES_PATH"
       echo "Git is required. Please install the git."; return 1
     fi

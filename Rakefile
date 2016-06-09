@@ -115,7 +115,7 @@ desc 'Update all git repositories'
 task :update do
   sh 'git pull origin master'
   sh 'git submodule foreach git pull origin master'
-  sh './bin/update_install_tools'
+  sh 'command update_install_tools'
   sh 'env ZSH=$ZSH /bin/sh /Users/sachin21dev/.oh-my-zsh/tools/upgrade.sh'
 end
 

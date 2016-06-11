@@ -2,7 +2,6 @@ require 'rake/clean'
 
 HOME = ENV['HOME']
 
-ZSH_ROOT      = File.join(File.dirname(__FILE__), 'zsh')
 ZSH_DOT_ROOT  = File.join(File.dirname(__FILE__), 'zsh.dot')
 ZSH_DOT_FILES = `ls zsh.dot`.split("\n").freeze
 
@@ -21,7 +20,6 @@ ETC_ROOT      = File.join(File.dirname(__FILE__), 'etc')
 ETC_FILES = `ls etc`.split("\n").freeze
 
 CLEANS = %w(
-  .zsh
   .zshrc
   .zshrc.alias
   .zshrc.config
@@ -75,7 +73,6 @@ namespace :zsh do
   desc 'Create symbolic links for zsh settings file to HOME'
   task :link do
     _symlink File.join(ZSH_DOT_ROOT, 'zshrc'), File.join(HOME, '.zshrc')
-    _symlink File.join(ZSH_ROOT), File.join(HOME, '.zsh')
     same_name_symlinks ZSH_DOT_ROOT, ZSH_DOT_FILES
   end
 end

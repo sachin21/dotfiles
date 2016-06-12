@@ -1,7 +1,0 @@
-name: love
-root: ~/Projects/github.com/lovegraph/lovegraph
-
-windows:
-  - rails_console:
-  - log:
-  - console:

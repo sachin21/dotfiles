@@ -11,13 +11,13 @@ VIM_DOT_FILES = `ls vim.dot`.split("\n").freeze
 
 TMUX_ROOT     = File.join(File.dirname(__FILE__), 'tmux')
 TMUX_DOT_ROOT = File.join(File.dirname(__FILE__), 'tmux.dot')
-TMUX_FILES = `ls tmux.dot`.split("\n").freeze
+TMUX_FILES    = `ls tmux.dot`.split("\n").freeze
 
 GIT_ROOT      = File.join(File.dirname(__FILE__), 'git')
-GIT_FILES = `ls git`.split("\n").freeze
+GIT_FILES     = `ls git`.split("\n").freeze
 
 ETC_ROOT      = File.join(File.dirname(__FILE__), 'etc')
-ETC_FILES = `ls etc`.split("\n").freeze
+ETC_FILES     = `ls etc`.split("\n").freeze
 
 CLEANS = %w(
   .zshrc

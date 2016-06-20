@@ -364,3 +364,9 @@ let g:yankround_max_history = 200
 "------------------------------------
 nnoremap <Leader>yrs :YRShow<CR>
 nnoremap <Leader>ys :YRSearch<Space>
+
+"------------------------------------
+" scrooloose/nerdtree
+"------------------------------------
+autocmd VimEnter * NERDTree
+autocmd VimEnter * wincmd p

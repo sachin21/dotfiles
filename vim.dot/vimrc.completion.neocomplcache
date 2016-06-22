@@ -46,9 +46,6 @@ if !exists('g:neocomplcache_keyword_patterns')
 endif
 let g:neocomplcache_keyword_patterns['default'] = '\h\w*'
 
-" ユーザー定義スニペット保存ディレクトリ
-let g:neocomplcache_snippets_dir = $HOME.'/.vim/snippets'
-
 " スニペット
 imap <C-y> <Plug>(neosnippet_expand_or_jump)
 smap <C-k> <Plug>(neosnippet_expand_or_jump)
@@ -70,9 +67,6 @@ inoremap <expr><C-g>     neocomplcache#undo_completion()
 
 " 補完候補の共通部分までを補完する
 inoremap <expr><C-s> neocomplcache#complete_common_string()
-
-" C-kを押すと行末まで削除
-" inoremap <C-k> <C-o>D
 
 " C-nでneocomplcache補完
 inoremap <expr><C-n>  pumvisible() ? "\<C-n>" : "\<C-x>\<C-u>\<C-p>"
@@ -108,21 +102,6 @@ let g:neocomplcache_omni_patterns.php = '[^. \t]->\h\w*\|\h\w*::'
 let g:neocomplcache_omni_patterns.c = '\%(\.\|->\)\h\w*'
 let g:neocomplcache_omni_patterns.cpp = '\h\w*\%(\.\|->\)\h\w*\|\h\w*::'
 
-" autocmd FileType ruby let g:neocomplcache_source_disable = {
-  " \ 'include_complete' : 1,
-  " \ 'omni_complete' : 1
-" \ }
-" autocmd FileType ruby let g:neocomplcache_source_disable = {
-  " \ 'include_complete' : 1
-" \ }
-
-"インクルードパスの指定
-let g:neocomplcache_include_paths = {
-  \ 'cpp'  : '.,/opt/local/include/gcc46/c++,/opt/local/include,/usr/include',
-  \ 'c'    : '.,/usr/include',
-  \ 'ruby' : '.,$HOME/.rvm/rubies/**/lib/ruby/1.8/',
-  \ }
-
 "インクルード文のパターンを指定
 let g:neocomplcache_include_patterns = {
   \ 'cpp' : '^\s*#\s*include',
@@ -140,12 +119,3 @@ let g:neocomplcache_include_suffixes = {
   \ 'ruby' : '.rb',
   \ 'haskell' : '.hs'
   \ }
-
-" for rsense
-if !exists('g:neocomplcache_omni_patterns')
-  let g:neocomplcache_omni_patterns = {}
-endif
-
-let g:rsenseUseOmniFunc = 1
-let g:rsenseHome = expand('~/src/rsense-0.3')
-let g:neocomplcache_omni_patterns.ruby = '[^. *\t]\.\w*\|\h\w*::'

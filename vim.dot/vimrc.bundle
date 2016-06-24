@@ -1,312 +1,290 @@
-set nocompatible
 filetype off
 
-set rtp+=~/.vim/bundle/Vundle.vim
-call vundle#begin()
+if &compatible
+  set nocompatible
+endif
 
-Plugin 'VundleVim/Vundle.vim'
+set runtimepath+=~/.vim/dein/repos/github.com/Shougo/dein.vim
 
-" Edit
-" ---------------------------------------------------**
-  " NERD_commenter.vim :最強コメント処理 (<Leader>c<space>でコメントをトグル)
-  Plugin 'scrooloose/nerdcommenter.git'
+call dein#begin(expand('~/.vim/dein'))
 
-  " 自動コメント"
-  Plugin 'tomtom/tcomment_vim'
+" Dein.vim
+call dein#add('Shougo/dein.vim')
 
-  " 自動閉じタグ
-  Plugin 'yuroyoro/vim-autoclose'
+" NERD_commenter.vim :最強コメント処理 (<Leader>c<space>でコメントをトグル)
+call dein#add('scrooloose/nerdcommenter.git')
 
-  " schema
-  Plugin 'altercation/vim-colors-solarized'
-  " -- でメソッドチェーン整形
-  Plugin 'c9s/cascading.vim'
+" 自動コメント"
+call dein#add('tomtom/tcomment_vim')
 
-  " visually indent guide
-  Plugin 'nathanaelkane/vim-indent-guides'
+" 自動閉じタグ
+call dein#add('yuroyoro/vim-autoclose')
 
-  " XMLとかHTMLとかの編集機能を強化する
-  Plugin 'xmledit'
+" -- でメソッドチェーン整形
+call dein#add('c9s/cascading.vim')
 
-  " html補完"
-  Plugin 'mattn/emmet-vim'
+" visually indent guide
+call dein#add('nathanaelkane/vim-indent-guides')
 
-  " Align : 高機能整形・桁揃えプラグイン
-  Plugin 'Align'
+" XMLとかHTMLとかの編集機能を強化する
+call dein#add('xmledit')
 
-  " フィルタリングと整形
-  Plugin 'godlygeek/tabular'
+" html補完"
+call dein#add('mattn/emmet-vim')
 
-  " マルチバイト対応の整形
-  Plugin 'h1mesuke/vim-alignta'
+" Align : 高機能整形・桁揃えプラグイン
+call dein#add('Align')
 
-  "yankround.vim : ヤンクの履歴を管理し、順々に参照、出力できるようにする
-  Plugin 'LeafCage/yankround.vim'
+" フィルタリングと整形
+call dein#add('godlygeek/tabular')
 
-  " undo履歴を追える (need python support)
-  Plugin 'Gundo'
+" マルチバイト対応の整形
+call dein#add('h1mesuke/vim-alignta')
 
-  " smartchr.vim : ==などの前後を整形
-  Plugin 'smartchr'
+"yankround.vim : ヤンクの履歴を管理し、順々に参照、出力できるようにする
+call dein#add('LeafCage/yankround.vim')
 
-  " vim-operator-user : 簡単にoperatorを定義できるようにする
-  Plugin 'operator-user'
+" undo履歴を追える (need python support)
+call dein#add('Gundo')
 
-  " operator-camelize : camel-caseへの変換
-  Plugin 'operator-camelize'
+" smartchr.vim : ==などの前後を整形
+call dein#add('smartchr')
 
-  " operator-replace : yankしたものでreplaceする
-  Plugin 'operator-replace'
+" vim-operator-user : 簡単にoperatorを定義できるようにする
+call dein#add('operator-user')
 
-  " textobj-user : 簡単にVimエディタのテキストオブジェクトをつくれる
-  Plugin 'kana/vim-textobj-user'
+" operator-camelize : camel-caseへの変換
+call dein#add('operator-camelize')
 
-  " <C-a>でtrue/false切替。他色々
-  Plugin 'taku-o/vim-toggle'
+" operator-replace : yankしたものでreplaceする
+call dein#add('operator-replace')
 
-  " slim のシンタックスハイライトを行う
-  Plugin 'slim-template/vim-slim'
+" textobj-user : 簡単にVimエディタのテキストオブジェクトをつくれる
+call dein#add('kana/vim-textobj-user')
 
-  "rubyのコードで自動的にendを挿入する
-  Plugin 'tpope/vim-endwise'
+" <C-a>でtrue/false切替。他色々
+call dein#add('taku-o/vim-toggle')
 
-  " Gistへうｐ"
-  Plugin 'mattn/gist-vim'
+" slim のシンタックスハイライトを行う
+call dein#add('slim-template/vim-slim')
 
-  " 置換候補をハイライト
-  Plugin 'osyo-manga/vim-over'
+"rubyのコードで自動的にendを挿入する
+call dein#add('tpope/vim-endwise')
 
-  " insert marks"
-  Plugin 'tpope/vim-surround'
-" ---------------------------------------------------**
+" Gistへうｐ"
+call dein#add('mattn/gist-vim')
 
-" Completion
-" ---------------------------------------------------**
-  " 補完 autocomplpop.vim : insertmodeで自動で補完をpopup
-  Plugin 'AutoComplPop'
-  " 補完 neocomplcache.vim : 究極のVim的補完環境
-  Plugin 'Shougo/neocomplcache'
+" 置換候補をハイライト
+call dein#add('osyo-manga/vim-over')
 
-  " neocomplcacheのsinpet補完
-  Plugin 'Shougo/neosnippet.git'
+" insert marks"
+call dein#add('tpope/vim-surround')
 
-  " rubyでrequire先を補完する
-  Plugin 'ujihisa/neco-ruby'
+" 補完 autocomplpop.vim : insertmodeで自動で補完をpopup
+call dein#add('AutoComplPop')
 
-  " A neocomplcache plugin for English, using look command
-  Plugin 'ujihisa/neco-look'
-" }}}
+" 補完 neocomplcache.vim : 究極のVim的補完環境
+call dein#add('Shougo/neocomplcache')
 
-  " vim-smartword : 単語移動がスマートな感じで
-  Plugin 'smartword'
+" neocomplcacheのsinpet補完
+call dein#add('Shougo/neosnippet.git')
 
-  " camelcasemotion : CamelCaseやsnake_case単位でのワード移動
-  Plugin 'camelcasemotion'
+" rubyでrequire先を補完する
+call dein#add('ujihisa/neco-ruby')
 
-  " <Leader><Leader>w/fなどで、motion先をhilightする
-  Plugin 'EasyMotion'
+" A neocomplcache plugin for English, using look command
+call dein#add('ujihisa/neco-look')
 
-  " matchit.vim : 「%」による対応括弧へのカーソル移動機能を拡張
-  Plugin 'matchit.zip'
+" vim-smartword : 単語移動がスマートな感じで
+call dein#add('smartword')
 
-  " ruby用のmatchit拡張
-  Plugin 'ruby-matchit'
+" camelcasemotion : CamelCaseやsnake_case単位でのワード移動
+call dein#add('camelcasemotion')
 
-  " grep.vim : 外部のgrep利用。:Grepで対話形式でgrep :Rgrepは再帰
-  Plugin 'grep.vim'
+" <Leader><Leader>w/fなどで、motion先をhilightする
+call dein#add('EasyMotion')
 
-  " eregex.vim : vimの正規表現をrubyやperlの正規表現な入力でできる :%S/perlregex/
-  Plugin 'eregex.vim'
+" matchit.vim : 「%」による対応括弧へのカーソル移動機能を拡張
+call dein#add('matchit.zip')
 
-  " open-browser.vim : カーソルの下のURLを開くor単語を検索エンジンで検索
-  Plugin 'tyru/open-browser.vim'
+" ruby用のmatchit拡張
+call dein#add('ruby-matchit')
 
-  " Open a file on GitHub
-  Plugin 'tyru/open-browser-github.vim'
+" grep.vim : 外部のgrep利用。:Grepで対話形式でgrep :Rgrepは再帰
+call dein#add('grep.vim')
 
-  " VimからThe Silver Searcherを利用する
-  "  http://blog.glidenote.com/blog/2013/02/28/the-silver-searcher-better-than-ack/
-  Plugin 'rking/ag.vim'
+" eregex.vim : vimの正規表現をrubyやperlの正規表現な入力でできる :%S/perlregex/
+call dein#add('eregex.vim')
 
-  " TypeScriptの便利なやつ"
-  Plugin 'clausreinke/typescript-tools'
+" open-browser.vim : カーソルの下のURLを開くor単語を検索エンジンで検索
+call dein#add('tyru/open-browser.vim')
 
-  " JavaScriptのライブラリ補完をする
-  Plugin 'othree/javascript-libraries-syntax.vim'
+" Open a file on GitHub
+call dein#add('tyru/open-browser-github.vim')
 
-  Plugin 'dag/vim-fish'
-" ---------------------------------------------------**
+" VimからThe Silver Searcherを利用する
+"  http://blog.glidenote.com/blog/2013/02/28/the-silver-searcher-better-than-ack/
+call dein#add('rking/ag.vim')
 
-" Programming
-" ---------------------------------------------------**
-  " quickrun.vim : 編集中のファイルを簡単に実行できるプラグイン
-  Plugin 'thinca/vim-quickrun'
+" TypeScriptの便利なやつ"
+call dein#add('clausreinke/typescript-tools')
 
-  " perldocやphpmanual等のリファレンスをvim上で見る
-  Plugin 'thinca/vim-ref'
+" JavaScriptのライブラリ補完をする
+call dein#add('othree/javascript-libraries-syntax.vim')
 
-  " SQLUtilities : SQL整形、生成ユーティリティ
-  Plugin 'SQLUtilities'
+" fish
+call dein#add('dag/vim-fish')
 
-  " vim-ruby : VimでRubyを扱う際の最も基本的な拡張機能
-  Plugin 'vim-ruby/vim-ruby'
+" quickrun.vim : 編集中のファイルを簡単に実行できるプラグイン
+call dein#add('thinca/vim-quickrun')
 
-  " rails.vim : rails的なアレ
-  Plugin 'tpope/vim-rails'
+" perldocやphpmanual等のリファレンスをvim上で見る
+call dein#add('thinca/vim-ref')
 
-  " Pydiction : Python用の入力補完
-  Plugin 'Pydiction'
+" SQLUtilities : SQL整形、生成ユーティリティ
+call dein#add('SQLUtilities')
 
-  " エラーがある場所をhilight
-  Plugin 'errormarker.vim'
+" vim-ruby : VimでRubyを扱う際の最も基本的な拡張機能
+call dein#add('vim-ruby/vim-ruby')
 
-  " haml
-  Plugin 'haml.zip'
+" rails.vim : rails的なアレ
+call dein#add('tpope/vim-rails')
 
-  " JavaScript
-  Plugin 'JavaScript-syntax'
+" Pydiction : Python用の入力補完
+call dein#add('Pydiction')
 
-  " jQuery
-  Plugin 'jQuery'
+" エラーがある場所をhilight
+call dein#add('errormarker.vim')
 
-  " nginx conf
-  Plugin 'nginx.vim'
+" haml
+call dein#add('haml.zip')
 
-  " markdown
-  Plugin 'tpope/vim-markdown'
+" JavaScript
+call dein#add('JavaScript-syntax')
 
-  " coffee script
-  Plugin 'kchmck/vim-coffee-script'
+" jQuery
+call dein#add('jQuery')
 
-  " python
-  Plugin 'yuroyoro/vim-python'
+" nginx conf
+call dein#add('nginx.vim')
 
-  " scala
-  Plugin 'yuroyoro/vim-scala'
+" markdown
+call dein#add('tpope/vim-markdown')
 
-  " clojure
-  Plugin 'jondistad/vimclojure'
+" coffee script
+call dein#add('kchmck/vim-coffee-script')
 
-  " ghc-mod
-  Plugin 'eagletmt/ghcmod-vim'
+" python
+call dein#add('yuroyoro/vim-python')
 
-  " syntax checking plugins exist for eruby, haml, html, javascript, php, python, ruby and sass.
-  Plugin 'scrooloose/syntastic'
+" scala
+call dein#add('yuroyoro/vim-scala')
 
-  " List of JavaScript ES6 snippets and syntax highlighting for vim
-  Plugin 'isRuslan/vim-es6'
-" ---------------------------------------------------**
+" clojure
+call dein#add('jondistad/vimclojure')
 
-" Buffer
-  " DumbBuf.vim : quickbufっぽくbufferを管理。 "<Leader>b<Space>でBufferList
-  Plugin 'DumbBuf'
+" ghc-mod
+call dein#add('eagletmt/ghcmod-vim')
 
-  " minibufexpl.vim : タブエディタ風にバッファ管理ウィンドウを表示
-  Plugin 'minibufexpl.vim'
+" syntax checking plugins exist for eruby, haml, html, javascript, php, python, ruby and sass.
+call dein#add('scrooloose/syntastic')
 
-  " NERDTree : ツリー型エクスプローラ
-  Plugin 'The-NERD-tree'
+" List of JavaScript ES6 snippets and syntax highlighting for vim
+call dein#add('isRuslan/vim-es6')
 
-  " vtreeexplorer.vim : ツリー状にファイルやディレクトリの一覧を表示
-  Plugin 'vtreeexplorer'
-" ---------------------------------------------------**
+" DumbBuf.vim : quickbufっぽくbufferを管理。 "<Leader>b<Space>でBufferList
+call dein#add('DumbBuf')
+
+" minibufexpl.vim : タブエディタ風にバッファ管理ウィンドウを表示
+call dein#add('minibufexpl.vim')
+
+" NERDTree : ツリー型エクスプローラ
+call dein#add('The-NERD-tree')
+
+" vtreeexplorer.vim : ツリー状にファイルやディレクトリの一覧を表示
+call dein#add('vtreeexplorer')
 
 " Encording
-" ---------------------------------------------------**
-  Plugin 'banyan/recognize_charcode.vim'
-" ---------------------------------------------------**
+call dein#add('banyan/recognize_charcode.vim')
 
-" Utility
-" ---------------------------------------------------**
-  " vim-altercmd : Ex command拡張
-  Plugin 'tyru/vim-altercmd'
+" vim-altercmd : Ex command拡張
+call dein#add('tyru/vim-altercmd')
 
-  " vim Interface to Web API
-  Plugin 'mattn/webapi-vim'
+" vim Interface to Web API
+call dein#add('mattn/webapi-vim')
 
-  " cecutil.vim : 他のpluginのためのutillity1
-  Plugin 'cecutil'
+" cecutil.vim : 他のpluginのためのutillity1
+call dein#add('cecutil')
 
-  " urilib.vim : vim scriptからURLを扱うライブラリ
-  Plugin 'tyru/urilib.vim'
+" urilib.vim : vim scriptからURLを扱うライブラリ
+call dein#add('tyru/urilib.vim')
 
-  " ステータスラインに顔文字を表示
-  " Plugin 'mattn/hahhah-vim'
+" utillity
+call dein#add('L9')
 
-  " utillity
-  Plugin 'L9'
+" Buffer管理のLibrary
+call dein#add('thinca/vim-openbuf')
 
-  " Buffer管理のLibrary
-  Plugin 'thinca/vim-openbuf'
+" vimdoc 日本語
+call dein#add('yuroyoro/vimdoc_ja')
 
-  " vimdoc 日本語
-  Plugin 'yuroyoro/vimdoc_ja'
+" Lingrのclient
+call dein#add('tsukkee/lingr-vim')
 
-  " vim上のtwitter client
-  " Plugin 'TwitVim'
+" vimからGit操作する
+call dein#add('tpope/vim-fugitive')
 
-  " Lingrのclient
-  Plugin 'tsukkee/lingr-vim'
+" ステータスラインをカッコよくする
+call dein#add('Lokaltog/vim-powerline')
 
-  " vimからGit操作する
-  Plugin 'tpope/vim-fugitive'
+" Redmine on Vim
+call dein#add('mattn/vim-metarw-redmine')
 
-  " ステータスラインをカッコよくする
-  Plugin 'Lokaltog/vim-powerline'
+" A framework to read/write fake:path
+call dein#add('kana/vim-metarw')
 
-  " Redmine on Vim
-  Plugin 'mattn/vim-metarw-redmine'
+" shows a git diff in the 'gutter' (sign column))
+call dein#add('airblade/vim-gitgutter')
 
-  " A framework to read/write fake:path
-  Plugin 'kana/vim-metarw'
+" git-vim: call dein#add(files for calling git functions from inside Vim and Syntax files for git displays
+call dein#add('motemen/git-vim')
 
-  " shows a git diff in the 'gutter' (sign column)
-  Plugin 'airblade/vim-gitgutter'
+"database.ymlからdb情報を取得
+call dein#add('vim-scripts/dbext.vim')
 
-  " git-vim: Plugin files for calling git functions from inside Vim and Syntax files for git displays
-  Plugin 'motemen/git-vim'
+" Yank履歴管理
+call dein#add('vim-scripts/YankRing.vim')
 
-  "database.ymlからdb情報を取得
-  Plugin 'vim-scripts/dbext.vim'
+" リポジトリをghqでsorah/unite-ghq
+call dein#add('sorah/unite-ghq')
 
-  " Yank履歴管理
-  Plugin 'vim-scripts/YankRing.vim'
+" 複数カーソル
+call dein#add('terryma/vim-multiple-cursors')
 
-  " リポジトリをghqでsorah/unite-ghq
-  Plugin 'sorah/unite-ghq'
+" tags
+call dein#add('szw/vim-tags')
+call dein#add('vim-scripts/taglist.vim')
 
-  " 複数カーソル
-  Plugin 'terryma/vim-multiple-cursors'
-
-  " tags
-  Plugin 'szw/vim-tags'
-  Plugin 'vim-scripts/taglist.vim'
-
-  " Explorer
-  Plugin 'jlanzarotta/bufexplorer'
-" ---------------------------------------------------**
-
-" ColorSchema
-" ---------------------------------------------------**
-  Plugin 'desert256.vim'
-  Plugin 'mrkn256.vim'
-  Plugin 'tomasr/molokai'
-  Plugin 'yuroyoro/yuroyoro256.vim'
-" ---------------------------------------------------**
+" Explorer
+call dein#add('jlanzarotta/bufexplorer')
 
 " Unite
-" ---------------------------------------------------**
-  " unite.vim : - すべてを破壊し、すべてを繋げ - vim scriptで実装されたanythingプラグイン
-  Plugin 'Shougo/unite.vim'
-  Plugin 'tsukkee/unite-help'
-  Plugin 'h1mesuke/unite-outline'
-  Plugin 'basyura/unite-rails'
-  Plugin 'thinca/vim-unite-history'
-  Plugin 'tsukkee/unite-tag'
-  Plugin 'choplin/unite-vim_hacks'
-  Plugin 'Shougo/neomru.vim'
-" ---------------------------------------------------**
+call dein#add('Shougo/unite.vim')
+call dein#add('tsukkee/unite-help')
+call dein#add('h1mesuke/unite-outline')
+call dein#add('basyura/unite-rails')
+call dein#add('thinca/vim-unite-history')
+call dein#add('tsukkee/unite-tag')
+call dein#add('choplin/unite-vim_hacks')
+call dein#add('Shougo/neomru.vim')
 
-call vundle#end()
+" Color schemas
+call dein#add('desert256.vim')
+call dein#add('mrkn256.vim')
+call dein#add('tomasr/molokai')
+call dein#add('yuroyoro/yuroyoro256.vim')
+call dein#add('altercation/vim-colors-solarized')
+
+call dein#end()
 
 filetype plugin indent on

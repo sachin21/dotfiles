@@ -36,7 +36,7 @@ CLEANS = %w(
   .vimrc
   .vimrc.apperance
   .vimrc.basic
-  .vimrc.bundle
+  .vimrc.plugin
   .vimrc.colors
   .vimrc.completion
   .vimrc.completion.autocomplpop

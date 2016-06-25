@@ -1,5 +1,5 @@
-" NeoBundleで管理してるpluginを読み込む
-source ~/.vimrc.bundle
+" dein.vimで管理してるpluginを読み込む
+source ~/.vimrc.plugin
 " 基本設定
 source ~/.vimrc.basic
 " StatusLine設定

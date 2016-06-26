@@ -16,7 +16,6 @@ Icon
 .Trashes
 zsh.dot/zshrc.local
 vim/bundle/*
-!vim/bundle/Vundle.vim
 tmux/plugins/*
 !tmux/plugins/tpm
 

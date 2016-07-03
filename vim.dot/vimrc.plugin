@@ -83,12 +83,6 @@ call dein#add('tpope/vim-surround')
 " 補完 autocomplpop.vim : insertmodeで自動で補完をpopup
 call dein#add('AutoComplPop')
 
-" 補完 neocomplete.vim : 究極のVim的補完環境
-call dein#add('Shougo/neocomplete.vim')
-
-" neocomplcacheのsinpet補完
-call dein#add('Shougo/neosnippet.git')
-
 " rubyでrequire先を補完する
 call dein#add('ujihisa/neco-ruby')
 

@@ -1,10 +1,9 @@
-
 " 真なら vim 開始時から自動ポップアップが有効になります。
 let g:acp_enableAtStartup = 1
 
 " キーワード補完の自動ポップアップを行うのに必要なカーソルの直前のキーワ
 " ード文字数。負数ならこの補完は行われません。
-let g:acp_behaviorKeywordLength = 2
+let g:acp_behaviorKeywordLength = 3
 
 " キーワード補完のコマンド。このオプションには普通 "\<C-n>" か "\<C-p>"
 " を設定します。

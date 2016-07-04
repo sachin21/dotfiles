@@ -18,5 +18,7 @@ zsh.dot/zshrc.local
 vim/bundle/*
 tmux/plugins/*
 !tmux/plugins/tpm
+!vim/dein/repos/github.com/Shougo/dein.vim
+/vim/dein/
 
 /etc/bundle/cache

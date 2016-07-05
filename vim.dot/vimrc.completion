@@ -7,17 +7,8 @@ set wildmode=list:full     " リスト表示，最長マッチ
 set history=1000           " コマンド・検索パターンの履歴数
 set complete+=k            " 補完に辞書ファイル追加
 
-au FileType vimshellset set dictionary=~/.vimshell_hist
-au FileType scalaset set dictionary=~/.vim/bundle/vim-scala/dict/scala.dict
-au FileType java set dictionary=~/.vim/dict/java.dict
-au FileType cset set dictionary=~/.vim/dict/c.dict
-au FileType cppset set dictionary=~/.vim/dict/cpp.dict
-au FileType javascriptset set dictionary=~/.vim/dict/javascript.dict
-au FileType ocamlset set dictionary=~/.vim/dict/ocaml.dict
-au FileType perlset set dictionary=~/.vim/dict/perl.dict
-au FileType phpset set dictionary=~/.vim/dict/php.dict
-au FileType schemeset set dictionary=~/.vim/dict/scheme.dict
-au FileType vmset set dictionary=~/.vim/dict/vim.dict
+" 補完にneocomplcacheを使う
+source ~/.vimrc.completion.neocomplete
 
 " 補完にAutoComplPopを使う
 source ~/.vimrc.completion.autocomplpop

@@ -40,7 +40,7 @@ CLEANS = %w(
   .vimrc.colors
   .vimrc.completion
   .vimrc.completion.autocomplpop
-  .vimrc.completion.neocomplete
+  .vimrc.completion.neocomplcache
   .vimrc.editing
   .vimrc.encoding
   .vimrc.indent

@@ -3,19 +3,22 @@
 set -e
 
 declare DOTFILES_PATH
-declare REPOSITORIES
-declare FORMULAS
-declare APPLICATIONS
 declare OS
 
 DOTFILES_PATH="$HOME/dotfiles"
-REPOSITORIES=$(cat "$DOTFILES_PATH/data/repositories.txt")
-FORMULAS=$(cat "$DOTFILES_PATH/data/formulas.txt")
-APPLICATIONS=$(cat "$DOTFILES_PATH/data/applications.txt")
 OS="$OSTYPE"
 
 # Load method for printing
 . "$DOTFILES_PATH/etc/helpers"
+
+# Check for existence ruby
+function check_for_ruby() {
+  if command_exists ruby; then
+    fail "  x [Error] Ruby or cURL are not installed"; return 1
+  else
+    message "  + Ruby is found. alright let's go!"
+  fi
+}
 
 # Check for os
 function is_darwin() {
@@ -31,15 +34,6 @@ function export_paths() {
     export PATH="$HOME/.linuxbrew/bin:$PATH"
     export MANPATH="$HOME/.linuxbrew/share/man:$MANPATH"
     export INFOPATH="$HOME/.linuxbrew/share/info:$INFOPATH"
-  fi
-}
-
-# Check for existence ruby
-function check_for_ruby() {
-  if command_exists ruby curl; then
-    fail "  x [Error] Ruby or cURL are not installed"; return 1
-  else
-    message "  + Ruby and cURL found. alright let's go!"
   fi
 }
 
@@ -72,7 +66,7 @@ function upgrade_homebrew() {
 
   if [ "$flag" = "y" ] || [ "$flag" = 'Y' ]; then
     message "  + Upgrading Homebrew formulas"
-    brew upgrade || return 0
+    brew upgrade || true
   fi
 }
 
@@ -80,8 +74,8 @@ function upgrade_homebrew() {
 function tap_repositories() {
   message "  + Tapping repositories..."
 
-  for repository in $REPOSITORIES; do
-    brew tap "$repository" || return 0
+  for repository in $(cat "$DOTFILES_PATH/data/repositories.txt"); do
+    brew tap "$repository" || true
   done
 }
 
@@ -89,24 +83,25 @@ function tap_repositories() {
 function install_formulas() {
   message "  + Installing formulas..."
 
-  for formula in $FORMULAS; do
-    brew install "$formula" || return 0
+  for formula in $(cat "$DOTFILES_PATH/data/formulas.txt"); do
+    brew install "$formula" || true
   done
 }
 
 # Install brew-cask
-function install_formulas() {
+function install_brew-cask() {
   message "  + Installing Homebrew-cask..."
 
-  brew install caskroom/cask/brew-cask || return 0
+  brew tap caskroom/cask
+  brew install cask
 }
 
 # Install Applications to /Applications
 function install_osx_applications() {
   message "  + Installing OS X Application..."
 
-  for application in $APPLICATIONS; do
-    brew cask install --appdir="/Applications" "$application" || return 0
+  for application in $(cat "$DOTFILES_PATH/data/applications.txt"); do
+    brew cask install $application || true
   done
 }
 

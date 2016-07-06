@@ -1,6 +1,0 @@
-name: hy
-root: ~/Projects/github.com/sachin21/space2hyphen
-
-windows:
-  - browser:
-  - console:

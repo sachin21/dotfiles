@@ -1,6 +1,0 @@
-name: sdot
-root: ~/Projects/github.com/sachin21/space2dot
-
-windows:
-  - browser:
-  - console:

@@ -1,9 +1,0 @@
-name: lab
-root: ~/Projects/github.com/sachin21/gitlabhq
-
-windows:
-  - console:
-    - bundle exec rails console
-  - log:
-    - tail -f log/development.log
-  - editor:

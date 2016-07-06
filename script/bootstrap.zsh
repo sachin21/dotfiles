@@ -9,19 +9,19 @@ declare DOTFILES_PATH
 declare NEEDED_PACKAGES
 
 DOTFILES_PATH="$HOME/dotfiles"
-NEEDED_PACKAGES="curl ruby git"
+NEEDED_PACKAGES="ruby git"
 
 function install_dotfiles(){
   if [ -d "$DOTFILES_PATH" ]; then
-    cd "$DOTFILES_PATH" && . ./etc/helpers || return 1
+    cd "$DOTFILES_PATH" && . ./etc/helpers || exit 1
     message "  + Dotfiles is Already exists. Let's go next step"
   else
     if type git &> /dev/null; then
       git clone https://github.com/sachin21/dotfiles.git "$DOTFILES_PATH"
-      echo "Git is required. Please install the git."; return 1
+      echo "Git is required. Please install the git."; exit 1
     fi
 
-    cd "$DOTFILES_PATH" && . ./etc/helpers || return 1
+    cd "$DOTFILES_PATH" && . ./etc/helpers || exit 1
   fi
 }
 
@@ -37,39 +37,39 @@ function install_packages(){
 
   # Setup tools
   if [ "$flag:l" = "m" ]; then # For Mac OSX
-    cd "$HOME/dotfiles "|| return 1
+    cd $DOTFILES_PATH || exit 1
     message "  + Installing Homebrew..."
     ./script/brew.zsh
   elif [ "$flag:l" = "c" ]; then # For CentOS
     message "  + Updating already exists packages..."
-    sudo yum -y update
+    sudo yum -y update || true
 
     message "  + Upgrading packages..."
-    sudo yum -y upgrade
+    sudo yum -y upgrade || true
 
     message "  + Installing needed packages..."
-    sudo yum -y install $NEEDED_PACKAGES
+    sudo yum -y install $NEEDED_PACKAGES || true
 
     message "  + Cleaning packages..."
     sudo yum -y clean
   elif [ "$flag:l" = "a" ]; then # For ArchLinux
     message "  + Upgrading packages..."
-    sudo pacman -Sy
+    sudo pacman -Sy || true
 
     message "  + Installing needed packages..."
     sudo pacman -S $NEEDED_PACKAGES
   elif [ "$flag:l" = 'u' ]; then
     message " + Updating packages..."
-    sudo apt-get update
+    sudo apt-get update || true
 
     message " + Upgrading packages..."
-    sudo apt-get upgrade
+    sudo apt-get upgrade || true
 
     message "  + Installing needed packages..."
-    sudo apt-get install -y $NEEDED_PACKAGES
+    sudo apt-get install -y $NEEDED_PACKAGES || true
   else
     fail "  x [Error] You can input is only 'm', 'c' and 'a'"
-    return 1
+    exit 1
   fi
 
   message "  + Tools was successfully installed"

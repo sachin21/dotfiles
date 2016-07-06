@@ -1,8 +1,0 @@
-name: nuko
-root: ~/Projects/github.com/sachin21/nuko
-
-windows:
-  - console:
-  - log:
-    - tail -f log/development.log
-  - editor:

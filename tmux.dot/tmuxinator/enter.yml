@@ -1,9 +1,0 @@
-name: enter
-root: ~/Projects/github.com/sachin21/enterrrrrr
-
-windows:
-  - rails_console:
-    - bundle exec rails console
-  - log:
-    - tail -f log/development.log
-  - console:

@@ -1,4 +1,3 @@
-
 " 真なら vim 開始時から自動ポップアップが有効になります。
 let g:acp_enableAtStartup = 1
 

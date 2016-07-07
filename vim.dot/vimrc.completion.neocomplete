@@ -13,17 +13,17 @@ let g:neocomplete#sources#syntax#min_keyword_length = 3
 let g:neocomplete#lock_buffer_name_pattern = '\*ku\*'
 
 " Define dictionary.
-au FileType vimshellset set dictionary=~/.vimshell_hist
-au FileType scalaset set dictionary=~/.vim/bundle/vim-scala/dict/scala.dict
-au FileType java set dictionary=~/.vim/dict/java.dict
-au FileType cset set dictionary=~/.vim/dict/c.dict
-au FileType cppset set dictionary=~/.vim/dict/cpp.dict
-au FileType javascriptset set dictionary=~/.vim/dict/javascript.dict
-au FileType ocamlset set dictionary=~/.vim/dict/ocaml.dict
-au FileType perlset set dictionary=~/.vim/dict/perl.dict
-au FileType phpset set dictionary=~/.vim/dict/php.dict
-au FileType schemeset set dictionary=~/.vim/dict/scheme.dict
-au FileType vmset set dictionary=~/.vim/dict/vim.dict
+let g:neocomplete#sources#dictionary#dictionaries = {
+  \ 'default' : '',
+  \ 'c' : $HOME.'/.vim/dict/c.dict',
+  \ 'cpp' : $HOME.'/.vim/dict/cpp.dict',
+  \ 'javascript' : $HOME.'/.vim/dict/javascript.dict',
+  \ 'ocaml' : $HOME.'/.vim/dict/ocaml.dict',
+  \ 'perl' : $HOME.'/.vim/dict/perl.dict',
+  \ 'php' : $HOME.'/.vim/dict/php.dict',
+  \ 'scheme' : $HOME.'/.vim/dict/scheme.dict',
+  \ 'vm' : $HOME.'/.vim/dict/vim.dict'
+  \ }
 
 autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS
 autocmd FileType html,markdown setlocal omnifunc=htmlcomplete#CompleteTags

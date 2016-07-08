@@ -19,19 +19,16 @@ alias va='vagrant'
 alias gto='git open'
 alias tn='tmux new'
 alias memo='cat > /dev/null'
-alias fuck='eval $(thefuck $(fc -ln -1))'
-alias FUCK='fuck'
-alias fucked='fuck'
-alias f='fuck'
 alias gs='git sync'
 alias gsm='git syncm'
 alias gsdd='git syncd'
 alias b='bundle'
 alias tigj='tig'
-alias rehash='rbenv rehash; nodenv rehash; pyenv rehash'
+alias rehash='nodenv rehash; pyenv rehash'
 alias ctags="ctags --exclude=.git --exclude=log"
 alias shred='rmtrash'
 alias r='rspec'
+alias say='say -v Alex'
 
 # Global
 # ---------------------------------------------------**
@@ -60,3 +57,11 @@ for project in $(command ls "$HOME/.tmuxinator"); do
   alias $project="tmuxinator $project"
 done
 unset project
+
+# Alias for the fuck
+# ---------------------------------------------------**
+eval "$(thefuck --alias)"
+
+alias FUCK='fuck'
+alias fucked='fuck'
+alias f='fuck'

@@ -14,7 +14,7 @@
 . "$HOME/.zshrc.setting"
 . "$HOME/.zshrc.alias"
 . "$HOME/.zshrc.function"
-. "$HOME/.zshrc.plugins"
+. "$HOME/.zshrc.plugin"
 . "$HOME/.zshrc.local"
 
 # When OSX or Linux

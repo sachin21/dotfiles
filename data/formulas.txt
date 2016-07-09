@@ -4,6 +4,7 @@ atk
 autoconf
 autojump
 automake
+awscli
 bash
 bdw-gc
 binutils
@@ -60,6 +61,7 @@ gperftools
 gsettings-desktop-schemas
 gtk+
 gtk+3
+gtk+3
 gtk-mac-integration
 gtksourceview
 harfbuzz
@@ -95,6 +97,7 @@ libxml2
 libxslt
 libyaml
 little-cms2
+lua
 make
 memcached
 mercurial
@@ -125,11 +128,13 @@ pygtk
 python
 python3
 qt
+rbenv
 readline
 reattach-to-user-namespace
 redis
 ricty
 rmtrash
+ruby-build
 ruby20
 scala
 scons
@@ -144,7 +149,7 @@ tmux
 tree
 unixodbc
 v8
-vim
+vim --with-lua
 w3m
 wget
 x264

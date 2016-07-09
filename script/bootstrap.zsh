@@ -153,6 +153,10 @@ function install_nodenv(){
 
 # Setup repositories
 function install_ghq() {
+  if command_not_exists curl; then
+    exit
+  fi
+
   ask "  + If you want to create projects of sachin21? [y/Y]" && read -r flag
 
   if [ "$flag:l" = "y" ]; then

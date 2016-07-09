@@ -126,9 +126,6 @@ call dein#add('tyru/open-browser-github.vim')
 "  http://blog.glidenote.com/blog/2013/02/28/the-silver-searcher-better-than-ack/
 call dein#add('rking/ag.vim')
 
-" TypeScriptの便利なやつ"
-call dein#add('clausreinke/typescript-tools')
-
 " JavaScriptのライブラリ補完をする
 call dein#add('othree/javascript-libraries-syntax.vim')
 
@@ -267,6 +264,12 @@ call dein#add('vim-scripts/taglist.vim')
 
 " Explorer
 call dein#add('jlanzarotta/bufexplorer')
+
+" Typescript
+call dein#add('leafgarland/typescript-vim', {
+  \ 'autoload' : {
+  \   'filetypes' : ['typescript'] }
+  \ })
 
 " Unite
 call dein#add('Shougo/unite.vim')

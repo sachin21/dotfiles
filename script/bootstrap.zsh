@@ -229,7 +229,6 @@ function main(){
   install_ghq
   install_zplug
   create_symbolic_links
-  create_dir_for_gopath
   create_needed_dirs
   create_needed_files
 

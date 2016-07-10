@@ -9,7 +9,7 @@ declare DOTFILES_PATH
 declare NEEDED_PACKAGES
 
 DOTFILES_PATH="$HOME/dotfiles"
-NEEDED_PACKAGES="ruby git"
+NEEDED_PACKAGES="ruby git curl"
 
 function install_dotfiles(){
   if [ -d "$DOTFILES_PATH" ]; then

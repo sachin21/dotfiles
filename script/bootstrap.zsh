@@ -18,6 +18,7 @@ function install_dotfiles(){
   else
     if type git &> /dev/null; then
       git clone https://github.com/sachin21/dotfiles.git "$DOTFILES_PATH"
+    else
       echo "Git is required. Please install the git."; exit 1
     fi
 

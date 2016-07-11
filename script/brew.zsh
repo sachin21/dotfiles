@@ -6,15 +6,16 @@ declare DOTFILES_PATH
 declare OS
 
 DOTFILES_PATH="$HOME/dotfiles"
+NEEDED_PACKAGES="ruby curl"
 OS="$OSTYPE"
 
-# Load method for printing
+# Load helpers
 . "$DOTFILES_PATH/etc/helpers"
 
 # Check for existence ruby
 function check_for_ruby() {
-  if command_exists ruby; then
-    fail "  x [Error] Ruby or cURL are not installed"; return 1
+  if command_exists $NEEDED_PACKAGES; then
+    fail "  x [Error] Ruby and cURL are not installed"; return 1
   else
     message "  + Ruby is found. alright let's go!"
   fi
@@ -51,7 +52,7 @@ function install_homebrew(){
 }
 
 # Update Homebrew formulas
-function update_homebrew() {
+function update_formulas() {
   ask "  + Do you want to update Homebrew? [Y/n]:" && read -r flag
 
   if [ "$flag" = "y" ] || [ "$flag" = "Y" ]; then
@@ -134,7 +135,7 @@ function main() {
   fi
 
   upgrade_homebrew
-  upgrade_homebrew
+  update_formulas
   tap_repositories
   install_formulas
 

@@ -37,7 +37,7 @@ function install_packages(){
 
   # Setup tools
   if [ "$flag:l" = "m" ]; then # For Mac OSX
-    cd $DOTFILES_PATH || exit 1
+    cd "$DOTFILES_PATH" || exit 1
     message "  + Installing Homebrew..."
     ./script/brew.zsh
   elif [ "$flag:l" = "c" ]; then # For CentOS

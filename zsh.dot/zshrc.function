@@ -28,7 +28,7 @@ function peco-select-history() {
   local BUFFER=$(\history -n 1 | \
     tac | \
     peco --query "$LBUFFER")
-  CURSOR=$#BUFFER
+  CURSOR="$#BUFFER"
 
   zle clear-screen
 }

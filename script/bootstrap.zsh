@@ -36,7 +36,7 @@ function install_packages(){
   ask "  + OSX user 'm' : CentOS user 'c' : ArchLinux user 'a' : Ubuntu user 'u' [m/c/a/u]" && read -r flag
 
   # Setup tools
-  if [ "$flag:l" = "m" ]; then # For Mac OSX
+  if [ "$flag:l" = "m" ]; then # For OS X
     cd "$DOTFILES_PATH" || exit 1
     message "  + Installing Homebrew..."
     ./script/brew.zsh

@@ -1,5 +1,6 @@
 begin
   require 'awesome_print'
+  AwesomePrint.pry!
 rescue LoadError
   puts "Could not load awesome_print"
 end

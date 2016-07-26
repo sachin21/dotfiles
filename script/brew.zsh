@@ -6,7 +6,6 @@ declare DOTFILES_PATH
 declare OS
 
 DOTFILES_PATH="$HOME/dotfiles"
-NEEDED_PACKAGES="ruby curl"
 OS="$OSTYPE"
 
 # Load helpers
@@ -14,10 +13,8 @@ OS="$OSTYPE"
 
 # Check for existence ruby
 function check_for_ruby() {
-  if command_exists $NEEDED_PACKAGES; then
-    fail "  x [Error] Ruby and cURL are not installed"; return 1
-  else
-    message "  + Ruby is found. alright let's go!"
+  if command_not_exists ruby curl > /dev/null 2>&1; then
+    fail "  x [Error] Ruby and cURL are not installed"; exit 1
   fi
 }
 
@@ -42,12 +39,16 @@ function export_paths() {
 function install_homebrew(){
   local installation_url="$1"
 
-  if command_exists brew; then
+  if type brew > /dev/null 2>&1; then
     message "  + Homebrew found"
   else
     message "  + Installing Homebrew..."
-    ruby -e "$(curl -fsSL "$installation_url")"
-    message "  + Homebrew was successfully installed"
+
+    if ruby -e "$(curl -fsSL "$installation_url")"; then
+      message "  + Homebrew was successfully installed"
+    else
+      fail "  x [Error] Homebrew was unsuccessfully installed", exit 1
+    fi
   fi
 }
 
@@ -57,7 +58,11 @@ function update_formulas() {
 
   if [ "$flag" = "y" ] || [ "$flag" = "Y" ]; then
     message "  + Updating Homebrew"
-    brew update
+    if brew update > /dev/null 2>&1; then
+      message "  + Done Updating Homebrew"
+    else
+      fail "  x [Error] Homebrew was unsuccessfully updated", exit 1
+    fi
   fi
 }
 
@@ -67,7 +72,11 @@ function upgrade_homebrew() {
 
   if [ "$flag" = "y" ] || [ "$flag" = 'Y' ]; then
     message "  + Upgrading Homebrew formulas"
-    brew upgrade || true
+    if brew upgrade > /dev/null 2>&1; then
+      message "  + Homebrew formulas was successfully upgraded"
+    else
+      warn "  x [Warning] Homebrew was unsuccessfully upgraded"
+    fi
   fi
 }
 
@@ -76,7 +85,8 @@ function tap_repositories() {
   message "  + Tapping repositories..."
 
   for repository in $(cat "$DOTFILES_PATH/data/repositories.txt"); do
-    brew tap "$repository" || true
+    brew tap "$repository" > /dev/null 2>&1 || true
+    message "  + Done Tapping $repository"
   done
 }
 
@@ -85,7 +95,11 @@ function install_formulas() {
   message "  + Installing formulas..."
 
   for formula in $(cat "$DOTFILES_PATH/data/formulas.txt"); do
-    brew install "$formula" || true
+    if brew install "$formula" > /dev/null 2>&1; then
+      succeed "  + $formula was successfully installed"
+    else
+      warn "  x [Warning] $formula was unsuccessfully installed"
+    fi
   done
 }
 
@@ -93,8 +107,11 @@ function install_formulas() {
 function install_brew-cask() {
   message "  + Installing Homebrew-cask..."
 
-  brew tap caskroom/cask
-  brew install cask
+  if brew tap caskroom/cask > /dev/null 2>&1 && brew install cask > /dev/null 2>&1; then
+    succeed "  + Homebrew-cask was successfully installed"
+  else
+    fail "  x [Error] Homebrew-cask was unsuccessfully installed homebrew-cask"; return 1
+  fi
 }
 
 # Install Applications to /Applications
@@ -102,15 +119,13 @@ function install_osx_applications() {
   message "  + Installing OS X Application..."
 
   for application in $(cat "$DOTFILES_PATH/data/applications.txt"); do
-    brew cask install $application || true
+
+    if brew cask install $application > /dev/null 2>&1; then
+      succeed "  + $application was successfully installed"
+    else
+      fail "  x [Error] $application unsuccessfully Installed homebrew-cask"; return 1
+    fi
   done
-}
-
-# Create link for installed applications
-function create_link() {
-  message "  + Linking osx apps..."
-
-  brew cask alfred link
 }
 
 # Remove outdated versions and archive file
@@ -139,10 +154,7 @@ function main() {
   tap_repositories
   install_formulas
 
-  if is_darwin; then
-    install_osx_applications
-    create_link
-  fi
+  is_darwin && install_osx_applications
 
   remove_caches
 }

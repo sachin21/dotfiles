@@ -9,4 +9,4 @@
   url = git://github.com/Shougo/dein.vim.git
 [submodule "tmux.dot/tmuxinator"]
   path = tmux.dot/tmuxinator
-  url = git@github.com:sachin21/.tmuxinator.git
+  url = git://github.com/sachin21/.tmuxinator.git

@@ -99,12 +99,9 @@ endif
 " taglist.Vim
 "------------------------------------
 " 関数一覧
-set tags=tags
-"set tags+=~/.tags
-"let Tlist_Ctags_Cmd = '/Applications/MacVim.app/Contents/MacOS/ctags' " ctagsのパス
 let Tlist_Show_One_File = 1               " 現在編集中のソースのタグしか表示しない
 let Tlist_Exit_OnlyWindow = 1             " taglistのウィンドーが最後のウィンドーならばVimを閉じる
-" let Tlist_Use_Right_Window = 1            " 右側でtaglistのウィンドーを表示
+let Tlist_Use_Right_Window = 1            " 右側でtaglistのウィンドーを表示
 let Tlist_Enable_Fold_Column = 1          " 折りたたみ
 let Tlist_Auto_Open = 0                   " 自動表示
 let Tlist_Auto_Update = 1
@@ -349,8 +346,6 @@ map sor <Plug>(operator-sort)
 "------------------------------------
 " szw/vim-tags
 "------------------------------------
-au BufNewFile, BufRead *.ruby let g:vim_tags_project_tags_command = "ctags --languages=ruby -f ~/ruby.tags `pwd` 2> /dev/null &"
-
 " tagsジャンプの時に複数ある時は一覧表示
 nnoremap <C-]> g<C-]>
 
@@ -364,3 +359,9 @@ let g:yankround_max_history = 200
 "------------------------------------
 nnoremap <Leader>yrs :YRShow<CR>
 nnoremap <Leader>ys :YRSearch<Space>
+
+"------------------------------------
+" mxw/vim-jsx
+"------------------------------------
+" js 拡張子でも有効にする
+let g:jsx_ext_required = 0

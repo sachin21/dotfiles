@@ -2,13 +2,13 @@
 # ---------------------------------------------------**
 
 logging() {
-  local red="31"
-  local yellow="33"
-  local blue="34"
-  local turquoise="36"
-  local white="37"
-  local text="${@:2}"
-  local _color=
+  red="31"
+  yellow="33"
+  blue="34"
+  turquoise="36"
+  white="37"
+  text="${@:2}"
+  _color=
 
   case "$1" in
    "fail") _color=$red ;;
@@ -36,5 +36,5 @@ command_exists() {
 }
 
 command_not_exists() {
-  ! type $1 &> /dev/null
+  ! type $@ &> /dev/null
 }

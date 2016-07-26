@@ -61,8 +61,11 @@ unset project
 
 # Alias for the fuck
 # ---------------------------------------------------**
-eval "$(thefuck --alias)"
-
-alias FUCK='fuck'
-alias fucked='fuck'
-alias f='fuck'
+if type fuck &> /dev/null; then
+  eval "$(thefuck --alias)"
+  alias FUCK='fuck'
+  alias fucked='fuck'
+  alias f='fuck'
+else
+  warn "  x [Warning] The Fuck is not installed"
+fi

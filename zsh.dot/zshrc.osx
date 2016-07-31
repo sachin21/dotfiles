@@ -13,26 +13,26 @@ alias -s html="open"
 
 # If exists, setup for etc
 # ---------------------------------------------------**
-if type brew &> /dev/null; then
+if command_exists brew; then
   export PATH="$(brew --prefix coreutils)/libexec/gnubin:$PATH"
 else
   warn "  x [Warning] Homebrew is not installed"
 fi
 
-if type dircolors &> /dev/null; then
+if command_exists dircolors; then
   eval "$(dircolors "$HOME/.dircolors")"
 else
   warn "  x [Warning] dircolors is not installed"
 fi
 
-if type gls &> /dev/null; then
+if command_exists gls; then
   alias ls="gls --color=auto -AFh"
 else
   warn "  x [Warning] coreutils is not installed"
   alias ls="ls -AFh"
 fi
 
-if type rmtrash &> /dev/null; then
+if command_exists rmtrash; then
   alias rm="rmtrash"
 else
   warn "  x [Warning] rmtrash is not installed"

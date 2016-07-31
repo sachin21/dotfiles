@@ -61,7 +61,7 @@ unset project
 
 # Alias for the fuck
 # ---------------------------------------------------**
-if type fuck &> /dev/null; then
+if command_exists fuck &> /dev/null; then
   eval "$(thefuck --alias)"
   alias FUCK='fuck'
   alias fucked='fuck'

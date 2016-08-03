@@ -77,16 +77,27 @@ function ec() {
   git commit -m "Execute '$@'"
 }
 
+function peco-find-and-open-file () {
+  local files=$(find . | peco)
+  if [[ ! $files == '' ]]; then
+    echo $files | xargs zsh -c 'vim "$0" < /dev/tty'
+  fi
+
+  zle clear-screen
+}
+
 # Set zle
 # ---------------------------------------------------**
 zle -N peco-select-history
 zle -N change-branch
+zle -N peco-find-and-open-file
 
 # Bind functions
 # ---------------------------------------------------**
 bindkey '^r' peco-select-history
 bindkey '^{' change-branch
 bindkey '^_' undo
+bindkey '^xt' peco-find-and-open-file
 
 # Alias functions
 # ---------------------------------------------------**

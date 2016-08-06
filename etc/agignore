@@ -1,24 +1,56 @@
-,*
-*.swp
-*.swo
-*.bak
-.vim/bundle
-vendor/bundle
-.git
-jquery*.js
-jquery*.css
-*.min.*
-log/*
-.DS_Store
-.AppleDouble
-.LSOverride
-Icon
-._*
-.Spotlight-V100
-.Trashes
+# Compiled program #
+# ---------------------------------------------------**
+*.log
+*.com
+*.class
+*.dll
+*.exe
+*.o
+*.so
+
+# Packages
+# ---------------------------------------------------**
+*.7z
+*.dmg
+*.gz
+*.iso
+*.jar
+*.rar
+*.tar
+*.zip
+
+# Logs and databases
+# ---------------------------------------------------**
+*.log
+*.sql
+*.sqlite
+
+# OS generated files
+# ---------------------------------------------------**
 .AppleDB
 .AppleDesktop
+.DS_Store
+.DS_Store?
+.Spotlight-V100
+.Trashes
+.Trashes
+._*
+.apdisk
+Icon?
 Network Trash Folder
 Temporary Items
-.apdisk
+Thumbs.db
+
+# Files related to Ruby
+# ---------------------------------------------------**
+.bundle
+/vendor/bundle
+*.gem
+
+# etc #
+# ---------------------------------------------------**
+*.log
+tags
 .rake_tasks
+,
+,*

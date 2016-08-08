@@ -41,7 +41,7 @@ function initialize_submodules(){
 
 function install_packages(){
   # Setup tools
-  if [ "$(uname)" == 'Darwin' ]; then
+  if [ "$(uname)" = 'Darwin' ]; then
     if ! ./script/brew.zsh; then
       fail "  x [Error] Homebrew was unsuccessfully installed", exit 1
     fi

@@ -15,7 +15,7 @@ function agvim() {
   fi
 }
 
-function change-repository() {
+function _change-repository() {
   local result=$(ghq list -p | peco)
 
   if [[ ! $result == '' ]]; then
@@ -23,7 +23,7 @@ function change-repository() {
   fi
 }
 
-function peco-select-history() {
+function _peco-select-history() {
   if ! command_exists tac; then
     warn "  x [Warning] tac is not installed"
     return 1
@@ -37,7 +37,7 @@ function peco-select-history() {
   zle clear-screen
 }
 
-function peco-select-project() {
+function _peco-select-project() {
   if command_not_exists tmuxinator; then
     fail '  x [Warning] The Tmuxinator is not installed'; return 1
   fi
@@ -55,7 +55,7 @@ function peco-select-project() {
   tmuxinator $project
 }
 
-function change-branch() {
+function _change-branch() {
   local branch=$(git branch | grep -v -o "*" | sed -e 's/ //g' | peco)
   git checkout $branch &> /dev/null
   printf "Switched to branch '$branch'"
@@ -77,7 +77,7 @@ function ec() {
   git commit -m "Execute '$@'"
 }
 
-function peco-find-and-open-file () {
+function _peco-find-and-open-file () {
   local files=$(find . | peco)
   if [[ ! $files == '' ]]; then
     echo $files | xargs zsh -c 'vim "$0" < /dev/tty'
@@ -88,18 +88,18 @@ function peco-find-and-open-file () {
 
 # Set zle
 # ---------------------------------------------------**
-zle -N peco-select-history
-zle -N change-branch
-zle -N peco-find-and-open-file
+zle -N _peco-select-history
+zle -N _change-branch
+zle -N _peco-find-and-open-file
 
 # Bind functions
 # ---------------------------------------------------**
-bindkey '^r' peco-select-history
-bindkey '^{' change-branch
+bindkey '^r' _peco-select-history
+bindkey '^{' _change-branch
 bindkey '^_' undo
-bindkey '^xt' peco-find-and-open-file
+bindkey '^xt' _peco-find-and-open-file
 
 # Alias functions
 # ---------------------------------------------------**
-alias p='peco-select-project'
-alias c='change-repository'
+alias p='_peco-select-project'
+alias c='_change-repository'

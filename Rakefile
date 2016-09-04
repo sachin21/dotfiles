@@ -19,6 +19,9 @@ GIT_FILES     = `ls git`.split("\n").freeze
 ETC_ROOT      = File.join(File.dirname(__FILE__), 'etc')
 ETC_FILES     = `ls etc`.split("\n").freeze
 
+ARCH_ROOT     = File.join(File.dirname(__FILE__), 'arch')
+ARCH_FILES    = `ls arch`.split("\n").freeze
+
 CLEANS = %w(
   .zshrc
   .zshrc.alias
@@ -105,6 +108,13 @@ namespace :etc do
   desc 'Create symbolic links  for etcs link to HOME'
   task :link do
     same_name_symlinks ETC_ROOT, ETC_FILES
+  end
+end
+
+namespace :arch do
+  desc 'Create symbolic links for ArchLinux to HOME'
+  task :link do
+    same_name_symlinks ARCH_ROOT, ARCH_FILES
   end
 end
 

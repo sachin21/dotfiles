@@ -2,10 +2,10 @@
 [![license](http://img.shields.io/badge/license-MIT-blue.svg?style=flat)](./LICENSE-MIT.txt "License")
 
 ## Features
-- OS X Yosemite (MacBookPro Retina)
-- Zsh
-- Vim
-- tmux
+- Yosemite MacBook Pro (Retina, 15-inch, Early 2013)
+- Zsh 5.2
+- Vim 8.0.0002 +clipboard +lua
+- Tmuxa 2.2
 - iTerm2
 - Solarized dark
 

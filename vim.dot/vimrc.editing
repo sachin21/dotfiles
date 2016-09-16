@@ -40,6 +40,9 @@ nmap yd y$
 nmap y0 y^
 nmap yk y^
 
+" 現在行をヤンク
+nmap yy Vy
+
 inoremap <silent> <C-k> <Esc>lc^
 " カーソルから行頭までヤンク(インサートモード)
 inoremap <silent> <C-y>e <Esc>ly0<Insert>

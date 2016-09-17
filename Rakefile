@@ -11,7 +11,7 @@ VIM_DOT_FILES = `ls vim.dot`.split("\n").freeze
 
 TMUX_ROOT     = File.join(File.dirname(__FILE__), 'tmux')
 TMUX_DOT_ROOT = File.join(File.dirname(__FILE__), 'tmux.dot')
-TMUX_FILES    = `ls tmux.dot`.split("\n").freeze
+TMUX_FILES    = %w(tmux tmuxinator)
 
 GIT_ROOT      = File.join(File.dirname(__FILE__), 'git')
 GIT_FILES     = `ls git`.split("\n").freeze
@@ -70,7 +70,7 @@ CLEAN.concat(CLEANS.map { |c| File.join(HOME, c) })
 task default: :deploy
 
 desc 'Create symbolic links for the all dotfiles'
-task deploy: %w(zsh:link vim:link git:link tmux:link etc:link)
+task deploy: %w(zsh:link vim:link tmux:link git:link etc:link)
 
 namespace :zsh do
   desc 'Create symbolic links for zsh settings file to HOME'
@@ -97,10 +97,24 @@ namespace :git do
 end
 
 namespace :tmux do
-  desc 'Create symbolic links for tmux config files to HOME'
   task :link do
-    _symlink File.join(TMUX_ROOT), File.join(HOME, '.tmux')
     same_name_symlinks TMUX_DOT_ROOT, TMUX_FILES
+  end
+
+  namespace :osx do
+    desc 'Create symbolic links for tmux config files for OS X to HOME'
+    task :link do
+      _symlink File.join(TMUX_ROOT), File.join(HOME, '.tmux')
+      _symlink File.join(TMUX_DOT_ROOT, 'tmux.conf.osx'), File.join(HOME, '.tmux.conf')
+    end
+  end
+
+  namespace :linux do
+    desc 'Create symbolic links for tmux config files for Linux to HOME'
+    task :link do
+      _symlink File.join(TMUX_ROOT), File.join(HOME, '.tmux')
+      _symlink File.join(TMUX_DOT_ROOT, 'tmux.conf.linux'), File.join(HOME, '.tmux.conf')
+    end
   end
 end
 

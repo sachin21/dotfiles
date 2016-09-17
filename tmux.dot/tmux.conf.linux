@@ -1,0 +1,94 @@
+set -g @plugin 'tmux-plugins/tpm'
+set -g @plugin 'nhdaly/tmux-scroll-copy-mode'
+
+run '~/.tmux/plugins/tpm/tpm'
+
+# アンダースコアに変更
+set -g window-status-current-attr underscore
+
+# 256色ターミナル
+set-option -g default-terminal "screen-256color"
+
+# Powerline
+source /usr/lib/python3.5/site-packages/powerline/bindings/tmux/powerline.conf
+# 見栄え
+set -g pane-active-border-fg white
+set -g pane-active-border-bg black
+
+set-window-option -g mode-bg white
+set-window-option -g mode-fg black
+set-window-option -g window-status-bg black
+set-window-option -g window-status-fg white
+set-window-option -g window-status-current-bg blue
+set-window-option -g window-status-current-fg black
+set-window-option -g window-status-current-attr bold
+
+set -g status-attr dim
+set -g status-left-length 170
+set -g status-right-length 200
+
+set -g status-fg white
+set -g status-bg colour234
+set -g pane-border-fg colour245
+set -g pane-active-border-fg colour39
+
+# ESCキーの遅延
+# デフォルト :0.5 -> 500ms
+set -s escape-time 0
+
+# 再読み込み
+# bind r source-file ~/.tmux.conf; display-message "Reload Config!!"
+
+# プレフィックス
+unbind C-b
+set -g prefix ^T
+bind t send-prefix
+
+# vim風操作
+setw -g mode-keys vi
+set-window-option -g mode-keys vi
+set-window-option -g mode-keys vi
+set-window-option -g automatic-rename off
+
+bind-key -t vi-copy 'v' begin-selection
+bind-key -t vi-copy 'y' copy-selection
+bind-key -t vi-copy v begin-selection
+bind-key -t vi-copy y copy-pipe "reattach-to-user-namespace pbcopy"
+
+unbind -t vi-copy Enter
+bind-key -t vi-copy Enter copy-pipe "reattach-to-user-namespace pbcopy"
+
+# セッションをkill
+bind q kill-session
+
+# ウィンドウ選択画面
+bind Space choose-window
+# 新ウィンドウ作成
+bind c new-window
+# 分割していたペインそれぞれをWindowに
+bind b break-pane
+# ペインの縦分割
+bind H split-window -v
+# ペインの横分割
+bind v split-window -h
+
+# ウィンドウ終了
+bind W kill-window
+# ペイン番号表示
+bind i display-panes
+
+# ペインの移動1(Vim風にする)
+bind h select-pane -L
+bind j select-pane -D
+bind k select-pane -U
+bind l select-pane -R
+
+# マウスの有効化
+set-option -g mouse on
+
+# スクリーンセイバー
+set -g lock-after-time 500
+set -g lock-command "cmatrix -s -b"
+
+# 履歴の限界値
+set-option -g history-limit 20000

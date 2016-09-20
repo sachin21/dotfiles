@@ -69,3 +69,13 @@ if command_exists fuck &> /dev/null; then
 else
   warn "  x [Warning] The Fuck is not installed"
 fi
+
+# An Alias for the cURL
+# ---------------------------------------------------**
+CURL_OPTS=''
+CURL_OPTS+=' -H "Accept: application/json"'
+CURL_OPTS+=' -H "Content-Type: application/json"'
+CURL_OPTS+=' -H "Cache-Control: no-cache"'
+CURL_OPTS+=' -b ~/cookies.txt -c ~/cookies.txt'
+
+alias curl="curl $CURL_OPTS"

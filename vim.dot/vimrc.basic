@@ -20,15 +20,20 @@ set modelines=0                  " モードラインは無効
 set notitle                      " vimを使ってくれてありがとう
 
 " OSのクリップボードを使用する
-set clipboard+=unnamed
+let OSTYPE = system('uname')
+
+if OSTYPE == "Darwin\n"
+  set clipboard=unnamed
+elseif OSTYPE == "Linux\n"
+  set clipboard=unnamedplus
+endif
+
 
 " ターミナルでマウスを使用できるようにする
 set mouse=a
 set guioptions+=a
 set ttymouse=xterm2
 
-"ヤンクした文字は、システムのクリップボードに入れる
-set clipboard=unnamed
 
 " Ev/Rvでvimrcの編集と反映
 command! Ev edit $MYVIMRC

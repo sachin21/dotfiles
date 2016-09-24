@@ -104,7 +104,6 @@ namespace :tmux do
   namespace :osx do
     desc 'Create symbolic links for tmux config files for OS X to HOME'
     task :link do
-      _symlink File.join(TMUX_ROOT), File.join(HOME, '.tmux')
       _symlink File.join(TMUX_DOT_ROOT, 'tmux.conf.osx'), File.join(HOME, '.tmux.conf')
     end
   end
@@ -112,7 +111,6 @@ namespace :tmux do
   namespace :linux do
     desc 'Create symbolic links for tmux config files for Linux to HOME'
     task :link do
-      _symlink File.join(TMUX_ROOT), File.join(HOME, '.tmux')
       _symlink File.join(TMUX_DOT_ROOT, 'tmux.conf.linux'), File.join(HOME, '.tmux.conf')
     end
   end

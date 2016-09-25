@@ -97,8 +97,10 @@ namespace :git do
 end
 
 namespace :tmux do
+  desc 'Create a symbolic link for tmux libraries'
   task :link do
-    same_name_symlinks TMUX_DOT_ROOT, TMUX_FILES
+    _symlink File.join(TMUX_ROOT), File.join(HOME, '.tmux')
+    _symlink File.join(TMUX_DOT_ROOT, 'tmuxinator'), File.join(HOME, '.tmuxinator')
   end
 
   namespace :osx do

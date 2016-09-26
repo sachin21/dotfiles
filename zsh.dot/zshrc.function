@@ -8,7 +8,7 @@ function agvim() {
 
     if [[ ! $result == '' ]]; then
       echo $result | awk -F : '{print "-c " $2 " " $1}' >> $HOME/.agvim_history
-      vim $(tail -n 1 $HOME/.agvim_history)
+      vim $(tail -n 1 "$HOME"/.agvim_history)
     fi
   else
     echo $output
@@ -18,8 +18,8 @@ function agvim() {
 function _change-repository() {
   local result=$(ghq list -p | peco)
 
-  if [[ ! $result == '' ]]; then
-    cd $result
+  if [[ ! "$result" == '' ]]; then
+    cd "$result"
   fi
 }
 
@@ -52,7 +52,7 @@ function _peco-select-project() {
     peco
   )
 
-  tmuxinator $project
+  tmuxinator "$project"
 }
 
 function _change-branch() {

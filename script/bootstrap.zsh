@@ -193,6 +193,14 @@ function install_zplug() {
   git clone https://github.com/b4b4r07/zplug "$HOME/.zplug" > /dev/null 2>&1
 }
 
+function install_mikutter_plugins() {
+  mkidr -p "$HOME/.mikutter/plugin"
+
+  for repo in $(cat data/mikutter_plugins.txt); do
+    git clone $repo "$HOME/.mikutter/plugin/$(basename $repo)"
+  done
+}
+
 function create_symbolic_links(){
   if command_not_existsrake > /dev/null 2>&1; then
     warn "  x [Warning] rake is not installed"; return 1
@@ -249,6 +257,7 @@ function main(){
   install_nodenv
   install_ghq
   install_zplug
+  install_mikutter_plugins
   create_symbolic_links
   create_needed_dirs
   create_needed_files

@@ -6,7 +6,7 @@ ZSH_DOT_ROOT  = File.join(File.dirname(__FILE__), 'zsh.dot')
 ZSH_DOT_FILES = `ls zsh.dot`.split("\n").freeze
 
 VIM_ROOT      = File.join(File.dirname(__FILE__), 'vim')
-VIM_DOT_ROOT  = File.join(File.dirname(__FILE__), 'vim.dot')
+VIM_DOT_ROOT      = File.join(File.dirname(__FILE__), 'vim.dot')
 VIM_DOT_FILES = `ls vim.dot`.split("\n").freeze
 
 TMUX_ROOT     = File.join(File.dirname(__FILE__), 'tmux')
@@ -22,24 +22,29 @@ ETC_FILES     = `ls etc`.split("\n").freeze
 ARCH_ROOT     = File.join(File.dirname(__FILE__), 'arch')
 ARCH_FILES    = `ls arch`.split("\n").freeze
 
+CONFIG_ROOT   = File.join(File.dirname(__FILE__), 'config')
+
 CLEANS = %w(
-  .zshrc
-  .zshrc.alias
-  .zshrc.config
-  .zshrc.env
-  .zshrc.function
-  .zshrc.linux
-  .zshrc.local
-  .zshrc.osx
-  .zshrc.setting
+  .agignore
+  .bundle
+  .config/fish
+  .config/nvim
+  .dircolors
+  .gemrc
+  .gitconfig
+  .global_ignore
+  .helpers
+  .peco
+  .pryrc
+  .railsrc
+  .tigrc
   .tmux
-  .tmuxinator
   .tmux.conf
+  .tmuxinator
   .vim
   .vimrc
   .vimrc.apperance
   .vimrc.basic
-  .vimrc.plugin
   .vimrc.colors
   .vimrc.completion
   .vimrc.completion.autocomplpop
@@ -49,20 +54,19 @@ CLEANS = %w(
   .vimrc.indent
   .vimrc.misc
   .vimrc.moving
+  .vimrc.plugin
   .vimrc.plugins_setting
   .vimrc.search
   .vimrc.statusline
-  .gitconfig
-  .global_ignore
-  .gemrc
-  .peco
-  .pryrc
-  .bundle
-  .dircolors
-  .tigrc
-  .railsrc
-  .agignore
-  .helpers
+  .zshrc
+  .zshrc.alias
+  .zshrc.config
+  .zshrc.env
+  .zshrc.function
+  .zshrc.linux
+  .zshrc.local
+  .zshrc.osx
+  .zshrc.setting
 ).freeze
 
 CLEAN.concat(CLEANS.map { |c| File.join(HOME, c) })
@@ -70,7 +74,7 @@ CLEAN.concat(CLEANS.map { |c| File.join(HOME, c) })
 task default: :deploy
 
 desc 'Create symbolic links for the all dotfiles'
-task deploy: %w(zsh:link vim:link git:link tmux:link etc:link)
+task deploy: %w(zsh:link vim:link git:link tmux:link etc:link config:sync)
 
 namespace :zsh do
   desc 'Create symbolic links for zsh settings file to HOME'
@@ -129,6 +133,13 @@ namespace :arch do
   desc 'Create symbolic links for ArchLinux to HOME'
   task :link do
     same_name_symlinks ARCH_ROOT, ARCH_FILES
+  end
+end
+
+namespace :config do
+  desc 'Sync config files'
+  task :sync do
+    sh "rsync -av #{CONFIG_ROOT}/* #{File.join(HOME, '.config/')} &> /dev/null"
   end
 end
 

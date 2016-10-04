@@ -1,0 +1,2 @@
+" Use deoplete
+source ~/.vimrc.completion.neocomplete

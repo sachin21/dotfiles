@@ -1,0 +1,106 @@
+"-------------------------------------------------------------------------------
+" 編集関連 Edit
+"-------------------------------------------------------------------------------
+
+" insertモードを抜けるとIMEオフ
+set noimdisable
+set iminsert=0 imsearch=0
+set noimcmdline
+inoremap <silent> <ESC> <ESC>:set iminsert=0<CR>
+
+" Mini buf explorer"
+map <leader>tn :tabnew %<cr>
+map <leader>tc :tabclose<cr>
+map <leader>tm :tabmove
+
+" yeでそのカーソル位置にある単語をレジスタに追加
+nmap ye ;let @"=expand("<cword>")<CR>
+
+" Visualモードでのpで選択範囲をレジスタの内容に置き換える
+vnoremap p <Esc>;let current_reg = @"<CR>gvdi<C-R>=current_reg<CR><Esc>
+
+" Tabキーを空白に変換
+set expandtab
+
+" コンマの後に自動的にスペースを挿入
+inoremap , ,<Space>
+
+"  Insert mode中で単語単位/行単位の削除をアンドゥ可能にする
+inoremap <C-u>  <C-g>u<C-u>
+inoremap <C-w>  <C-g>u<C-w>
+
+" :Ptでインデントモード切替
+command! Pt :set paste!
+
+" y9 ydで行末までヤンク
+nmap y9 y$
+nmap yd y$
+
+" y0 ykで行頭までヤンク
+nmap y0 y^
+nmap yk y^
+
+" 現在行をヤンク
+nmap yy Vy
+
+inoremap <silent> <C-k> <Esc>lc^
+" カーソルから行頭までヤンク(インサートモード)
+inoremap <silent> <C-y>e <Esc>ly0<Insert>
+" カーソルから行末までヤンク(インサートモード)
+inoremap <silent> <C-y>0 <Esc>ly$<Insert>
+
+" 括弧を自動補完
+vnoremap { "zdi{<C-R>z}<ESC>
+vnoremap [ "zdi[<C-R>z]<ESC>
+vnoremap ( "zdi(<C-R>z)<ESC>
+vnoremap " "zdi"<C-R>z^V"<ESC>
+vnoremap ' "zdi'<C-R>z'<ESC>
+
+" 保存時に行末の空白を除去する
+autocmd BufWritePre * :%s/\s\+$//ge
+
+" 保存時にtabをスペースに変換する"
+" autocmd BufWritePre * :%s/\t/  /ge
+
+" vimで最終行が空行だったら保存時に最終行を削除する
+autocmd BufWritePre * call s:remove_space_in_last_line()
+
+function! s:remove_space_in_last_line()
+  if getline('$') == ""
+     $delete _
+  endif
+endfunction
+
+" 日時の自動入力
+inoremap <expr> ,df strftime('%Y/%m/%d %H:%M:%S')
+inoremap <expr> ,dd strftime('%Y/%m/%d')
+inoremap <expr> ,dt strftime('%H:%M:%S')
+
+map <Leader>j !python -m json.tool<CR>
+
+" quickfixウィンドウではq/ESCで閉じる
+autocmd FileType qf nnoremap <buffer> q :ccl<CR>
+autocmd FileType qf nnoremap <buffer> <ESC> :ccl<CR>
+
+" cwでquickfixウィンドウの表示をtoggleするようにした
+function! s:toggle_qf_window()
+  for bufnr in range(1,  winnr('$'))
+    if getwinvar(bufnr,  '&buftype') ==# 'quickfix'
+      execute 'ccl'
+      return
+    endif
+  endfor
+  execute 'botright cw'
+endfunction
+
+nnoremap <silent> cw :call <SID>toggle_qf_window()<CR>
+
+" 行移動を全てg込で行う
+nnoremap j gj
+nnoremap k gk
+nnoremap gj j
+nnoremap gk k
+
+" ZZやZQによるvimの終了を無効化
+nnoremap ZZ <Nop>
+nnoremap ZQ <Nop>

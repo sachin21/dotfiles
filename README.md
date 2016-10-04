@@ -4,7 +4,7 @@
 ## Features
 - Yosemite MacBook Pro (Retina, 15-inch, Early 2013)
 - Zsh 5.2
-- Vim 8.0.0002 +clipboard +lua
+- NVIM 0.1.5
 - Tmuxa 2.2
 - iTerm2
 - Solarized dark

@@ -143,13 +143,6 @@ namespace :config do
   end
 end
 
-desc 'Update all git repositories'
-task :update do
-  sh 'git submodule foreach git pull origin master'
-  sh 'command update_install_tools'
-  sh 'env ZSH=$ZSH /bin/sh /Users/sachin21dev/.oh-my-zsh/tools/upgrade.sh'
-end
-
 def _symlink(file, dest)
   symlink file, dest unless File.exist?(dest)
 end

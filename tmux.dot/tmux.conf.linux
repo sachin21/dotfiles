@@ -86,9 +86,5 @@ bind l select-pane -R
 # マウスの有効化
 set-option -g mouse on
 
-# スクリーンセイバー
-set -g lock-after-time 500
-set -g lock-command "cmatrix -s -b"
-
 # 履歴の限界値
 set-option -g history-limit 20000

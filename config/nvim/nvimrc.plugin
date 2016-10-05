@@ -262,6 +262,9 @@ call dein#add('vim-scripts/taglist.vim')
 " Explorer
 call dein#add('jlanzarotta/bufexplorer')
 
+" Wakatime
+call dein#add('wakatime/vim-wakatime')
+
 " Typescript
 call dein#add('leafgarland/typescript-vim', {
   \ 'autoload' : {

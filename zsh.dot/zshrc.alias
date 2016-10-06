@@ -28,7 +28,6 @@ alias b='bundle'
 alias tigj='tig'
 alias rehash='nodenv rehash; pyenv rehash'
 alias ctags="ctags --exclude=.git --exclude=log"
-alias shred='rmtrash'
 alias r='rspec'
 alias say='say -v Alex'
 

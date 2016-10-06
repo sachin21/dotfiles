@@ -59,15 +59,13 @@ for project in $(command ls "$HOME/.tmuxinator"); do
 done
 unset project
 
-# Alias for the fuck
+# Alias for the gomi
 # ---------------------------------------------------**
-if command_exists fuck &> /dev/null; then
-  eval "$(thefuck --alias)"
-  alias FUCK='fuck'
-  alias fucked='fuck'
-  alias f='fuck'
+if command_exists gomi &> /dev/null; then
+  alias rm="gomi"
+  alias shred="gomi"
 else
-  warn "  x [Warning] The Fuck is not installed"
+  warn "  x [Warning] gomi is not installed"
 fi
 
 # An Alias for the cURL

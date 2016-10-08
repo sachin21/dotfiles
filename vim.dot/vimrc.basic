@@ -22,10 +22,12 @@ set notitle                      " vimを使ってくれてありがとう
 " OSのクリップボードを使用する
 let OSTYPE = system('uname')
 
+set clipboard&
+
 if OSTYPE == "Darwin\n"
-  set clipboard=unnamed
+  set clipboard^=unnamed
 elseif OSTYPE == "Linux\n"
-  set clipboard=unnamedplus
+  set clipboard^=unnamed,unnamedplus
 endif
 
 

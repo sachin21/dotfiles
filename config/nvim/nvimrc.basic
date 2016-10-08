@@ -22,12 +22,13 @@ set notitle                      " vimを使ってくれてありがとう
 " OSのクリップボードを使用する
 let OSTYPE = system('uname')
 
-if OSTYPE == "Darwin\n"
-  set clipboard=unnamed
-elseif OSTYPE == "Linux\n"
-  set clipboard=unnamedplus
-endif
+set clipboard&
 
+if OSTYPE == "Darwin\n"
+  set clipboard^=unnamed
+elseif OSTYPE == "Linux\n"
+  set clipboard^=unnamed,unnamedplus
+endif
 
 " ターミナルでマウスを使用できるようにする
 set mouse=a

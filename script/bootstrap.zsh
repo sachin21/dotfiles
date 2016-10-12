@@ -35,7 +35,7 @@ function initialize_submodules(){
   if git submodule update --init > /dev/null 2>&1; then
     succeed "  + Submodule successfully Initialized"
   else
-    fail "  + [Error] Submodules unsuccessfully Initialized"; exit 1
+    fail "  x [Error] Submodules unsuccessfully Initialized"; exit 1
   fi
 }
 

@@ -2,6 +2,18 @@
 # ---------------------------------------------------**
 . "$HOME/.helpers"
 
+# When OSX or Linux
+# ---------------------------------------------------**
+case "${OSTYPE}" in
+  darwin*)
+    . "$HOME/.zshrc.osx"
+    ;;
+
+  linux*)
+    . "$HOME/.zshrc.linux"
+    ;;
+esac
+
 # Load plugins
 # ---------------------------------------------------**
 . "$HOME/.zplug/init.zsh"
@@ -16,15 +28,3 @@
 . "$HOME/.zshrc.function"
 . "$HOME/.zshrc.plugin"
 . "$HOME/.zshrc.local"
-
-# When OSX or Linux
-# ---------------------------------------------------**
-case "${OSTYPE}" in
-  darwin*)
-    . "$HOME/.zshrc.osx"
-    ;;
-
-  linux*)
-    . "$HOME/.zshrc.linux"
-    ;;
-esac

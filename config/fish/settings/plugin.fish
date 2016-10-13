@@ -1,7 +1,7 @@
 # For rbenv
 # ---------------------------------------------------**
 if [ -d "$HOME/.rbenv" ]
-  set -x PATH $HOME/.rbenv/bin: $PATH
+  set -x PATH $HOME/.rbenv/bin $PATH
   set -x PATH $HOME/.rbenv/shims $PATH
   source (rbenv init - | psub)
 else

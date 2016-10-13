@@ -13,7 +13,6 @@ gitify
 google-chrome
 google-japanese-ime
 gyazo
-heroku-toolbelt
 hipchat
 iexplorer
 insomniax
@@ -21,7 +20,6 @@ istat-menus
 iterm2
 java
 kanmemo
-karabiner
 kobito
 macdown
 mou

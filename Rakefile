@@ -24,6 +24,8 @@ ARCH_FILES    = `ls arch`.split("\n").freeze
 
 CONFIG_ROOT   = File.join(File.dirname(__FILE__), 'config')
 
+MIKUTTER_ROOT = File.join(File.dirname(__FILE__), 'mikutter')
+
 CLEANS = %w(
   .agignore
   .bundle
@@ -140,6 +142,13 @@ namespace :config do
   desc 'Sync config files'
   task :sync do
     sh "rsync -av #{CONFIG_ROOT}/* #{File.join(HOME, '.config/')} &> /dev/null"
+  end
+end
+
+namespace :mikutter do
+  desc 'Sync config files'
+  task :sync do
+    sh "rsync -av #{MIKUTTER_ROOT}/* #{File.join(HOME, '.mikutter/')} &> /dev/null"
   end
 end
 

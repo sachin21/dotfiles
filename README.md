@@ -20,7 +20,7 @@
 | cURL | zsh -c "$(curl -fsSL [dot.sachin21.jp](http://dot.sachin21.jp))" |
 | Wget | zsh -c "$(wget -qO - [dot.sachin21.jp](http://dot.sachin21.jp))" |
 
-## Or
+### Or
 
 You can clone the repository wherever you want. (I like to keep it in `~/Projects/dotfiles`, with `~/dotfiles` as a symlink.) The bootstrapper script will pull in the latest version and copy the files to your home folder.
 

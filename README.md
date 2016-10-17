@@ -13,7 +13,6 @@
 ![Screenshot of my shell prompt](http://i.imgur.com/QHD95ln.png)
 
 ## Installation
-### Using Git and the bootstrap script
 ### Using cURL or Wget installation
 
 | Tools | <a name="oneliner">The installation command</a> |

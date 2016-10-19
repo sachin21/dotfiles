@@ -19,3 +19,20 @@ else
   warn "  x [Warning] coreutils is not installed"
   alias ls='ls -F'
 fi
+
+# Add misc aliases
+# ---------------------------------------------------**
+for i in $(seq 15); do
+  alias b_$i="sudo tee /sys/class/backlight/acpi_video0/brightness <<< $i"
+done
+
+alias pacman="pacman --noconfirm"
+alias yaourt="yaourt --noconfirm"
+
+# Load keymaps for Xmodmap
+# ---------------------------------------------------**
+xmodmap "$HOME/.Xmodmap" &> /dev/null
+
+# Add zstyle for zplug
+# ---------------------------------------------------**
+zstyle :zplug:tag depth 0

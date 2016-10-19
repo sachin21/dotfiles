@@ -1,8 +1,15 @@
 zplug "tarrasch/zsh-bd"
+
 zplug "zsh-users/zsh-syntax-highlighting", nice:19
+
 zplug "b4b4r07/emoji-cli"
+
 zplug "sachin21/81cb1e8a65845bbb8f7c", from:gist, as:command, use:"*", hook-build:"chmod +x *"
+
 zplug "sachin21/eecd241ecf420323fe388de155a02658", from:gist, as:command, use:"*", hook-build:"chmod +x *"
+
+zplug "sachin21/82bf9e1f0e2ae6412af88ccda56b4a21", from:gist, as:command, use:"*", hook-build:"chmod +x *"
+
 
 if ! zplug check --verbose; then
   printf "Install? [y/N]: "

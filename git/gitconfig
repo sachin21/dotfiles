@@ -2,7 +2,7 @@
   name = Satoshi Ohmori
   email = sachin21dev@gmail.com
 [core]
-  editor = vim
+  editor = nvim
   excludesfile = ~/.global_ignore
 [github]
   user = Satoshi Ohmori
@@ -11,8 +11,8 @@
 [ghq]
   root = ~/Projects
 [alias]
-  open = "!vim $(git diff --name-only)"
-  opena = "!vim $(git diff --staged --name-only)"
+  open = "!nvim $(git diff --name-only)"
+  opena = "!nvim $(git diff --staged --name-only)"
   sync = !git checkout master && git pull origin master --rebase && git fetch -p origin && git branch -d $(git branch --merged | grep -v master | grep -v '*')
   syncd = !git checkout develop && git pull origin master --rebase && git fetch -p origin && git branch -d $(git branch --merged | grep -v master | grep -v '*')
   syncm = !git checkout master && git pull upstream master --rebase && git fetch -p origin && git branch -d $(git branch --merged | grep -v master | grep -v '*')

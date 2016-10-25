@@ -195,6 +195,7 @@ function install_zplug() {
 
 function install_mikutter_plugins() {
   mkidr -p "$HOME/.mikutter/plugin"
+  : > ~/.mikutter/plugin/display_requirements.rb
 
   for repo in $(cat data/mikutter_plugins.txt); do
     git clone $repo "$HOME/.mikutter/plugin/$(basename $repo)"

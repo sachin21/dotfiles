@@ -40,6 +40,8 @@ end
 # ---------------------------------------------------**
 if [ -e /usr/local/share/autojump/autojump.fish ]
   source /usr/local/share/autojump/autojump.fish
+else if [ -e /usr/share/autojump/autojump.fish ]
+  source /usr/share/autojump/autojump.fish
 else
   warn "  x [Warning] autojump is not installed"
 end

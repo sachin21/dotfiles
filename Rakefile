@@ -36,6 +36,7 @@ CLEANS = %w(
   .gitconfig
   .global_ignore
   .helpers
+  .hyper.js
   .peco
   .pryrc
   .railsrc

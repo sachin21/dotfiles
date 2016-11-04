@@ -6,12 +6,12 @@ ZSH_DOT_ROOT  = File.join(File.dirname(__FILE__), 'zsh.dot')
 ZSH_DOT_FILES = `ls zsh.dot`.split("\n").freeze
 
 VIM_ROOT      = File.join(File.dirname(__FILE__), 'vim')
-VIM_DOT_ROOT      = File.join(File.dirname(__FILE__), 'vim.dot')
+VIM_DOT_ROOT  = File.join(File.dirname(__FILE__), 'vim.dot')
 VIM_DOT_FILES = `ls vim.dot`.split("\n").freeze
 
 TMUX_ROOT     = File.join(File.dirname(__FILE__), 'tmux')
 TMUX_DOT_ROOT = File.join(File.dirname(__FILE__), 'tmux.dot')
-TMUX_FILES    = %w(tmux tmuxinator)
+TMUX_FILES    = %w(tmux tmuxinator).freeze
 
 GIT_ROOT      = File.join(File.dirname(__FILE__), 'git')
 GIT_FILES     = `ls git`.split("\n").freeze
@@ -25,6 +25,8 @@ ARCH_FILES    = `ls arch`.split("\n").freeze
 CONFIG_ROOT   = File.join(File.dirname(__FILE__), 'config')
 
 MIKUTTER_ROOT = File.join(File.dirname(__FILE__), 'mikutter')
+
+DROP = '&> /dev/null'.freeze
 
 CLEANS = %w(
   .agignore
@@ -107,20 +109,25 @@ namespace :tmux do
   desc 'Create a symbolic link for tmux libraries'
   task :link do
     _symlink File.join(TMUX_ROOT), File.join(HOME, '.tmux')
-    _symlink File.join(TMUX_DOT_ROOT, 'tmuxinator'), File.join(HOME, '.tmuxinator')
+    _symlink \
+      File.join(TMUX_DOT_ROOT, 'tmuxinator'),
+      File.join(HOME, '.tmuxinator')
   end
 
   namespace :osx do
     desc 'Create symbolic links for tmux config files for OS X to HOME'
     task :link do
-      _symlink File.join(TMUX_DOT_ROOT, 'tmux.conf.osx'), File.join(HOME, '.tmux.conf')
+      _symlink \
+        File.join(TMUX_DOT_ROOT, 'tmux.conf.osx'), File.join(HOME, '.tmux.conf')
     end
   end
 
   namespace :linux do
     desc 'Create symbolic links for tmux config files for Linux to HOME'
     task :link do
-      _symlink File.join(TMUX_DOT_ROOT, 'tmux.conf.linux'), File.join(HOME, '.tmux.conf')
+      _symlink \
+        File.join(TMUX_DOT_ROOT, 'tmux.conf.linux'),
+        File.join(HOME, '.tmux.conf')
     end
   end
 end
@@ -142,14 +149,14 @@ end
 namespace :config do
   desc 'Sync config files'
   task :sync do
-    sh "rsync -av #{CONFIG_ROOT}/* #{File.join(HOME, '.config/')} &> /dev/null"
+    sh "rsync -av #{CONFIG_ROOT}/* #{File.join(HOME, '.config/')} #{DROP}"
   end
 end
 
 namespace :mikutter do
   desc 'Sync config files'
   task :sync do
-    sh "rsync -av #{MIKUTTER_ROOT}/* #{File.join(HOME, '.mikutter/')} &> /dev/null"
+    sh "rsync -av #{MIKUTTER_ROOT}/* #{File.join(HOME, '.mikutter/')} #{DROP}"
   end
 end
 

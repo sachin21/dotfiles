@@ -194,11 +194,16 @@ function install_zplug() {
 }
 
 function install_mikutter_plugins() {
-  mkidr -p "$HOME/.mikutter/plugin"
-  : > ~/.mikutter/plugin/display_requirements.rb
+  local mikutter_home="$HOME/.mikutter/plugin"
 
-  for repo in $(cat data/mikutter_plugins.txt); do
-    git clone $repo "$HOME/.mikutter/plugin/$(basename $repo)"
+  rm -fr "$mikutter_home"
+  rm -fr "$mikutter_home/display_requirements.rb"
+
+  mkdir -p $mikutter_home
+  : > "$mikutter_home/display_requirements.rb"
+
+  for repository in $(cat data/mikutter_plugins.txt); do
+    git clone $repository "$HOME/.mikutter/plugin/$(basename "$repository" | sed -e 's/-/_/g')" > /dev/null 2>&1
   done
 }
 

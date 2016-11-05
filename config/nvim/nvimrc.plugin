@@ -153,9 +153,6 @@ call dein#add('errormarker.vim')
 " haml
 call dein#add('haml.zip')
 
-" JavaScript
-call dein#add('JavaScript-syntax')
-
 " jQuery
 call dein#add('jQuery')
 

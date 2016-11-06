@@ -49,4 +49,4 @@ Suggestions/improvements
 
 | [![twitter/sachin21](https://gravatar.com/userimage/49772896/a17286cabf5ef69a0d4c8dd2acc85d25.png?size=100)](http://twitter.com/sachin21__ "Follow @sachin21__ on Twitter") |
 |---|
-| [Satoshi Ohmori](http://profile.sachin21.info) |
+| [Satoshi Ohmori](http://profile.sachin21.jp) |

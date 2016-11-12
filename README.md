@@ -2,7 +2,8 @@
 [![license](http://img.shields.io/badge/license-MIT-blue.svg?style=flat)](./LICENSE-MIT.txt "License")
 
 ## Features
-- ThinkPad on Arch Linux
+- Arch Linux on ThinkPad X1 Carbon
+- Yosemite on MacBook Pro (Retina, 15-inch, Early 2013)
 - Zsh 5.2
 - neovim 0.1.5
 - Tmux 2.2

@@ -2,7 +2,7 @@
 [![license](http://img.shields.io/badge/license-MIT-blue.svg?style=flat)](./LICENSE-MIT.txt "License")
 
 ## Features
-- Yosemite MacBook Pro (Retina, 15-inch, Early 2013)
+- ThinkPad on Arch Linux
 - Zsh 5.2
 - neovim 0.1.5
 - Tmux 2.2

@@ -285,6 +285,9 @@ call dein#add('tomasr/molokai')
 call dein#add('yuroyoro/yuroyoro256.vim')
 call dein#add('altercation/vim-colors-solarized')
 
+" Convert anything
+call dein#add('alpaca-tc/beautify.vim')
+
 call dein#end()
 
 filetype plugin indent on

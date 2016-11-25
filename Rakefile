@@ -72,6 +72,7 @@ CLEANS = %w(
   .zshrc.local
   .zshrc.osx
   .zshrc.setting
+  .zshrc.tmux
 ).freeze
 
 CLEAN.concat(CLEANS.map { |c| File.join(HOME, c) })

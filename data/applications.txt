@@ -19,14 +19,11 @@ insomniax
 istat-menus
 iterm2
 java
-kanmemo
-kobito
 macdown
 mou
 night-owl
 notifyr
 opera
-parallels
 parallels-desktop
 pg-commander
 picasa

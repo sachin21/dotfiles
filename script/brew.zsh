@@ -1,7 +1,5 @@
 #!/usr/bin/env zsh
 
-set -e
-
 declare DOTFILES_PATH
 declare OS
 

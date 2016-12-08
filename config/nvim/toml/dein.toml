@@ -1,0 +1,309 @@
+[[plugins]]
+repo = 'Shougo/dein.vim'
+
+[[plugins]]
+repo = 'scrooloose/nerdcommenter.git'
+
+[[plugins]]
+repo = 'tomtom/tcomment_vim'
+
+[[plugins]]
+repo = 'yuroyoro/vim-autoclose'
+
+[[plugins]]
+repo = 'c9s/cascading.vim'
+
+[[plugins]]
+repo = 'nathanaelkane/vim-indent-guides'
+
+[[plugins]]
+repo = 'xmledit'
+
+[[plugins]]
+repo = 'mattn/emmet-vim'
+
+[[plugins]]
+repo = 'Align'
+
+[[plugins]]
+repo = 'godlygeek/tabular'
+
+[[plugins]]
+repo = 'h1mesuke/vim-alignta'
+
+[[plugins]]
+repo = 'LeafCage/yankround.vim'
+
+[[plugins]]
+repo = 'Gundo'
+
+[[plugins]]
+repo = 'smartchr'
+
+[[plugins]]
+repo = 'operator-user'
+
+[[plugins]]
+repo = 'operator-camelize'
+
+[[plugins]]
+repo = 'operator-replace'
+
+[[plugins]]
+repo = 'kana/vim-textobj-user'
+
+[[plugins]]
+repo = 'taku-o/vim-toggle'
+
+[[plugins]]
+repo = 'slim-template/vim-slim'
+
+[[plugins]]
+repo = 'tpope/vim-endwise'
+
+[[plugins]]
+repo = 'mattn/gist-vim'
+
+[[plugins]]
+repo = 'osyo-manga/vim-over'
+
+[[plugins]]
+repo = 'tpope/vim-surround'
+
+[[plugins]]
+repo = 'AutoComplPop'
+
+[[plugins]]
+repo = 'Shougo/deoplete.nvim'
+
+[[plugins]]
+repo = 'ujihisa/neco-ruby'
+
+[[plugins]]
+repo = 'ujihisa/neco-look'
+
+[[plugins]]
+repo = 'smartword'
+
+[[plugins]]
+repo = 'camelcasemotion'
+
+[[plugins]]
+repo = 'EasyMotion'
+
+[[plugins]]
+repo = 'matchit.zip'
+
+[[plugins]]
+repo = 'ruby-matchit'
+
+[[plugins]]
+repo = 'grep.vim'
+
+[[plugins]]
+repo = 'eregex.vim'
+
+[[plugins]]
+repo = 'tyru/open-browser.vim'
+
+[[plugins]]
+repo = 'tyru/open-browser-github.vim'
+
+[[plugins]]
+repo = 'rking/ag.vim'
+
+[[plugins]]
+repo = 'othree/javascript-libraries-syntax.vim'
+
+[[plugins]]
+repo = 'dag/vim-fish'
+
+[[plugins]]
+repo = 'thinca/vim-quickrun'
+
+[[plugins]]
+repo = 'thinca/vim-ref'
+
+[[plugins]]
+repo = 'SQLUtilities'
+
+[[plugins]]
+repo = 'vim-ruby/vim-ruby'
+
+[[plugins]]
+repo = 'tpope/vim-rails'
+
+[[plugins]]
+repo = 'Pydiction'
+
+[[plugins]]
+repo = 'errormarker.vim'
+
+[[plugins]]
+repo = 'haml.zip'
+
+[[plugins]]
+repo = 'JavaScript-syntax'
+
+[[plugins]]
+repo = 'jQuery'
+
+[[plugins]]
+repo = 'nginx.vim'
+
+[[plugins]]
+repo = 'tpope/vim-markdown'
+
+[[plugins]]
+repo = 'kchmck/vim-coffee-script'
+
+[[plugins]]
+repo = 'yuroyoro/vim-python'
+
+[[plugins]]
+repo = 'yuroyoro/vim-scala'
+
+[[plugins]]
+repo = 'jondistad/vimclojure'
+
+[[plugins]]
+repo = 'eagletmt/ghcmod-vim'
+
+[[plugins]]
+repo = 'scrooloose/syntastic'
+
+[[plugins]]
+repo = 'isRuslan/vim-es6'
+
+[[plugins]]
+repo = 'DumbBuf'
+
+[[plugins]]
+repo = 'minibufexpl.vim'
+
+[[plugins]]
+repo = 'The-NERD-tree'
+
+[[plugins]]
+repo = 'vtreeexplorer'
+
+[[plugins]]
+repo = 'banyan/recognize_charcode.vim'
+
+[[plugins]]
+repo = 'tyru/vim-altercmd'
+
+[[plugins]]
+repo = 'mattn/webapi-vim'
+
+[[plugins]]
+repo = 'cecutil'
+
+[[plugins]]
+repo = 'tyru/urilib.vim'
+
+[[plugins]]
+repo = 'L9'
+
+[[plugins]]
+repo = 'thinca/vim-openbuf'
+
+[[plugins]]
+repo = 'yuroyoro/vimdoc_ja'
+
+[[plugins]]
+repo = 'tsukkee/lingr-vim'
+
+[[plugins]]
+repo = 'tpope/vim-fugitive'
+
+[[plugins]]
+repo = 'Lokaltog/vim-powerline'
+
+[[plugins]]
+repo = 'mattn/vim-metarw-redmine'
+
+[[plugins]]
+repo = 'kana/vim-metarw'
+
+[[plugins]]
+repo = 'airblade/vim-gitgutter'
+
+[[plugins]]
+repo = 'motemen/git-vim'
+
+[[plugins]]
+repo = 'vim-scripts/dbext.vim'
+
+[[plugins]]
+repo = 'vim-scripts/YankRing.vim'
+
+[[plugins]]
+repo = 'sorah/unite-ghq'
+
+[[plugins]]
+repo = 'terryma/vim-multiple-cursors'
+
+[[plugins]]
+repo = 'szw/vim-tags'
+
+[[plugins]]
+repo = 'vim-scripts/taglist.vim'
+
+[[plugins]]
+repo = 'jlanzarotta/bufexplorer'
+
+[[plugins]]
+repo = 'wakatime/vim-wakatime'
+
+[[plugins]]
+repo = 'leafgarland/typescript-vim'
+
+[[plugins]]
+repo = 'Shougo/unite.vim'
+
+[[plugins]]
+repo = 'tsukkee/unite-help'
+
+[[plugins]]
+repo = 'h1mesuke/unite-outline'
+
+[[plugins]]
+repo = 'basyura/unite-rails'
+
+[[plugins]]
+repo = 'thinca/vim-unite-history'
+
+[[plugins]]
+repo = 'tsukkee/unite-tag'
+
+[[plugins]]
+repo = 'choplin/unite-vim_hacks'
+
+[[plugins]]
+repo = 'Shougo/neomru.vim'
+
+[[plugins]]
+repo = 'desert256.vim'
+
+[[plugins]]
+repo = 'mrkn256.vim'
+
+[[plugins]]
+repo = 'tomasr/molokai'
+
+[[plugins]]
+repo = 'yuroyoro/yuroyoro256.vim'
+
+[[plugins]]
+repo = 'altercation/vim-colors-solarized'
+
+[[plugins]]
+repo = 'alpaca-tc/beautify.vim'
+
+[[plugins]]
+repo = 'kmnk/vim-unite-giti'
+
+[[plugins]]
+repo = 'https://gist.github.com/tamanobi/3cb51380e10a9231c7aed15894ef5be0'
+script_type='plugin'

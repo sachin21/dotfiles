@@ -202,9 +202,12 @@ function install_mikutter_plugins() {
   mkdir -p $mikutter_home
   : > "$mikutter_home/display_requirements.rb"
 
+  message '  + Installing mikutter plugins'
   for repository in $(cat data/mikutter_plugins.txt); do
     git clone $repository "$HOME/.mikutter/plugin/$(basename "$repository" | sed -e 's/-/_/g')" > /dev/null 2>&1
   done
+
+  succeed '  + mikutter plugins ware successfully installed'
 }
 
 function create_symbolic_links(){

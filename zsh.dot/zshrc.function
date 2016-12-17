@@ -78,9 +78,9 @@ function ec() {
 }
 
 function _peco-find-and-open-file () {
-  local files=$(find . | peco)
+  local files=$(find . | fgrep -v '.git' | fgrep -v './vendor/bundle'| peco)
   if [[ ! $files == '' ]]; then
-    echo $files | xargs zsh -c 'vim "$0" < /dev/tty'
+    echo $files | xargs zsh -c 'nvim "$0" < /dev/tty'
   fi
 
   zle clear-screen
@@ -97,7 +97,7 @@ zle -N _peco-find-and-open-file
 bindkey '^r' _peco-select-history
 bindkey '^{' _change-branch
 bindkey '^_' undo
-bindkey '^xt' _peco-find-and-open-file
+bindkey '^x' _peco-find-and-open-file
 
 # Alias functions
 # ---------------------------------------------------**

@@ -38,3 +38,11 @@ command_exists() {
 command_not_exists() {
   ! type $@ &> /dev/null
 }
+
+is_osx() {
+  [[ "${OSTYPE}" =~ "darwin" ]]
+}
+
+is_linux() {
+  [[ "${OSTYPE}" =~ "linux" ]]
+}

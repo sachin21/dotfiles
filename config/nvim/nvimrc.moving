@@ -82,3 +82,8 @@ endfunction
 " insert mode でjj, kkでesc
 inoremap jj <Esc>
 inoremap kk <Esc>
+
+" neovimでC-hで移動する際に問題が発生するためそれのhack
+if has('nvim')
+  nmap <BS> <C-W>h
+endif

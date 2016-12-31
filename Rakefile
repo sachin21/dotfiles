@@ -32,7 +32,7 @@ CLEANS = %w(
   .agignore
   .bundle
   .config/fish
-  .config/nvim
+  .config/nvim/nvimrc.*
   .dircolors
   .gemrc
   .gitconfig

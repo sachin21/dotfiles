@@ -118,7 +118,7 @@ function install_rbenv(){
     if [ -d "$HOME/.rbenv/plugins/ruby-build" ]; then
       message "  + ruby-build is exist."
     else
-      if git clone https://github.com/rbenv/ruby-build.git "$HOME/.rbenv/plugins/ruby-build" > /dev/null 2>&1 && "$HOME/.rbenv/plugins/ruby-build/install.sh" > /dev/null 2>&1; then
+      if git clone https://github.com/rbenv/ruby-build.git "$HOME/.rbenv/plugins/ruby-build" > /dev/null 2>&1 && sudo "$HOME/.rbenv/plugins/ruby-build/install.sh" > /dev/null 2>&1; then
         succeed "  + ruby-build was successfully installed"
       else
         fail "  x [Error] ruby-build was unsuccessfully installed", exit 1
@@ -154,7 +154,7 @@ function install_nodenv(){
     if [ -d "$HOME/.nodenv/.nodenv/plugins/node-build" ]; then
       message "  + node-build is exists"
     else
-      if git clone git://github.com/OiNutter/node-build.git "$HOME/.nodenv/plugins/node-build" > /dev/null 2>&1 && "$HOME/.nodenv/plugins/node-build/install.sh" > /dev/null 2>&1; then
+      if git clone git://github.com/OiNutter/node-build.git "$HOME/.nodenv/plugins/node-build" > /dev/null 2>&1 && sudo "$HOME/.nodenv/plugins/node-build/install.sh" > /dev/null 2>&1; then
         succeed "  + node-build was successfully installed"
       else
         fail "  x [Error] nodenv was unsuccessfully installed", exit 1

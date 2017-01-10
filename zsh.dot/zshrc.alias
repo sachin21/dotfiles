@@ -34,6 +34,7 @@ alias say='say -v Alex'
 # Global
 # ---------------------------------------------------**
 alias -g A='| ag'
+alias -g B='`git branch | peco | sed -e "s/^\*[ ]*//g"`'
 alias -g L='| less'
 alias -g N='> /dev/null'
 alias -g NA='&> /dev/null'

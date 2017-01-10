@@ -1,0 +1,12 @@
+[Unit]
+Description=xremap
+
+[Service]
+KillMode=process
+ExecStart=/usr/local/bin/xremap /home/sachin21dev/.xremap
+ExecStop=/usr/bin/killall xremap
+Restart=always
+Environment=DISPLAY=:0.0
+
+[Install]
+WantedBy=graphical.target

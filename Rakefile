@@ -5,10 +5,6 @@ HOME = ENV['HOME']
 ZSH_DOT_ROOT  = File.join(File.dirname(__FILE__), 'zsh.dot')
 ZSH_DOT_FILES = `ls zsh.dot`.split("\n").freeze
 
-VIM_ROOT      = File.join(File.dirname(__FILE__), 'vim')
-VIM_DOT_ROOT  = File.join(File.dirname(__FILE__), 'vim.dot')
-VIM_DOT_FILES = `ls vim.dot`.split("\n").freeze
-
 TMUX_ROOT     = File.join(File.dirname(__FILE__), 'tmux')
 TMUX_DOT_ROOT = File.join(File.dirname(__FILE__), 'tmux.dot')
 TMUX_FILES    = %w(tmux tmuxinator).freeze
@@ -46,7 +42,6 @@ CLEANS = %w(
   .tmux
   .tmux.conf
   .tmuxinator
-  .vim
   .vimrc
   .vimrc.apperance
   .vimrc.basic
@@ -80,22 +75,13 @@ CLEAN.concat(CLEANS.map { |c| File.join(HOME, c) })
 task default: :deploy
 
 desc 'Create symbolic links for the all dotfiles'
-task deploy: %w(zsh:link vim:link git:link tmux:link etc:link config:sync)
+task deploy: %w(zsh:link git:link tmux:link etc:link config:sync)
 
 namespace :zsh do
   desc 'Create symbolic links for zsh settings file to HOME'
   task :link do
     _symlink File.join(ZSH_DOT_ROOT, 'zshrc'), File.join(HOME, '.zshrc')
     same_name_symlinks ZSH_DOT_ROOT, ZSH_DOT_FILES
-  end
-end
-
-namespace :vim do
-  desc 'Create symbolic links for vimrc to HOME'
-  task :link do
-    _symlink File.join(VIM_ROOT), File.join(HOME, '.vim')
-    _symlink File.join(VIM_DOT_ROOT, 'vimrc'), File.join(HOME, '.vimrc')
-    same_name_symlinks VIM_DOT_ROOT, VIM_DOT_FILES
   end
 end
 

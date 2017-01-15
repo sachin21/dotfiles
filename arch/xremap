@@ -1,4 +1,4 @@
-window class_only: %w(slack google-chrome) do
+window class_only: %w(google-chrome slack mikutter.rb) do
   remap 'C-b', to: 'Left'
   remap 'C-f', to: 'Right'
   remap 'C-p', to: 'Up'

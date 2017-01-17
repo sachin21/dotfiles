@@ -13,9 +13,13 @@
 [alias]
   open = "!nvim $(git diff --name-only)"
   opena = "!nvim $(git diff --staged --name-only)"
+
   sync = !git checkout master && git pull origin master --rebase && git fetch -p origin && git branch -d $(git branch --merged | grep -v master | grep -v '*')
   syncd = !git checkout develop && git pull origin master --rebase && git fetch -p origin && git branch -d $(git branch --merged | grep -v master | grep -v '*')
   syncm = !git checkout master && git pull upstream master --rebase && git fetch -p origin && git branch -d $(git branch --merged | grep -v master | grep -v '*')
+  syncms = !git checkout staging && git pull upstream staging --rebase && git fetch -p origin && git branch -d $(git branch --merged | grep -v master | grep -v '*')
+
+  lg = log --all --graph --decorate --oneline
 [push]
   default = matching
 [tig "bind"]

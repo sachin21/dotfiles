@@ -44,23 +44,23 @@ function _peco-select-project() {
 
   local LF=$(printf '\\\012_')
   local LF=${LF%_}
-  local project=$(
-    tmuxinator list | \
-    tail -n 1 | \
-    sed -e 's/ /'"$LF"'/g' | \
-    grep -v '^\s*$' | \
-    peco
-  )
+  local project=$(tmuxinator list | tail -n 1 | sed -e 's/ /'"\n"'/g' | grep -v '^\s*$' | peco)
 
   tmuxinator "$project"
 }
 
-function _change-branch() {
-  local branch=$(git branch | grep -v -o "*" | sed -e 's/ //g' | peco)
-  git checkout $branch &> /dev/null
-  printf "Switched to branch '$branch'"
+function _peco-find-and-open-file () {
+  local files=$(find . | peco)
+  if [[ ! $files == '' ]]; then
+    echo $files | xargs zsh -c 'vim "$0" < /dev/tty'
+  fi
 
-  zle accept-line
+  zle clear-screen
+}
+
+function _peco-git-branch(){
+  local branch_name=$(git branch | peco | sed -e "s/^\*[ ]*//g" | sed -e 's/ //g')
+  git checkout $branch_name
 }
 
 function python-listup() {
@@ -89,13 +89,11 @@ function _peco-find-and-open-file () {
 # Set zle
 # ---------------------------------------------------**
 zle -N _peco-select-history
-zle -N _change-branch
 zle -N _peco-find-and-open-file
 
 # Bind functions
 # ---------------------------------------------------**
 bindkey '^r' _peco-select-history
-bindkey '^{' _change-branch
 bindkey '^_' undo
 bindkey '^x' _peco-find-and-open-file
 
@@ -103,3 +101,4 @@ bindkey '^x' _peco-find-and-open-file
 # ---------------------------------------------------**
 alias p='_peco-select-project'
 alias c='_change-repository'
+alias br='_peco-git-branch'

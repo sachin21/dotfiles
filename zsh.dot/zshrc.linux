@@ -13,13 +13,6 @@ else
   warn "  x [Warning] xsel is not installed"
 fi
 
-if command_exists gls; then
-  alias ls='gls --color=auto -F'
-else
-  warn "  x [Warning] coreutils is not installed"
-  alias ls='ls -F'
-fi
-
 # Add misc aliases
 # ---------------------------------------------------**
 for i in $(seq 15); do
@@ -28,6 +21,8 @@ done
 
 alias pacman="pacman --noconfirm"
 alias yaourt="yaourt --noconfirm"
+
+alias ls='ls --color=auto -F'
 
 # Load keymaps for Xmodmap
 # ---------------------------------------------------**

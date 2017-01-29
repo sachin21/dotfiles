@@ -21,7 +21,7 @@ source ~/.config/nvim/nvimrc.editing
 " エンコーディング関連
 source ~/.config/nvim/nvimrc.encoding
 " プラグインに依存するアレ
-source ~/.config/nvim/nvimrc.plugins_setting
+source ~/.config/nvim/nvimrc.plugin_setting
 " Related to Unite
 source ~/.config/nvim/nvimrc.unite
 " その他

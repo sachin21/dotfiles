@@ -8,6 +8,7 @@
 - neovim 0.1.5
 - Tmux 2.2
 - iTerm2
+- xfce4-terminal
 - Solarized dark
 
 ## Screenshot

@@ -25,7 +25,11 @@ function _change-repository() {
 
 function _peco-select-history() {
   if ! command_exists tac; then
-    warn "  x [Warning] tac is not installed"
+    if command_exists gtac; then
+      alias tac='gtac'
+    else
+      warn "  x [Warning] tac is not installed"
+    fi
     return 1
   fi
 

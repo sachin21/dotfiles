@@ -7,5 +7,5 @@ set wildmode=list:full     " リスト表示，最長マッチ
 set history=1000           " コマンド・検索パターンの履歴数
 set complete+=k            " 補完に辞書ファイル追加
 
-" 補完にneocomplcacheを使う
+" 補完にdeopleteを使う
 source ~/.config/nvim/nvimrc.completion.deoplete

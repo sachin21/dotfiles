@@ -101,17 +101,6 @@ function install_formulas() {
   done
 }
 
-# Install brew-cask
-function install_brew-cask() {
-  message "  + Installing Homebrew-cask..."
-
-  if brew tap caskroom/cask > /dev/null 2>&1 && brew install cask > /dev/null 2>&1; then
-    succeed "  + Homebrew-cask was successfully installed"
-  else
-    fail "  x [Error] Homebrew-cask was unsuccessfully installed homebrew-cask"; return 1
-  fi
-}
-
 # Install Applications to /Applications
 function install_osx_applications() {
   message "  + Installing OS X Application..."

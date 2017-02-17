@@ -28,3 +28,7 @@ esac
 . "$HOME/.zshrc.function"
 . "$HOME/.zshrc.plugin"
 . "$HOME/.zshrc.local"
+
+# Start Tmux
+# ---------------------------------------------------**
+. "$HOME/.zshrc.tmux"

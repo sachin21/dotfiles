@@ -110,7 +110,7 @@ repo = 'tyru/open-browser.vim'
 repo = 'tyru/open-browser-github.vim'
 
 [[plugins]]
-repo = 'rking/ag.vim'
+repo = 'nazo/pt.vim'
 
 [[plugins]]
 repo = 'othree/javascript-libraries-syntax.vim'
@@ -252,9 +252,6 @@ repo = 'vim-scripts/taglist.vim'
 
 [[plugins]]
 repo = 'jlanzarotta/bufexplorer'
-
-[[plugins]]
-repo = 'wakatime/vim-wakatime'
 
 [[plugins]]
 repo = 'leafgarland/typescript-vim'

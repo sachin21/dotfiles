@@ -2,3 +2,13 @@
 " Shougo/deoplete.nvim
 "------------------------------------
 let g:deoplete#enable_at_startup = 1
+
+au FileType java set dictionary=~/.config/nvim/dict/java.dict
+au FileType cset set dictionary=~/.config/nvim/dict/c.dict
+au FileType cppset set dictionary=~/.config/nvim/dict/cpp.dict
+au FileType javascriptset set dictionary=~/.config/nvim/dict/javascript.dict
+au FileType ocamlset set dictionary=~/.config/nvim/dict/ocaml.dict
+au FileType perlset set dictionary=~/.config/nvim/dict/perl.dict
+au FileType phpset set dictionary=~/.config/nvim/dict/php.dict
+au FileType schemeset set dictionary=~/.config/nvim/dict/scheme.dict
+au FileType vmset set dictionary=~/.config/nvim/dict/vim.dict

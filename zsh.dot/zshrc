@@ -1,6 +1,8 @@
-# Using my helpers
+# Load plugins
 # ---------------------------------------------------**
-. "$HOME/.helpers"
+. "$HOME/.zplug/init.zsh"
+. "$HOME/.zshrc.plugin"
+. "$HOME/.tmux/tmuxinator.zsh"
 
 # When OSX or Linux
 # ---------------------------------------------------**
@@ -14,11 +16,6 @@ case "${OSTYPE}" in
     ;;
 esac
 
-# Load plugins
-# ---------------------------------------------------**
-. "$HOME/.zplug/init.zsh"
-. "$HOME/.tmux/tmuxinator.zsh"
-
 # Configuration files for use in Zsh
 # ---------------------------------------------------**
 . "$HOME/.zshrc.env"
@@ -26,5 +23,4 @@ esac
 . "$HOME/.zshrc.setting"
 . "$HOME/.zshrc.alias"
 . "$HOME/.zshrc.function"
-. "$HOME/.zshrc.plugin"
 . "$HOME/.zshrc.local"

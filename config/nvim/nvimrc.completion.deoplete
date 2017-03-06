@@ -1,7 +1,6 @@
 "------------------------------------
 " Shougo/deoplete.nvim
 "------------------------------------
-
 let g:deoplete#sources = {}
 let g:deoplete#sources._ = ['buffer', 'member', 'tag', 'file', 'dictionary']
 let g:deoplete#ignore_sources = {

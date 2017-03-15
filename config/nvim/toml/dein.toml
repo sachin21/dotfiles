@@ -110,7 +110,7 @@ repo = 'tyru/open-browser.vim'
 repo = 'tyru/open-browser-github.vim'
 
 [[plugins]]
-repo = 'rking/ag.vim'
+repo = 'nazo/pt.vim'
 
 [[plugins]]
 repo = 'othree/javascript-libraries-syntax.vim'
@@ -170,7 +170,7 @@ repo = 'jondistad/vimclojure'
 repo = 'eagletmt/ghcmod-vim'
 
 [[plugins]]
-repo = 'scrooloose/syntastic'
+repo = 'vim-syntastic/syntastic'
 
 [[plugins]]
 repo = 'isRuslan/vim-es6'
@@ -307,3 +307,9 @@ repo = 'kmnk/vim-unite-giti'
 [[plugins]]
 repo = 'https://gist.github.com/tamanobi/3cb51380e10a9231c7aed15894ef5be0'
 script_type='plugin'
+
+[[plugins]]
+repo = 'Shougo/neocomplcache.vim'
+
+[[plugins]]
+repo = 'Shougo/neocomplcache-rsense.vim'

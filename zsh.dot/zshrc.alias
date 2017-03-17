@@ -1,10 +1,10 @@
-# Common
+# For common
 # ---------------------------------------------------**
 alias reload='exec $SHELL'
 alias ts='tmux split-window'
 alias th='tmux split-window -h'
 alias CC='gcc'
-alias bi='bundle install --path=./vendor/bundle -j8'
+alias bi='bundle install -j12 --path=./vendor/bundle'
 alias v='nvim'
 alias vi='nvim'
 alias vim='nvim'
@@ -23,15 +23,16 @@ alias tn='tmux new'
 alias memo='cat > /dev/null'
 alias gs='git sync'
 alias gsm='git syncm'
+alias gsms='git syncms'
 alias gsdd='git syncd'
 alias b='bundle'
 alias tigj='tig'
 alias rehash='nodenv rehash; pyenv rehash'
 alias ctags="ctags --exclude=.git --exclude=log"
 alias r='rspec'
-alias say='say -v Alex'
+alias free='free -h'
 
-# Global
+# For Global
 # ---------------------------------------------------**
 alias -g A='| ag'
 alias -g B='`git branch | peco | sed -e "s/^\*[ ]*//g"`'
@@ -52,7 +53,7 @@ alias -s py='python'
 alias -s hs='runhaskell'
 alias -s php='php -f'
 
-# Alias for projects
+# For projects
 # ---------------------------------------------------**
 for project in $(command ls "$HOME/.tmuxinator"); do
   project=${project%.*}
@@ -60,7 +61,7 @@ for project in $(command ls "$HOME/.tmuxinator"); do
 done
 unset project
 
-# Alias for the gomi
+# For the gomi
 # ---------------------------------------------------**
 if command_exists gomi &> /dev/null; then
   alias rm="gomi"
@@ -69,12 +70,37 @@ else
   warn "  x [Warning] gomi is not installed"
 fi
 
-# An Alias for the cURL
+# For the cURL
 # ---------------------------------------------------**
-CURL_OPTS=''
-CURL_OPTS+=' -H "Accept: application/json"'
-CURL_OPTS+=' -H "Content-Type: application/json"'
-CURL_OPTS+=' -H "Cache-Control: no-cache"'
-CURL_OPTS+=' -b ~/cookies.txt -c ~/cookies.txt'
+if command_exists curl; then
+  CURL_OPTS=''
+  CURL_OPTS+=' -H "Accept: application/json"'
+  CURL_OPTS+=' -H "Content-Type: application/json"'
+  CURL_OPTS+=' -H "Cache-Control: no-cache"'
+  CURL_OPTS+=' -b ~/.cookies.txt -c ~/.cookies.txt'
 
-alias curl="curl $CURL_OPTS"
+  alias curl="curl $CURL_OPTS"
+else
+  warn "  x [Warning] curl is not installed"
+fi
+
+# For mikutter
+# ---------------------------------------------------**
+if command_exists mikutter; then
+  alias mstart="mikutter start"
+  alias mstop="mikutter stop"
+  alias mrestart="mikutter restart"
+else
+  warn "  x [Warning] mikutter is not installed"
+fi
+
+# For tig
+if command_exists ruby; then
+  for alphabet in $(echo {a..z} | sed -e 's/\s/\n/'); do
+    alias "${alphabet}tig"='tig'
+    alias "tig${alphabet}"='tig'
+  done
+fi
+
+function encrypt() { openssl aes-256-cbc -e -in $1 -out encrypted$RANDOM.txt }
+function decrypt() { openssl aes-256-cbc -d -in $1 -out /dev/stdout }

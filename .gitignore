@@ -24,3 +24,5 @@ tmux/plugins/*
 /etc/bundle/cache
 /tmux/resurrect
 vim/.netrwhist
+
+/git/local_gitconfig

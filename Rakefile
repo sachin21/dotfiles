@@ -140,13 +140,6 @@ namespace :config do
   end
 end
 
-namespace :mikutter do
-  desc 'Sync config files'
-  task :sync do
-    sh "rsync -av #{MIKUTTER_ROOT}/* #{File.join(HOME, '.mikutter/')} #{DROP}"
-  end
-end
-
 def _symlink(file, dest)
   symlink file, dest unless File.exist?(dest)
 end

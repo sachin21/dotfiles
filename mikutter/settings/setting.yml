@@ -1,9 +1,3 @@
----
-UserConfig::last_boot_version:
-- 3
-- 4
-- 3
-- 9999
 UserConfig::shortcutkey_keybinds:
   1:
     :key: Control + Return
@@ -51,7 +45,7 @@ UserConfig::shortcutkey_keybinds:
     :slug: :focus_to_postbox
   14:
     :key: Super + BackSpace
-    :name: 削除
+    :name: Delete
     :slug: :delete
   18:
     :key: e
@@ -61,187 +55,19 @@ UserConfig::shortcutkey_keybinds:
     :key: c
     :name: ツイートのURLをコピー
     :slug: :copy_tweet_url
-  20:
-    :key: Shift + F
-    :name: Favorite
-    :slug: :favorite
   21:
     :key: Shift + R
     :name: Retweets
     :slug: :retweet
-  22:
-    :key: Shift + Super + F
-    :name: Unfavorite
-    :slug: :delete_favorite
-UserConfig::notification_enable: true
-UserConfig::activity_show_statusbar:
-- streaming_status
-UserConfig::replyviewer_background_color:
-- 65535
-- 57054
-- 57054
-UserConfig::quote_background_color:
-- 65535
-- 65535
-- 65535
-UserConfig::reply_text_font: Sans 8
-UserConfig::reply_text_color:
-- 26214
-- 26214
-- 26214
-UserConfig::reply_icon_size: 24
-UserConfig::quote_text_font: Sans 8
-UserConfig::quote_text_color:
-- 26214
-- 26214
-- 26214
-UserConfig::reply_present_policy:
-- :icon
-- :icon
-- :icon
-- :icon
-- :icon
-- :icon
-- :icon
-- :icon
-- :icon
-- :icon
-- :icon
-- :icon
-UserConfig::quote_edge: :floating
-UserConfig::reply_text_max_line_count: 3
-UserConfig::reply_clicked_action: 
-UserConfig::quote_clicked_action: :smartthread
-UserConfig::gtk_accountbox_geometry: 32
-UserConfig::activity_kind_order:
-- retweet
-- favorite
-- follow
-- list_member_added
-- list_member_removed
-- dm
-- system
-- ratelimit
-- streaming_status
-- error
-UserConfig::activity_max: 1000
-Plugin::change_account_tutorial_sequence: :complete
-UserConfig::profile_show_tweet_once: 20
-UserConfig::profile_icon_size: 64
-UserConfig::profile_icon_margin: 8
-UserConfig::mumble_system_bg:
-- 56610
-- 65535
-- 44880
-UserConfig::windows_geometry:
-  :default:
-    :size:
-    - 1600
-    - 836
-    :position:
-    - 0
-    - 27
-UserConfig::ui_tab_order:
-  :default:
-    :default:
-    - :mentions
-    - :activity
-    - :directmessage
-    - :search
-    - :savedsearch_780711740577153025
-    - :savedsearch_784609621000482816
-    :__Plugin::GUI::Pane_27589_57e734e7_60769b09:
-    - :home_timeline
-UserConfig::account_crypt_key: af562bcc8ca667a0f1bf26488f4f17fd
-UserConfig::achievement_took:
-- :register_account
-- :tutorial
-- :open_setting
-- :multipane
-- :move_pane
-- :display_requirements
-Plugin::saved_search_last_saved_search_state:
-  334676277:
-    :id: 334676277
-    :query: "#アカウント間違えました"
-    :name: "#アカウント間違えました"
-    :slug: :savedsearch_334676277
-    :service_id: 2353387488
-  756432208630390784:
-    :id: 756432208630390784
-    :query: サバ落ち
-    :name: サバ落ち
-    :slug: :savedsearch_756432208630390784
-    :service_id: 2353387488
-  780711740577153025:
-    :id: 780711740577153025
-    :query: "#わさちメモ"
-    :name: "#わさちメモ"
-    :slug: :savedsearch_780711740577153025
-    :service_id: 2353387488
-  784609621000482816:
-    :id: 784609621000482816
-    :query: "#kernelvm"
-    :name: "#kernelvm"
-    :slug: :savedsearch_784609621000482816
-    :service_id: 2353387488
-UserConfig::profile_opened_tabs: []
-UserConfig::subparts_image_tp: 100
-UserConfig::subparts_image_round: 10
-UserConfig::subparts_image_margin: 2
-UserConfig::protected_users_background_color:
-- 35410
-- 35410
-- 35410
-UserConfig::activity_mute_kind_related: []
-UserConfig::sound_server: :alsa
-UserConfig::proxy_enabled: 
-UserConfig::reply_edge: :solid
-UserConfig::quote_icon_size: 32
-UserConfig::quote_present_policy:
-- :header
-- :icon
-- :edge
-- :header
-- :icon
-- :edge
-- :header
-- :icon
-- :edge
-- :header
-- :icon
-- :edge
-- :header
-- :icon
-- :edge
-- :header
-- :icon
-- :edge
-- :header
-- :icon
-- :edge
-- :header
-- :icon
-- :edge
-- :header
-- :icon
-- :edge
-- :header
-- :icon
-- :edge
-- :header
-- :icon
-- :edge
-- :header
-- :icon
-- :edge
-UserConfig::tab_position: 3
-UserConfig::realtime_rewind: true
-UserConfig::notify_friend_timeline: false
-UserConfig::notify_mention: true
-UserConfig::notify_followed: true
-UserConfig::notify_removed: true
-UserConfig::notify_retweeted: true
-UserConfig::notify_favorited: true
-UserConfig::notify_direct_message: true
-UserConfig::notify_expire_time: 3
+  24:
+    :key: Control + Shift + F
+    :name: me
+    :slug: :delete_like
+  25:
+    :key: Shift + F
+    :name: Favorite
+    :slug: :favorite
+  26:
+    :key: Control + Shift + I
+    :name: 画像付きで投稿する
+    :slug: :update_with_media

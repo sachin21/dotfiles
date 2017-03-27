@@ -2,7 +2,6 @@
 # ---------------------------------------------------**
 . "$HOME/.helpers"
 . "$HOME/.zplug/init.zsh"
-. "$HOME/.zshrc.plugin"
 . "$HOME/.tmux/tmuxinator.zsh"
 
 # When OSX or Linux
@@ -25,3 +24,4 @@ esac
 . "$HOME/.zshrc.alias"
 . "$HOME/.zshrc.function"
 . "$HOME/.zshrc.local"
+. "$HOME/.zshrc.plugin"

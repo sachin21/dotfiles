@@ -6,17 +6,27 @@
 " MiniBufExplorer
 "------------------------------------
 "set minibfexp
-let g:miniBufExplMapWindowNavVim=1 "hjklで移動
-let g:miniBufExplSplitBelow=0  " Put new window above
-let g:miniBufExplMapWindowNavArrows=1
-let g:miniBufExplMapCTabSwitchBufs=1
-let g:miniBufExplModSelTarget=1
-let g:miniBufExplSplitToEdge=1
-let g:miniBufExplMaxSize = 10
+" let g:miniBufExplMapWindowNavVim=1 "hjklで移動
+" let g:miniBufExplSplitBelow=0  " Put new window above
+" let g:miniBufExplMapWindowNavArrows=1
+" let g:miniBufExplMapCTabSwitchBufs=1
+" let g:miniBufExplModSelTarget=1
+" let g:miniBufExplSplitToEdge=1
+" let g:miniBufExplMaxSize = 10
 
 ":MtでMiniBufExplorerの表示トグル
-command! Mt :TMiniBufExplorer
+" command! Mt :TMiniBufExplorer
+"
+let g:buftabs_only_basename=1 " ファイル名だけ表示
+let g:buftabs_in_statusline=1 " ステータスラインに表示
+:nmap <Right> :bnext <CR>
+:nmap <Left> :bprev <CR>
+nmap <C-h> <C-w>h " Ctrl+h, Ctrl+j, Ctrl+k, Ctrl+l でウィンドウ間を移動
+nmap <C-l> <C-w>l
+nmap <C-j> <C-w>j
+nmap <C-k> <C-w>k
 
+"
 "------------------------------------
 " Align
 "------------------------------------
@@ -365,3 +375,10 @@ nnoremap <Leader>ys :YRSearch<Space>
 "------------------------------------
 " js 拡張子でも有効にする
 let g:jsx_ext_required = 0
+
+autocmd BufNewFile,BufRead *.slim setlocal filetype=slim
+
+"------------------------------------
+" kmnk/vim-unite-giti
+"------------------------------------
+command! Gst :Unite giti/status

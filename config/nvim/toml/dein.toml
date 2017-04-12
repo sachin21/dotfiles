@@ -254,9 +254,6 @@ repo = 'vim-scripts/taglist.vim'
 repo = 'jlanzarotta/bufexplorer'
 
 [[plugins]]
-repo = 'wakatime/vim-wakatime'
-
-[[plugins]]
 repo = 'leafgarland/typescript-vim'
 
 [[plugins]]

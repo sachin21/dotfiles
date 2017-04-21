@@ -382,3 +382,8 @@ autocmd BufNewFile,BufRead *.slim setlocal filetype=slim
 " kmnk/vim-unite-giti
 "------------------------------------
 command! Gst :Unite giti/status
+
+"------------------------------------
+" thinca/vim-quickrun
+"------------------------------------
+command! Qr :QuickRun ruby

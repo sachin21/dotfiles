@@ -1,17 +1,21 @@
 # Useful functions
 # ---------------------------------------------------**
-function agvim() {
+function ptvim() {
   local output
 
-  if output=$(ag "$@"); then
-    local result=$(echo $output | peco --query "$LBUFFER")
+  if command_exists pt; then
+    if output=$(pt "$@"); then
+      local result=$(echo $output | peco --query "$LBUFFER")
 
-    if [[ ! $result == '' ]]; then
-      echo $result | awk -F : '{print "-c " $2 " " $1}' >> $HOME/.agvim_history
-      vim $(tail -n 1 "$HOME"/.agvim_history)
+      if [[ ! $result == '' ]]; then
+        echo $result | awk -F : '{print "-c " $2 " " $1}' >> $HOME/.agvim_history
+        vim $(tail -n 1 "$HOME"/.agvim_history)
+      fi
+    else
+      echo $output
     fi
   else
-    echo $output
+    warn "  x [Warning] The Platinum Searcher is not installed"
   fi
 }
 
@@ -106,3 +110,4 @@ bindkey '^x' _peco-find-and-open-file
 alias p='_peco-select-project'
 alias c='_change-repository'
 alias br='_peco-git-branch'
+alias agvim='ptvim'

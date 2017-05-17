@@ -9,7 +9,7 @@ function ptvim() {
 
       if [[ ! $result == '' ]]; then
         echo $result | awk -F : '{print "-c " $2 " " $1}' >> $HOME/.agvim_history
-        vim $(tail -n 1 "$HOME"/.agvim_history)
+        vim $(tail -n 1 "$HOME"/.ptvim_history)
       fi
     else
       echo $output

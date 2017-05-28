@@ -2,12 +2,12 @@ require 'rake/clean'
 
 HOME = ENV['HOME']
 
-ZSH_DOT_ROOT  = File.join(File.dirname(__FILE__), 'zsh.dot')
-ZSH_DOT_FILES = `ls zsh.dot`.split("\n").freeze
+DOT_ZSH_FILES = `ls dot.zsh`.split("\n").freeze
+DOT_ZSH_ROOT  = File.join(File.dirname(__FILE__), 'dot.zsh')
 
-TMUX_ROOT     = File.join(File.dirname(__FILE__), 'tmux')
-TMUX_DOT_ROOT = File.join(File.dirname(__FILE__), 'tmux.dot')
+DOT_TMUX_ROOT = File.join(File.dirname(__FILE__), 'dot.tmux')
 TMUX_FILES    = %w(tmux tmuxinator).freeze
+TMUX_ROOT     = File.join(File.dirname(__FILE__), 'tmux')
 
 GIT_ROOT      = File.join(File.dirname(__FILE__), 'git')
 GIT_FILES     = `ls git`.split("\n").freeze
@@ -80,8 +80,8 @@ task deploy: %w(zsh:link git:link tmux:link etc:link config:sync)
 namespace :zsh do
   desc 'Create symbolic links for zsh settings file to HOME'
   task :link do
-    _symlink File.join(ZSH_DOT_ROOT, 'zshrc'), File.join(HOME, '.zshrc')
-    same_name_symlinks ZSH_DOT_ROOT, ZSH_DOT_FILES
+    _symlink File.join(DOT_ZSH_ROOT, 'zshrc'), File.join(HOME, '.zshrc')
+    same_name_symlinks DOT_ZSH_ROOT, DOT_ZSH_FILES
   end
 end
 
@@ -97,7 +97,7 @@ namespace :tmux do
   task :link do
     _symlink File.join(TMUX_ROOT), File.join(HOME, '.tmux')
     _symlink \
-      File.join(TMUX_DOT_ROOT, 'tmuxinator'),
+      File.join(DOT_TMUX_ROOT, 'tmuxinator'),
       File.join(HOME, '.tmuxinator')
   end
 
@@ -105,7 +105,7 @@ namespace :tmux do
     desc 'Create symbolic links for tmux config files for OS X to HOME'
     task :link do
       _symlink \
-        File.join(TMUX_DOT_ROOT, 'tmux.conf.osx'), File.join(HOME, '.tmux.conf')
+        File.join(DOT_TMUX_ROOT, 'tmux.conf.osx'), File.join(HOME, '.tmux.conf')
     end
   end
 
@@ -113,7 +113,7 @@ namespace :tmux do
     desc 'Create symbolic links for tmux config files for Linux to HOME'
     task :link do
       _symlink \
-        File.join(TMUX_DOT_ROOT, 'tmux.conf.linux'),
+        File.join(DOT_TMUX_ROOT, 'tmux.conf.linux'),
         File.join(HOME, '.tmux.conf')
     end
   end

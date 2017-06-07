@@ -94,6 +94,12 @@ function _peco-find-and-open-file () {
   zle clear-screen
 }
 
+function _kill-ps-with-peco() {
+  for pid in $(ps aux | peco | awk '{ print $2 }'); do
+    sudo kill $pid
+  done
+}
+
 # Set zle
 # ---------------------------------------------------**
 zle -N _peco-select-history
@@ -110,4 +116,5 @@ bindkey '^x' _peco-find-and-open-file
 alias p='_peco-select-project'
 alias c='_change-repository'
 alias br='_peco-git-branch'
+alias pk='_kill-ps-with-peco'
 alias agvim='ptvim'

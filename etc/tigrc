@@ -8,3 +8,6 @@ bind generic <Ctrl-b> scroll-page-up
 bind main o !@hub browse -- commit/%(commit)
 bind diff o !@hub browse -- commit/%(commit)
 bind log  o !@hub browse -- commit/%(commit)
+
+set blob-view-line-number = yes
+set blame-view-line-number = yes

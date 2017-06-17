@@ -8,6 +8,8 @@ zplug "sachin21/eecd241ecf420323fe388de155a02658", from:gist, as:command, use:"*
 
 zplug 'b4b4r07/gomi', as:command, from:gh-r
 
+zplug 'yudai/gotty', as:command, from:gh-r
+
 is_linux && zplug "sachin21/82bf9e1f0e2ae6412af88ccda56b4a21", from:gist, as:command, use:"*", hook-build:"chmod +x *"
 
 if ! zplug check --verbose; then

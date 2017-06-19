@@ -2406,6 +2406,7 @@ display_thread_id
 display_wordend
 display_wordstart
 disposition
+distinct
 div
 div
 divide

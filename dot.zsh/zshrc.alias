@@ -1,4 +1,4 @@
-# For common
+# Common
 # ---------------------------------------------------**
 alias reload='exec $SHELL'
 alias ts='tmux split-window'
@@ -37,7 +37,7 @@ alias o.="open_command ."
 alias t='ghi show -w $(ghi list --sort updated | grep -v "open issue" | fgrep -v "None." | peco | awk "{ print $1 }")'
 alias ghqget='ghq get -p'
 
-# For Global
+# Global
 # ---------------------------------------------------**
 alias -g A='| ag'
 alias -g B='`git branch | peco | sed -e "s/^\*[ ]*//g"`'
@@ -58,7 +58,7 @@ alias -s py='python'
 alias -s hs='runhaskell'
 alias -s php='php -f'
 
-# For projects
+# Projects
 # ---------------------------------------------------**
 for project in $(command ls "$HOME/.tmuxinator"); do
   project=${project%.*}
@@ -66,7 +66,7 @@ for project in $(command ls "$HOME/.tmuxinator"); do
 done
 unset project
 
-# For the gomi
+# gomi
 # ---------------------------------------------------**
 if command_exists gomi &> /dev/null; then
   alias rm="gomi"
@@ -75,7 +75,7 @@ else
   warn "  x [Warning] gomi is not installed"
 fi
 
-# For the cURL
+# cURL
 # ---------------------------------------------------**
 if command_exists curl; then
   CURL_OPTS=''
@@ -89,7 +89,7 @@ else
   warn "  x [Warning] curl is not installed"
 fi
 
-# For mikutter
+# mikutter
 # ---------------------------------------------------**
 if command_exists mikutter; then
   alias mstart="mikutter start"
@@ -99,7 +99,7 @@ else
   warn "  x [Warning] mikutter is not installed"
 fi
 
-# For tig
+# tig
 if command_exists ruby; then
   for alphabet in $(ruby -e "printf ('a'..'z').to_a.join(\"\n\")"); do
     alias "${alphabet}tig"='tig'
@@ -107,6 +107,6 @@ if command_exists ruby; then
   done
 fi
 
-# For secure
+# Secure
 function encrypt() { openssl aes-256-cbc -e -in $1 -out encrypted$RANDOM.txt }
 function decrypt() { openssl aes-256-cbc -d -in $1 -out /dev/stdout }

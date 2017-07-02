@@ -68,13 +68,13 @@ function install_packages(){
       sudo pacman -S $NEEDED_PACKAGES
     elif [ "$flag:l" = 'u' ]; then
       message " + Updating packages..."
-      sudo apt-get update > /dev/null 2>&1 || true
+      sudo apt-get -y update > /dev/null 2>&1 || true
 
       message " + Upgrading packages..."
-      sudo apt-get upgrade > /dev/null 2>&1 || true
+      sudo apt-get -y upgrade > /dev/null 2>&1 || true
 
       message "  + Installing needed packages..."
-      sudo apt-get install -y $NEEDED_PACKAGES > /dev/null 2>&1 || true
+      sudo apt-get -y install $NEEDED_PACKAGES > /dev/null 2>&1 || true
     else
       fail "  x [Error] You can input is only 'm', 'c' and 'a'"; exit 1
     fi

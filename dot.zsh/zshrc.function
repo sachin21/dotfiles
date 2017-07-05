@@ -39,6 +39,7 @@ function _peco-select-history() {
 
   local BUFFER=$(\history -n 1 | \
     tac | \
+    awk '!x[$0]++' | \
     peco --query "$LBUFFER")
   CURSOR="$#BUFFER"
 
@@ -57,40 +58,53 @@ function _peco-select-project() {
   tmuxinator "$project"
 }
 
-function _peco-find-and-open-file () {
-  local files=$(find . | peco)
-  if [[ ! $files == '' ]]; then
-    echo $files | xargs zsh -c 'vim "$0" < /dev/tty'
-  fi
-
-  zle clear-screen
-}
-
 function _peco-git-branch(){
-  local branch_name=$(git branch | peco | sed -e "s/^\*[ ]*//g" | sed -e 's/ //g')
+  local branch_name=$(git branch | grep -v "*" | peco | sed -e 's/ //g')
   git checkout $branch_name
 }
 
 function python-listup() {
-  pyenv install --list | peco | sed -e 's/^  *//g' | tr -d '\n" "' C
-  succeed "  + Copied to the clipboard"
+  local version=$(pyenv install --list | peco | sed -e 's/^  *//g' | tr -d '\n" "')
+
+  if [[ $version != '' ]]; then
+    echo $version C
+    succeed "  + Copied to the clipboard"
+  else
+    fail "  x [Error] Failed to copy to the clipboard"
+  fi
 }
 
 function ruby-listup() {
-  rbenv install --list | peco | sed -e 's/^  *//g' | tr -d '\n" "' C
-  succeed "  + Copied to the clipboard"
+  local version=$(rbenv install --list | peco | sed -e 's/^  *//g' | tr -d '\n" "')
+
+  if [[ $version != '' ]]; then
+    echo $version C
+    succeed "  + Copied to the clipboard"
+  else
+    fail "  x [Error] Failed to copy to the clipboard"
+  fi
 }
 
 function ec() {
-  git commit -m "Execute '$@'"
+  git commit -m "Execute \`$@\`"
 }
 
-function _peco-find-and-open-file () {
-  local files=$(find . | fgrep -v '.git' | fgrep -v './vendor/bundle'| peco)
-  if [[ ! $files == '' ]]; then
-    echo $files | xargs zsh -c 'nvim "$0" < /dev/tty'
+function _peco-find-and-open-file() {
+  if [[ $1 == '' ]]; then
+    local target='.'
+  else
+    local target=$1
   fi
 
+  local targets=$(find $target | fgrep -v '.git' | fgrep -v './vendor/bundle' | peco)
+
+  if [[ ! $targets == '' ]]; then
+    echo $targets
+  fi
+}
+
+function _peco-find-and-open-file-with-binding() {
+  _peco-find-and-open-file
   zle clear-screen
 }
 
@@ -103,13 +117,13 @@ function _kill-ps-with-peco() {
 # Set zle
 # ---------------------------------------------------**
 zle -N _peco-select-history
-zle -N _peco-find-and-open-file
+zle -N _peco-find-and-open-file-with-binding
 
 # Bind functions
 # ---------------------------------------------------**
 bindkey '^r' _peco-select-history
 bindkey '^_' undo
-bindkey '^x' _peco-find-and-open-file
+bindkey '^x' _peco-find-and-open-file-with-binding
 
 # Alias functions
 # ---------------------------------------------------**
@@ -118,3 +132,4 @@ alias c='_change-repository'
 alias br='_peco-git-branch'
 alias pk='_kill-ps-with-peco'
 alias agvim='ptvim'
+alias x='_peco-find-and-open-file'

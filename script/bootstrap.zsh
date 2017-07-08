@@ -190,7 +190,7 @@ function install_ghq() {
 }
 
 function install_zplug() {
-  git clone https://github.com/b4b4r07/zplug "$HOME/.zplug" > /dev/null 2>&1
+  curl -sL --proto-redir -all,https https://raw.githubusercontent.com/zplug/installer/master/installer.zsh| zsh
 }
 
 function install_mikutter_plugins() {

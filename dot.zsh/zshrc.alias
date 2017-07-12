@@ -10,6 +10,7 @@ alias v='nvim'
 alias vi='nvim'
 alias vim='nvim'
 alias fs='bundle exec foreman start --procfile Procfile.dev'
+alias fss='bundle exec foreman start --procfile Procfile'
 alias quit='exit'
 alias t='tmux'
 alias allunigem='gem list --no-versions | grep "^[a-z]" | grep bunlder -v | grep space2underscore -v | grep space2dot -v | grep test-unit -v | grep rdoc -v | grep rake -v | grep psych -v | grep io-console -v | grep json -v | grep bigdecimal -v | grep minitest -v | xargs gem uninstall -aIx'
@@ -27,7 +28,6 @@ alias gsm='git syncm'
 alias gsms='git syncms'
 alias gsdd='git syncd'
 alias b='bundle'
-alias tigj='tig'
 alias rehash='nodenv rehash; pyenv rehash'
 alias ctags="ctags --exclude=.git --exclude=log"
 alias r='rspec'
@@ -107,6 +107,12 @@ if command_exists ruby; then
   done
 fi
 
+alias ti='tig'
+alias it='tig'
+
 # Secure
 function encrypt() { openssl aes-256-cbc -e -in $1 -out encrypted$RANDOM.txt }
 function decrypt() { openssl aes-256-cbc -d -in $1 -out /dev/stdout }
+
+# xpanes
+alias xp="xpanes"

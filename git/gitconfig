@@ -18,7 +18,7 @@
 [alias]
   # Open files
   open = "!nvim $(git diff --name-only)"
-  opena = "!nvim $(git diff --staged --name-only)"
+  opena = "!nvim  $(git diff --staged --name-only)"
 
   # Sync repositories
   sync = !git checkout master && git pull origin master --rebase && git fetch -p origin && git branch -d $(git branch --merged | grep -v master | grep -v '*')

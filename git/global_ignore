@@ -46,6 +46,7 @@ Thumbs.db
 .bundle
 /vendor/bundle
 *.gem
+.overcommit.yml
 
 # etc #
 # ---------------------------------------------------**
@@ -54,3 +55,4 @@ tags
 .rake_tasks
 ,
 ,*
+.vscode

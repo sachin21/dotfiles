@@ -17,13 +17,7 @@ repo = 'c9s/cascading.vim'
 repo = 'nathanaelkane/vim-indent-guides'
 
 [[plugins]]
-repo = 'xmledit'
-
-[[plugins]]
 repo = 'mattn/emmet-vim'
-
-[[plugins]]
-repo = 'Align'
 
 [[plugins]]
 repo = 'godlygeek/tabular'
@@ -33,21 +27,6 @@ repo = 'h1mesuke/vim-alignta'
 
 [[plugins]]
 repo = 'LeafCage/yankround.vim'
-
-[[plugins]]
-repo = 'Gundo'
-
-[[plugins]]
-repo = 'smartchr'
-
-[[plugins]]
-repo = 'operator-user'
-
-[[plugins]]
-repo = 'operator-camelize'
-
-[[plugins]]
-repo = 'operator-replace'
 
 [[plugins]]
 repo = 'kana/vim-textobj-user'
@@ -71,37 +50,29 @@ repo = 'osyo-manga/vim-over'
 repo = 'tpope/vim-surround'
 
 [[plugins]]
-repo = 'AutoComplPop'
-
-[[plugins]]
 repo = 'Shougo/deoplete.nvim'
+on_event = 'InsertCharPre'
+hook_source = '''
+  let g:deoplete#enable_at_startup = 1
+  let g:deoplete#auto_complete_delay = 0
+  let g:deoplete#auto_complete_start_length = 1
+  let g:deoplete#enable_camel_case = 0
+  let g:deoplete#enable_ignore_case = 0
+  let g:deoplete#enable_refresh_always = 0
+  let g:deoplete#enable_smart_case = 1
+  let g:deoplete#file#enable_buffer_path = 1
+  let g:deoplete#max_list = 10000
+  inoremap <expr><tab> pumvisible() ? "\<C-n>" :
+        \ neosnippet#expandable_or_jumpable() ?
+        \    "\<Plug>(neosnippet_expand_or_jump)" : "\<tab>"
+'''
+on_i = 1
 
 [[plugins]]
 repo = 'ujihisa/neco-ruby'
 
 [[plugins]]
 repo = 'ujihisa/neco-look'
-
-[[plugins]]
-repo = 'smartword'
-
-[[plugins]]
-repo = 'camelcasemotion'
-
-[[plugins]]
-repo = 'EasyMotion'
-
-[[plugins]]
-repo = 'matchit.zip'
-
-[[plugins]]
-repo = 'ruby-matchit'
-
-[[plugins]]
-repo = 'grep.vim'
-
-[[plugins]]
-repo = 'eregex.vim'
 
 [[plugins]]
 repo = 'tyru/open-browser.vim'
@@ -125,31 +96,10 @@ repo = 'thinca/vim-quickrun'
 repo = 'thinca/vim-ref'
 
 [[plugins]]
-repo = 'SQLUtilities'
-
-[[plugins]]
 repo = 'vim-ruby/vim-ruby'
 
 [[plugins]]
 repo = 'tpope/vim-rails'
-
-[[plugins]]
-repo = 'Pydiction'
-
-[[plugins]]
-repo = 'errormarker.vim'
-
-[[plugins]]
-repo = 'haml.zip'
-
-[[plugins]]
-repo = 'JavaScript-syntax'
-
-[[plugins]]
-repo = 'jQuery'
-
-[[plugins]]
-repo = 'nginx.vim'
 
 [[plugins]]
 repo = 'tpope/vim-markdown'
@@ -176,16 +126,13 @@ repo = 'vim-syntastic/syntastic'
 repo = 'isRuslan/vim-es6'
 
 [[plugins]]
-repo = 'DumbBuf'
+repo = 'vim-scripts/minibufexpl.vim'
 
 [[plugins]]
-repo = 'minibufexpl.vim'
+repo = 'vim-scripts/The-NERD-tree'
 
 [[plugins]]
-repo = 'The-NERD-tree'
-
-[[plugins]]
-repo = 'vtreeexplorer'
+repo = 'vim-scripts/vtreeexplorer'
 
 [[plugins]]
 repo = 'banyan/recognize_charcode.vim'
@@ -197,13 +144,7 @@ repo = 'tyru/vim-altercmd'
 repo = 'mattn/webapi-vim'
 
 [[plugins]]
-repo = 'cecutil'
-
-[[plugins]]
 repo = 'tyru/urilib.vim'
-
-[[plugins]]
-repo = 'L9'
 
 [[plugins]]
 repo = 'thinca/vim-openbuf'
@@ -281,15 +222,6 @@ repo = 'choplin/unite-vim_hacks'
 repo = 'Shougo/neomru.vim'
 
 [[plugins]]
-repo = 'desert256.vim'
-
-[[plugins]]
-repo = 'mrkn256.vim'
-
-[[plugins]]
-repo = 'tomasr/molokai'
-
-[[plugins]]
 repo = 'yuroyoro/yuroyoro256.vim'
 
 [[plugins]]
@@ -306,7 +238,25 @@ repo = 'https://gist.github.com/tamanobi/3cb51380e10a9231c7aed15894ef5be0'
 script_type='plugin'
 
 [[plugins]]
-repo = 'Shougo/neocomplcache.vim'
+repo = 'kannokanno/previm'
 
 [[plugins]]
-repo = 'Shougo/neocomplcache-rsense.vim'
+repo = 'heavenshell/vim-tslint-config'
+
+[[plugins]]
+repo = 'vim-scripts/haml.zip'
+
+[[plugins]]
+repo = 'vim-scripts/cecutil'
+
+[[plugins]]
+repo = 'vim-scripts/Align'
+
+[[plugins]]
+repo = 'vim-scripts/nginx.vim'
+
+[[plugins]]
+repo = 'vim-scripts/camelcasemotion'
+
+[[plugins]]
+repo = 'kassio/neoterm'

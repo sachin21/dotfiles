@@ -2,25 +2,25 @@ require 'rake/clean'
 
 HOME = ENV['HOME']
 
-DOT_ZSH_FILES = `ls dot.zsh`.split("\n").freeze
-DOT_ZSH_ROOT  = File.join(File.dirname(__FILE__), 'dot.zsh')
+DOT_ZSH_FILES   = `ls dot.zsh`.split("\n").freeze
+DOT_ZSH_ROOT    = File.join(File.dirname(__FILE__), 'dot.zsh')
 
-DOT_TMUX_ROOT = File.join(File.dirname(__FILE__), 'dot.tmux')
-TMUX_FILES    = %w(tmux tmuxinator).freeze
-TMUX_ROOT     = File.join(File.dirname(__FILE__), 'tmux')
+DOT_TMUX_ROOT   = File.join(File.dirname(__FILE__), 'dot.tmux')
+TMUX_FILES      = %w(tmux tmuxinator).freeze
+TMUX_ROOT       = File.join(File.dirname(__FILE__), 'tmux')
 
-GIT_ROOT      = File.join(File.dirname(__FILE__), 'git')
-GIT_FILES     = `ls git`.split("\n").freeze
+GIT_ROOT        = File.join(File.dirname(__FILE__), 'git')
+GIT_FILES       = `ls git`.split("\n").freeze
 
-ETC_ROOT      = File.join(File.dirname(__FILE__), 'etc')
-ETC_FILES     = `ls etc`.split("\n").freeze
+ETC_ROOT        = File.join(File.dirname(__FILE__), 'etc')
+ETC_FILES       = `ls etc`.split("\n").freeze
 
-ARCH_ROOT     = File.join(File.dirname(__FILE__), 'arch')
-ARCH_FILES    = `ls arch`.split("\n").freeze
+LINUX_ROOT      = File.join(File.dirname(__FILE__), 'linux')
+LINUX_DOT_FILES = `ls linux`.split("\n").freeze
 
-CONFIG_ROOT   = File.join(File.dirname(__FILE__), 'config')
+CONFIG_ROOT     = File.join(File.dirname(__FILE__), 'config')
 
-MIKUTTER_ROOT = File.join(File.dirname(__FILE__), 'mikutter')
+MIKUTTER_ROOT   = File.join(File.dirname(__FILE__), 'mikutter')
 
 DROP = '&> /dev/null'.freeze
 
@@ -126,10 +126,10 @@ namespace :etc do
   end
 end
 
-namespace :arch do
+namespace :linux do
   desc 'Create symbolic links for ArchLinux to HOME'
   task :link do
-    same_name_symlinks ARCH_ROOT, ARCH_FILES
+    same_name_symlinks LINUX_ROOT, LINUX_DOT_FILES
   end
 end
 

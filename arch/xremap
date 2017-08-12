@@ -1,17 +1,19 @@
 window class_only: %w(google-chrome chromium slack mikutter.rb) do
-  remap 'Ctrl-Shift-f', to: 'Right'
-  remap 'Ctrl-Shift-n', to: 'Down'
-  remap 'Ctrl-Shift-b', to: 'Left'
-  remap 'Ctrl-Shift-p', to: 'Up'
+  %w[Alt Super].each do |key|
+    remap "Ctrl-#{key}-f", to: 'Right'
+    remap "Ctrl-#{key}-n", to: 'Down'
 
-  remap 'Ctrl-Shift-a', to: 'Home'
-  remap 'Ctrl-Shift-e', to: 'End'
+    remap "Ctrl-#{key}-b", to: 'Left'
+    remap "Ctrl-#{key}-p", to: 'Up'
 
-  remap 'Ctrl-Shift-k', to: %w[Shift-End Delete]
+    remap "Ctrl-#{key}-a", to: 'Home'
+    remap "Ctrl-#{key}-e", to: 'End'
 
-  remap 'Ctrl-Shift-d', to: 'Delete'
+    remap "Ctrl-#{key}-d", to: 'Delete'
 
-  remap 'Ctrl-Shift-u', to: %w[Shift-Home Delete]
+    remap "Ctrl-#{key}-k", to: %w[Shift-End Delete]
+    remap "Ctrl-#{key}-u", to: %w[Shift-Home Delete]
+  end
 end
 
 window class_only: 'slack' do

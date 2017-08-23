@@ -83,14 +83,6 @@ function install_packages(){
   succeed "  + Tools was successfully installed"
 }
 
-function install_linux_brew() {
-  ask "  + Do you install Linuxbrew? [y/Y]" && read -r is_install_linuxbrew
-  if [ "$is_install_linuxbrew:l" = "y" ]; then
-    message "  + Installing Linuxbrew..."
-    ./script/brew.zsh
-  fi
-}
-
 # Install oh-my-zsh
 function install_omz(){
   if [ -d "$HOME/.oh-my-zsh" ]; then
@@ -163,32 +155,6 @@ function install_nodenv(){
   fi
 }
 
-# Setup repositories
-function install_ghq() {
-  if command_not_exists curl > /dev/null 2>&1; then
-    fail "  x [Error] cURL is not installed"; return 1
-  fi
-
-  ask "  + If you want to create projects of sachin21? [y/Y]" && read -r flag
-
-  if [ "$flag:l" = "y" ]; then
-    if command_exists ghq > /dev/null 2>&1; then
-      message "  + Installing ghq..."
-      if brew tap motemen/ghq > /dev/null 2>&1 && brew install ghq > /dev/null 2>&1; then
-        succeed "  + ghq was successfully installed"
-      fi
-    fi
-
-    message "  + tapping repositories..."
-    curl -fsSL https://api.github.com/users/sachin21/repos \
-      | ruby -rjson -e 'JSON.parse(STDIN.read).each{ |r| puts r["name"] }' \
-        | while read -r repository; do
-      message "  + Cloning $repository..."
-      ghq get "https://github.com/sachin21/$repository.git" || true
-    done
-  fi
-}
-
 function install_zplug() {
   curl -sL --proto-redir -all,https https://raw.githubusercontent.com/zplug/installer/master/installer.zsh| zsh
 }
@@ -256,15 +222,10 @@ function main(){
     install_packages
   done
 
-  if [[ "${OSTYPE}" == linux* ]]; then
-    install_linux_brew
-  fi
-
   install_omz
   install_rbenv
   install_pyenv
   install_nodenv
-  install_ghq
   install_zplug
   install_mikutter_plugins
   create_symbolic_links

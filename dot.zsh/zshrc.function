@@ -110,7 +110,7 @@ function _peco-find-and-open-file-with-binding() {
 
 function _kill-ps-with-peco() {
   for pid in $(ps aux | peco | awk '{ print $2 }'); do
-    sudo kill $pid
+    sudo kill -9 $pid
   done
 }
 

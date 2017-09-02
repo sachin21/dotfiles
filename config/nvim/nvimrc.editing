@@ -29,9 +29,6 @@ inoremap , ,<Space>
 inoremap <C-u>  <C-g>u<C-u>
 inoremap <C-w>  <C-g>u<C-w>
 
-" :Ptでインデントモード切替
-command! Pt :set paste!
-
 " y9 ydで行末までヤンク
 nmap y9 y$
 nmap yd y$

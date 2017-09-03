@@ -101,3 +101,5 @@ nnoremap gk k
 " ZZやZQによるvimの終了を無効化
 nnoremap ZZ <Nop>
 nnoremap ZQ <Nop>
+
+tnoremap <silent> <ESC> <C-\><C-n>

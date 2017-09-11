@@ -54,13 +54,9 @@ set-window-option -g mode-keys vi
 set-window-option -g mode-keys vi
 set-window-option -g automatic-rename off
 
-bind-key -t vi-copy 'v' begin-selection
-bind-key -t vi-copy 'y' copy-selection
-bind-key -t vi-copy v begin-selection
-bind-key -t vi-copy y copy-pipe "cat | xsel -i --clipboard"
-
-unbind -t vi-copy Enter
-bind-key -t vi-copy Enter copy-pipe "reattach-to-user-namespace pbcopy"
+bind -Tcopy-mode-vi v send -X begin-selection
+bind -Tcopy-mode-vi y send -X copy-selection
+bind -Tcopy-mode-vi y send -X copy-pipe "cat | xsel -i --clipboard"
 
 # セッションをkill
 bind q kill-session

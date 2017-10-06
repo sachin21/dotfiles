@@ -16,18 +16,24 @@ fi
 if command_exists gls; then
   alias ls='gls --color=auto -F'
 else
-  warn "  x [Warning] coreutils is not installed"
   alias ls='ls -F'
 fi
 
 # Add misc aliases
 # ---------------------------------------------------**
 for i in $(seq 15); do
-  alias b_$i="sudo tee /sys/class/backlight/acpi_video0/brightness <<< $i"
+  alias "b_$i"="sudo tee /sys/class/backlight/acpi_video0/brightness <<< $i"
 done
 
 alias pacman="pacman --noconfirm"
 alias yaourt="yaourt --noconfirm"
+
+alias ls='ls --color=auto -F'
+alias purge="sync && sudo sysctl -w vm.drop_caches=3 > /dev/null"
+
+# Add misc functions
+# ---------------------------------------------------**
+function say(){ espeak --stdout $@ | paplay }
 
 # Load keymaps for Xmodmap
 # ---------------------------------------------------**
@@ -36,3 +42,17 @@ xmodmap "$HOME/.Xmodmap" &> /dev/null
 # Add zstyle for zplug
 # ---------------------------------------------------**
 zstyle :zplug:tag depth 0
+
+# Audio
+alias -- "s--"="sh -c 'amixer -q sset Master,0 1- unmute'"
+alias -- "s----"="sh -c 'amixer -q sset Master,0 5- unmute'"
+alias -- "s++"="sh -c 'amixer -q sset Master,0 1+ unmute'"
+alias -- "s++++"="sh -c 'amixer -q sset Master,0 5+ unmute'"
+
+alias -- "l--"="xbacklight -dec 10"
+alias -- "l----"="xbacklight -dec 25"
+alias -- "l++"="xbacklight -inc 10"
+alias -- "l++++"="xbacklight -inc 25"
+
+alias mute="pactl set-sink-mute 0 true"
+alias unmute="pactl set-sink-mute 0 false"

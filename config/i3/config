@@ -52,11 +52,21 @@ exec --no-startup-id nm-applet
 # Multi Monitor https://i3wm.org/docs/multi-monitor.html
 exec i3 --force-xinerama -V >>~/.i3/i3log 2>&1
 
+# Compositing window manager
+# exec --no-startup-id compton -cbm 0.75
+
 # Albert
 bindsym $mod+o exec --no-startup-id albert toggle
 
+# Maximize window
+# bindsym $mod+shift+f fullscreen toggle; bar mode toggle
+
 # lock screen
 bindsym $mod+End exec --no-startup-id "/usr/bin/i3lock -c 073642 --clock --textcolor=ffffffff --datecolor=ffffffff --timecolor=ffffffff --ringcolor=03928393 --keyhlcolor=f9ej9eje"
+
+# Floating
+# bindsym $mod+shift+l exec gvim --role floatingChrome
+# for_window [class="^google-chrome$" role="^floatingChrome$"] floating enable
 
 # There also is the (new) i3-dmenu-desktop which only displays applications
 # shipping a .desktop file. It is a wrapper around dmenu, so you need that
@@ -76,10 +86,10 @@ bindsym $mod+Up focus up
 bindsym $mod+Right focus right
 
 # move focused window
-bindsym $mod+Shift+h move left
-bindsym $mod+Shift+j move down
-bindsym $mod+Shift+k move up
-bindsym $mod+Shift+l move right
+# bindsym $mod+Shift+h move left
+# bindsym $mod+Shift+j move down
+# bindsym $mod+Shift+k move up
+# bindsym $mod+Shift+l move right
 
 # alternatively, you can use the cursor keys:
 bindsym $mod+Shift+Left move left
@@ -172,3 +182,6 @@ bindsym $mod+r mode "resize"
 bar {
         status_command i3status
 }
+#
+# exec \
+# comptoggle

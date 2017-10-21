@@ -16,6 +16,8 @@ zplug 'yudai/gotty', as:command, from:gh-r
 
 zplug 'motemen/ghq', as:command, from:gh-r
 
+zplug 'yhatt/marp', as:command, from:gh-r
+
 zplug 'monochromegane/the_platinum_searcher', as:command, rename-to:pt, from:gh-r
 
 is_linux && zplug "sachin21/82bf9e1f0e2ae6412af88ccda56b4a21", from:gist, as:command, use:"*", hook-build:"chmod +x *"

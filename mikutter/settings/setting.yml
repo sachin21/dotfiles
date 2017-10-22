@@ -71,3 +71,7 @@ UserConfig::shortcutkey_keybinds:
     :key: Control + Shift + I
     :name: 画像付きで投稿する
     :slug: :update_with_media
+  27:
+    :key: Shift + T
+    :name: open in browser
+    :slug: :open_in_browser

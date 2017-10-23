@@ -6,3 +6,4 @@ let g:deoplete#sources._ = ['buffer', 'member', 'tag', 'file', 'dictionary']
 let g:deoplete#ignore_sources = {
       \ '_': ['omni']
       \ }
+let g:deoplete#enable_at_startup = 1

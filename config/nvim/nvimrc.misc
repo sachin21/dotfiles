@@ -4,3 +4,6 @@
 
 " ;でコマンド入力( ;と:を入れ替)
 noremap ; :
+
+" 半透明に対応
+hi Normal ctermbg=NONE

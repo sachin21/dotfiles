@@ -20,8 +20,8 @@ URxvt.iso14755: False
 URxvt.perl-ext-common: default,clipboard
 
 URxvt.depth:                32
-URxvt.geometry:             90x30
-URxvt.transparent:          false
+URxvt.geometry:             191x47
+URxvt.transparent:          true
 URxvt.fading:               0
 ! URxvt.urgentOnBell:         true
 ! URxvt.visualBell:           true
@@ -53,6 +53,16 @@ URxvt.cursorUnderline:      false
 
 ! Pointer
 URxvt.pointerBlank:         true
+
+! Font
+urxvt*font: xft:Ricty:pixelsize=20:antialias=true:hinting=true
+urxvt*boldFont: xft:Ricty:pixelsize=20:antialias=true:bold:hinting=true
+urxvt*italicFont: xft:Ricty:pixelsize=20:antialias=true:italic:autohint=true:hinting=true
+urxvt*bolditalicFont: xft:Ricty:pixelsize=20:antialias=true:bold:italic:autohint=true:hinting=true
+
+! Transparency
+! urxvt*depth: 32
+! urxvt*background: rgba:0000/0000/0200/b500
 
 !!Source http://github.com/altercation/solarized
 

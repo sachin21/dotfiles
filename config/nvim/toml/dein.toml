@@ -260,3 +260,6 @@ repo = 'vim-scripts/camelcasemotion'
 
 [[plugins]]
 repo = 'kassio/neoterm'
+
+[[plugins]]
+repo = 'mattn/vim-sonots'

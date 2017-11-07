@@ -56,3 +56,5 @@ alias -- "l++++"="xbacklight -inc 25"
 
 alias mute="pactl set-sink-mute 0 true"
 alias unmute="pactl set-sink-mute 0 false"
+
+export TERMINAL="terminator"

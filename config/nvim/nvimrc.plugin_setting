@@ -392,3 +392,9 @@ command! Gst :Unite giti/status
 " thinca/vim-quickrun
 "------------------------------------
 command! Qr :QuickRun ruby
+
+" watchdogs_checker"
+let g:quickrun_config['javascript/watchdogs_checker'] = {
+  \ 'type': 'watchdogs_checker/tslint',
+  \ 'hook/watchdogs_quickrun_running_tslint/enable': 1,
+  \ }

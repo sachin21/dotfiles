@@ -108,6 +108,16 @@ function _peco-find-and-open-file-with-binding() {
   zle clear-screen
 }
 
+function fs() {
+  if [[ -f Procfile ]]; then
+    bundle exec foreman start --procfile Procfile
+  elif [[ -f Procfile.dev ]]; then
+    bundle exec foreman start --procfile Procfile.dev
+  else
+    warn "  x [Warning] Procfile is not found"
+  fi
+}
+
 function _kill-ps-with-peco() {
   for pid in $(ps aux | peco | awk '{ print $2 }'); do
     sudo kill -9 $pid

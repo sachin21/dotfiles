@@ -109,10 +109,10 @@ function _peco-find-and-open-file-with-binding() {
 }
 
 function fs() {
-  if [[ -f Procfile ]]; then
-    bundle exec foreman start --procfile Procfile
-  elif [[ -f Procfile.dev ]]; then
+  if [[ -f Procfile.dev ]]; then
     bundle exec foreman start --procfile Procfile.dev
+  elif [[ -f Procfile ]]; then
+    bundle exec foreman start --procfile Procfile
   else
     warn "  x [Warning] Procfile is not found"
   fi

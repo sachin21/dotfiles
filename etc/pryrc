@@ -3,15 +3,3 @@ begin
 rescue LoadError
   puts "Could not load awesome_print"
 end
-
-begin
-  require 'yaml'
-rescue LoadError
-  puts "Could not load yaml"
-end
-
-begin
-  require 'csv'
-rescue LoadError
-  puts "Could not load csv"
-end

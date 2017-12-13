@@ -26,7 +26,6 @@ alias gsm='git syncm'
 alias gsms='git syncms'
 alias gsdd='git syncd'
 alias b='bundle'
-alias rehash='nodenv rehash; pyenv rehash'
 alias ctags="ctags --exclude=.git --exclude=log"
 alias r='rspec'
 alias free='free -h'

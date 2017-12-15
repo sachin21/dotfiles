@@ -103,3 +103,6 @@ nnoremap ZZ <Nop>
 nnoremap ZQ <Nop>
 
 tnoremap <silent> <ESC> <C-\><C-n>
+
+" snake_case <-> CamelCase"
+vmap <Leader>ss <plug>(operator-camelize-toggle)

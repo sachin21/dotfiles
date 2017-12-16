@@ -263,3 +263,12 @@ repo = 'kassio/neoterm'
 
 [[plugins]]
 repo = 'mattn/vim-sonots'
+
+[[plugins]]
+repo = 'tpope/vim-abolish'
+
+[[plugins]]
+repo = 'tyru/operator-camelize.vim'
+
+[[plugins]]
+repo = 'kana/vim-operator-user'

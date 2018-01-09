@@ -119,6 +119,7 @@ alias xp="xpanes"
 # docker-compose
 if command_exists docker-compose; then
   alias fig='docker-compose'
+  alias figrm='docker-compose run --rm'
   alias figd='docker-compose -f docker-compose-dev.yml'
   alias figt='docker-compose -f docker-compose-test.yml'
 fi

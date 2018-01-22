@@ -1,6 +1,7 @@
 [user]
   name = Satoshi Ohmori
   email = sachin21dev@gmail.com
+  signingkey = 9344ECD6077DCD1942C52E6515D898B8FBE9668A
 
 [core]
   editor = nvim
@@ -44,3 +45,9 @@
 
 [fetch]
   prune = true
+
+[commit]
+  gpgsign = true
+
+[gpg]
+  program = gpg2

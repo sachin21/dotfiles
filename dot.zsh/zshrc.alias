@@ -110,8 +110,10 @@ alias ti='tig'
 alias it='tig'
 
 # Secure
-function encrypt() { openssl aes-256-cbc -e -in $1 -out encrypted$RANDOM.txt }
-function decrypt() { openssl aes-256-cbc -d -in $1 -out /dev/stdout }
+if command_exists openssl; then
+  function encrypt() { openssl aes-256-cbc -e -in $1 -out encrypted$RANDOM.txt }
+  function decrypt() { openssl aes-256-cbc -d -in $1 -out /dev/stdout }
+fi
 
 # xpanes
 alias xp="xpanes"

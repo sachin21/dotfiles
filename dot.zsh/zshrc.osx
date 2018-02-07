@@ -7,9 +7,12 @@ export CC="/usr/local/bin/gcc-4.8"
 # Add etc aliases
 # ---------------------------------------------------**
 alias gcc="/usr/local/bin/gcc-4.8"
-alias o="open"
-alias o.="open ."
+
+alias say='say -v Alex'
+
 alias -s html="open"
+
+alias say='say -v Alex'
 
 # If exists, setup for etc
 # ---------------------------------------------------**
@@ -17,12 +20,6 @@ if command_exists brew; then
   export PATH="$(brew --prefix coreutils)/libexec/gnubin:$PATH"
 else
   warn "  x [Warning] Homebrew is not installed"
-fi
-
-if command_exists dircolors; then
-  eval "$(dircolors "$HOME/.dircolors")"
-else
-  warn "  x [Warning] dircolors is not installed"
 fi
 
 if command_exists gls; then

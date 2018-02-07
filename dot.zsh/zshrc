@@ -4,6 +4,16 @@
 . "$HOME/.zplug/init.zsh"
 . "$HOME/.tmux/tmuxinator.zsh"
 
+# Configuration files for use in Zsh
+# ---------------------------------------------------**
+. "$HOME/.zshrc.env"
+. "$HOME/.zshrc.config"
+. "$HOME/.zshrc.alias"
+. "$HOME/.zshrc.function"
+. "$HOME/.zshrc.local"
+. "$HOME/.zshrc.setting"
+. "$HOME/.zshrc.plugin"
+
 # When OSX or Linux
 # ---------------------------------------------------**
 case "${OSTYPE}" in
@@ -15,13 +25,3 @@ case "${OSTYPE}" in
     . "$HOME/.zshrc.linux"
     ;;
 esac
-
-# Configuration files for use in Zsh
-# ---------------------------------------------------**
-. "$HOME/.zshrc.env"
-. "$HOME/.zshrc.config"
-. "$HOME/.zshrc.setting"
-. "$HOME/.zshrc.alias"
-. "$HOME/.zshrc.function"
-. "$HOME/.zshrc.local"
-. "$HOME/.zshrc.plugin"

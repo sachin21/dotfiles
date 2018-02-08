@@ -4,7 +4,7 @@
 [submodule "tmux/plugins/tpm"]
   path = tmux/plugins/tpm
   url = git://github.com/tmux-plugins/tpm.git
-[submodule "tmux.dot/tmuxinator"]
+[submodule "dot.tmux/tmuxinator"]
   path = dot.tmux/tmuxinator
   url = git@github.com:sachin21/.tmuxinator.git
 [submodule "config/nvim/dein/repos/github.com/Shougo/dein.vim"]

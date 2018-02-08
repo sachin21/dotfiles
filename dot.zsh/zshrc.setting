@@ -19,3 +19,13 @@ fi
 # ---------------------------------------------------**
 autoload -Uz zmv
 alias zmv='noglob zmv -W'
+
+# Colorize ls's result
+# ---------------------------------------------------**
+if command_exists dircolors; then
+  eval "$(dircolors "$HOME/.dircolors")"
+
+  zstyle ':completion:*' list-colors ${(s.:.)LS_COLORS}
+else
+  warn "  x [Warning] dircolors is not installed"
+fi

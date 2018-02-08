@@ -8,7 +8,7 @@ SPROMPT="%r? べ、 別にあんたのために修正したんじゃないから
 if command_exists pbcopy; then
   # For Mac
   alias -g C='| pbcopy'
-elif command_not_exists xsel; then
+elif command_exists xsel; then
   # For Linux
   alias -g C='| xsel --input --clipboard'
 else

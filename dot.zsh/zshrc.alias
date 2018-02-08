@@ -97,17 +97,21 @@ else
 fi
 
 # tig
-if command_exists ruby; then
-  for alphabet in $(ruby -e "printf ('a'..'z').to_a.join(\"\n\")"); do
-    alias "${alphabet}tig"='tig'
-    alias "tig${alphabet}"='tig'
-  done
+if command_exists tig; then
+  if command_exists ruby; then
+    for alphabet in $(ruby -e "printf ('a'..'z').to_a.join(\"\n\")"); do
+      alias "${alphabet}tig"='tig'
+      alias "tig${alphabet}"='tig'
+    done
+  else
+    warn "  x [Warning] Ruby is not installed"
+  fi
+
+  alias ti='tig'
+  alias it='tig'
 else
   warn "  x [Warning] tig is not installed"
 fi
-
-alias ti='tig'
-alias it='tig'
 
 # Secure
 if command_exists openssl; then

@@ -136,7 +136,8 @@ end
 namespace :config do
   desc 'Sync config files'
   task :sync do
-    sh "rsync -av #{CONFIG_ROOT}/* #{File.join(HOME, '.config/')} #{DROP}"
+    sh "rsync -av #{CONFIG_ROOT}/* #{File.join(HOME, '.config/')}       #{DROP}"
+    sh "cp -r #{File.join(HOME, '.config', 'ibus-skk')} #{CONFIG_ROOT}/ #{DROP}"
   end
 end
 

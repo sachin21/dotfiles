@@ -46,6 +46,9 @@ bindsym $mod+d exec dmenu_run
 # fcitx with mozc
 exec --no-startup-id fcitx
 
+# Battery checking
+exec --no-startup-id i3-battery-popup
+
 # NetworkManager
 exec --no-startup-id nm-applet
 
@@ -182,6 +185,6 @@ bindsym $mod+r mode "resize"
 bar {
         status_command i3status
 }
-#
+
 # exec \
 # comptoggle

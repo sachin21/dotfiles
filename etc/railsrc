@@ -1,1 +1,1 @@
---skip-bundle --skip-test
+--skip-bundle --skip-test --skip-turbolinks

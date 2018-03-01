@@ -16,7 +16,7 @@ fi
 if command_exists gls; then
   alias ls='gls --color=auto -F'
 else
-  alias ls='ls -F'
+  alias ls='ls -F --color=auto'
 fi
 
 # Add misc aliases

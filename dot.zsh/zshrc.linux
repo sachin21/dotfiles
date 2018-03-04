@@ -44,10 +44,10 @@ xmodmap "$HOME/.Xmodmap" &> /dev/null
 zstyle :zplug:tag depth 0
 
 # Audio
-alias -- "s--"="sh -c 'amixer -q sset Master,0 1- unmute'"
-alias -- "s----"="sh -c 'amixer -q sset Master,0 5- unmute'"
-alias -- "s++"="sh -c 'amixer -q sset Master,0 1+ unmute'"
-alias -- "s++++"="sh -c 'amixer -q sset Master,0 5+ unmute'"
+alias -- "s--"="pactl set-sink-volume 0 -5%"
+alias -- "s----"="pactl set-sink-volume 0 -10%"
+alias -- "s++"="pactl set-sink-volume 0 +5%"
+alias -- "s++++"="pactl set-sink-volume 0 +10%"
 
 alias -- "l--"="xbacklight -dec 10"
 alias -- "l----"="xbacklight -dec 25"
@@ -58,3 +58,22 @@ alias mute="pactl set-sink-mute 0 true"
 alias unmute="pactl set-sink-mute 0 false"
 
 export TERMINAL="terminator"
+
+# Show additional display
+function _select_additional_display() {
+  local additional_display=$(xrandr | grep " connected" | awk '{print $1}' | tail +2 | peco)
+  local dpi=$(xrandr | grep " connected" | awk '{print $1}' | tail +2 | peco)
+
+  xrandr --output $additional_display --auto --right-of eDP1
+  succeed "  + $additional_display was successfully selected"
+}
+
+unalias d && alias d='_select_additional_display'
+
+# ibus
+function reload-ibus() {
+  local processes=$(ps aux | grep ibus | grep -v grep | awk '{print $2}')
+  if [[ processes != '' ]]; then
+    ibus-daemon -drx
+  fi
+}

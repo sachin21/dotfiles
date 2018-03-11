@@ -99,7 +99,7 @@ function _peco-find-and-open-file() {
   local targets=$(find $target | fgrep -v '.git' | fgrep -v './vendor/bundle' | peco)
 
   if [[ ! $targets == '' ]]; then
-    echo $targets
+    nvim $(echo $targets)
   fi
 }
 

@@ -22,6 +22,8 @@ zplug 'monochromegane/the_platinum_searcher', as:command, rename-to:pt, from:gh-
 
 is_linux && zplug "sachin21/82bf9e1f0e2ae6412af88ccda56b4a21", from:gist, as:command, use:"*", hook-build:"chmod +x *"
 
+is_linux && zplug "sachin21/05b569108508088c76385dfc8f582011", from:gist, as:command, use:"*", hook-build:"chmod +x *"
+
 if ! zplug check --verbose; then
   printf "Install? [y/N]: "
   if read -q; then

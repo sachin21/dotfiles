@@ -145,3 +145,8 @@ if command_exists docker-compose; then
     figrm bundle update --jobs $(echo $(($(nproc) * 2))) $@
   }
 fi
+
+# fselect
+if command_exists fselect; then
+  alias f='fselect'
+fi

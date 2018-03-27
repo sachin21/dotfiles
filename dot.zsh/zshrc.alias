@@ -130,7 +130,7 @@ if command_exists docker-compose; then
   alias figt='docker-compose -f docker-compose-test.yml'
 
   function figrm() {
-    docker-compose run --rm app $@
+    docker-compose run --rm puma $@
   }
 
   function figbe() {

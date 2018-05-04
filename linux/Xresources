@@ -1,9 +1,0 @@
-Xft.autohint: 0
-Xft.antialias: 1
-Xft.hinting: true
-Xft.hintstyle: hintslight
-Xft.dpi: 96
-Xft.rgba: rgb
-Xft.lcdfilter: lcddefault
-URxvt*font: xft:Inconsolata-dz for Powerline,xft:TwitterColorEmoji-SVGinOT
-URxvt*letterSpace: 4

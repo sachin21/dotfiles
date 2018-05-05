@@ -116,6 +116,16 @@ function install_rbenv(){
         fail "  x [Error] ruby-build was unsuccessfully installed", exit 1
       fi
     fi
+
+    if [ -d "$HOME/.rbenv/plugins/gem-src" ]; then
+      message "  + gem-src is exist."
+    else
+      if git clone https://github.com/sachin21/gem-src.git "$HOME/.rbenv/plugins/gem-src" > /dev/null; then
+        succeed "  + gem-src was successfully installed"
+      else
+        fail "  x [Error] gem-src was unsuccessfully installed", exit 1
+      fi
+    fi
   fi
 }
 

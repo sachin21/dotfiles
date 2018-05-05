@@ -1,7 +1,7 @@
 [user]
   name = Satoshi Ohmori
   email = sachin21dev@gmail.com
-  signingkey = 3A1F58CC431449E0EDDDE175269C1EABB2DB034F
+  signingkey = 5BDF67D910FD6652219DD80EFF807890749CEC13
 
 [core]
   editor = nvim

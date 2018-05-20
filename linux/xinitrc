@@ -1,6 +1,7 @@
-export GTK_IM_MODULE="ibus"
-export QT_IM_MODULE="ibus"
-export XMODIFIERS=@im=ibus
+export GTK_IM_MODULE=fcitx
+export QT_IM_MODULE=fcitx
+export XMODIFIERS=@im=fcitx
+export DefaultIMModule=fcitx
 albert &> /tmp/ALBERT_LOG &
 mute
 exec i3

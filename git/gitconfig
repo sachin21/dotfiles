@@ -6,6 +6,7 @@
 [core]
   editor = nvim
   excludesfile = ~/.global_ignore
+  commentchar = /
 
 [github]
   user = Satoshi Ohmori

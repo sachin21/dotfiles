@@ -75,10 +75,15 @@ unalias d && alias d='_select_additional_display'
 
 # ibus
 function reload-ibus() {
-  local processes=$(ps aux | grep ibus | grep -v grep | awk '{print $2}')
+  local processes=$(ps aux | fgrep ibus | fgrep -v grep | awk '{print $2}')
+
   if [[ processes != '' ]]; then
     ibus-daemon -drx
   fi
 }
 
 alias ibus-reload="reload-ibus"
+
+export GTK_IM_MODULE="ibus"
+export QT_IM_MODULE="ibus"
+export XMODIFIERS=@im=ibus

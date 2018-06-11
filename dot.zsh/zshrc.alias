@@ -1,5 +1,4 @@
 # Common
-# ---------------------------------------------------**
 alias reload='exec $SHELL'
 alias ts='tmux split-window'
 alias th='tmux split-window -h'
@@ -48,7 +47,6 @@ alias -g X='| xargs'
 alias -g P='ps -e |'
 
 # Suffix
-# ---------------------------------------------------**
 alias -s txt='cat'
 alias -s rb='ruby'
 alias -s py='python'
@@ -56,7 +54,6 @@ alias -s hs='runhaskell'
 alias -s php='php -f'
 
 # Projects
-# ---------------------------------------------------**
 for project in $(command ls "$HOME/.tmuxinator"); do
   project=${project%.*}
   alias $project="tmuxinator start $project"
@@ -64,7 +61,6 @@ done
 unset project
 
 # gomi
-# ---------------------------------------------------**
 if command_exists gomi &> /dev/null; then
   alias rm="gomi"
   alias shred="gomi"
@@ -73,7 +69,6 @@ else
 fi
 
 # cURL
-# ---------------------------------------------------**
 if command_exists curl; then
   CURL_OPTS=''
   CURL_OPTS+=' -H "Accept: application/json"'
@@ -87,7 +82,6 @@ else
 fi
 
 # mikutter
-# ---------------------------------------------------**
 if command_exists mikutter; then
   alias mstart="mikutter start"
   alias mstop="mikutter stop"

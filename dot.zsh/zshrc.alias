@@ -128,11 +128,11 @@ if command_exists docker-compose; then
   alias figt='docker-compose -f docker-compose-test.yml'
 
   function figrm() {
-    docker-compose run --rm app $@
+    docker-compose run --rm app "$@"
   }
 
   function figbe() {
-    figrm bundle exec $@
+    figrm bundle exec "$@"
   }
 
   function figbi() {
@@ -140,7 +140,7 @@ if command_exists docker-compose; then
   }
 
   function figbu() {
-    figrm bundle update --jobs $(echo $(($(nproc) * 2))) $@
+    figrm bundle update --jobs $(echo $(($(nproc) * 2))) "$@"
   }
 fi
 

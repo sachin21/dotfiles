@@ -1,0 +1,6 @@
+if ! [ -f "$HOME/.backup/$(date "+%Y")/$(date "+%m")/.zsh_history_$(date "+%d")" ]; then
+  pushd "$HOME/.backup/" &> /dev/null
+  mkdir -p "$(date "+%Y")/$(date "+%m")"
+  cp "$HOME/.zsh_history" "$HOME/.backup/$(date "+%Y")/$(date "+%m")/.zsh_history_$(date "+%d")"
+  popd &> /dev/null
+fi

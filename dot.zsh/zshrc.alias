@@ -144,6 +144,13 @@ if command_exists docker-compose; then
   }
 fi
 
+function remove_all_images_and_containers() {
+  docker stop $(docker ps -a -q | fgrep -v CONTAINER)
+  docker rm $(docker ps -a | awk '{print $1}' | fgrep -v CONTAINER)
+  docker image rmi -f $(docker images | awk '{print $3}' | fgrep -v IMAGE)
+  docker volume prune -f
+}
+
 # fselect
 if command_exists fselect; then
   alias f='fselect'

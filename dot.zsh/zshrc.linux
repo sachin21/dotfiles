@@ -87,3 +87,12 @@ alias ibus-reload="reload-ibus"
 export GTK_IM_MODULE="ibus"
 export QT_IM_MODULE="ibus"
 export XMODIFIERS=@im=ibus
+
+# nm-applet
+functions reload-nm_applet() {
+  local processes=$(ps aux | fgrep nm | fgrep -v grep | awk '{print $2}')
+
+  if [[ processes != '' ]]; then
+    echo $processes | sudo xargs -I% kill -9 %
+  fi
+}

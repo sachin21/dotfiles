@@ -33,8 +33,9 @@ function _peco-select-history() {
       alias tac='gtac'
     else
       warn "  x [Warning] tac is not installed"
+
+      return 1
     fi
-    return 1
   fi
 
   local BUFFER=$(\history -n 1 | \

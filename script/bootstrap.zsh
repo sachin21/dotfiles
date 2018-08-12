@@ -156,7 +156,7 @@ function install_nodenv(){
 }
 
 function install_zplug() {
-  curl -sL --proto-redir -all,https https://raw.githubusercontent.com/zplug/installer/master/installer.zsh| zsh
+  curl -sL --proto-redir -all,https https://raw.githubusercontent.com/zplug/installer/master/installer.zsh | zsh
 }
 
 function install_mikutter_plugins() {

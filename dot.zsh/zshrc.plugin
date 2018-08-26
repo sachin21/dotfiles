@@ -16,8 +16,6 @@ zplug 'yudai/gotty', as:command, from:gh-r
 
 zplug 'motemen/ghq', as:command, from:gh-r
 
-zplug 'yhatt/marp', as:command, from:gh-r
-
 zplug 'monochromegane/the_platinum_searcher', as:command, rename-to:pt, from:gh-r
 
 zplug "atnanasi/ttene.zsh", defer:2, \

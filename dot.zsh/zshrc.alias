@@ -103,10 +103,10 @@ if command_exists tig; then
 
   alias ti='tig'
   alias it='tig'
-  alias tg='tig'
   alias itg='tig'
   alias ttig='tig'
   alias tigg='tig'
+  alias tg='tig grep'
 else
   warn "  x [Warning] tig is not installed"
 fi

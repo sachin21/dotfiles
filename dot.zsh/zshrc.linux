@@ -1,11 +1,9 @@
 # Export paths for Linux
-# ---------------------------------------------------**
 export PATH="$HOME/.linuxbrew/bin:$PATH"
 export MANPATH="$HOME/.linuxbrew/share/man:$MANPATH"
 export INFOPATH="$HOME/.linuxbrew/share/info:$INFOPATH"
 
 # Add aliases for clipboard
-# ---------------------------------------------------**
 if command_exists xsel; then
   alias pbcopy='xsel --clipboard --input'
   alias pbpaste='xsel --clipboard --output'
@@ -20,7 +18,6 @@ else
 fi
 
 # Add misc aliases
-# ---------------------------------------------------**
 for i in $(seq 15); do
   alias "b_$i"="sudo tee /sys/class/backlight/acpi_video0/brightness <<< $i"
 done
@@ -32,15 +29,12 @@ alias ls='ls --color=auto -F'
 alias purge="sync && sudo sysctl -w vm.drop_caches=3 > /dev/null"
 
 # Add misc functions
-# ---------------------------------------------------**
 function say(){ espeak --stdout $@ | paplay }
 
 # Load keymaps for Xmodmap
-# ---------------------------------------------------**
 xmodmap "$HOME/.Xmodmap" &> /dev/null
 
 # Add zstyle for zplug
-# ---------------------------------------------------**
 zstyle :zplug:tag depth 0
 
 # Audio
@@ -96,3 +90,10 @@ functions reload-nm_applet() {
     echo $processes | sudo xargs -I% kill -9 %
   fi
 }
+
+# Add aliases for Google Chrome
+if command_exists google-chrome-stable; then
+  alias chrome='google-chrome-stable'
+else
+  warn "  x [Warning] Google Chrome is not installed"
+fi

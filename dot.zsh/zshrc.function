@@ -125,6 +125,16 @@ function _kill-ps-with-peco() {
   done
 }
 
+function _cd-gem-sred_the_gem() {
+  if ! [ -d "$HOME/src" ]; then
+    warn "x [Warning] gem-src is not installed well"
+    return 1
+  fi
+
+  local result=$(ls "$HOME/src" | xargs -I% echo "$HOME/src/%")
+}
+
+
 # Set zle
 # ---------------------------------------------------**
 zle -N _peco-select-history

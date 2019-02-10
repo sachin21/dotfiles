@@ -134,6 +134,23 @@ function _cd-gem-sred_the_gem() {
   local result=$(ls "$HOME/src" | xargs -I% echo "$HOME/src/%")
 }
 
+function _tw() {
+  if ! type tw &> /dev/null; then
+    warn "x [Warning] tw is not installed"
+    return 1
+  fi
+
+  passphrase=$(ruby -e "require 'securerandom'; print SecureRandom.hex(3).chars.sample(3).join")
+
+  ask "  + Please enter this passphrase if you confirm to Tweet this\n\nTweet body: "$@"\nPassphrase: $passphrase" && read -r input
+
+  if [ "$input" = "$passphrase" ]; then
+    tw "$@"
+  else
+    fail '  x [Error] The passphrase is not matched'
+  fi
+}
+
 
 # Set zle
 # ---------------------------------------------------**
@@ -154,3 +171,4 @@ alias br='_peco-git-branch'
 alias pk='_kill-ps-with-peco'
 alias agvim='ptvim'
 alias x='_peco-find-and-open-file'
+alias tw='_tw'

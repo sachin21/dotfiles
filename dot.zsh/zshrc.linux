@@ -22,9 +22,6 @@ for i in $(seq 15); do
   alias "b_$i"="sudo tee /sys/class/backlight/acpi_video0/brightness <<< $i"
 done
 
-alias pacman="pacman --noconfirm"
-alias yaourt="yaourt --noconfirm"
-
 alias ls='ls --color=auto -F'
 alias purge="sync && sudo sysctl -w vm.drop_caches=3 > /dev/null"
 

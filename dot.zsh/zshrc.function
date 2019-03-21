@@ -140,14 +140,14 @@ function _tw() {
     return 1
   fi
 
-  passphrase=$(ruby -e "require 'securerandom'; print SecureRandom.hex(3).chars.sample(3).join")
+  code=$(ruby -e "require 'securerandom'; print SecureRandom.hex(3).chars.sample(3).join")
 
-  ask "  + Please enter this passphrase if you confirm to Tweet this\n\nTweet body: "$@"\nPassphrase: $passphrase" && read -r input
+  ask "  + Please enter this code if you confirm to Tweet this\n\nTweet body: "$@"\nConfirmation code: $code" && read -r input
 
-  if [ "$input" = "$passphrase" ]; then
+  if [ "$input" = "$code" ]; then
     tw "$@"
   else
-    fail '  x [Error] The passphrase is not matched'
+    fail '  x [Error] The code is not matched'
   fi
 }
 

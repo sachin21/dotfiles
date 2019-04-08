@@ -1,26 +1,29 @@
 # The sachin21's dotfiles
+
 [![license](http://img.shields.io/badge/license-MIT-blue.svg?style=flat)](./LICENSE-MIT.txt "License")
 
-## Features
+## Environment
+
 - Arch Linux on ThinkPad T460s
-- Yosemite on MacBook Pro (Retina, 15-inch, Early 2013)
-- Zsh 5.2
-- neovim 0.1.5
-- Tmux 2.2
+- Zsh
+- neovim
+- Tmux
 - iTerm2
-- rxvt-unicode
+- Terminator
 - Solarized dark
 
 ## Screenshot
+
 ![Screenshot of my shell prompt](http://i.imgur.com/QHD95ln.png)
 
 ## Installation
+
 ### Using cURL or Wget installation
 
-| Tools | <a name="oneliner">The installation command</a> |
-|-------|-------------------------------------------------|
-| cURL | zsh -c "$(curl -fsSL [dot.sachin21.jp](http://dot.sachin21.jp))" |
-| Wget | zsh -c "$(wget -qO - [dot.sachin21.jp](http://dot.sachin21.jp))" |
+| Tools | <a name="oneliner">The installation command</a>                   |
+| ----- | ----------------------------------------------------------------- |
+| cURL  | zsh -c "\$(curl -fsSL [dot.sachin21.jp](http://dot.sachin21.jp))" |
+| Wget  | zsh -c "\$(wget -qO - [dot.sachin21.jp](http://dot.sachin21.jp))" |
 
 ### Or
 
@@ -38,9 +41,9 @@ To update, `cd` into your local `dotfiles` repository and then:
 
 ## Credits
 
-* Dotfiles' `README` layout based on [@Mathias's dotfiles](https://github.com/mathiasbynens/dotfiles)
-* VimL scripts and vim directory based on [@yuroyoro's dotfiles](https://github.com/yuroyoro/dotfiles)
-* Rakefile based on [@tcnksm's dotfiles](https://github.com/tcnksm/dotfiles)
+- Dotfiles' `README` layout based on [@Mathias's dotfiles](https://github.com/mathiasbynens/dotfiles)
+- VimL scripts and vim directory based on [@yuroyoro's dotfiles](https://github.com/yuroyoro/dotfiles)
+- Rakefile based on [@tcnksm's dotfiles](https://github.com/tcnksm/dotfiles)
 
 ## Feedback
 
@@ -50,5 +53,5 @@ Suggestions/improvements
 ## Author
 
 | [![twitter/sachin21](https://avatars.githubusercontent.com/sachin21?s=100)](http://twitter.com/sachin21__ "Follow @sachin21__ on Twitter") |
-|---|
-| [Satoshi Ohmori](http://profile.sachin21.jp) |
+| ------------------------------------------------------------------------------------------------------------------------------------------ |
+| [Satoshi Ohmori](http://profile.sachin21.jp)                                                                                               |

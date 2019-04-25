@@ -32,6 +32,16 @@ alias o="open_command"
 alias o.="open_command ."
 alias t='ghi show -w $(ghi list --sort updated | grep -v "open issue" | fgrep -v "None." | peco | awk "{ print $1 }")'
 alias ghqget='ghq get -p'
+alias rtags="ctags -R --languages=ruby"
+alias gencrypt="gpg -e -a -r sachin21dev@gmail.com"
+
+# Allow typos
+# ---------------------------------------------------**
+## ggpush
+alias ggps='ggpush'
+alias gggps='ggpush'
+alias gps='ggpush'
+alias ggpuh='ggpush'
 
 # Global
 # ---------------------------------------------------**
@@ -95,7 +105,9 @@ if command_exists tig; then
   if command_exists ruby; then
     for alphabet in $(ruby -e "printf ('a'..'z').to_a.join(\"\n\")"); do
       alias "${alphabet}tig"='tig'
+      alias "${alphabet}ig"='tig'
       alias "tig${alphabet}"='tig'
+      alias "ti${alphabet}"='tig'
     done
   else
     warn "  x [Warning] Ruby is not installed"

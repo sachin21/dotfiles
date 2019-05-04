@@ -40,11 +40,6 @@ alias -- "s--"="pactl set-sink-volume 0 -10%"
 alias -- "s+"="pactl set-sink-volume 0 +5%"
 alias -- "s++"="pactl set-sink-volume 0 +10%"
 
-alias -- "l-"="xbacklight -dec 10"
-alias -- "l--"="xbacklight -dec 25"
-alias -- "l+"="xbacklight -inc 10"
-alias -- "l++"="xbacklight -inc 25"
-
 alias mute="pactl set-sink-mute 0 true"
 alias unmute="pactl set-sink-mute 0 false"
 

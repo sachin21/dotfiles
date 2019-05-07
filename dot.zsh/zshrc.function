@@ -5,6 +5,10 @@ function ptvim() {
 
   if command_exists pt; then
     if output=$(pt "$@"); then
+      if [[ $output == "" ]]; then
+        return 0;
+      fi
+
       local result=$(echo $output | peco --query "$LBUFFER")
 
       if [[ ! $result == '' ]]; then

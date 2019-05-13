@@ -53,7 +53,7 @@ function _select_additional_display() {
   local additional_display=$(xrandr | grep " connected" | awk '{print $1}' | tail +2 | peco)
   local dpi=$(xrandr | grep " connected" | awk '{print $1}' | tail +2 | peco)
 
-  xrandr --output $additional_display --auto --right-of eDP1
+  xrandr --output $additional_display --auto --right-of eDP-1
   succeed "  + $additional_display was successfully selected"
 }
 

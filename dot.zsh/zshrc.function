@@ -144,7 +144,7 @@ function _tw() {
     return 1
   fi
 
-  code=$(ruby -e "require 'securerandom'; print SecureRandom.hex(3).chars.sample(3).join")
+  code="$(cat /dev/urandom | base64 | fold -w 3 | head -n 1)"
 
   ask "  + Please enter this code if you confirm to Tweet this\n\nTweet body: "$@"\nConfirmation code: $code" && read -r input
 

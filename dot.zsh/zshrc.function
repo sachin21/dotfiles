@@ -155,17 +155,47 @@ function _tw() {
   fi
 }
 
+function _draft-tweets() {
+  if ! type tw &> /dev/null; then
+    warn "x [Warning] tw is not installed"
+    return 1
+  fi
+
+  if ! command_exists tac; then
+    if command_exists gtac; then
+      alias tac='gtac'
+    else
+      warn "  x [Warning] tac is not installed"
+
+      return 1
+    fi
+  fi
+
+  local BUFFER=$(\history -n 1 | \
+    tac | \
+    awk '!x[$0]++' | \
+    grep -F 'tw' | \
+    grep -F "[draft]" | \
+    peco | \
+    sed 's/.*\[draft\]\s//g')
+
+  CURSOR="$#BUFFER"
+
+  zle clear-screen
+}
 
 # Set zle
 # ---------------------------------------------------**
 zle -N _peco-select-history
 zle -N _peco-find-and-open-file-with-binding
+zle -N _draft-tweets
 
 # Bind functions
 # ---------------------------------------------------**
 bindkey '^r' _peco-select-history
 bindkey '^_' undo
 bindkey '^x' _peco-find-and-open-file-with-binding
+bindkey '^[' _draft-tweets
 
 # Alias functions
 # ---------------------------------------------------**
@@ -176,3 +206,4 @@ alias pk='_kill-ps-with-peco'
 alias agvim='ptvim'
 alias x='_peco-find-and-open-file'
 alias tw='_tw'
+alias dt='_draft-tweets'

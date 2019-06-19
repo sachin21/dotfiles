@@ -57,7 +57,7 @@ function _select_additional_display() {
   succeed "  + $additional_display was successfully selected"
 }
 
-unalias d && alias d='_select_additional_display'
+alias d='_select_additional_display'
 
 # ibus
 function reload-ibus() {

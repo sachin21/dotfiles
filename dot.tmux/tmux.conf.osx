@@ -4,7 +4,6 @@ set -g @plugin 'nhdaly/tmux-scroll-copy-mode'
 run '~/.tmux/plugins/tpm/tpm'
 
 # アンダースコアに変更
-set -g window-status-current-attr underscore
 
 # 256色ターミナル
 set-option -g default-terminal "screen-256color"
@@ -17,25 +16,16 @@ set-option -g status-left "#(~/.tmux/tmux-powerline/powerline.sh left)"
 set-option -g status-right "#(~/.tmux/tmux-powerline/powerline.sh right)"
 
 # 見栄え
-set -g pane-active-border-fg white
-set -g pane-active-border-bg black
+set-window-option -g mode-style bg=white,fg=black
+set-window-option -g window-status-style bg=black,fg=white
+set-window-option -g window-status-current-style underscore,bg=blue,fg=black,bold
 
-set-window-option -g mode-bg white
-set-window-option -g mode-fg black
-set-window-option -g window-status-bg black
-set-window-option -g window-status-fg white
-set-window-option -g window-status-current-bg blue
-set-window-option -g window-status-current-fg black
-set-window-option -g window-status-current-attr bold
-
-set -g status-attr dim
 set -g status-left-length 170
 set -g status-right-length 200
 
-set -g status-fg white
-set -g status-bg colour234
-set -g pane-border-fg colour245
-set -g pane-active-border-fg colour39
+set -g status-style dim,fg=white,bg=colour234
+set -g pane-border-style fg=colour245
+set -g pane-active-border-style fg=white,bg=black,fg=colour39
 
 # ESCキーの遅延
 # デフォルト :0.5 -> 500ms
@@ -44,27 +34,20 @@ set -s escape-time 0
 # 再読み込み
 # bind r source-file ~/.tmux.conf; display-message "Reload Config!!"
 
-# vimとクリップボード共有出来るように http://d.hatena.ne.jp/kawa_xxx/20120731/1343716726
-set-option -g default-command "reattach-to-user-namespace -l zsh"
-
 # プレフィックス
 unbind C-b
 set -g prefix ^T
 bind t send-prefix
 
-# vim風操作
+set-option -g default-command "reattach-to-user-namespace -l zsh"
 setw -g mode-keys vi
-set-window-option -g mode-keys vi
-set-window-option -g mode-keys vi
-set-window-option -g automatic-rename off
 
-bind-key -t vi-copy 'v' begin-selection
-bind-key -t vi-copy 'y' copy-selection
-bind-key -t vi-copy v begin-selection
-bind-key -t vi-copy y copy-pipe "reattach-to-user-namespace pbcopy"
+bind-key -T copy-mode-vi v send-keys -X begin-selection
+bind-key -T copy-mode-vi y send-keys -X copy-pipe-and-cancel "reattach-to-user-namespace pbcopy"
+bind-key -T copy-mode-vi Enter send-keys -X copy-pipe-and-cancel "reattach-to-user-namespace pbcopy && nc localhost 8377 || true"
 
-unbind -t vi-copy Enter
-bind-key -t vi-copy Enter copy-pipe "reattach-to-user-namespace pbcopy"
+# ']' でpbpasteを使う
+bind ] run "reattach-to-user-namespace pbpaste | tmux load-buffer - && tmux paste-buffer"
 
 # セッションをkill
 bind q kill-session

@@ -83,7 +83,7 @@ function ruby-listup() {
   local version=$(rbenv install --list | peco | sed -e 's/^  *//g' | tr -d '\n" "')
 
   if [[ $version != '' ]]; then
-    echo $version C
+    printf $version | copy
     succeed "  + Copied to the clipboard"
   else
     fail "  x [Error] Failed to copy to the clipboard"

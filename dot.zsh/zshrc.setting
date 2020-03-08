@@ -6,11 +6,11 @@ SPROMPT="%r? べ、 別にあんたのために修正したんじゃないから
 # Add alias for clipboard
 # ---------------------------------------------------**
 if command_exists pbcopy; then
-  # For Mac
   alias -g C='| pbcopy'
+  alias copy="pbcopy"
 elif command_exists xsel; then
-  # For Linux
   alias -g C='| xsel --input --clipboard'
+  alias copy="xsel --input --clipboard"
 else
   warn "  x [Warning] Copy command is not installed"
 fi

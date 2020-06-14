@@ -24,10 +24,10 @@ function ptvim() {
 }
 
 function _change-repository() {
-  local result=$(ghq list -p | peco)
+  local result=$(ghq list | peco)
 
   if [[ ! "$result" == '' ]]; then
-    cd "$result"
+    cd "$HOME/Projects/$result"
   fi
 }
 

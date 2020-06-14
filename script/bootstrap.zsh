@@ -218,10 +218,7 @@ function main(){
   cd_dotfiles
   initialize_submodules
 
-  while ! install_packages; do
-    install_packages
-  done
-
+  install_packages
   install_omz
   install_rbenv
   install_pyenv

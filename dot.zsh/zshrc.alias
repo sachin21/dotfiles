@@ -74,7 +74,6 @@ unset project
 # gomi
 if command_exists gomi &> /dev/null; then
   alias rm="gomi"
-  alias shred="gomi"
 else
   warn "  x [Warning] gomi is not installed"
 fi

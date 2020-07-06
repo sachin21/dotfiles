@@ -182,6 +182,12 @@ function _draft-tweets() {
   zle clear-screen
 }
 
+function secure_remove() {
+  command shred -n 5 $@
+  command shred -z   $@
+  command rm    -f   $@
+}
+
 # Set zle
 # ---------------------------------------------------**
 zle -N _peco-select-history
@@ -205,3 +211,4 @@ alias agvim='ptvim'
 alias x='_peco-find-and-open-file'
 alias tw='_tw'
 alias dt='_draft-tweets'
+alias ssrm='secure_remove' # Super Secure RemMve (SSRM)

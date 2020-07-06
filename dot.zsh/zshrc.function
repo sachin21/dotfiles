@@ -72,10 +72,9 @@ function python-listup() {
   local version=$(pyenv install --list | peco | sed -e 's/^  *//g' | tr -d '\n" "')
 
   if [[ $version != '' ]]; then
-    echo $version C
-    succeed "  + Copied to the clipboard"
+    is_linux && echo $version || echo $version C
   else
-    fail "  x [Error] Failed to copy to the clipboard"
+    fail "  x [Error] Failed to output or copy"
   fi
 }
 
@@ -83,8 +82,7 @@ function ruby-listup() {
   local version=$(rbenv install --list | peco | sed -e 's/^  *//g' | tr -d '\n" "')
 
   if [[ $version != '' ]]; then
-    printf $version | copy
-    succeed "  + Copied to the clipboard"
+    is_linux && echo $version || echo $version C
   else
     fail "  x [Error] Failed to copy to the clipboard"
   fi

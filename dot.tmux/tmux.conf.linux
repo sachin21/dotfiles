@@ -7,34 +7,22 @@ set -g @colors-solarized 'dark'
 run '~/.tmux/plugins/tpm/tpm'
 
 # アンダースコアに変更
-set -g window-status-current-attr underscore
 
 # 256色ターミナル
 set-option -g default-terminal "screen-256color"
 
-# Powerline
-source /usr/share/powerline/bindings/tmux/powerline.conf
-
 # 見栄え
-set -g pane-active-border-fg white
-set -g pane-active-border-bg black
 
-set-window-option -g mode-bg white
-set-window-option -g mode-fg black
-set-window-option -g window-status-bg black
-set-window-option -g window-status-fg white
-set-window-option -g window-status-current-bg blue
-set-window-option -g window-status-current-fg black
-set-window-option -g window-status-current-attr bold
+set-window-option -g mode-style bg=white,fg=black
+set-window-option -g window-status-style bg=black,fg=white
+set-window-option -g window-status-current-style underscore,bg=blue,fg=black,bold
 
-set -g status-attr dim
 set -g status-left-length 170
 set -g status-right-length 200
 
-set -g status-fg white
-set -g status-bg colour234
-set -g pane-border-fg colour245
-set -g pane-active-border-fg colour39
+set -g status-style dim,fg=white,bg=colour234
+set -g pane-border-style fg=colour245
+set -g pane-active-border-style fg=white,bg=black,fg=colour39
 
 # ESCキーの遅延
 # デフォルト :0.5 -> 500ms

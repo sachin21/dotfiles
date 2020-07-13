@@ -23,5 +23,15 @@ case "${OSTYPE}" in
 
   linux*)
     . "$HOME/.zshrc.linux"
+
+    local _OS_TYPE=$(hostnamectl | grep CPE &> /dev/null)
+
+    if echo "$_OS_TYPE" | grep opensuse &> /dev/null; then
+      . "$HOME/.zshrc.suse.linux"
+    elif echo "$_OS_TYPE" | grep arch &> /dev/null; then
+      . "$HOME/.zshrc.arch.linux"
+    fi
+
+    unset _OS_TYPE
     ;;
 esac

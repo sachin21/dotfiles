@@ -64,6 +64,8 @@ CLEANS = %w(
   .zshrc.env
   .zshrc.function
   .zshrc.linux
+  .zshrc.arch.linux
+  .zshrc.suse.linux
   .zshrc.local
   .zshrc.osx
   .zshrc.setting

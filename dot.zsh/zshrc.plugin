@@ -29,4 +29,6 @@ if ! zplug check --verbose; then
   fi
 fi
 
+zstyle :zplug:tag depth 0
+
 zplug load --verbose > /dev/null

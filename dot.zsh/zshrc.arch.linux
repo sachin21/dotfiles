@@ -1,0 +1,21 @@
+for i in $(seq 15); do
+  alias "b_$i"="sudo tee /sys/class/backlight/acpi_video0/brightness <<< $i"
+done
+
+function _select_additional_display() {
+  local additional_display=$(xrandr | grep " connected" | awk '{print $1}' | tail +2 | peco)
+  local dpi=$(xrandr | grep " connected" | awk '{print $1}' | tail +2 | peco)
+
+  xrandr --output $additional_display --auto --right-of eDP-1
+  succeed "  + $additional_display was successfully selected"
+}
+
+alias d='_select_additional_display'
+
+functions reload-nm_applet() {
+  local processes=$(ps aux | fgrep nm | fgrep -v grep | awk '{print $2}')
+
+  if [[ processes != '' ]]; then
+    echo $processes | sudo xargs -I% kill -9 %
+  fi
+}

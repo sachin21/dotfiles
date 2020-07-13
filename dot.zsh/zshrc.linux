@@ -1,9 +1,19 @@
-# Export paths for Linux
-export PATH="$HOME/.linuxbrew/bin:$PATH"
-export MANPATH="$HOME/.linuxbrew/share/man:$MANPATH"
-export INFOPATH="$HOME/.linuxbrew/share/info:$INFOPATH"
+# ENV
+export TERMINAL="terminator"
 
-# Add aliases for clipboard
+# Aliases
+alias -- "s-"="pactl set-sink-volume 0 -5%"
+alias -- "s--"="pactl set-sink-volume 0 -10%"
+alias -- "s+"="pactl set-sink-volume 0 +5%"
+alias -- "s++"="pactl set-sink-volume 0 +10%"
+
+alias mute="pactl set-sink-mute 0 true"
+alias unmute="pactl set-sink-mute 0 false"
+
+alias m="mute"
+alias um="unmute"
+
+
 if command_exists xsel; then
   alias pbcopy='xsel --clipboard --input'
   alias pbpaste='xsel --clipboard --output'
@@ -17,60 +27,13 @@ else
   alias ls='ls -F --color=auto'
 fi
 
-# Add misc aliases
-for i in $(seq 15); do
-  alias "b_$i"="sudo tee /sys/class/backlight/acpi_video0/brightness <<< $i"
-done
-
 alias ls='ls --color=auto -F'
 alias purge="sync && sudo sysctl -w vm.drop_caches=3 > /dev/null"
 
-# Add misc functions
-function say(){ espeak --stdout $@ | paplay }
-
-# Load keymaps for Xmodmap
-xmodmap "$HOME/.Xmodmap" &> /dev/null
-
-# Add zstyle for zplug
-zstyle :zplug:tag depth 0
-
-# Audio
-alias -- "s-"="pactl set-sink-volume 0 -5%"
-alias -- "s--"="pactl set-sink-volume 0 -10%"
-alias -- "s+"="pactl set-sink-volume 0 +5%"
-alias -- "s++"="pactl set-sink-volume 0 +10%"
-
-alias mute="pactl set-sink-mute 0 true"
-alias unmute="pactl set-sink-mute 0 false"
-
-alias m="mute"
-alias um="unmute"
-
-export TERMINAL="terminator"
-
-# Show additional display
-function _select_additional_display() {
-  local additional_display=$(xrandr | grep " connected" | awk '{print $1}' | tail +2 | peco)
-  local dpi=$(xrandr | grep " connected" | awk '{print $1}' | tail +2 | peco)
-
-  xrandr --output $additional_display --auto --right-of eDP-1
-  succeed "  + $additional_display was successfully selected"
-}
-
-alias d='_select_additional_display'
-
-# nm-applet
-functions reload-nm_applet() {
-  local processes=$(ps aux | fgrep nm | fgrep -v grep | awk '{print $2}')
-
-  if [[ processes != '' ]]; then
-    echo $processes | sudo xargs -I% kill -9 %
+function say(){
+  if command_exists espeak && paplay; then
+    espeak --stdout $@ | paplay
+  else
+    warn "  x [Warning] espeak or paplay is not installed"
   fi
 }
-
-# Add aliases for Google Chrome
-if command_exists google-chrome-stable; then
-  alias chrome='google-chrome-stable'
-else
-  warn "  x [Warning] Google Chrome is not installed"
-fi

@@ -195,7 +195,9 @@ function create_needed_dirs() {
 }
 
 function create_needed_files() {
-  : > "$DOTFILES_PATH/zsh.dot/zshrc.local"
+  if [ ! -e "$DOTFILES_PATH/zsh.dot/zshrc.local" ]; then
+    : > "$DOTFILES_PATH/zsh.dot/zshrc.local"
+  fi
 }
 
 function change_default_shell() {
@@ -207,10 +209,6 @@ function change_default_shell() {
   else
     chsh -s /bin/zsh
   fi
-}
-
-function change_shell_to_zsh() {
-  /bin/zsh
 }
 
 function main(){
@@ -229,7 +227,6 @@ function main(){
   create_needed_dirs
   create_needed_files
   change_default_shell
-  change_shell_to_zsh
 }
 
 main

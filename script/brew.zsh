@@ -82,7 +82,7 @@ function upgrade_homebrew() {
 function tap_repositories() {
   message "  + Tapping repositories..."
 
-  for repository in $(cat "$DOTFILES_PATH/data/repositories.txt"); do
+  for repository in $(cat "$DOTFILES_PATH/data/Homebrew/repositories.txt"); do
     brew tap "$repository" > /dev/null 2>&1 || true
     message "  + Done Tapping $repository"
   done
@@ -92,7 +92,7 @@ function tap_repositories() {
 function install_formulas() {
   message "  + Installing formulas..."
 
-  for formula in $(cat "$DOTFILES_PATH/data/formulas.txt"); do
+  for formula in $(cat "$DOTFILES_PATH/data/Homebrew/formulas.txt"); do
     if brew install "$formula" > /dev/null 2>&1; then
       succeed "  + $formula was successfully installed"
     else
@@ -105,7 +105,7 @@ function install_formulas() {
 function install_osx_applications() {
   message "  + Installing OS X Application..."
 
-  for application in $(cat "$DOTFILES_PATH/data/applications.txt"); do
+  for application in $(cat "$DOTFILES_PATH/data/Homebrew/applications.txt"); do
 
     if brew cask install $application > /dev/null 2>&1; then
       succeed "  + $application was successfully installed"

@@ -169,7 +169,7 @@ function install_mikutter_plugins() {
   : > "$mikutter_home/display_requirements.rb"
 
   message '  + Installing mikutter plugins'
-  for repository in $(cat data/mikutter_plugins.txt); do
+  for repository in $(cat data/etc/mikutter_plugins.txt); do
     git clone $repository "$HOME/.mikutter/plugin/$(basename "$repository" | sed -e 's/-/_/g')" > /dev/null 2>&1
   done
 

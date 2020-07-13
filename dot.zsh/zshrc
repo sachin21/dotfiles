@@ -6,10 +6,10 @@
 
 # Configuration files for use in Zsh
 # ---------------------------------------------------**
+. "$HOME/.zshrc.alias"
 . "$HOME/.zshrc.setting"
 . "$HOME/.zshrc.env"
 . "$HOME/.zshrc.config"
-. "$HOME/.zshrc.alias"
 . "$HOME/.zshrc.function"
 . "$HOME/.zshrc.local"
 . "$HOME/.zshrc.plugin"

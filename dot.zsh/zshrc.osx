@@ -25,12 +25,6 @@ else
   alias ls="ls -AFh"
 fi
 
-if command_exists rmtrash; then
-  alias rm="rmtrash"
-else
-  warn "  x [Warning] rmtrash is not installed"
-fi
-
 # Add function for git
 # ---------------------------------------------------**
 function propen() {

@@ -5,7 +5,7 @@
 
 [core]
   editor = nvim
-  excludesfile = ~/.global_ignore
+  excludesfile = ~/.config/git/ignore
   commentchar = /
 
 [github]

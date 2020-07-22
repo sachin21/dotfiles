@@ -183,9 +183,12 @@ function _draft-tweets() {
 }
 
 function secure_remove() {
-  command shred -n 5 $@
-  command shred -z   $@
-  command rm    -f   $@
+  local files=$(find $@ -type f)
+
+  echo $files | xargs -I% shred -n 5 %
+  echo $files | xargs -I% shred -z   %
+
+  command rm -fr $@
 }
 
 # Set zle

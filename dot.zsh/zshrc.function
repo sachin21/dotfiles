@@ -69,7 +69,7 @@ function _peco-git-branch(){
 }
 
 function python-listup() {
-  local version=$(pyenv install --list | peco | sed -e 's/^  *//g' | tr -d '\n" "' | head -c -1)
+  local version=$(pyenv install --list | peco | sed -e 's/^  *//g' | head -c -1)
 
   if [[ $version != '' ]]; then
     is_linux && echo $version || echo $version C
@@ -79,7 +79,7 @@ function python-listup() {
 }
 
 function ruby-listup() {
-  local version=$(rbenv install --list | peco | sed -e 's/^  *//g' | tr -d '\n" "')
+  local version=$(rbenv install --list | peco | sed -e 's/^  *//g' | head -c -1)
 
   if [[ $version != '' ]]; then
     is_linux && echo $version || echo $version C

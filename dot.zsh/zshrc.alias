@@ -24,6 +24,7 @@ alias gsms='git syncms'
 alias gsdd='git syncd'
 alias gci="git commit --amend -C @"
 alias tn='tmux new'
+alias nt='tmux new'
 alias memo='cat > /dev/null'
 alias b='bundle'
 alias ctags="ctags --exclude=.git --exclude=log"
@@ -120,6 +121,8 @@ if command_exists tig; then
   alias ttig='tig'
   alias tigg='tig'
   alias tg='tig grep'
+
+  unalias dig
 else
   warn "  x [Warning] tig is not installed"
 fi

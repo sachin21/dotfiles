@@ -182,7 +182,7 @@ function _draft-tweets() {
   zle clear-screen
 }
 
-function secure_remove() {
+function _secure_remove() {
   local files=$(find $@ -type f)
 
   echo $files | xargs -I% shred -n 5 %
@@ -214,4 +214,4 @@ alias agvim='ptvim'
 alias x='_peco-find-and-open-file'
 alias tw='_tw'
 alias dt='_draft-tweets'
-alias ssrm='secure_remove' # Super Secure RemMve (SSRM)
+alias ssrm='_secure_remove' # Super Secure RemMve (SSRM)

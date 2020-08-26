@@ -6,3 +6,6 @@ export DefaultIMModule=fcitx
 albert &> /tmp/ALBERT_LOG &
 
 exec i3
+
+xmodmap ~/.Xmodmap
+picom -b

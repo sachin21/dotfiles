@@ -15,6 +15,9 @@ window class_only: %w(google-chrome chromium slack mikutter.rb) do
     remap "Ctrl-#{key}-u", to: %w[Shift-Home Delete]
 
     remap "Ctrl-#{key}-w", to: %w[Ctrl-Shift-Left Delete]
+
+    remap "Home", to: 'Delete'
+    remap "Ctrl-Home", to: 'Delete'
   end
 end
 

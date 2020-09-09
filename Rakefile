@@ -18,7 +18,7 @@ ETC_FILES       = `ls etc`.split("\n").freeze
 LINUX_ROOT      = File.join(File.dirname(__FILE__), 'linux')
 LINUX_DOT_FILES = `ls linux`.split("\n").freeze
 
-CONFIG_ROOT     = File.join(File.dirname(__FILE__), 'config')
+CONFIG_ROOT     = File.join(File.dirname(__FILE__), 'dot_config')
 
 MIKUTTER_ROOT   = File.join(File.dirname(__FILE__), 'mikutter')
 
@@ -27,7 +27,6 @@ DROP = '&> /dev/null'.freeze
 CLEANS = %w(
   .agignore
   .bundle
-  .config/fish
   .config/nvim/nvimrc.*
   .dircolors
   .gemrc

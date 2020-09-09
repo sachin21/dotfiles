@@ -10,3 +10,6 @@
 [submodule "data"]
   path = data
   url = git@github.com:sachin21/dotfiles_dependency.git
+[submodule "dot_config"]
+  path = dot_config
+  url = git@github.com:sachin21/dot_config.git

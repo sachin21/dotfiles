@@ -7,9 +7,6 @@
 [submodule "dot.tmux/tmuxinator"]
   path = dot.tmux/tmuxinator
   url = git@github.com:sachin21/.tmuxinator.git
-[submodule "config/nvim/dein/repos/github.com/Shougo/dein.vim"]
-  path = config/nvim/dein/repos/github.com/Shougo/dein.vim
-  url = git://github.com/Shougo/dein.vim.git
 [submodule "data"]
   path = data
   url = git@github.com:sachin21/dotfiles_dependency.git

@@ -12,7 +12,7 @@ alias unmute="pactl set-sink-mute 0 false"
 
 alias m="mute"
 alias um="unmute"
-
+alias sync3="sync; sync; sync"
 
 if command_exists xsel; then
   alias pbcopy='xsel --clipboard --input'

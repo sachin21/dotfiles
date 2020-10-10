@@ -34,7 +34,7 @@ alias o="open_command"
 alias o.="open_command ."
 alias t='ghi show -w $(ghi list --sort updated | grep -v "open issue" | fgrep -v "None." | peco | awk "{ print $1 }")'
 alias ghqget='ghq get -p'
-alias rtags="ctags -R --languages=ruby"
+alias rtags="ripper-tags -R --exclude=vendor --tag-file .git/tags"
 alias gencrypt="gpg -e -a -r sachin21dev@gmail.com"
 
 # Allow typos

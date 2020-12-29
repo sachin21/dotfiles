@@ -195,7 +195,7 @@ function create_needed_dirs() {
 }
 
 function create_needed_files() {
-  if [ ! -e "$DOTFILES_PATH/zsh.dot/zshrc.local" ]; then
+  if [ ! -e "$DOTFILES_PATH/dot.zsh/zshrc.local" ]; then
     : > "$DOTFILES_PATH/zsh.dot/zshrc.local"
   fi
 }

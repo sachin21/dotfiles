@@ -6,7 +6,7 @@
 #
 
 declare DOTFILES_PATH="$HOME/dotfiles"
-declare NEEDED_PACKAGES=(ruby git curl)
+declare NEEDED_PACKAGES=(ruby git curl rsync)
 
 function install_dotfiles(){
   if [ -d "$DOTFILES_PATH" ]; then

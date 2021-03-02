@@ -18,7 +18,7 @@ ETC_FILES       = `ls etc`.split("\n").freeze
 LINUX_ROOT      = File.join(File.dirname(__FILE__), 'linux')
 LINUX_DOT_FILES = `ls linux`.split("\n").freeze
 
-CONFIG_ROOT     = File.join(File.dirname(__FILE__), 'dot_config')
+CONFIG_ROOT     = File.join(File.dirname(__FILE__), 'dot.config')
 
 MIKUTTER_ROOT   = File.join(File.dirname(__FILE__), 'mikutter')
 

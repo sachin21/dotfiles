@@ -1,5 +1,0 @@
-if ! ps aux | grep -F 'ssh-agent' | grep -v -F 'grep' &> /dev/null; then
-  eval "$(ssh-agent -s)"
-fi
-
-ssh-add $(ls -1 $HOME/.ssh/id_* | grep -v -F 'pub')
